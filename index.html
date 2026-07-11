@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japanischzimmer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14101e;
+    --bg-panel: #1e1728;
+    --bg-panel-2: #271d36;
+    --violet: #8b5cf6;
+    --violet-deep: #6d28d9;
+    --pink: #ec4899;
+    --pink-soft: #f0abfc;
+    --text: #f5f1fb;
+    --muted: #a99cc7;
+    --line: rgba(139, 92, 246, 0.22);
+    --radius: 18px;
+  }
+  *{ box-sizing: border-box; }
+  html, body{ height:100%; margin:0; overflow:hidden; }
+  body{
+    background: var(--bg); color: var(--text);
+    font-family: 'Sora', sans-serif; -webkit-font-smoothing: antialiased;
+  }
+  jp{ font-family:'Shippori Mincho', serif; }
+  a{ color:inherit; }
+  ::selection{ background: var(--violet); color:white; }
+  button{ font-family: inherit; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:0.66rem;
+    letter-spacing:0.12em; text-transform:uppercase; color: var(--pink-soft);
+  }
+
+  /* ---------- Bühne ---------- */
+  .stage{
+    position:relative; width:100%; height:100%; overflow:hidden;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 8%, #3a2154 0%, transparent 65%),
+      linear-gradient(180deg, #0f0b17 0%, #14101e 45%, #1c1330 100%);
+  }
+  body.light .stage{
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 8%, #efe2ff 0%, transparent 65%),
+      linear-gradient(180deg, #fbf7ff 0%, #f6eefd 45%, #ecdcfa 100%);
+  }
+  body.light{ --bg:#faf6ff; --bg-panel:#ffffff; --bg-panel-2:#f4ecfc; --text:#241a35; --muted:#6b5c86; --line: rgba(139,92,246,0.25); }
+
+  /* Torii-Silhouette groß im Hintergrund, zentriert hinter dem Start-Fenster */
+  .torii-bg{
+    position:absolute; top:6%; left:50%; transform:translateX(-50%);
+    opacity:0.16; pointer-events:none;
+  }
+  body.light .torii-bg{ opacity:0.1; }
+
+  /* Kirschblüten */
+  .petal{
+    position:absolute; width:9px; height:9px;
+    background: linear-gradient(135deg, var(--pink-soft), var(--violet));
+    border-radius: 60% 0 60% 0; opacity:0.6;
+    animation: fall linear infinite;
+  }
+  @keyframes fall{
+    0%{ transform: translateY(-20px) rotate(0deg); opacity:0; }
+    12%{ opacity:.75; }
+    100%{ transform: translateY(92vh) rotate(300deg); opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){ .petal{ animation:none; display:none; } }
+
+  /* Geschwungener "Reiseweg" im Hintergrund — Quest-Motiv */
+  .journey-path{ position:absolute; inset:0; pointer-events:none; opacity:0.35; }
+
+  /* Steuerung oben links */
+  .top-controls{ position:fixed; top:18px; left:20px; z-index:500; display:flex; gap:14px; }
+  .top-controls button{
+    background: rgba(255,255,255,0.06); border:1px solid var(--line); border-radius:10px;
+    width:34px; height:34px; color:var(--text); font-size:1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .top-controls button:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.12); }
+
+  /* ---------- Fenster ---------- */
+.window {
+  position: fixed;
+
+  width: min(80vw, 900px);
+  height: min(75vh, 450px);
+
+  min-width: 320px;
+  min-height: 300px;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 28px 64px -16px rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
+
+  z-index: 20;
+}
+  .window.open{ opacity:1; transform:scale(1); pointer-events:all; }
+  .window.resizing{ transition:none; }
+
+  #window-home{
+    top:50%; left:44%; transform:translate(-50%,-50%);
+    width: min(85vw, 380px);
+    z-index:5; opacity:1; pointer-events:all;
+  }
+  #window-home.open{ transform:translate(-50%,-50%) scale(1); }
+  #window-home.resizing{ transition:none; }
+
+  .resize-handle{
+    position:absolute; right:2px; bottom:2px;
+    width:20px; height:20px;
+    cursor: nwse-resize;
+    touch-action:none;
+    display:flex; align-items:flex-end; justify-content:flex-end;
+    padding: 3px;
+    z-index: 2;
+  }
+  .resize-handle svg{ opacity:0.55; transition:opacity .15s ease; }
+  .resize-handle:hover svg{ opacity:1; }
+
+  .window-titlebar{
+    height:40px; flex-shrink:0;
+    background: linear-gradient(100deg, var(--violet), var(--pink));
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 0 8px 0 16px;
+    cursor:grab; touch-action:none;
+  }
+  .window-titlebar:active{ cursor:grabbing; }
+  .window-titlebar.static{ cursor:default; }
+  .window-titlebar .tab-label{
+    font-family:'Zen Kaku Gothic New', sans-serif; font-weight:700; font-size:0.8rem;
+    color:#1a1424; letter-spacing:0.01em;
+  }
+  .win-close{
+    width:24px; height:24px; border-radius:50%;
+    background: rgba(26,20,36,0.28); border:none; color:#1a1424;
+    font-size:0.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: background .15s ease, color .15s ease;
+  }
+  .win-close:hover{ background:#1a1424; color:#fff; }
+
+  .window-content{ padding: 24px clamp(18px,4vw,28px) 28px; overflow-y:auto; flex: 1 1 auto; min-height: 0; position: relative; }
+
+  .home-intro{ text-align:center; }
+  .home-intro h1{ font-size: clamp(1.55rem, 4vw, 1.9rem); margin: 0.2em 0 0.15em; }
+  .home-intro h1 .accent{ color: var(--pink-soft); }
+  .home-intro p{ color: var(--muted); font-size: 0.88rem; margin: 0 0 1.4rem; }
+
+  .tile-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .tile-btn{
+    background: var(--bg-panel-2); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 8px 12px; cursor:pointer; color: var(--text);
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    transition: transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .tile-btn:hover{
+    transform: translateY(-3px);
+    border-color: transparent;
+    background: linear-gradient(160deg, var(--violet), var(--pink));
+  }
+  .tile-btn .glyph{ font-size:1.3rem; font-family:'Shippori Mincho', serif; }
+  .tile-btn .label{ font-size:0.66rem; color: var(--muted); text-align:center; line-height:1.25; }
+  .tile-btn:hover .label{ color: rgba(255,255,255,0.92); }
+
+  .win-eyebrow{ margin-bottom:4px; display:block; }
+  .win-h2{ font-size:1.25rem; margin:0.1em 0 0.85em; }
+  .win-p{ color: var(--muted); font-size:0.87rem; line-height:1.68; margin:0 0 1em; }
+
+  .inline-link{
+    background:none; border:none; padding:0; margin:0; color: var(--pink-soft);
+    text-decoration: underline dotted; text-underline-offset:3px; cursor:pointer;
+    font-size:inherit; font-family:inherit;
+  }
+  .inline-link:hover{ color: var(--violet); }
+
+  .toc-list{ list-style:none; margin:0; padding:0; counter-reset: toc; }
+  .toc-list li{ counter-increment: toc; }
+  .toc-item{
+    width:100%; text-align:left; background: var(--bg-panel-2); border:1px solid var(--line);
+    border-radius:10px; padding: 11px 14px; margin-bottom:7px; display:flex; align-items:center; gap:10px;
+    color: var(--text); cursor:pointer; transition: border-color .15s ease, transform .15s ease; font-size:0.85rem;
+  }
+  .toc-item:hover{ border-color: var(--violet); transform: translateX(3px); }
+  .toc-item::before{
+    content: counter(toc, decimal-leading-zero);
+    font-family:'JetBrains Mono', monospace; font-size:0.68rem; color: var(--pink-soft);
+  }
+
+  .grid-cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:10px; }
+  .mini-card{ background: var(--bg-panel-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .mini-card h4{ margin:0 0 5px; font-size:0.85rem; }
+  .mini-card p{ margin:0; color: var(--muted); font-size:0.78rem; line-height:1.5; }
+
+  .placeholder-tag{
+    display:inline-block; margin-top:6px; font-family:'JetBrains Mono', monospace;
+    font-size:0.64rem; color: var(--pink-soft); border-left:2px dashed var(--violet); padding-left:8px;
+  }
+
+  .faq-item{ border-bottom:1px solid var(--line); padding:12px 0; }
+  .faq-item summary{ cursor:pointer; font-weight:600; list-style:none; display:flex; justify-content:space-between; align-items:center; font-size:0.87rem; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:"+"; color: var(--pink-soft); font-size:1.05rem; }
+  .faq-item[open] summary::after{ content:"–"; }
+  .faq-item p{ color: var(--muted); font-size:0.82rem; line-height:1.55; margin-top:7px; }
+
+  .btn{
+    padding:9px 18px; border-radius:999px; font-weight:600; font-size:0.8rem;
+    text-decoration:none; display:inline-flex; align-items:center; gap:7px; border:none; cursor:pointer;
+  }
+  .btn-primary{ background: linear-gradient(120deg, var(--pink), var(--violet)); color:white; }
+  .btn-ghost{ border:1px solid var(--line); color: var(--text); background:transparent; }
+
+  /* ---------- Wegweiser (Quest-Begleiter) ---------- */
+  .wegweiser{
+    position: fixed;
+    width: 148px;
+    z-index: 600;
+    display:flex; flex-direction:column; align-items:center;
+    transition: left .28s cubic-bezier(.2,.8,.2,1), top .28s cubic-bezier(.2,.8,.2,1);
+    pointer-events:none;
+  }
+  .bubble{
+    background: var(--bg-panel); border:1px solid var(--line); border-radius: 14px;
+    padding: 10px 12px; font-size: 0.74rem; line-height:1.45; color: var(--text);
+    box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5);
+    position: relative; margin-bottom: 8px; text-align:center;
+  }
+  .bubble::after{
+    content:""; position:absolute; bottom:-7px; left:50%; transform:translateX(-50%);
+    width:14px; height:14px; background:var(--bg-panel);
+    border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    rotate: 45deg;
+  }
+  .fox-wrap{ animation: bob 3.6s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
+
+  @media (max-width: 760px){
+    .wegweiser{ width: 128px; }
+    .wegweiser.mobile-dock{ left:50% !important; transform: translateX(-50%); top:auto !important; bottom: 14px; }
+  }
+
+  .desktop-footer{
+    position:fixed; left:0; right:0; bottom:10px; z-index:8;
+    text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.64rem; color: var(--muted);
+    pointer-events:none;
+  }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <svg class="torii-bg" width="420" height="300" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="toriiGrad" x1="0" y1="0" x2="420" y2="300" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#8b5cf6"/>
+      </linearGradient>
+    </defs>
+    <rect x="40" y="70" width="26" height="210" rx="8" fill="url(#toriiGrad)"/>
+    <rect x="354" y="70" width="26" height="210" rx="8" fill="url(#toriiGrad)"/>
+    <rect x="14" y="42" width="392" height="30" rx="10" fill="url(#toriiGrad)"/>
+    <rect x="50" y="104" width="320" height="18" rx="7" fill="url(#toriiGrad)" opacity="0.85"/>
+    <rect x="180" y="122" width="60" height="34" rx="5" fill="url(#toriiGrad)" opacity="0.55"/>
+  </svg>
+
+  <svg class="journey-path" width="100%" height="100%" preserveAspectRatio="none">
+    <path d="M -20 90% C 20% 70%, 15% 40%, 45% 30% S 80% 55%, 105% 15%"
+      fill="none" stroke="url(#pathGrad)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+    <defs>
+      <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#8b5cf6"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div id="bgDecor" style="position:absolute; inset:0; pointer-events:none;"></div>
+
+  <div class="top-controls">
+    <button id="modeToggle" title="Hell-/Dunkelmodus">🌙</button>
+    <button id="soundToggle" title="Sound an/aus">🔈</button>
+  </div>
+
+  <!-- Home-Fenster -->
+  <div class="window open" id="window-home">
+    <div class="window-titlebar static"><span class="tab-label">Start</span></div>
+    <div class="window-content home-intro">
+      <span class="eyebrow">ようこそ・Willkommen</span>
+      <h1>hallo! ich bin <span class="accent">Koyuki</span></h1>
+      <p>Hier findest du einen klaren, verständlichen Lernweg für Japanisch!</p>
+      <div class="tile-grid">
+        <button class="tile-btn" data-open="guide"><span class="glyph">初</span><span class="label">Anfänger-Guide</span></button>
+        <button class="tile-btn" data-open="toc"><span class="glyph">目</span><span class="label">Inhalts&shy;verzeichnis</span></button>
+        <button class="tile-btn" data-open="ressourcen"><span class="glyph">本</span><span class="label">Ressourcen</span></button>
+        <button class="tile-btn" data-open="faq"><span class="glyph">?</span><span class="label">FAQ</span></button>
+        <button class="tile-btn" data-open="kontakt"><span class="glyph">✉</span><span class="label">Kontakt</span></button>
+        <button class="tile-btn" data-open="jlpt"><span class="glyph">試</span><span class="label">JLPT</span></button>
+      </div>
+    </div>
+    <div class="resize-handle" title="Größe ändern">
+      <svg width="12" height="12" viewBox="0 0 12 12"><path d="M11 1 L1 11 M11 5 L5 11 M11 9 L9 11" stroke="var(--muted)" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+
+  <div id="windows-root"></div>
+
+  <!-- Wegweiser -->
+  <div class="wegweiser" id="wegweiser">
+    <div class="bubble" id="wegweiserText">Hallo! Ich bin dein Yuki — klick auf eine Kachel, um deine Reise zu beginnen!</div>
+    <svg class="fox-wrap" width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="foxGrad" x1="0" y1="0" x2="72" y2="72" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#f0abfc"/><stop offset="1" stop-color="#8b5cf6"/>
+        </linearGradient>
+      </defs>
+      <path d="M18 10 L27 28 L11 28 Z" fill="url(#foxGrad)"/>
+      <path d="M54 10 L63 28 L45 28 Z" fill="url(#foxGrad)"/>
+      <ellipse cx="36" cy="42" rx="25" ry="21" fill="url(#foxGrad)"/>
+      <path d="M24 46 Q36 58 48 46" fill="#1e1728" opacity="0.9"/>
+      <circle cx="28" cy="38" r="2.6" fill="#1e1728"/>
+      <circle cx="44" cy="38" r="2.6" fill="#1e1728"/>
+      <rect x="30" y="58" width="3" height="12" fill="#c7b6e8"/>
+      <rect x="22" y="58" width="20" height="4" rx="2" fill="#f0abfc"/>
+    </svg>
+  </div>
+
+  <div class="desktop-footer">© 2026 · </div>
+
+</div>
+
+<script>
+/* ===================== Fensterinhalte ===================== */
+const panels = {
+guide: {
+  title: "初心者ガイド",
+  quest: "Willkommen zum Guide! Als Erstes solltest du dich mit dem japanischen Schriftsystem vertraut machen.",
+  html: `
+    <span class="eyebrow win-eyebrow">Für absolute Anfänger:innen</span>
+
+    <h2 class="win-h2">Anfänger-Guide</h2>
+
+    <p class="win-p">
+      Du fängst gerade erst mit Japanisch an und weißt nicht, wo du beginnen sollst?
+      Dann bist du hier richtig.
+    </p>
+
+    <p class="win-p">
+      Japanischlernen wirkt am Anfang oft chaotisch. Hiragana, Katakana, Kanji,
+      Grammatik, Vokabeln, Anki, Immersion und plötzlich reden alle über Mining.
+      Du musst aber nicht alles gleichzeitig lernen.
+    </p>
+
+    <p class="win-p">
+      Der wichtigste erste Schritt ist, dir eine stabile Grundlage aufzubauen.
+      Dieser Guide zeigt dir eine sinnvolle Reihenfolge und erklärt, was du am
+      Anfang wirklich brauchst.
+    </p>
+
+    <h3 class="win-h3">1. Lerne Hiragana und Katakana</h3>
+
+    <p class="win-p">
+      Hiragana und Katakana sind die beiden grundlegenden japanischen
+      Silbenschriften. Ohne sie bist du dauerhaft auf Umschriften wie
+      „konnichiwa“ angewiesen, die dich später eher bremsen.
+    </p>
+
+    <p class="win-p">
+      Du musst die Zeichen am Anfang nicht perfekt aus dem Gedächtnis schreiben
+      können. Es reicht zunächst, wenn du sie zuverlässig erkennst und lesen kannst.
+      Lerne zuerst Hiragana und danach Katakana.
+    </p>
+
+    <h3 class="win-h3">2. Baue einen ersten Wortschatz auf</h3>
+
+    <p class="win-p">
+      Sobald du die Kana einigermaßen lesen kannst, kannst du mit häufigen
+      japanischen Wörtern beginnen. Ein gutes Anfänger-Deck mit ungefähr
+      1.000 bis 1.500 häufigen Wörtern erleichtert dir den Einstieg in echte
+      japanische Inhalte.
+    </p>
+
+    <p class="win-p">
+      Wichtiger als möglichst viele neue Karten ist, dass du regelmäßig lernst
+      und deine täglichen Wiederholungen überschaubar bleiben.
+    </p>
+
+    <h3 class="win-h3">3. Lerne grundlegende Grammatik</h3>
+
+    <p class="win-p">
+      Japanische Grammatik funktioniert anders als deutsche Grammatik.
+      Du musst aber nicht sofort jede Regel auswendig lernen.
+    </p>
+
+    <p class="win-p">
+      Dein erstes Ziel ist es, einfache Satzstrukturen, Partikel und
+      Verbformen wiederzuerkennen. Grammatik soll dir dabei helfen,
+      echte Sätze besser zu verstehen.
+    </p>
+
+    <h3 class="win-h3">4. Beginne früh mit Immersion</h3>
+
+    <p class="win-p">
+      Immersion bedeutet, dass du regelmäßig echtes Japanisch hörst oder liest.
+      Dazu gehören zum Beispiel Anime, Manga, Podcasts, Spiele, Videos und
+      Visual Novels.
+    </p>
+
+    <p class="win-p">
+      Am Anfang wirst du nur wenig verstehen. Das ist vollkommen normal.
+      Du musst nicht warten, bis du dich bereit fühlst. Immersion ist kein
+      Endpunkt des Lernens, sondern ein wichtiger Teil davon.
+    </p>
+
+    <h3 class="win-h3">5. Starte später mit Mining</h3>
+
+    <p class="win-p">
+      Beim Mining sammelst du interessante Wörter und Sätze aus den Inhalten,
+      die du selbst konsumierst, und erstellst daraus eigene Lernkarten.
+    </p>
+
+    <p class="win-p">
+      Du musst damit nicht direkt am ersten Tag anfangen. Baue zunächst eine
+      kleine Grundlage auf und gewöhne dich an Vokabeln, Grammatik und Immersion.
+      Sobald dir regelmäßig nützliche Wörter begegnen, kannst du dein eigenes
+      Mining-System einrichten.
+    </p>
+
+    <h3 class="win-h3">Ein einfacher Tagesplan</h3>
+
+    <ul class="win-list">
+      <li>10 bis 20 Minuten Vokabeln wiederholen</li>
+      <li>10 bis 20 Minuten Grammatik oder Lesen</li>
+      <li>15 bis 30 Minuten Immersion</li>
+    </ul>
+
+    <p class="win-p">
+      Du musst nicht jeden Bereich jeden Tag perfekt abdecken. Entscheidend ist,
+      dass du regelmäßig Kontakt mit Japanisch hast und dein Lernplan langfristig
+      in deinen Alltag passt.
+    </p>
+
+    <p class="win-p">
+      <strong>
+        Du brauchst am Anfang weder perfektes Kanjiwissen noch ein kompliziertes
+        Mining-Setup. Beginne klein und erweitere dein System erst dann,
+        wenn du es wirklich brauchst.
+      </strong>
+    </p>
+
+    <button class="toc-item" data-open="kana">
+      Mit Kana starten →
+    </button>
+  `
+},
+  toc: { title:"目次", quest:"Hier findest du alle Stationen deiner Reise. Wähle dein nächstes Ziel!", html:`
+    <span class="eyebrow win-eyebrow">Übersicht</span>
+    <h2 class="win-h2">Inhaltsverzeichnis</h2>
+    <ul class="toc-list">
+      <li><button class="toc-item" data-open="kana">Kana — Hiragana &amp; Katakana</button></li>
+      <li><button class="toc-item" data-open="kanji">Kanji</button></li>
+      <li><button class="toc-item" data-open="grammatik">Grammatik</button></li>
+      <li><button class="toc-item" data-open="wortschatz">Wortschatz</button></li>
+      <li><button class="toc-item" data-open="hoeren">Hörverstehen</button></li>
+      <li><button class="toc-item" data-open="kultur">Kultur &amp; Etikette</button></li>
+      <li><button class="toc-item" data-open="jlpt">JLPT-Prüfungen</button></li>
+      <li><button class="toc-item" data-open="ressourcen">Ressourcen &amp; Tools</button></li>
+      <li><button class="toc-item" data-open="faq">FAQ</button></li>
+      <li><button class="toc-item" data-open="kontakt">Kontakt</button></li>
+    </ul>
+  `},
+ kana: {
+  title: "かな — Kana",
+
+  quest: "Kana sind dein Fundament. Lerne zuerst Hiragana und danach Katakana. Perfektes Schreiben ist am Anfang nicht nötig, sicheres Erkennen schon.",
+
+  html: `
+    <span class="eyebrow win-eyebrow">Schriftsystem</span>
+
+    <h2 class="win-h2">Hiragana & Katakana</h2>
+
+    <p class="win-p">
+      Japanisch verwendet mehrere Schriftsysteme. Für deinen Einstieg sind zuerst
+      <strong>Hiragana</strong> und <strong>Katakana</strong> wichtig.
+      Zusammen werden beide als <strong>Kana</strong> bezeichnet.
+    </p>
+
+    <p class="win-p">
+      Beide Schriften stellen dieselben grundlegenden Laute dar, sehen aber
+      unterschiedlich aus und werden für unterschiedliche Zwecke verwendet.
+      Am Anfang solltest du zuerst Hiragana lernen und danach Katakana.
+    </p>
+
+    <div class="kana-grid">
+
+      <section class="kana-card">
+        <h3 class="win-h3">ひらがな Hiragana</h3>
+
+        <p class="win-p">
+          Hiragana wird für viele japanische Wörter, grammatische Endungen
+          und Partikel verwendet. Du wirst es deshalb in fast jedem
+          japanischen Satz sehen.
+        </p>
+
+        <p class="win-p">
+          <strong>
+            Platzhalter: Hier entsteht später die vollständige Hiragana-Seite
+            mit Erklärungen, Lerntabelle, Übungen und Empfehlungen.
+          </strong>
+        </p>
+
+        <button class="toc-item" data-open="hiragana">
+          Hiragana-Seite öffnen →
+        </button>
+      </section>
+
+      <section class="kana-card">
+        <h3 class="win-h3">カタカナ Katakana</h3>
+
+        <p class="win-p">
+          Katakana wird vor allem für Fremdwörter, ausländische Namen,
+          Geräusche und bestimmte Hervorhebungen verwendet.
+        </p>
+
+        <p class="win-p">
+          <strong>
+            Platzhalter: Hier entsteht später die vollständige Katakana-Seite
+            mit Erklärungen, Lerntabelle, Übungen und Empfehlungen.
+          </strong>
+        </p>
+
+        <button class="toc-item" data-open="katakana">
+          Katakana-Seite öffnen →
+        </button>
+      </section>
+
+    </div>
+
+    <h3 class="win-h3">In welcher Reihenfolge solltest du lernen?</h3>
+
+    <p class="win-p">
+      Lerne zuerst Hiragana. Sobald du die meisten Zeichen erkennst,
+      kannst du mit Katakana anfangen.
+    </p>
+
+    <p class="win-p">
+      Du musst nicht warten, bis Hiragana zu hundert Prozent perfekt sitzt.
+      Die Lesegeschwindigkeit entwickelt sich später automatisch durch
+      regelmäßiges Lesen.
+    </p>
+
+    <ol class="win-list">
+      <li>Hiragana lernen</li>
+      <li>Einfache Wörter mit Hiragana lesen</li>
+      <li>Katakana lernen</li>
+      <li>Beide Schriften regelmäßig wiederholen</li>
+    </ol>
+
+    <h3 class="win-h3">Wie lange dauert das?</h3>
+
+    <p class="win-p">
+      Viele Lernende können die grundlegenden Kana innerhalb von ein bis drei
+      Wochen erkennen. Das bedeutet aber nicht, dass man danach sofort
+      flüssig liest.
+    </p>
+
+    <p class="win-p">
+      Am Anfang wirst du viele Wörter langsam Zeichen für Zeichen entziffern.
+      Das ist vollkommen normal. Geschwindigkeit entsteht erst durch
+      häufiges Lesen.
+    </p>
+
+    <h3 class="win-h3">Wichtige Erweiterungen</h3>
+
+    <p class="win-p">
+      Nach den Grundzeichen kommen einige kleine Erweiterungen dazu.
+      Sie sehen am Anfang etwas technisch aus, folgen aber festen Mustern.
+    </p>
+
+    <ul class="win-list">
+      <li><strong>Dakuten:</strong> か wird zu が</li>
+      <li><strong>Handakuten:</strong> は wird zu ぱ</li>
+      <li><strong>Kleine Kana:</strong> き und ゃ werden zu きゃ</li>
+      <li><strong>Kleines っ:</strong> verdoppelt den folgenden Konsonanten</li>
+      <li><strong>Lange Vokale:</strong> besonders wichtig bei Katakana</li>
+    </ul>
+
+    <p class="win-p">
+      Diese Erweiterungen solltest du direkt nach den Grundzeichen lernen.
+      Du brauchst dafür aber kein eigenes monatelanges Lernkapitel.
+    </p>
+
+    <h3 class="win-h3">Ein einfacher Lernplan</h3>
+
+    <p class="win-p">
+      Investiere ungefähr fünf bis fünfzehn Minuten pro Tag.
+      Lerne zuerst kleine Gruppen von Hiragana, wiederhole sie mit einfachen
+      Wörtern und gehe danach genauso bei Katakana vor.
+    </p>
+
+    <p class="win-p">
+      Verwende Romaji, also lateinische Umschriften, möglichst nur ganz am
+      Anfang. Je schneller du echte Kana liest, desto schneller gewöhnst du
+      dich an das japanische Schriftsystem.
+    </p>
+
+    <p class="win-p">
+      <strong>
+        Du musst die Kana nicht perfekt beherrschen, bevor du mit Vokabeln,
+        Grammatik oder ersten einfachen Inhalten anfängst. Sobald du die
+        meisten Zeichen erkennst, kannst du den nächsten Schritt machen.
+      </strong>
+    </p>
+
+    <div class="win-navigation">
+      <button class="toc-item" data-open="guide">
+        ← Zurück zum Anfänger-Guide
+      </button>
+
+      <button class="toc-item" data-open="kanji">
+        Weiter zu Kanji →
+      </button>
+    </div>
+  `
+},
+kanji: {
+  title: "漢字 — Kanji",
+
+  quest: "Kanji sehen zunächst kompliziert aus. Lerne sie zusammen mit echten Wörtern, dann werden sie Schritt für Schritt vertrauter.",
+
+  html: `
+    <span class="eyebrow win-eyebrow">Schriftsystem</span>
+
+    <h2 class="win-h2">Kanji</h2>
+
+    <p class="win-p">
+      Kanji sind Schriftzeichen, die ursprünglich aus dem Chinesischen
+      übernommen wurden. Anders als Hiragana und Katakana stehen sie nicht
+      nur für Laute, sondern tragen meistens auch eine Bedeutung.
+    </p>
+
+    <ul class="win-list">
+      <li><strong>山</strong> = Berg</li>
+      <li><strong>水</strong> = Wasser</li>
+      <li><strong>人</strong> = Mensch</li>
+      <li><strong>日</strong> = Sonne oder Tag</li>
+    </ul>
+
+    <p class="win-p">
+      Kanji wirken am Anfang oft einschüchternd, weil es sehr viele gibt
+      und ein Zeichen mehrere Lesungen haben kann. Du musst sie aber nicht
+      alle auf einmal lernen.
+    </p>
+
+    <h3 class="win-h3">Lerne Kanji zusammen mit Wörtern</h3>
+
+    <p class="win-p">
+      Für Anfänger:innen ist es meist sinnvoller, Kanji über echte Wörter
+      zu lernen, statt jedes Zeichen isoliert mit allen möglichen Lesungen
+      auswendig zu lernen.
+    </p>
+
+    <ul class="win-list">
+      <li><strong>食べる</strong> = essen</li>
+      <li><strong>飲む</strong> = trinken</li>
+      <li><strong>日本</strong> = Japan</li>
+    </ul>
+
+    <p class="win-p">
+      So lernst du direkt, wie ein Kanji in einem echten Wort verwendet
+      und ausgesprochen wird.
+    </p>
+
+    <h3 class="win-h3">Warum haben Kanji mehrere Lesungen?</h3>
+
+    <p class="win-p">
+      Viele Kanji besitzen unterschiedliche Aussprachen, weil sie je nach
+      Wort anders gelesen werden.
+    </p>
+
+    <p class="win-p">
+      Das Kanji <strong>日</strong> kann zum Beispiel in verschiedenen
+      Wörtern unterschiedlich gelesen werden:
+    </p>
+
+    <ul class="win-list">
+      <li><strong>日（ひ）</strong> = Tag oder Sonne</li>
+      <li><strong>日本（にほん）</strong> = Japan</li>
+      <li><strong>毎日（まいにち）</strong> = jeden Tag</li>
+    </ul>
+
+    <p class="win-p">
+      Du musst diese Lesungen nicht als lange Liste auswendig lernen.
+      Lerne sie nach und nach mit den Wörtern, in denen sie vorkommen.
+    </p>
+
+    <h3 class="win-h3">Was sind Radikale?</h3>
+
+    <p class="win-p">
+      Radikale sind kleinere Bestandteile, aus denen Kanji aufgebaut sind.
+      Sie können dir helfen, ähnliche Zeichen auseinanderzuhalten und neue
+      Kanji leichter wiederzuerkennen.
+    </p>
+
+    <p class="win-p">
+      Viele Kanji mit einem Bezug zu Wasser enthalten zum Beispiel das
+      Element <strong>氵</strong>:
+    </p>
+
+    <ul class="win-list">
+      <li><strong>海</strong> = Meer</li>
+      <li><strong>洗</strong> = waschen</li>
+      <li><strong>酒</strong> = Alkohol</li>
+    </ul>
+
+    <p class="win-p">
+      Du musst am Anfang nicht alle Radikale auswendig lernen.
+      Nutze sie zunächst nur als Orientierungshilfe.
+    </p>
+
+    <h3 class="win-h3">Musst du Kanji schreiben können?</h3>
+
+    <p class="win-p">
+      Für Anime, Manga, Spiele und allgemeines Lesen ist das Erkennen
+      wichtiger als perfektes Schreiben aus dem Gedächtnis.
+    </p>
+
+    <p class="win-p">
+      Handschrift kann trotzdem hilfreich sein, wenn du dir Zeichen dadurch
+      besser merkst, später in Japan handschriftlich schreiben möchtest oder
+      einfach Spaß daran hast.
+    </p>
+
+    <p class="win-p">
+      Für den Einstieg reicht es, Kanji zuverlässig zu erkennen und sie
+      innerhalb von Wörtern lesen zu können.
+    </p>
+
+    <h3 class="win-h3">Wie solltest du Kanji lernen?</h3>
+
+    <ol class="win-list">
+      <li>Lerne zuerst Hiragana und Katakana.</li>
+      <li>Beginne mit häufigen japanischen Wörtern.</li>
+      <li>Achte darauf, welche Kanji in diesen Wörtern vorkommen.</li>
+      <li>Wiederhole die Wörter regelmäßig mit einem SRS wie Anki.</li>
+      <li>Begegne den Kanji beim Lesen und in deiner Immersion erneut.</li>
+    </ol>
+
+    <p class="win-p">
+      Du musst nicht warten, bis du hunderte Kanji kennst, bevor du mit
+      echten Inhalten beginnst. Durch wiederholte Begegnungen werden die
+      Zeichen mit der Zeit vertrauter.
+    </p>
+
+    <h3 class="win-h3">Was solltest du vermeiden?</h3>
+
+    <p class="win-p">
+      Versuche nicht, direkt alle Lesungen eines einzelnen Kanji zu lernen.
+      Das erzeugt viel Arbeit, ohne dass du diese Informationen sicher
+      anwenden kannst.
+    </p>
+
+    <p class="win-p">
+      Vermeide außerdem den Gedanken:
+    </p>
+
+    <blockquote class="win-quote">
+      Erst muss ich alle Kanji können, dann darf ich lesen.
+    </blockquote>
+
+    <p class="win-p">
+      Gerade durch das Lesen lernst du, Kanji schneller zu erkennen und
+      besser zu verstehen.
+    </p>
+
+    <h3 class="win-h3">Ein sinnvoller Anfang</h3>
+
+    <p class="win-p">
+      Starte mit einem häufigkeitsbasierten Anfänger-Vokabeldeck oder mit
+      Wörtern aus deinem aktuellen Lernmaterial. Dadurch lernst du
+      automatisch viele häufige Kanji in einem verständlichen Zusammenhang.
+    </p>
+
+    <p class="win-p">
+      Dein Ziel ist zunächst nicht, jedes Zeichen vollständig zu beherrschen.
+      Es reicht, wenn du wichtige Wörter erkennst und Stück für Stück ein
+      Gefühl für die Schrift entwickelst.
+    </p>
+
+    <p class="win-p">
+      <strong>
+        Kanji sind kein einzelner Lernblock, den du irgendwann vollständig
+        abschließt. Sie begleiten dich während deines gesamten Lernwegs und
+        werden mit jeder Begegnung ein kleines Stück vertrauter.
+      </strong>
+    </p>
+
+    <div class="win-navigation">
+      <button class="toc-item" data-open="kana">
+        ← Zurück zu Kana
+      </button>
+
+      <button class="toc-item" data-open="grammatik">
+        Weiter zu Grammatik →
+      </button>
+    </div>
+  `
+},
+  grammatik: { title:"文法 — Grammatik", quest:"Grammatik ist das Skelett der Sprache — ein Muster nach dem anderen!", html:`
+    <span class="eyebrow win-eyebrow">Grundlagen</span>
+    <h2 class="win-h2">Grammatik</h2>
+    <p class="win-p">[Platzhalter: Satzbau, Partikel, Verbformen — Einstieg für Anfänger:innen.]</p>
+    <span class="placeholder-tag">// Inhalt folgt</span>
+  `},
+  wortschatz: { title:"単語 — Wortschatz", quest:"Neue Wörter sind wie kleine Schätze — sammle sie nach und nach!", html:`
+    <span class="eyebrow win-eyebrow">Vokabeln</span>
+    <h2 class="win-h2">Wortschatz</h2>
+    <p class="win-p">[Platzhalter: Themenlisten (Alltag, Essen, Reisen ...) mit Vokabeln.]</p>
+    <span class="placeholder-tag">// Inhalt folgt</span>
+  `},
+  hoeren: { title:"聴解 — Hörverstehen", quest:"Ohren auf! Hörverstehen kommt mit Übung fast von allein.", html:`
+    <span class="eyebrow win-eyebrow">Übung</span>
+    <h2 class="win-h2">Hörverstehen</h2>
+    <p class="win-p">[Platzhalter: Empfehlungen für Podcasts, Hörübungen, Anime/Serien mit Untertiteln.]</p>
+    <span class="placeholder-tag">// Inhalt folgt</span>
+  `},
+  kultur: { title:"文化 — Kultur", quest:"Sprache und Kultur gehören zusammen — hier lernst du den Kontext.", html:`
+    <span class="eyebrow win-eyebrow">Kontext</span>
+    <h2 class="win-h2">Kultur &amp; Etikette</h2>
+    <p class="win-p">[Platzhalter: Höflichkeitsebenen, Alltagskultur, Umgangsformen.]</p>
+    <span class="placeholder-tag">// Inhalt folgt</span>
+  `},
+  jlpt: { title:"試験 — JLPT", quest:"Bereit für den Bosskampf? Hier geht's um die offiziellen Prüfungen.", html:`
+    <span class="eyebrow win-eyebrow">Prüfungen</span>
+    <h2 class="win-h2">JLPT-Prüfungen</h2>
+    <p class="win-p">[Platzhalter: Erklärung der JLPT-Level N5–N1, Vorbereitungstipps.]</p>
+    <span class="placeholder-tag">// Inhalt folgt</span>
+  `},
+  ressourcen: { title:"リソース", quest:"Hier liegt deine Ausrüstung — Tools, Webseiten und weitere nützliche Links", html:`
+    <span class="eyebrow win-eyebrow">Werkzeugkasten</span>
+    <h2 class="win-h2">Ressourcen &amp; Tools</h2>
+    <p class="win-p">[Platzhalter: Kurze Einleitung zu empfohlenen Apps, Wörterbüchern, Büchern.]</p>
+    <div class="grid-cards">
+      <div class="mini-card"><h4>[Platzhalter: App]</h4><p>[Platzhalter: Kurzbeschreibung.]</p></div>
+      <div class="mini-card"><h4>[Platzhalter: Wörterbuch]</h4><p>[Platzhalter: Kurzbeschreibung.]</p></div>
+      <div class="mini-card"><h4>[Platzhalter: Lehrwerk]</h4><p>[Platzhalter: Kurzbeschreibung.]</p></div>
+    </div>
+  `},
+  faq: { title:"よくある質問", quest:"Fragen über Fragen — hier gibt's hoffentlich die passenden Antworten.", html:`
+    <span class="eyebrow win-eyebrow">Fragen</span>
+    <h2 class="win-h2">FAQ</h2>
+    <details class="faq-item" open><summary>[Platzhalter: Frage 1]</summary><p>[Platzhalter: Antworttext.]</p></details>
+    <details class="faq-item"><summary>[Platzhalter: Frage 2]</summary><p>[Platzhalter: Antworttext.]</p></details>
+    <details class="faq-item"><summary>[Platzhalter: Frage 3]</summary><p>[Platzhalter: Antworttext.]</p></details>
+  `},
+  kontakt: { title:"コンタクト", quest:"Du hast eine Frage an mich persönlich? Nur zu!", html:`
+    <span class="eyebrow win-eyebrow">Kontakt</span>
+    <h2 class="win-h2">Schreib mir</h2>
+    <p class="win-p">[Platzhalter: Einladender Text, wie und warum man Kontakt aufnehmen kann.]</p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+      <a class="btn btn-primary" href="mailto:hallo.koyuki@proton.me">✉ E-Mail schreiben</a>
+      <a class="btn btn-ghost" href="#"https://discord.gg/XhAEFS4RFV> Discord</a>
+    </div>
+  `}
+};
+const homeQuest = "Hallo! Ich bin Yuki — klick auf eine Kachel, um deine Reise zu beginnen!";
+
+/* ===================== Fenster-Engine ===================== */
+const windowsRoot = document.getElementById('windows-root');
+const homeEl = document.getElementById('window-home');
+const state = {};
+let zCounter = 20;
+let openCount = 0;
+let activeId = 'home';
+let activeEl = homeEl;
+
+function buildWindow(id){
+  const data = panels[id];
+  const el = document.createElement('div');
+  el.className = 'window';
+  el.id = 'window-' + id;
+  el.innerHTML = `
+    <div class="window-titlebar">
+      <span class="tab-label">${data.title}</span>
+      <button class="win-close" data-close="${id}">✕</button>
+    </div>
+    <div class="window-content">${data.html}</div>
+    <div class="resize-handle" title="Größe ändern">
+      <svg width="12" height="12" viewBox="0 0 12 12"><path d="M11 1 L1 11 M11 5 L5 11 M11 9 L9 11" stroke="var(--muted)" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </div>
+  `;
+  windowsRoot.appendChild(el);
+  makeDraggable(el, el.querySelector('.window-titlebar'));
+  makeResizable(el, el.querySelector('.resize-handle'));
+  el.addEventListener('pointerdown', () => setActive(id, el));
+  el.querySelector('[data-close]').addEventListener('click', (e) => {
+    e.stopPropagation();
+    el.classList.remove('open');
+    if(activeId === id) setActive('home', homeEl);
+  });
+  return el;
+}
+
+function bringToFront(el){ zCounter += 1; el.style.zIndex = zCounter; }
+
+function positionCascade(el){
+  const idx = openCount % 6;
+  openCount += 1;
+  const offset = idx * 24;
+  el.style.left = `calc(44% - 190px + ${offset}px)`;
+  el.style.top = `calc(50% - 180px + ${offset}px)`;
+}
+
+function setActive(id, el){
+  activeId = id; activeEl = el;
+  bringToFront(el);
+  updateWegweiser();
+}
+
+function openWindow(id){
+  if(!panels[id]) return;
+  let s = state[id];
+  if(!s){ s = { el: buildWindow(id), positioned:false }; state[id] = s; }
+  if(!s.positioned){ positionCascade(s.el); s.positioned = true; }
+  s.el.classList.add('open');
+  setActive(id, s.el);
+}
+
+function makeDraggable(win, titlebar){
+  let dragging = false, startX, startY, origX, origY;
+  titlebar.addEventListener('pointerdown', (e) => {
+    if(e.target.closest('.win-close')) return;
+    dragging = true;
+    setActive(win.id.replace('window-',''), win);
+    startX = e.clientX; startY = e.clientY;
+    const rect = win.getBoundingClientRect();
+    origX = rect.left; origY = rect.top;
+    win.style.left = origX + 'px'; win.style.top = origY + 'px';
+    titlebar.setPointerCapture(e.pointerId);
+  });
+  titlebar.addEventListener('pointermove', (e) => {
+    if(!dragging) return;
+    win.style.left = (origX + (e.clientX - startX)) + 'px';
+    win.style.top = (origY + (e.clientY - startY)) + 'px';
+    updateWegweiser();
+  });
+  titlebar.addEventListener('pointerup', () => { dragging = false; });
+  titlebar.addEventListener('pointercancel', () => { dragging = false; });
+}
+
+function makeResizable(win, handle){
+  let resizing = false, startX, startY, startW, startH;
+  handle.addEventListener('pointerdown', (e) => {
+    e.stopPropagation();
+    resizing = true;
+    setActive(win.id.replace('window-','') || 'home', win);
+    const rect = win.getBoundingClientRect();
+    startX = e.clientX; startY = e.clientY;
+    startW = rect.width; startH = rect.height;
+    // Beim ersten Resize von "auto"-Höhe auf feste Werte umstellen,
+    // damit sich das Fenster nicht mehr am Inhalt orientiert.
+    win.style.width = startW + 'px';
+    win.style.height = startH + 'px';
+    win.style.maxHeight = '92vh';
+    win.classList.add('resizing');
+    handle.setPointerCapture(e.pointerId);
+  });
+  handle.addEventListener('pointermove', (e) => {
+    if(!resizing) return;
+    const maxW = window.innerWidth - 24;
+    const maxH = window.innerHeight - 24;
+    const newW = Math.min(Math.max(startW + (e.clientX - startX), 240), maxW);
+    const newH = Math.min(Math.max(startH + (e.clientY - startY), 180), maxH);
+    win.style.width = newW + 'px';
+    win.style.height = newH + 'px';
+    positionWegweiser();
+  });
+  function stopResize(){
+    resizing = false;
+    win.classList.remove('resizing');
+  }
+  handle.addEventListener('pointerup', stopResize);
+  handle.addEventListener('pointercancel', stopResize);
+}
+
+document.addEventListener('click', (e) => {
+  const opener = e.target.closest('[data-open]');
+  if(opener) openWindow(opener.getAttribute('data-open'));
+});
+homeEl.addEventListener('pointerdown', () => setActive('home', homeEl));
+makeResizable(homeEl, homeEl.querySelector('.resize-handle'));
+
+/* ===================== Wegweiser-Begleiter ===================== */
+const wegweiser = document.getElementById('wegweiser');
+const wegweiserText = document.getElementById('wegweiserText');
+
+function updateWegweiser(){
+  wegweiserText.textContent = activeId === 'home' ? homeQuest : (panels[activeId] ? panels[activeId].quest : homeQuest);
+  positionWegweiser();
+}
+
+function positionWegweiser(){
+  const rect = activeEl.getBoundingClientRect();
+  const compW = wegweiser.offsetWidth || 148;
+  const compH = wegweiser.offsetHeight || 190;
+
+  if(window.innerWidth < 760){
+    wegweiser.classList.add('mobile-dock');
+    return;
+  }
+  wegweiser.classList.remove('mobile-dock');
+
+  let x, y;
+  if(rect.right + compW + 28 < window.innerWidth){
+    x = rect.right + 22;
+    y = rect.top + rect.height/2 - compH/2;
+  } else if(rect.left - compW - 28 > 0){
+    x = rect.left - compW - 22;
+    y = rect.top + rect.height/2 - compH/2;
+  } else {
+    x = window.innerWidth/2 - compW/2;
+    y = Math.max(rect.top - compH - 14, 14);
+  }
+  y = Math.min(Math.max(y, 14), window.innerHeight - compH - 14);
+  wegweiser.style.left = x + 'px';
+  wegweiser.style.top = y + 'px';
+}
+
+window.addEventListener('resize', positionWegweiser);
+
+/* ===================== Sonstige Steuerung ===================== */
+document.getElementById('modeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
+document.getElementById('soundToggle').addEventListener('click', function(){
+  this.textContent = this.textContent === '🔈' ? '🔇' : '🔈';
+});
+
+/* Kirschblüten */
+const decor = document.getElementById('bgDecor');
+[8,22,38,54,68,82,92].forEach((left,i)=>{
+  const p = document.createElement('div');
+  p.className='petal'; p.style.left=left+'%';
+  p.style.animationDuration=(6+(i%4)*1.6)+'s';
+  p.style.animationDelay=(i*1.1)+'s';
+  decor.appendChild(p);
+});
+
+/* initial */
+updateWegweiser();
+</script>
+
+</body>
+</html>
