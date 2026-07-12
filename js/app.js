@@ -253,6 +253,8 @@ guide: {
       <li><button class="toc-item" data-open="yomitan">Yomitan</button></li>
       <li><button class="toc-item" data-open="mining">Mining</button></li>
       <li><button class="toc-item" data-open="tools">Tools-Bibliothek</button></li>
+      <li><button class="toc-item" data-open="glossar">Glossar</button></li>
+      <li><button class="toc-item" data-open="fehlerhilfe">Fehlerdatenbank</button></li>
       <li><button class="toc-item" data-open="kultur">Kultur &amp; Etikette</button></li>
       <li><button class="toc-item" data-open="jlpt">JLPT-Prüfungen</button></li>
       <li><button class="toc-item" data-open="ressourcen">Ressourcen</button></li>
@@ -980,6 +982,16 @@ tools: {
   title: "Natively",
   quest: "Bevor du ein Buch anfängst: Community-Bewertungen zeigen dir, ob es zu deinem Niveau passt.",
   src: "pages/tool-natively.html",
+},
+glossar: {
+  title: "Glossar",
+  quest: "Mining, i+1, FSRS, Shadowing — Fachbegriffe kurz und auf Deutsch erklärt.",
+  src: "pages/glossar.html",
+},
+fehlerhilfe: {
+  title: "Fehlerdatenbank",
+  quest: "Technische Probleme gehören dazu. Hier findest du Lösungen für die häufigsten Stolpersteine.",
+  src: "pages/fehlerhilfe.html",
 },
   kultur: { title:"文化 — Kultur", quest:"Sprache und Kultur gehören zusammen — hier lernst du den Kontext.", html:`
     <span class="eyebrow win-eyebrow">Kontext</span>

@@ -1,0 +1,98 @@
+<!-- ============================================================
+     pages/fehlerhilfe.html -- Inhalt des "Fehlerdatenbank"-Fensters.
+     Wird von js/windows.js per fetch() geladen.
+     ============================================================ -->
+<span class="eyebrow win-eyebrow">Nachschlagewerk</span>
+<h2 class="win-h2">Fehlerdatenbank</h2>
+
+<p class="win-p">
+  Technische Probleme gehören beim Immersion- und Mining-Setup fast
+  dazu — hier findest du Lösungen für die häufigsten Stolpersteine,
+  sortiert nach Bereich.
+</p>
+
+<h3 class="win-h3">Bereits an anderer Stelle behandelt</h3>
+<p class="win-p">
+  Einige Fehlerbereiche haben ihre eigene Sammlung direkt bei dem
+  jeweiligen Werkzeug:
+</p>
+<ul class="win-list">
+  <li><button class="inline-link" data-open="yomitan">Yomitan</button> — AnkiConnect-403-Fehler, Yomitan findet Anki nicht, fehlendes Audio, Wörterbuch wird nicht erkannt, Probleme mit Netflix/Crunchyroll</li>
+  <li><button class="inline-link" data-open="tool-asbplayer">asbplayer</button> — Untertitel werden nicht erkannt, Karten werden nicht erstellt</li>
+  <li><button class="inline-link" data-open="tool-mpvacious">mpvacious</button> — Untertiteldatei wird nicht gefunden, Audio-Trimming ungenau</li>
+  <li><button class="inline-link" data-open="tool-textractor">Textractor</button> — kein Text, doppelter Text, Prozess wird nicht erkannt</li>
+  <li><button class="inline-link" data-open="tool-mokuro">Mokuro</button> — schlechte Erkennung bei handschriftlichem Text, falsche Lesereihenfolge</li>
+  <li><button class="inline-link" data-open="tool-jidoujisho">jidoujisho</button> — Verbindung zu AnkiDroid, Wörterbuch-Import</li>
+</ul>
+
+<h3 class="win-h3">Sync-Probleme</h3>
+<details class="faq-item">
+  <summary>Anki synchronisiert nicht zwischen Geräten</summary>
+  <p>Meist ein abgelaufener oder nicht eingeloggter AnkiWeb-Account. Auf allen Geräten mit demselben Account anmelden und einmal manuell synchronisieren (Strg+S bzw. das Sync-Symbol).</p>
+</details>
+<details class="faq-item">
+  <summary>„Datenbank ist gesperrt" oder ein Sync-Konflikt taucht auf</summary>
+  <p>Kommt vor, wenn Anki auf zwei Geräten gleichzeitig geöffnet ist. Ein Gerät schließen, auf dem anderen synchronisieren, danach erst das zweite wieder öffnen.</p>
+</details>
+<details class="faq-item">
+  <summary>Nach dem Sync fehlen Karten oder Änderungen</summary>
+  <p>Wenn auf zwei Geräten offline unterschiedliche Änderungen gemacht wurden, kann Anki „Vollständigen Sync" verlangen und dabei eine Seite überschreiben. Vor größeren Änderungen regelmäßig synchronisieren, um das zu vermeiden.</p>
+</details>
+
+<h3 class="win-h3">Kartenfelder &amp; Vorlagen</h3>
+<details class="faq-item">
+  <summary>Neue Karten landen im falschen Feld</summary>
+  <p>Meist eine falsche Feldzuordnung in der Anki-Integration von Yomitan oder dem jeweiligen Mining-Tool — die Zuordnung in den Einstellungen prüfen und die Feldnamen exakt abgleichen.</p>
+</details>
+<details class="faq-item">
+  <summary>Audio oder Screenshot fehlt auf der Karte, obwohl sie erstellt wurde</summary>
+  <p>Die entsprechende Audioquelle bzw. Screenshot-Funktion war beim Erstellen nicht aktiv oder nicht korrekt verbunden. Karte nachträglich manuell ergänzen oder Einstellungen vor dem nächsten Mining prüfen.</p>
+</details>
+<details class="faq-item">
+  <summary>Karten sehen nach einem Vorlagen-Update anders aus als erwartet</summary>
+  <p>Änderungen an Kartenvorlagen (Front/Back-Templates, CSS) wirken sich auf <em>alle</em> Karten dieses Kartentyps aus — vor größeren Änderungen eine Sicherungskopie des Decks exportieren.</p>
+</details>
+
+<h3 class="win-h3">Wörterbücher</h3>
+<details class="faq-item">
+  <summary>Ein importiertes Wörterbuch zeigt keine Einträge</summary>
+  <p>Der Import ist wahrscheinlich unvollständig oder fehlgeschlagen. Wörterbuch entfernen und erneut importieren, statt es einfach erneut zur Liste hinzuzufügen.</p>
+</details>
+<details class="faq-item">
+  <summary>Mehrere Wörterbücher zeigen widersprüchliche Bedeutungen</summary>
+  <p>Normal — verschiedene Wörterbücher gewichten Bedeutungen unterschiedlich. Die Reihenfolge der Wörterbücher in den Einstellungen bestimmt, welche zuerst angezeigt wird.</p>
+</details>
+
+<h3 class="win-h3">Frequenzlisten</h3>
+<details class="faq-item">
+  <summary>Frequenzdaten werden im Popup nicht angezeigt</summary>
+  <p>Frequenzlisten müssen als eigenes Wörterbuch importiert <em>und</em> in den Einstellungen aktiviert werden — ein reiner Import ohne Aktivierung reicht nicht.</p>
+</details>
+<details class="faq-item">
+  <summary>Frequenzwerte wirken bei seltenen Wörtern ungenau</summary>
+  <p>Frequenzlisten basieren auf einem begrenzten Textkorpus — bei sehr seltenen oder sehr neuen Wörtern sind die Werte grobe Richtwerte, keine exakten Angaben.</p>
+</details>
+
+<h3 class="win-h3">Mobile Nutzung</h3>
+<details class="faq-item">
+  <summary>AnkiDroid synchronisiert nicht mit dem Desktop</summary>
+  <p>Denselben AnkiWeb-Account auf beiden Geräten prüfen und jeweils manuell synchronisieren, bevor auf dem anderen Gerät weitergelernt wird — sonst drohen Sync-Konflikte.</p>
+</details>
+<details class="faq-item">
+  <summary>Mobiles Mining fühlt sich langsamer an als am PC</summary>
+  <p>Normal, da mobile Tools wie jidoujisho mehr Zwischenschritte in einer App bündeln. Für viel Mining bleibt ein PC-Setup meist schneller.</p>
+</details>
+
+<h3 class="win-h3">Browser allgemein</h3>
+<details class="faq-item">
+  <summary>Eine Erweiterung funktioniert im Inkognito-/privaten Modus nicht</summary>
+  <p>Die meisten Erweiterungen sind dort standardmäßig deaktiviert. In den Browser-Erweiterungseinstellungen die Ausführung im privaten Modus explizit erlauben.</p>
+</details>
+<details class="faq-item">
+  <summary>Eine Erweiterung verlangt viele Berechtigungen</summary>
+  <p>Bei Tools wie Yomitan, die auf jeder Seite Text erkennen sollen, ist Zugriff auf alle Websites technisch notwendig. Bei unbekannteren Erweiterungen lohnt sich trotzdem ein Blick auf Quelle und Bewertungen, bevor man sie installiert.</p>
+</details>
+
+<div class="win-navigation">
+  <button class="toc-item" data-open="glossar">← Zurück zum Glossar</button>
+</div>
