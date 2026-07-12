@@ -23,11 +23,12 @@
   }
   *{ box-sizing: border-box; }
   html, body{ height:100%; margin:0; overflow:hidden; }
+  html{ font-size: 18px; }
   body{
     background: var(--bg); color: var(--text);
     font-family: 'Sora', sans-serif; -webkit-font-smoothing: antialiased;
   }
-  jp{ font-family:'Shippori Mincho', serif; }
+  .jp{ font-family:'Shippori Mincho', serif; }
   a{ color:inherit; }
   ::selection{ background: var(--violet); color:white; }
   button{ font-family: inherit; }
@@ -39,40 +40,12 @@
   /* ---------- Bühne ---------- */
   .stage{
     position:relative; width:100%; height:100%; overflow:hidden;
-    background:
-      radial-gradient(ellipse 70% 55% at 50% 8%, #3a2154 0%, transparent 65%),
-      linear-gradient(180deg, #0f0b17 0%, #14101e 45%, #1c1330 100%);
+    background: url('Background.png') center center / cover no-repeat, #0f0b17;
   }
   body.light .stage{
-    background:
-      radial-gradient(ellipse 70% 55% at 50% 8%, #efe2ff 0%, transparent 65%),
-      linear-gradient(180deg, #fbf7ff 0%, #f6eefd 45%, #ecdcfa 100%);
+    filter: brightness(1.55) saturate(0.75);
   }
   body.light{ --bg:#faf6ff; --bg-panel:#ffffff; --bg-panel-2:#f4ecfc; --text:#241a35; --muted:#6b5c86; --line: rgba(139,92,246,0.25); }
-
-  /* Torii-Silhouette groß im Hintergrund, zentriert hinter dem Start-Fenster */
-  .torii-bg{
-    position:absolute; top:6%; left:50%; transform:translateX(-50%);
-    opacity:0.16; pointer-events:none;
-  }
-  body.light .torii-bg{ opacity:0.1; }
-
-  /* Kirschblüten */
-  .petal{
-    position:absolute; width:9px; height:9px;
-    background: linear-gradient(135deg, var(--pink-soft), var(--violet));
-    border-radius: 60% 0 60% 0; opacity:0.6;
-    animation: fall linear infinite;
-  }
-  @keyframes fall{
-    0%{ transform: translateY(-20px) rotate(0deg); opacity:0; }
-    12%{ opacity:.75; }
-    100%{ transform: translateY(92vh) rotate(300deg); opacity:0; }
-  }
-  @media (prefers-reduced-motion: reduce){ .petal{ animation:none; display:none; } }
-
-  /* Geschwungener "Reiseweg" im Hintergrund — Quest-Motiv */
-  .journey-path{ position:absolute; inset:0; pointer-events:none; opacity:0.35; }
 
   /* Steuerung oben links */
   .top-controls{ position:fixed; top:18px; left:20px; z-index:500; display:flex; gap:14px; }
@@ -120,8 +93,10 @@
   .window.resizing{ transition:none; }
 
   #window-home{
-    top:50%; left:44%; transform:translate(-50%,-50%);
-    width: min(85vw, 380px);
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    width: min(88vw, 460px);
+    height: auto;
+    max-height: 80vh;
     z-index:5; opacity:1; pointer-events:all;
   }
   #window-home.open{ transform:translate(-50%,-50%) scale(1); }
@@ -140,40 +115,40 @@
   .resize-handle:hover svg{ opacity:1; }
 
   .window-titlebar{
-    height:40px; flex-shrink:0;
+    height:46px; flex-shrink:0;
     background: linear-gradient(100deg, var(--violet), var(--pink));
     display:flex; align-items:center; justify-content:space-between;
-    padding: 0 8px 0 16px;
+    padding: 0 10px 0 18px;
     cursor:grab; touch-action:none;
   }
   .window-titlebar:active{ cursor:grabbing; }
   .window-titlebar.static{ cursor:default; }
   .window-titlebar .tab-label{
-    font-family:'Zen Kaku Gothic New', sans-serif; font-weight:700; font-size:0.8rem;
+    font-family:'Zen Kaku Gothic New', sans-serif; font-weight:700; font-size:0.92rem;
     color:#1a1424; letter-spacing:0.01em;
   }
   .win-close{
-    width:24px; height:24px; border-radius:50%;
+    width:28px; height:28px; border-radius:50%;
     background: rgba(26,20,36,0.28); border:none; color:#1a1424;
-    font-size:0.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    font-size:0.8rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
     transition: background .15s ease, color .15s ease;
   }
   .win-close:hover{ background:#1a1424; color:#fff; }
 
-  .window-content{ padding: 24px clamp(18px,4vw,28px) 28px; overflow-y:auto; flex: 1 1 auto; min-height: 0; position: relative; }
+  .window-content{ padding: 28px clamp(20px,4vw,36px) 32px; overflow-y:auto; flex: 1 1 auto; min-height: 0; position: relative; }
 
   .home-intro{ text-align:center; }
-  .home-intro h1{ font-size: clamp(1.55rem, 4vw, 1.9rem); margin: 0.2em 0 0.15em; }
+  .home-intro h1{ font-size: clamp(1.8rem, 4.2vw, 2.3rem); margin: 0.2em 0 0.15em; }
   .home-intro h1 .accent{ color: var(--pink-soft); }
-  .home-intro p{ color: var(--muted); font-size: 0.88rem; margin: 0 0 1.4rem; }
+  .home-intro p{ color: var(--muted); font-size: 1rem; margin: 0 0 1.6rem; }
 
   .tile-grid{
-    display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
   }
   .tile-btn{
     background: var(--bg-panel-2); border: 1px solid var(--line); border-radius: 14px;
-    padding: 14px 8px 12px; cursor:pointer; color: var(--text);
-    display:flex; flex-direction:column; align-items:center; gap:6px;
+    padding: 18px 8px 14px; cursor:pointer; color: var(--text);
+    display:flex; flex-direction:column; align-items:center; gap:8px;
     transition: transform .15s ease, border-color .15s ease, background .15s ease;
   }
   .tile-btn:hover{
@@ -181,13 +156,42 @@
     border-color: transparent;
     background: linear-gradient(160deg, var(--violet), var(--pink));
   }
-  .tile-btn .glyph{ font-size:1.3rem; font-family:'Shippori Mincho', serif; }
-  .tile-btn .label{ font-size:0.66rem; color: var(--muted); text-align:center; line-height:1.25; }
+  .tile-btn .glyph{ font-size:1.6rem; font-family:'Shippori Mincho', serif; }
+  .tile-btn .label{ font-size:0.76rem; color: var(--muted); text-align:center; line-height:1.3; }
   .tile-btn:hover .label{ color: rgba(255,255,255,0.92); }
 
-  .win-eyebrow{ margin-bottom:4px; display:block; }
-  .win-h2{ font-size:1.25rem; margin:0.1em 0 0.85em; }
-  .win-p{ color: var(--muted); font-size:0.87rem; line-height:1.68; margin:0 0 1em; }
+  .win-eyebrow{ margin-bottom:6px; display:block; }
+  .win-h2{ font-size:1.55rem; margin:0.1em 0 0.9em; }
+  .win-h3{ font-size:1.12rem; margin:1.3em 0 0.6em; color: var(--pink-soft); font-family:'Shippori Mincho', serif; }
+  .win-p{ color: var(--muted); font-size:0.98rem; line-height:1.75; margin:0 0 1.05em; }
+
+  .win-list{ margin: 0 0 1.1em; padding-left: 1.3em; color: var(--muted); font-size:0.96rem; line-height:1.75; }
+  .win-list li{ margin-bottom: 0.4em; }
+  .win-list li strong{ color: var(--text); }
+
+  .win-navigation{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:1.6em; }
+  .win-navigation .toc-item{ flex:1 1 auto; text-align:center; justify-content:center; margin-bottom:0; }
+
+  .kana-grid, .resource-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; margin: 1.2em 0;
+  }
+  .kana-card, .resource-card{
+    background: var(--bg-panel-2); border:1px solid var(--line); border-radius: 14px;
+    padding: 18px 18px 16px; display:block;
+  }
+  .kana-card .win-h3, .resource-card .win-h3{ margin-top:0.2em; }
+  .kana-card .toc-item, .resource-card .toc-item{ margin-top: 0.6em; }
+
+  .kana-table{
+    display:grid; gap:6px; margin: 0.9em 0 1.3em;
+  }
+  .kana-cell{
+    background: var(--bg-panel-2); border:1px solid var(--line); border-radius:8px;
+    padding: 8px 4px 7px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:2px;
+  }
+  .kana-cell.empty{ background:none; border:none; }
+  .kana-cell .char{ font-size:1.25rem; font-family:'Shippori Mincho', serif; line-height:1.1; }
+  .kana-cell .romaji{ font-size:0.62rem; color: var(--muted); font-family:'JetBrains Mono', monospace; }
 
   .inline-link{
     background:none; border:none; padding:0; margin:0; color: var(--pink-soft);
@@ -200,43 +204,46 @@
   .toc-list li{ counter-increment: toc; }
   .toc-item{
     width:100%; text-align:left; background: var(--bg-panel-2); border:1px solid var(--line);
-    border-radius:10px; padding: 11px 14px; margin-bottom:7px; display:flex; align-items:center; gap:10px;
-    color: var(--text); cursor:pointer; transition: border-color .15s ease, transform .15s ease; font-size:0.85rem;
+    border-radius:10px; padding: 13px 16px; margin-bottom:8px; display:flex; align-items:center; gap:12px;
+    color: var(--text); cursor:pointer; transition: border-color .15s ease, transform .15s ease; font-size:0.95rem;
+    text-decoration:none; box-sizing:border-box;
   }
   .toc-item:hover{ border-color: var(--violet); transform: translateX(3px); }
   .toc-item::before{
     content: counter(toc, decimal-leading-zero);
-    font-family:'JetBrains Mono', monospace; font-size:0.68rem; color: var(--pink-soft);
+    font-family:'JetBrains Mono', monospace; font-size:0.76rem; color: var(--pink-soft);
   }
 
-  .grid-cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:10px; }
-  .mini-card{ background: var(--bg-panel-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
-  .mini-card h4{ margin:0 0 5px; font-size:0.85rem; }
-  .mini-card p{ margin:0; color: var(--muted); font-size:0.78rem; line-height:1.5; }
+  .grid-cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap:12px; }
+  .mini-card{ background: var(--bg-panel-2); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .mini-card h4{ margin:0 0 6px; font-size:0.95rem; }
+  .mini-card p{ margin:0; color: var(--muted); font-size:0.87rem; line-height:1.55; }
 
   .placeholder-tag{
     display:inline-block; margin-top:6px; font-family:'JetBrains Mono', monospace;
-    font-size:0.64rem; color: var(--pink-soft); border-left:2px dashed var(--violet); padding-left:8px;
+    font-size:0.7rem; color: var(--pink-soft); border-left:2px dashed var(--violet); padding-left:8px;
   }
 
-  .faq-item{ border-bottom:1px solid var(--line); padding:12px 0; }
-  .faq-item summary{ cursor:pointer; font-weight:600; list-style:none; display:flex; justify-content:space-between; align-items:center; font-size:0.87rem; }
+  .faq-item{ border-bottom:1px solid var(--line); padding:14px 0; }
+  .faq-item summary{ cursor:pointer; font-weight:600; list-style:none; display:flex; justify-content:space-between; align-items:center; font-size:0.97rem; }
   .faq-item summary::-webkit-details-marker{ display:none; }
-  .faq-item summary::after{ content:"+"; color: var(--pink-soft); font-size:1.05rem; }
+  .faq-item summary::after{ content:"+"; color: var(--pink-soft); font-size:1.15rem; }
   .faq-item[open] summary::after{ content:"–"; }
-  .faq-item p{ color: var(--muted); font-size:0.82rem; line-height:1.55; margin-top:7px; }
+  .faq-item p{ color: var(--muted); font-size:0.9rem; line-height:1.65; margin-top:8px; }
 
   .btn{
-    padding:9px 18px; border-radius:999px; font-weight:600; font-size:0.8rem;
-    text-decoration:none; display:inline-flex; align-items:center; gap:7px; border:none; cursor:pointer;
+    padding:11px 20px; border-radius:999px; font-weight:600; font-size:0.88rem;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer;
   }
   .btn-primary{ background: linear-gradient(120deg, var(--pink), var(--violet)); color:white; }
   .btn-ghost{ border:1px solid var(--line); color: var(--text); background:transparent; }
+  .btn-discord{ background:#5865F2; color:white; }
+  .btn svg{ flex-shrink:0; }
 
   /* ---------- Wegweiser (Quest-Begleiter) ---------- */
   .wegweiser{
     position: fixed;
-    width: 148px;
+    width: 170px;
     z-index: 600;
     display:flex; flex-direction:column; align-items:center;
     transition: left .28s cubic-bezier(.2,.8,.2,1), top .28s cubic-bezier(.2,.8,.2,1);
@@ -244,9 +251,9 @@
   }
   .bubble{
     background: var(--bg-panel); border:1px solid var(--line); border-radius: 14px;
-    padding: 10px 12px; font-size: 0.74rem; line-height:1.45; color: var(--text);
+    padding: 12px 14px; font-size: 0.82rem; line-height:1.5; color: var(--text);
     box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5);
-    position: relative; margin-bottom: 8px; text-align:center;
+    position: relative; margin-bottom: 10px; text-align:center;
   }
   .bubble::after{
     content:""; position:absolute; bottom:-7px; left:50%; transform:translateX(-50%);
@@ -254,17 +261,18 @@
     border-right:1px solid var(--line); border-bottom:1px solid var(--line);
     rotate: 45deg;
   }
-  .fox-wrap{ animation: bob 3.6s ease-in-out infinite; }
+  .fox-wrap{ animation: bob 3.6s ease-in-out infinite; width: 84px; height:84px; display:block; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)); }
   @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
 
   @media (max-width: 760px){
-    .wegweiser{ width: 128px; }
+    .wegweiser{ width: 140px; }
+    .fox-wrap{ width:64px; height:64px; }
     .wegweiser.mobile-dock{ left:50% !important; transform: translateX(-50%); top:auto !important; bottom: 14px; }
   }
 
   .desktop-footer{
     position:fixed; left:0; right:0; bottom:10px; z-index:8;
-    text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.64rem; color: var(--muted);
+    text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.7rem; color: var(--muted);
     pointer-events:none;
   }
 </style>
@@ -273,34 +281,8 @@
 
 <div class="stage" id="stage">
 
-  <svg class="torii-bg" width="420" height="300" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="toriiGrad" x1="0" y1="0" x2="420" y2="300" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#8b5cf6"/>
-      </linearGradient>
-    </defs>
-    <rect x="40" y="70" width="26" height="210" rx="8" fill="url(#toriiGrad)"/>
-    <rect x="354" y="70" width="26" height="210" rx="8" fill="url(#toriiGrad)"/>
-    <rect x="14" y="42" width="392" height="30" rx="10" fill="url(#toriiGrad)"/>
-    <rect x="50" y="104" width="320" height="18" rx="7" fill="url(#toriiGrad)" opacity="0.85"/>
-    <rect x="180" y="122" width="60" height="34" rx="5" fill="url(#toriiGrad)" opacity="0.55"/>
-  </svg>
-
-  <svg class="journey-path" width="100%" height="100%" preserveAspectRatio="none">
-    <path d="M -20 90% C 20% 70%, 15% 40%, 45% 30% S 80% 55%, 105% 15%"
-      fill="none" stroke="url(#pathGrad)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
-    <defs>
-      <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#8b5cf6"/>
-      </linearGradient>
-    </defs>
-  </svg>
-
-  <div id="bgDecor" style="position:absolute; inset:0; pointer-events:none;"></div>
-
   <div class="top-controls">
     <button id="modeToggle" title="Hell-/Dunkelmodus">🌙</button>
-    <button id="soundToggle" title="Sound an/aus">🔈</button>
   </div>
 
   <!-- Home-Fenster -->
@@ -329,21 +311,7 @@
   <!-- Wegweiser -->
   <div class="wegweiser" id="wegweiser">
     <div class="bubble" id="wegweiserText">Hallo! Ich bin dein Yuki — klick auf eine Kachel, um deine Reise zu beginnen!</div>
-    <svg class="fox-wrap" width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="foxGrad" x1="0" y1="0" x2="72" y2="72" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#f0abfc"/><stop offset="1" stop-color="#8b5cf6"/>
-        </linearGradient>
-      </defs>
-      <path d="M18 10 L27 28 L11 28 Z" fill="url(#foxGrad)"/>
-      <path d="M54 10 L63 28 L45 28 Z" fill="url(#foxGrad)"/>
-      <ellipse cx="36" cy="42" rx="25" ry="21" fill="url(#foxGrad)"/>
-      <path d="M24 46 Q36 58 48 46" fill="#1e1728" opacity="0.9"/>
-      <circle cx="28" cy="38" r="2.6" fill="#1e1728"/>
-      <circle cx="44" cy="38" r="2.6" fill="#1e1728"/>
-      <rect x="30" y="58" width="3" height="12" fill="#c7b6e8"/>
-      <rect x="22" y="58" width="20" height="4" rx="2" fill="#f0abfc"/>
-    </svg>
+    <img class="fox-wrap" src="Questie.png" alt="Yuki, dein Wegweiser">
   </div>
 
   <div class="desktop-footer">© 2026 · </div>
@@ -351,6 +319,83 @@
 </div>
 
 <script>
+/* ===================== Kana-Tabellen (Helfer) ===================== */
+function kanaTable(cells, cols){
+  cols = cols || 5;
+  const items = cells.map(c => {
+    if(!c) return `<div class="kana-cell empty"></div>`;
+    return `<div class="kana-cell"><span class="char">${c[0]}</span><span class="romaji">${c[1]}</span></div>`;
+  }).join('');
+  return `<div class="kana-table" style="grid-template-columns:repeat(${cols},1fr);">${items}</div>`;
+}
+
+const HIRAGANA_MAIN = [
+  ['あ','a'],['い','i'],['う','u'],['え','e'],['お','o'],
+  ['か','ka'],['き','ki'],['く','ku'],['け','ke'],['こ','ko'],
+  ['さ','sa'],['し','shi'],['す','su'],['せ','se'],['そ','so'],
+  ['た','ta'],['ち','chi'],['つ','tsu'],['て','te'],['と','to'],
+  ['な','na'],['に','ni'],['ぬ','nu'],['ね','ne'],['の','no'],
+  ['は','ha'],['ひ','hi'],['ふ','fu'],['へ','he'],['ほ','ho'],
+  ['ま','ma'],['み','mi'],['む','mu'],['め','me'],['も','mo'],
+  ['や','ya'],null,['ゆ','yu'],null,['よ','yo'],
+  ['ら','ra'],['り','ri'],['る','ru'],['れ','re'],['ろ','ro'],
+  ['わ','wa'],null,null,null,['を','wo'],
+  ['ん','n'],null,null,null,null
+];
+const HIRAGANA_DAKUTEN = [
+  ['が','ga'],['ぎ','gi'],['ぐ','gu'],['げ','ge'],['ご','go'],
+  ['ざ','za'],['じ','ji'],['ず','zu'],['ぜ','ze'],['ぞ','zo'],
+  ['だ','da'],['ぢ','ji'],['づ','zu'],['で','de'],['ど','do'],
+  ['ば','ba'],['び','bi'],['ぶ','bu'],['べ','be'],['ぼ','bo'],
+  ['ぱ','pa'],['ぴ','pi'],['ぷ','pu'],['ぺ','pe'],['ぽ','po']
+];
+const HIRAGANA_YOON = [
+  ['きゃ','kya'],['きゅ','kyu'],['きょ','kyo'],
+  ['しゃ','sha'],['しゅ','shu'],['しょ','sho'],
+  ['ちゃ','cha'],['ちゅ','chu'],['ちょ','cho'],
+  ['にゃ','nya'],['にゅ','nyu'],['にょ','nyo'],
+  ['ひゃ','hya'],['ひゅ','hyu'],['ひょ','hyo'],
+  ['みゃ','mya'],['みゅ','myu'],['みょ','myo'],
+  ['りゃ','rya'],['りゅ','ryu'],['りょ','ryo'],
+  ['ぎゃ','gya'],['ぎゅ','gyu'],['ぎょ','gyo'],
+  ['じゃ','ja'],['じゅ','ju'],['じょ','jo'],
+  ['びゃ','bya'],['びゅ','byu'],['びょ','byo'],
+  ['ぴゃ','pya'],['ぴゅ','pyu'],['ぴょ','pyo']
+];
+const KATAKANA_MAIN = [
+  ['ア','a'],['イ','i'],['ウ','u'],['エ','e'],['オ','o'],
+  ['カ','ka'],['キ','ki'],['ク','ku'],['ケ','ke'],['コ','ko'],
+  ['サ','sa'],['シ','shi'],['ス','su'],['セ','se'],['ソ','so'],
+  ['タ','ta'],['チ','chi'],['ツ','tsu'],['テ','te'],['ト','to'],
+  ['ナ','na'],['ニ','ni'],['ヌ','nu'],['ネ','ne'],['ノ','no'],
+  ['ハ','ha'],['ヒ','hi'],['フ','fu'],['ヘ','he'],['ホ','ho'],
+  ['マ','ma'],['ミ','mi'],['ム','mu'],['メ','me'],['モ','mo'],
+  ['ヤ','ya'],null,['ユ','yu'],null,['ヨ','yo'],
+  ['ラ','ra'],['リ','ri'],['ル','ru'],['レ','re'],['ロ','ro'],
+  ['ワ','wa'],null,null,null,['ヲ','wo'],
+  ['ン','n'],null,null,null,null
+];
+const KATAKANA_DAKUTEN = [
+  ['ガ','ga'],['ギ','gi'],['グ','gu'],['ゲ','ge'],['ゴ','go'],
+  ['ザ','za'],['ジ','ji'],['ズ','zu'],['ゼ','ze'],['ゾ','zo'],
+  ['ダ','da'],['ヂ','ji'],['ヅ','zu'],['デ','de'],['ド','do'],
+  ['バ','ba'],['ビ','bi'],['ブ','bu'],['ベ','be'],['ボ','bo'],
+  ['パ','pa'],['ピ','pi'],['プ','pu'],['ペ','pe'],['ポ','po']
+];
+const KATAKANA_YOON = [
+  ['キャ','kya'],['キュ','kyu'],['キョ','kyo'],
+  ['シャ','sha'],['シュ','shu'],['ショ','sho'],
+  ['チャ','cha'],['チュ','chu'],['チョ','cho'],
+  ['ニャ','nya'],['ニュ','nyu'],['ニョ','nyo'],
+  ['ヒャ','hya'],['ヒュ','hyu'],['ヒョ','hyo'],
+  ['ミャ','mya'],['ミュ','myu'],['ミョ','myo'],
+  ['リャ','rya'],['リュ','ryu'],['リョ','ryo'],
+  ['ギャ','gya'],['ギュ','gyu'],['ギョ','gyo'],
+  ['ジャ','ja'],['ジュ','ju'],['ジョ','jo'],
+  ['ビャ','bya'],['ビュ','byu'],['ビョ','byo'],
+  ['ピャ','pya'],['ピュ','pyu'],['ピョ','pyo']
+];
+
 /* ===================== Fensterinhalte ===================== */
 const panels = {
 guide: {
@@ -641,6 +686,77 @@ guide: {
       <button class="toc-item" data-open="kanji">
         Weiter zu Kanji →
       </button>
+    </div>
+  `
+},
+hiragana: {
+  title: "ひらがな — Hiragana",
+  quest: "Die 46 Grundzeichen sind dein Fundament. Übe sie in kleinen Gruppen, nicht alle auf einmal.",
+  html: `
+    <span class="eyebrow win-eyebrow">Schriftsystem</span>
+    <h2 class="win-h2">Hiragana</h2>
+    <p class="win-p">
+      Hiragana ist die grundlegendste japanische Silbenschrift. Jedes Zeichen steht
+      für einen festen Laut. Unten findest du die Grundzeichen (Gojūon), die
+      Zeichen mit Dakuten/Handakuten sowie die Yōon-Kombinationen mit kleinem
+      ゃ・ゅ・ょ.
+    </p>
+
+    <h3 class="win-h3">Die Grundzeichen (Gojūon)</h3>
+    ${kanaTable(HIRAGANA_MAIN, 5)}
+
+    <h3 class="win-h3">Dakuten &amp; Handakuten</h3>
+    <p class="win-p">
+      Zwei kleine Striche (゛) oder ein kleiner Kreis (゜) verändern den Laut
+      eines Zeichens, z. B. wird か (ka) zu が (ga).
+    </p>
+    ${kanaTable(HIRAGANA_DAKUTEN, 5)}
+
+    <h3 class="win-h3">Yōon — Kombinationen</h3>
+    <p class="win-p">
+      Ein Zeichen auf „i" (z. B. き) kombiniert mit einem kleinen ゃ・ゅ・ょ
+      ergibt einen neuen, einzelnen Laut, z. B. きゃ (kya).
+    </p>
+    ${kanaTable(HIRAGANA_YOON, 3)}
+
+    <div class="win-navigation">
+      <button class="toc-item" data-open="kana">← Zurück zu Kana</button>
+      <button class="toc-item" data-open="katakana">Weiter zu Katakana →</button>
+    </div>
+  `
+},
+katakana: {
+  title: "カタカナ — Katakana",
+  quest: "Katakana klingt wie Hiragana, sieht aber anders aus — perfekt für Fremdwörter und Namen.",
+  html: `
+    <span class="eyebrow win-eyebrow">Schriftsystem</span>
+    <h2 class="win-h2">Katakana</h2>
+    <p class="win-p">
+      Katakana stellt dieselben Laute wie Hiragana dar, wird aber vor allem für
+      Fremdwörter, ausländische Namen und Lautmalerei verwendet. Die Zeichen
+      wirken eckiger als Hiragana.
+    </p>
+
+    <h3 class="win-h3">Die Grundzeichen (Gojūon)</h3>
+    ${kanaTable(KATAKANA_MAIN, 5)}
+
+    <h3 class="win-h3">Dakuten &amp; Handakuten</h3>
+    <p class="win-p">
+      Genau wie bei Hiragana verändern ゛ und ゜ den Laut eines Zeichens,
+      z. B. wird カ (ka) zu ガ (ga).
+    </p>
+    ${kanaTable(KATAKANA_DAKUTEN, 5)}
+
+    <h3 class="win-h3">Yōon — Kombinationen</h3>
+    <p class="win-p">
+      Auch hier ergibt ein Zeichen auf „i" kombiniert mit kleinem ャ・ュ・ョ
+      einen neuen Laut, z. B. キャ (kya).
+    </p>
+    ${kanaTable(KATAKANA_YOON, 3)}
+
+    <div class="win-navigation">
+      <button class="toc-item" data-open="hiragana">← Zurück zu Hiragana</button>
+      <button class="toc-item" data-open="kanji">Weiter zu Kanji →</button>
     </div>
   `
 },
@@ -970,9 +1086,9 @@ kanji: {
           </strong>
         </p>
 
-        <button class="toc-item" data-open="kaishi">
-          Kaishi-Guide öffnen →
-        </button>
+        <a class="toc-item" href="https://ankiweb.net/shared/info/1196762551" target="_blank" rel="noopener">
+          Kaishi 1.5k auf AnkiWeb öffnen ↗
+        </a>
       </section>
 
       <section class="resource-card">
@@ -999,9 +1115,9 @@ kanji: {
           schrittweise zu eigenen Karten.
         </p>
 
-        <button class="toc-item" data-open="core">
-          Core-Guide öffnen →
-        </button>
+        <a class="toc-item" href="https://ankiweb.net/shared/info/1237389412" target="_blank" rel="noopener">
+          Core 2k/6k auf AnkiWeb öffnen ↗
+        </a>
       </section>
 
       <section class="resource-card">
@@ -1022,9 +1138,9 @@ kanji: {
           <li>verschiedene Community-Versionen verfügbar</li>
         </ul>
 
-        <button class="toc-item" data-open="tango">
-          Tango-Guide öffnen →
-        </button>
+        <a class="toc-item" href="https://ankiweb.net/shared/info/90990052" target="_blank" rel="noopener">
+          Tango N5 auf AnkiWeb öffnen ↗
+        </a>
       </section>
 
       <section class="resource-card">
@@ -1044,9 +1160,9 @@ kanji: {
           <li>kostenpflichtig</li>
         </ul>
 
-        <button class="toc-item" data-open="refold">
-          Refold-Guide öffnen →
-        </button>
+        <a class="toc-item" href="https://refold.la/japanese/deck/" target="_blank" rel="noopener">
+          Refold Japanese 1K öffnen ↗
+        </a>
       </section>
 
       <section class="resource-card">
@@ -1067,9 +1183,9 @@ kanji: {
           <li>guter Übergang zu eigenen Karten</li>
         </ul>
 
-        <button class="toc-item" data-open="ankidrone">
-          Ankidrone-Guide öffnen →
-        </button>
+        <a class="toc-item" href="https://tatsumoto-ren.github.io/blog/ankidrone-essentials.html" target="_blank" rel="noopener">
+          Ankidrone Essentials öffnen ↗
+        </a>
       </section>
 
     </div>
@@ -1689,9 +1805,9 @@ jlpt: {
       Affiliate-Links werden direkt am jeweiligen Link gekennzeichnet.
     </p>
 
-    <button class="toc-item" data-open="ressourcen-jlpt">
-      JLPT-Ressourcen öffnen →
-    </button>
+    <a class="toc-item" href="https://www.jlpt.jp/e/index.html" target="_blank" rel="noopener">
+      Offizielle JLPT-Website öffnen ↗
+    </a>
 
     <div class="win-navigation">
       <button class="toc-item" data-open="ressourcen">
@@ -1704,15 +1820,45 @@ jlpt: {
     </div>
   `
 },
-  ressourcen: { title:"リソース", quest:"Hier liegt deine Ausrüstung — Tools, Webseiten und weitere nützliche Links", html:`
+  ressourcen: { title:"リソース", quest:"Hier liegt deine Ausrüstung — Tools, Wörterbücher und weitere nützliche Links", html:`
     <span class="eyebrow win-eyebrow">Werkzeugkasten</span>
     <h2 class="win-h2">Ressourcen &amp; Tools</h2>
-    <p class="win-p">[Platzhalter: Kurze Einleitung zu empfohlenen Apps, Wörterbüchern, Büchern.]</p>
-    <div class="grid-cards">
-      <div class="mini-card"><h4>[Platzhalter: App]</h4><p>[Platzhalter: Kurzbeschreibung.]</p></div>
-      <div class="mini-card"><h4>[Platzhalter: Wörterbuch]</h4><p>[Platzhalter: Kurzbeschreibung.]</p></div>
-      <div class="mini-card"><h4>[Platzhalter: Lehrwerk]</h4><p>[Platzhalter: Kurzbeschreibung.]</p></div>
+    <p class="win-p">
+      Diese Werkzeuge begleiten dich durch den ganzen Guide — vom Karteikarten-Lernen
+      bis zum Nachschlagen einzelner Wörter.
+    </p>
+    <div class="resource-grid">
+      <section class="resource-card">
+        <span class="eyebrow">Karteikarten</span>
+        <h3 class="win-h3">Anki</h3>
+        <p class="win-p">Das Spaced-Repetition-Programm, auf dem so gut wie alle Vokabel-Decks in diesem Guide basieren.</p>
+        <a class="toc-item" href="https://apps.ankiweb.net/" target="_blank" rel="noopener">Anki herunterladen ↗</a>
+      </section>
+      <section class="resource-card">
+        <span class="eyebrow">Wörterbuch</span>
+        <h3 class="win-h3">Jisho.org</h3>
+        <p class="win-p">Ein schnelles, kostenloses Online-Wörterbuch für einzelne Wörter und Kanji.</p>
+        <a class="toc-item" href="https://jisho.org/" target="_blank" rel="noopener">Jisho öffnen ↗</a>
+      </section>
+      <section class="resource-card">
+        <span class="eyebrow">Wörterbuch &amp; SRS</span>
+        <h3 class="win-h3">jpdb.io</h3>
+        <p class="win-p">Wörterbuch mit eingebautem SRS-System, praktisch um Vokabular aus Anime, Manga oder Büchern zu tracken.</p>
+        <a class="toc-item" href="https://jpdb.io/" target="_blank" rel="noopener">jpdb öffnen ↗</a>
+      </section>
+      <section class="resource-card">
+        <span class="eyebrow">Grammatik</span>
+        <h3 class="win-h3">Tae Kim's Grammar Guide</h3>
+        <p class="win-p">Eine kostenlose, ausführliche Grammatikreferenz, die viele Anfänger:innen als Nachschlagewerk nutzen.</p>
+        <a class="toc-item" href="https://guidetojapanese.org/learn/grammar" target="_blank" rel="noopener">Guide öffnen ↗</a>
+      </section>
     </div>
+    <p class="win-p">
+      Die Anfänger-Decks für den Wortschatz-Einstieg findest du im
+      <button class="inline-link" data-open="wortschatz">Wortschatz-Bereich</button>,
+      Prüfungsmaterial für die JLPT im
+      <button class="inline-link" data-open="jlpt">JLPT-Bereich</button>.
+    </p>
   `},
   faq: { title:"よくある質問", quest:"Fragen über Fragen — hier gibt's hoffentlich die passenden Antworten.", html:`
     <span class="eyebrow win-eyebrow">Fragen</span>
@@ -1727,7 +1873,10 @@ jlpt: {
     <p class="win-p">[Platzhalter: Einladender Text, wie und warum man Kontakt aufnehmen kann.]</p>
     <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
       <a class="btn btn-primary" href="mailto:hallo.koyuki@proton.me">✉ E-Mail schreiben</a>
-      <a class="btn btn-ghost" href="https://discord.gg/XhAEFS4RFV" target="_blank">Discord</a>
+      <a class="btn btn-discord" href="https://discord.gg/XhAEFS4RFV" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028ZM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.211 0 2.176 1.096 2.157 2.42 0 1.333-.955 2.418-2.157 2.418Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.211 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z"/></svg>
+        Discord
+      </a>
     </div>
   `}
 };
@@ -1774,14 +1923,14 @@ function bringToFront(el){ zCounter += 1; el.style.zIndex = zCounter; }
 function positionCascade(el){
   const idx = openCount % 6;
   openCount += 1;
-  const offset = idx * 24;
-  el.style.left = `calc(44% - 190px + ${offset}px)`;
-  el.style.top = `calc(50% - 180px + ${offset}px)`;
+  const offset = idx * 26;
+  el.style.left = `calc(50% - 320px + ${offset}px)`;
+  el.style.top = `calc(50% - 210px + ${offset}px)`;
 }
 
 function setActive(id, el){
   activeId = id; activeEl = el;
-  bringToFront(el);
+  if(id !== 'home') bringToFront(el);
   updateWegweiser();
 }
 
@@ -1837,8 +1986,8 @@ function makeResizable(win, handle){
     if(!resizing) return;
     const maxW = window.innerWidth - 24;
     const maxH = window.innerHeight - 24;
-    const newW = Math.min(Math.max(startW + (e.clientX - startX), 240), maxW);
-    const newH = Math.min(Math.max(startH + (e.clientY - startY), 180), maxH);
+    const newW = Math.min(Math.max(startW + (e.clientX - startX), 320), maxW);
+    const newH = Math.min(Math.max(startH + (e.clientY - startY), 260), maxH);
     win.style.width = newW + 'px';
     win.style.height = newH + 'px';
     positionWegweiser();
@@ -1869,8 +2018,8 @@ function updateWegweiser(){
 
 function positionWegweiser(){
   const rect = activeEl.getBoundingClientRect();
-  const compW = wegweiser.offsetWidth || 148;
-  const compH = wegweiser.offsetHeight || 190;
+  const compW = wegweiser.offsetWidth || 170;
+  const compH = wegweiser.offsetHeight || 220;
 
   if(window.innerWidth < 760){
     wegweiser.classList.add('mobile-dock');
@@ -1898,19 +2047,6 @@ window.addEventListener('resize', positionWegweiser);
 
 /* ===================== Sonstige Steuerung ===================== */
 document.getElementById('modeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
-document.getElementById('soundToggle').addEventListener('click', function(){
-  this.textContent = this.textContent === '🔈' ? '🔇' : '🔈';
-});
-
-/* Kirschblüten */
-const decor = document.getElementById('bgDecor');
-[8,22,38,54,68,82,92].forEach((left,i)=>{
-  const p = document.createElement('div');
-  p.className='petal'; p.style.left=left+'%';
-  p.style.animationDuration=(6+(i%4)*1.6)+'s';
-  p.style.animationDelay=(i*1.1)+'s';
-  decor.appendChild(p);
-});
 
 /* initial */
 updateWegweiser();
