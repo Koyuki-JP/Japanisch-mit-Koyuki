@@ -247,6 +247,9 @@ guide: {
       <li><button class="toc-item" data-open="wortschatz">Wortschatz</button></li>
       <li><button class="toc-item" data-open="aussprache">Aussprache</button></li>
       <li><button class="toc-item" data-open="hoeren">Hörverstehen</button></li>
+      <li><button class="toc-item" data-open="anki">Anki &amp; SRS</button></li>
+      <li><button class="toc-item" data-open="yomitan">Yomitan</button></li>
+      <li><button class="toc-item" data-open="mining">Mining</button></li>
       <li><button class="toc-item" data-open="kultur">Kultur &amp; Etikette</button></li>
       <li><button class="toc-item" data-open="jlpt">JLPT-Prüfungen</button></li>
       <li><button class="toc-item" data-open="ressourcen">Ressourcen &amp; Tools</button></li>
@@ -877,11 +880,26 @@ hoeren: {
         ← Zurück zur Aussprache
       </button>
 
-      <button class="toc-item" data-open="ressourcen" data-resource-target="res-lesen">
-        Weiter zum Lesen →
+      <button class="toc-item" data-open="anki">
+        Weiter zu Anki &amp; SRS →
       </button>
     </div>
   `
+},
+anki: {
+  title: "Anki &amp; SRS",
+  quest: "Ein SRS zeigt dir Karten genau dann, wenn du sie sonst vergessen würdest. Bewerte ehrlich — nicht bequem.",
+  src: "pages/anki.html",
+},
+yomitan: {
+  title: "Yomitan",
+  quest: "Ein Klick, eine Bedeutung. Yomitan macht jeden japanischen Text zu einem Nachschlagewerk.",
+  src: "pages/yomitan.html",
+},
+mining: {
+  title: "Mining",
+  quest: "Aus echten Sätzen eigene Karten bauen — der Übergang von fertigen Decks zu deinem eigenen Wortschatz.",
+  src: "pages/mining.html",
 },
   kultur: { title:"文化 — Kultur", quest:"Sprache und Kultur gehören zusammen — hier lernst du den Kontext.", html:`
     <span class="eyebrow win-eyebrow">Kontext</span>

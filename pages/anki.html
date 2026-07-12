@@ -1,0 +1,137 @@
+<!-- ============================================================
+     pages/anki.html -- Inhalt des "Anki & SRS"-Fensters.
+     Wird von js/windows.js per fetch() geladen und in das Fenster
+     eingesetzt, sobald es zum ersten Mal geöffnet wird.
+     ============================================================ -->
+<span class="eyebrow win-eyebrow">Werkzeuge</span>
+<h2 class="win-h2">Anki &amp; SRS</h2>
+
+<p class="win-p">
+  Anki ist das mit Abstand am häufigsten empfohlene Lernwerkzeug in der
+  Japanisch-Community. Bevor du dich in Decks und Einstellungen stürzt,
+  lohnt sich ein kurzer Blick darauf, <strong>warum</strong> ein SRS
+  überhaupt funktioniert.
+</p>
+
+<h3 class="win-h3">Was ist ein SRS?</h3>
+<p class="win-p">
+  SRS steht für <strong>Spaced Repetition System</strong> — ein System für
+  zeitlich gestaffelte Wiederholungen. Statt jede Karte täglich zu
+  wiederholen, zeigt dir Anki eine Karte kurz bevor du sie vermutlich
+  vergisst. Erinnerst du dich, wird das Intervall bis zur nächsten
+  Wiederholung länger. Vergisst du, wird es wieder kürzer.
+</p>
+<p class="win-p">
+  Dadurch verbringst du deine Lernzeit vor allem mit Karten, die gerade an
+  der Kippe zum Vergessen stehen — und nicht mit Karten, die du ohnehin
+  längst sicher kannst.
+</p>
+
+<h3 class="win-h3">Again, Hard, Good und Easy</h3>
+<p class="win-p">
+  Nach jeder Karte bewertest du, wie gut du dich erinnert hast:
+</p>
+<ul class="win-list">
+  <li><strong>Again:</strong> Du wusstest die Antwort nicht. Die Karte kommt bald wieder.</li>
+  <li><strong>Hard:</strong> Du wusstest sie, aber nur mit deutlicher Mühe.</li>
+  <li><strong>Good:</strong> Du wusstest sie ohne größere Schwierigkeiten.</li>
+  <li><strong>Easy:</strong> Du wusstest sie sofort und mühelos.</li>
+</ul>
+<p class="win-p">
+  Bewerte ehrlich danach, wie es sich tatsächlich angefühlt hat — nicht
+  danach, wie du möglichst wenige zukünftige Wiederholungen bekommst. Ein
+  zu großzügiges „Easy“ verschiebt Karten so weit nach vorn, dass du sie
+  bis zur nächsten Wiederholung wieder vergessen hast.
+</p>
+
+<h3 class="win-h3">FSRS — der modernere Algorithmus</h3>
+<p class="win-p">
+  Ankis ursprünglicher Algorithmus (SM-2) berechnet Intervalle über einen
+  festen „Ease Factor“ pro Karte, der bei häufigem „Again“ schnell in eine
+  Abwärtsspirale geraten kann — in der Community oft „Ease Hell“ genannt.
+</p>
+<p class="win-p">
+  <strong>FSRS</strong> (Free Spaced Repetition Scheduler) ist der neuere,
+  in Anki eingebaute Algorithmus. Er lernt aus deinem tatsächlichen
+  Wiederholungsverlauf, wie gut du dir Dinge merkst, und plant Intervalle
+  entsprechend individueller. Statt eines Ease Factors stellst du eine
+  <strong>gewünschte Erinnerungsrate</strong> ein (z. B. 90 %) — FSRS
+  versucht dann, dieses Ziel für jede einzelne Karte zu treffen.
+</p>
+<p class="win-p">
+  FSRS lässt sich in den Deck-Optionen unter „Erweiterte Einstellungen“
+  aktivieren und wird für neue Anki-Nutzer:innen mittlerweile empfohlen,
+  da es Wiederholungen in der Regel treffsicherer und mit weniger
+  unnötigen Reviews plant als das alte System.
+</p>
+
+<h3 class="win-h3">Leech-Karten erkennen und behandeln</h3>
+<p class="win-p">
+  Eine <strong>Leech</strong>-Karte ist eine Karte, die du immer wieder
+  vergisst — Anki markiert sie nach mehreren „Again“-Bewertungen
+  automatisch. Leeches sind ein Zeichen, dass mit der Karte selbst etwas
+  nicht stimmt, nicht dass du „schlecht lernst“.
+</p>
+<ul class="win-list">
+  <li>Ist der Beispielsatz zu mehrdeutig oder zu schwer?</li>
+  <li>Fehlt Kontext, um dich an die Bedeutung zu erinnern?</li>
+  <li>Ist das Wort selten genug, dass es sich kaum lohnt?</li>
+</ul>
+<p class="win-p">
+  Je nach Ursache hilft es, die Karte umzuformulieren, einen besseren
+  Beispielsatz oder Audio zu ergänzen, die Karte auszusetzen oder sie
+  einfach zu löschen, wenn sie es nicht wert ist.
+</p>
+
+<h3 class="win-h3">Wie viele neue Karten pro Tag?</h3>
+<p class="win-p">
+  Eine grobe Faustregel für den Einstieg findest du im
+  <button class="inline-link" data-open="wortschatz">Wortschatz-Bereich</button>.
+  Wichtiger als die exakte Zahl ist, sie an deine tägliche Reviewlast
+  anzupassen: Türmen sich deine Wiederholungen, reduziere zuerst die
+  Anzahl neuer Karten, statt Reviews ausfallen zu lassen.
+</p>
+
+<h3 class="win-h3">Grunddecks im Überblick</h3>
+<p class="win-p">
+  Eine vollständige Einordnung von Kaishi 1.5k, Core 2k/6k, Tango N5 und
+  weiteren Grunddecks — inklusive Empfehlung, welches für dich passt —
+  findest du ebenfalls im
+  <button class="inline-link" data-open="wortschatz">Wortschatz-Bereich</button>.
+</p>
+
+<h3 class="win-h3">Ein paar praktische Basics</h3>
+<ul class="win-list">
+  <li><strong>Sync:</strong> Ein kostenloser AnkiWeb-Account hält deine Decks zwischen Geräten synchron.</li>
+  <li><strong>Backups:</strong> Anki legt automatisch lokale Backups an — zusätzlich lohnt sich hin und wieder ein manueller Export als Sicherheitskopie.</li>
+  <li><strong>Mobil lernen:</strong> AnkiDroid (Android) ist kostenlos, AnkiMobile (iOS) ist kostenpflichtig. Beide synchronisieren über denselben AnkiWeb-Account.</li>
+</ul>
+
+<h3 class="win-h3">Teste dich selbst</h3>
+<details class="faq-item">
+  <summary>Was macht ein SRS anders als stures tägliches Wiederholen?</summary>
+  <p>Es zeigt dir jede Karte kurz bevor du sie vermutlich vergisst, statt sie unabhängig vom Vergessensrisiko jeden Tag zu wiederholen.</p>
+</details>
+<details class="faq-item">
+  <summary>Wonach solltest du Again/Hard/Good/Easy bewerten?</summary>
+  <p>Danach, wie es sich beim Erinnern tatsächlich angefühlt hat — nicht danach, wie du möglichst wenige zukünftige Wiederholungen bekommst.</p>
+</details>
+<details class="faq-item">
+  <summary>Was bedeutet es, wenn eine Karte zur Leech wird?</summary>
+  <p>Dass du sie wiederholt vergisst — meistens ein Zeichen für ein Problem mit der Karte selbst (Mehrdeutigkeit, fehlender Kontext, zu geringe Relevanz), nicht mit dir.</p>
+</details>
+
+<div class="resource-cta">
+  <p class="win-p">
+    Anki selbst sowie alle empfohlenen Grunddecks findest du gesammelt im
+    Ressourcenbereich.
+  </p>
+  <button class="toc-item" data-open="ressourcen" data-resource-target="res-vokabeln">
+    Anki-Ressourcen öffnen →
+  </button>
+</div>
+
+<div class="win-navigation">
+  <button class="toc-item" data-open="hoeren">← Zurück zu Hörverstehen</button>
+  <button class="toc-item" data-open="yomitan">Weiter zu Yomitan →</button>
+</div>

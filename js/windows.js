@@ -16,7 +16,7 @@ const WINDOW_SIZE_KEY = 'japanischzimmer-window-sizes-v1';
 const LARGE_GUIDE_WINDOWS = new Set([
   'guide', 'toc', 'kana', 'hiragana', 'katakana', 'kanji',
   'grammatik', 'satzstruktur', 'verbformen', 'haga', 'wo', 'nide', 'teform',
-  'wortschatz', 'aussprache', 'hoeren', 'ressourcen', 'jlpt',
+  'wortschatz', 'aussprache', 'hoeren', 'anki', 'yomitan', 'mining', 'ressourcen', 'jlpt',
   'kultur', 'reading', 'immersion'
 ]);
 
@@ -140,7 +140,7 @@ function buildWindow(id){
     el.contentReady = Promise.resolve();
   } else if(data.src){
     // Inhalt liegt in einer eigenen Datei unter pages/ und wird per fetch() nachgeladen.
-    el.contentReady = fetch(data.src)
+    el.contentReady = fetch(data.src, { cache: 'no-cache' })
       .then(response => {
         if(!response.ok) throw new Error('HTTP ' + response.status);
         return response.text();
