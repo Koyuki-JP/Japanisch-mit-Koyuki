@@ -2766,14 +2766,6 @@ function makeResizable(win, handle){
   });
 }
 
-function stopResize(){
-    resizing = false;
-    win.classList.remove('resizing');
-  }
-  handle.addEventListener('pointerup', stopResize);
-  handle.addEventListener('pointercancel', stopResize);
-}
-
 document.addEventListener('click', (e) => {
   const guideStep = e.target.closest('[data-guide-step]');
   if(guideStep){
