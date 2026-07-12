@@ -2213,6 +2213,11 @@ function buildWindow(id){
   el.querySelector('[data-close]').addEventListener('click', (e) => {
     e.stopPropagation();
     el.classList.remove('open');
+
+    if(state[id]){
+      state[id].persistent = false;
+    }
+
     if(activeId === id) setActive('home', homeEl);
   });
   return el;
@@ -2235,24 +2240,48 @@ function setActive(id, el){
 }
 
 function closeAllContentWindows(){
-  Object.values(state).forEach(({ el }) => {
-    el.classList.remove('open');
+  Object.values(state).forEach(entry => {
+    entry.el.classList.remove('open');
+    entry.persistent = false;
   });
   setActive('home', homeEl);
 }
 
-function openWindow(id){
+function openWindow(id, opener = null){
   if(!panels[id]) return;
 
-  // Es bleibt immer nur ein großes Inhaltsfenster geöffnet.
-  Object.entries(state).forEach(([windowId, entry]) => {
-    if(windowId !== id) entry.el.classList.remove('open');
-  });
+  const openedFromHome = Boolean(opener && opener.closest('#window-home'));
+  const openedFromWindow = opener ? opener.closest('.window') : null;
+  const parentWindowId = openedFromWindow && openedFromWindow.id !== 'window-home'
+    ? openedFromWindow.id.replace('window-', '')
+    : null;
 
   let s = state[id];
   if(!s){
-    s = { el: buildWindow(id), positioned:false };
+    s = {
+      el: buildWindow(id),
+      positioned: false,
+      persistent: false
+    };
     state[id] = s;
+  }
+
+  // Alles, was direkt über das Startmenü geöffnet wird, bleibt als
+  // Hauptfenster bestehen, auch wenn daraus weitere Guides geöffnet werden.
+  if(openedFromHome){
+    s.persistent = true;
+  } else {
+    // Bei Navigation innerhalb eines Guides wird nur das zuvor geöffnete
+    // Unterfenster geschlossen. Hauptfenster vom Startmenü bleiben offen.
+    Object.entries(state).forEach(([windowId, entry]) => {
+      const isTarget = windowId === id;
+      const isPersistent = entry.persistent;
+      const isParent = windowId === parentWindowId;
+
+      if(!isTarget && !isPersistent && !isParent){
+        entry.el.classList.remove('open');
+      }
+    });
   }
 
   if(!s.positioned){
@@ -2275,8 +2304,16 @@ function makeDraggable(win, titlebar){
     setActive(win.id.replace('window-',''), win);
     startX = e.clientX; startY = e.clientY;
     const rect = win.getBoundingClientRect();
-    origX = rect.left; origY = rect.top;
-    win.style.left = origX + 'px'; win.style.top = origY + 'px';
+    origX = rect.left;
+    origY = rect.top;
+
+    // Das Fenster ist anfangs mit translate(-50%, -50%) zentriert.
+    // Vor dem Ziehen wird diese Transformation entfernt, sonst springt
+    // das Fenster beim ersten Bewegen seitlich weg.
+    win.style.transform = 'none';
+    win.style.left = origX + 'px';
+    win.style.top = origY + 'px';
+
     titlebar.setPointerCapture(e.pointerId);
   });
   titlebar.addEventListener('pointermove', (e) => {
@@ -2333,7 +2370,7 @@ document.addEventListener('click', (e) => {
 
   const opener = e.target.closest('[data-open]');
   if(opener){
-    openWindow(opener.getAttribute('data-open'));
+    openWindow(opener.getAttribute('data-open'), opener);
     return;
   }
 
