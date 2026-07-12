@@ -840,6 +840,193 @@
     }
   }
 
+
+  /* ===== Ressourcenbibliothek ===== */
+  .resource-toolbar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:1rem 0 1.5rem;
+  }
+
+  .resource-jump{
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:8px 12px;
+    background:var(--bg-panel-2);
+    color:var(--text);
+    cursor:pointer;
+    font-size:0.76rem;
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+
+  .resource-jump:hover{
+    transform:translateY(-2px);
+    border-color:var(--pink-soft);
+    background:rgba(139,92,246,0.14);
+  }
+
+  .resource-section{
+    scroll-margin-top:20px;
+    margin:2rem 0 2.6rem;
+    padding-top:0.25rem;
+  }
+
+  .resource-section-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:0.9rem;
+    border-bottom:1px solid var(--line);
+    padding-bottom:0.65rem;
+  }
+
+  .resource-section-head .win-h3{
+    margin:0;
+  }
+
+  .resource-section-note{
+    margin:0;
+    color:var(--muted);
+    font-size:0.78rem;
+    line-height:1.5;
+    text-align:right;
+    max-width:34rem;
+  }
+
+  .resource-library-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:14px;
+  }
+
+  .resource-library-card{
+    background:var(--bg-panel-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+
+  .resource-library-card.recommended{
+    border-color:rgba(240,171,252,0.55);
+    box-shadow:0 14px 34px -26px rgba(236,72,153,0.95);
+  }
+
+  .resource-card-title{
+    margin:0.55rem 0 0.65rem;
+    font-family:'Nunito',sans-serif;
+    font-size:1.08rem;
+    color:var(--text);
+  }
+
+  .resource-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:0.85rem;
+  }
+
+  .resource-badge{
+    display:inline-flex;
+    align-items:center;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:4px 8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.57rem;
+    line-height:1;
+    color:var(--muted);
+    background:rgba(255,255,255,0.025);
+  }
+
+  .resource-badge.free{
+    color:#9ee6b2;
+    border-color:rgba(94,208,130,0.32);
+  }
+
+  .resource-badge.paid{
+    color:#ffc0d9;
+    border-color:rgba(236,72,153,0.32);
+  }
+
+  .resource-badge.freemium{
+    color:#f6d48d;
+    border-color:rgba(246,196,96,0.32);
+  }
+
+  .resource-badge.hardcore{
+    color:#d6b7ff;
+    border-color:rgba(139,92,246,0.42);
+  }
+
+  .resource-summary{
+    margin:0 0 0.8rem;
+    color:var(--muted);
+    font-size:0.86rem;
+    line-height:1.62;
+  }
+
+  .resource-verdict{
+    margin:auto 0 0.85rem;
+    padding:10px 12px;
+    border-left:2px solid var(--pink-soft);
+    background:rgba(139,92,246,0.07);
+    color:var(--muted);
+    font-size:0.77rem;
+    line-height:1.55;
+  }
+
+  .resource-verdict strong{
+    color:var(--text);
+  }
+
+  .resource-library-card .toc-item{
+    margin-top:auto;
+    margin-bottom:0;
+  }
+
+  .resource-warning{
+    border:1px solid rgba(246,196,96,0.26);
+    background:rgba(246,196,96,0.06);
+    border-radius:12px;
+    padding:14px 16px;
+    color:var(--muted);
+    font-size:0.84rem;
+    line-height:1.65;
+    margin:1rem 0 1.5rem;
+  }
+
+  .resource-cta{
+    margin:1.2rem 0;
+    padding:14px 16px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:rgba(139,92,246,0.07);
+  }
+
+  .resource-cta p{
+    margin:0 0 0.75rem;
+  }
+
+  @media (max-width:760px){
+    .resource-section-head{
+      align-items:flex-start;
+      flex-direction:column;
+    }
+
+    .resource-section-note{
+      text-align:left;
+    }
+
+    .resource-library-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1100,6 +1287,16 @@ guide: {
       </strong>
     </p>
 
+    <div class="resource-cta">
+      <p class="win-p">
+        Du möchtest verschiedene Lernwege vergleichen? Im Ressourcenbereich
+        findest du kompakte und intensive Immersions-Guides mit Einordnung.
+      </p>
+      <button class="toc-item" data-open="ressourcen" data-resource-target="res-guides">
+        Lernwege vergleichen →
+      </button>
+    </div>
+
     <button class="toc-item" data-open="kana">
       Mit Kana starten →
     </button>
@@ -1263,6 +1460,16 @@ guide: {
         meisten Zeichen erkennst, kannst du den nächsten Schritt machen.
       </strong>
     </p>
+
+    <div class="resource-cta">
+      <p class="win-p">
+        Videos und ein interaktives Kana-Übungstool findest du gesammelt
+        im Ressourcenbereich.
+      </p>
+      <button class="toc-item" data-open="ressourcen" data-resource-target="res-kana">
+        Kana-Ressourcen öffnen →
+      </button>
+    </div>
 
     <div class="win-navigation">
       <button class="toc-item" data-open="guide">
@@ -1530,6 +1737,59 @@ kanji: {
   `
 },
 
+
+grammatik: {
+  title: "文法 — Grammatik",
+  quest: "Grammatik ist kein Regelmonster. Nutze sie als Landkarte, damit echte japanische Sätze nach und nach Sinn ergeben.",
+  html: `
+    <span class="eyebrow win-eyebrow">Grundlagen</span>
+    <h2 class="win-h2">Grammatik verstehen</h2>
+
+    <p class="win-p">
+      Japanische Grammatik unterscheidet sich deutlich von der deutschen.
+      Das bedeutet aber nicht, dass du zuerst ein vollständiges Regelbuch
+      auswendig lernen musst.
+    </p>
+
+    <p class="win-p">
+      Lerne zunächst häufige Satzmuster, Partikel und Verbformen so weit,
+      dass du sie in echten Sätzen wiedererkennst. Danach festigst du sie
+      durch Lesen, Hören und regelmäßige Wiederbegegnungen.
+    </p>
+
+    <h3 class="win-h3">Ein sinnvoller Einstieg</h3>
+    <ol class="win-list">
+      <li>Grundlegende Satzstellung verstehen</li>
+      <li>Partikel wie は・が・を・に kennenlernen</li>
+      <li>Verbformen in echten Beispielsätzen wiedererkennen</li>
+      <li>Grammatik regelmäßig in deiner Immersion beobachten</li>
+    </ol>
+
+    <h3 class="win-h3">Guide oder SRS?</h3>
+    <p class="win-p">
+      Ein Guide eignet sich gut für Erklärungen und Zusammenhänge.
+      Ein Grammatik-SRS wie Bunpro hilft beim regelmäßigen Wiederholen.
+      Beides ist optional und ersetzt nicht den Kontakt mit echtem Japanisch.
+    </p>
+
+    <div class="resource-cta">
+      <p class="win-p">
+        Im Ressourcenbereich findest du kostenlose Grammatik-Guides,
+        Video-Kurse, Cure-Dolly-Transkripte und Bunpro als kostenpflichtige
+        Übungsplattform.
+      </p>
+      <button class="toc-item" data-open="ressourcen" data-resource-target="res-grammatik">
+        Passende Grammatik-Ressourcen öffnen →
+      </button>
+    </div>
+
+    <div class="win-navigation">
+      <button class="toc-item" data-open="kanji">← Zurück zu Kanji</button>
+      <button class="toc-item" data-open="wortschatz">Weiter zu Wortschatz →</button>
+    </div>
+  `
+},
+
   wortschatz: {
   title: "単語 — Wortschatz",
 
@@ -1636,6 +1896,16 @@ kanji: {
       Für Anfänger:innen eignet sich zunächst ein gutes,
       häufigkeitsbasiertes Deck. Du musst nicht direkt eigene Karten erstellen.
     </p>
+
+    <div class="resource-cta">
+      <p class="win-p">
+        Alle empfohlenen Grunddecks, Anki und jpdb findest du mit Angaben
+        zu Sprache, Umfang, Niveau und Kosten im Ressourcenbereich.
+      </p>
+      <button class="toc-item" data-open="ressourcen" data-resource-target="res-vokabeln">
+        Vokabel- und Anki-Ressourcen öffnen →
+      </button>
+    </div>
 
     <h3 class="win-h3">Welche Anki-Decks eignen sich?</h3>
 
@@ -2406,47 +2676,630 @@ jlpt: {
     </div>
   `
 },
-  ressourcen: { title:"リソース", quest:"Hier liegt deine Ausrüstung — Tools, Wörterbücher und weitere nützliche Links", html:`
-    <span class="eyebrow win-eyebrow">Werkzeugkasten</span>
+  ressourcen: {
+  title:"リソース — Ressourcen",
+  quest:"Hier liegt deine Ausrüstung. Wähle nur die Werkzeuge, die zu deinem aktuellen Lernschritt passen.",
+  html:`
+    <span class="eyebrow win-eyebrow">Bibliothek</span>
     <h2 class="win-h2">Ressourcen &amp; Tools</h2>
+
     <p class="win-p">
-      Diese Werkzeuge begleiten dich durch den ganzen Guide — vom Karteikarten-Lernen
-      bis zum Nachschlagen einzelner Wörter.
+      Diese Sammlung ist nach Einsatzzweck sortiert. Sprache, Niveau und
+      Kostenmodell stehen direkt an jeder Empfehlung. Du brauchst nicht alles:
+      Wähle pro Lernbereich zunächst höchstens ein oder zwei Werkzeuge.
     </p>
-    <div class="resource-grid">
-      <section class="resource-card">
-        <span class="eyebrow">Karteikarten</span>
-        <h3 class="win-h3">Anki</h3>
-        <p class="win-p">Das Spaced-Repetition-Programm, auf dem so gut wie alle Vokabel-Decks in diesem Guide basieren.</p>
-        <a class="toc-item" href="https://apps.ankiweb.net/" target="_blank" rel="noopener">Anki herunterladen ↗</a>
-      </section>
-      <section class="resource-card">
-        <span class="eyebrow">Wörterbuch</span>
-        <h3 class="win-h3">Jisho.org</h3>
-        <p class="win-p">Ein schnelles, kostenloses Online-Wörterbuch für einzelne Wörter und Kanji.</p>
-        <a class="toc-item" href="https://jisho.org/" target="_blank" rel="noopener">Jisho öffnen ↗</a>
-      </section>
-      <section class="resource-card">
-        <span class="eyebrow">Wörterbuch &amp; SRS</span>
-        <h3 class="win-h3">jpdb.io</h3>
-        <p class="win-p">Wörterbuch mit eingebautem SRS-System, praktisch um Vokabular aus Anime, Manga oder Büchern zu tracken.</p>
-        <a class="toc-item" href="https://jpdb.io/" target="_blank" rel="noopener">jpdb öffnen ↗</a>
-      </section>
-      <section class="resource-card">
-        <span class="eyebrow">Grammatik</span>
-        <h3 class="win-h3">Tae Kim's Grammar Guide</h3>
-        <p class="win-p">Eine kostenlose, ausführliche Grammatikreferenz, die viele Anfänger:innen als Nachschlagewerk nutzen.</p>
-        <a class="toc-item" href="https://guidetojapanese.org/learn/grammar" target="_blank" rel="noopener">Guide öffnen ↗</a>
-      </section>
+
+    <div class="resource-warning">
+      <strong>Hinweis zu den Lernwegen:</strong>
+      Einige Guides vertreten sehr intensive Immersionsmethoden.
+      Nutze sie als Inspiration und Baukasten, nicht als unumstößlichen
+      Stundenplan. Ein nachhaltiger Lernweg darf zu deinem Alltag passen.
     </div>
+
+    <nav class="resource-toolbar" aria-label="Ressourcenkategorien">
+      <button class="resource-jump" data-open="ressourcen" data-resource-target="res-guides">Lernwege</button>
+      <button class="resource-jump" data-open="ressourcen" data-resource-target="res-kana">Kana</button>
+      <button class="resource-jump" data-open="ressourcen" data-resource-target="res-vokabeln">Vokabeln &amp; Anki</button>
+      <button class="resource-jump" data-open="ressourcen" data-resource-target="res-grammatik">Grammatik</button>
+      <button class="resource-jump" data-open="ressourcen" data-resource-target="res-lesen">Lesen</button>
+      <button class="resource-jump" data-open="ressourcen" data-resource-target="res-hoeren">Hören &amp; Immersion</button>
+      <button class="resource-jump" data-open="ressourcen" data-resource-target="res-jlpt">JLPT</button>
+    </nav>
+
+    <section class="resource-section" id="res-guides">
+      <div class="resource-section-head">
+        <h3 class="win-h3">Lernwege &amp; Methoden</h3>
+        <p class="resource-section-note">Englischsprachige Meta-Guides und Erfahrungsberichte</p>
+      </div>
+
+      <div class="resource-library-grid">
+        <article class="resource-library-card recommended">
+          <span class="eyebrow">Empfohlener Überblick</span>
+          <h4 class="resource-card-title">Morg Japanese Primer</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Anfänger</span>
+            <span class="resource-badge">Immersion</span>
+          </div>
+          <p class="resource-summary">
+            Kompakter Einstieg in Kana, Grundwortschatz, Grammatik,
+            Immersion und späteres Mining.
+          </p>
+          <p class="resource-verdict">
+            <strong>Einordnung:</strong> Klar und übersichtlich. Gut als
+            kurze Orientierung, aber keine vollständige Ausbildung.
+          </p>
+          <a class="toc-item" href="https://morg.systems/Japanese-Primer" target="_blank" rel="noopener">Primer öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Umfangreich</span>
+          <h4 class="resource-card-title">TheMoeWay</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Anfänger–Fortgeschritten</span>
+            <span class="resource-badge hardcore">Intensiv</span>
+          </div>
+          <p class="resource-summary">
+            Große Wissensbasis zu Immersion, Anki, Mining, Lesen,
+            Wörterbüchern und technischen Setups.
+          </p>
+          <p class="resource-verdict">
+            <strong>Community-Eindruck:</strong> Häufig empfohlen und sehr
+            nützlich als Nachschlagewerk. Die Informationsmenge kann am Anfang
+            jedoch erschlagen.
+          </p>
+          <a class="toc-item" href="https://learnjapanese.moe/" target="_blank" rel="noopener">TheMoeWay öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Immersionsarchiv</span>
+          <h4 class="resource-card-title">AJATT / Tatsumoto</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Alle Stufen</span>
+            <span class="resource-badge hardcore">Sehr intensiv</span>
+          </div>
+          <p class="resource-summary">
+            Sehr umfangreiche Artikel zu Immersion, Satz-Mining,
+            Untertiteln, Wörterbüchern, Pitch Accent und Lernumgebung.
+          </p>
+          <p class="resource-verdict">
+            <strong>Einordnung:</strong> Reich an praktischen Ideen, aber stark
+            meinungsbasiert. Einzelne Bausteine herauspicken statt alles
+            wortwörtlich zu übernehmen.
+          </p>
+          <a class="toc-item" href="https://ajatt.top/blog/table-of-contents.html" target="_blank" rel="noopener">Inhaltsverzeichnis öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Sammlung</span>
+          <h4 class="resource-card-title">Awesome Japanese</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Alle Stufen</span>
+          </div>
+          <p class="resource-summary">
+            Kuratierte GitHub-Sammlung mit Lernwegen, Wörterbüchern,
+            Lesematerial, Software und vielen weiteren Links.
+          </p>
+          <p class="resource-verdict">
+            <strong>Einordnung:</strong> Hervorragend zum Stöbern und
+            Nachschlagen, aber kein geführter Lernweg.
+          </p>
+          <a class="toc-item" href="https://github.com/mh-343/Awesome-Japanese" target="_blank" rel="noopener">Sammlung öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Erfahrungsbericht</span>
+          <h4 class="resource-card-title">180/180 beim N1 in 8,5 Monaten</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge hardcore">Extrem</span>
+          </div>
+          <p class="resource-summary">
+            Persönlicher Reddit-Bericht über einen außergewöhnlich schnellen
+            und sehr intensiven Weg zum JLPT N1.
+          </p>
+          <p class="resource-verdict">
+            <strong>Wichtig:</strong> Interessant als Fallstudie, aber nicht als
+            realistischer Standardplan oder Erwartung an das eigene Tempo.
+          </p>
+          <a class="toc-item" href="https://www.reddit.com/r/LearnJapanese/comments/sedr0m/how_i_got_180180_on_n1_in_85_months/?rdt=44642" target="_blank" rel="noopener">Bericht lesen ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="resource-section" id="res-kana">
+      <div class="resource-section-head">
+        <h3 class="win-h3">Kana lernen und üben</h3>
+        <p class="resource-section-note">Für die ersten Tage und kurze Wiederholungen</p>
+      </div>
+
+      <div class="resource-library-grid">
+        <article class="resource-library-card">
+          <span class="eyebrow">Video</span>
+          <h4 class="resource-card-title">Hiragana-Einstieg</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Video</span>
+            <span class="resource-badge">Anfänger</span>
+          </div>
+          <p class="resource-summary">Visueller Einstieg in die Hiragana-Grundzeichen.</p>
+          <a class="toc-item" href="https://youtu.be/_wZHqOghvSs?si=uMGSXSq28z8F6i3f" target="_blank" rel="noopener">Video öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Video</span>
+          <h4 class="resource-card-title">Katakana-Einstieg</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Video</span>
+            <span class="resource-badge">Anfänger</span>
+          </div>
+          <p class="resource-summary">Visueller Einstieg in die Katakana-Grundzeichen.</p>
+          <a class="toc-item" href="https://youtu.be/LmZdpOXoLoU?si=ZH3zKUw_ZPW8dFgG" target="_blank" rel="noopener">Video öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card recommended">
+          <span class="eyebrow">Übungstool</span>
+          <h4 class="resource-card-title">Kana Pro</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Interaktiv</span>
+            <span class="resource-badge">Anfänger</span>
+          </div>
+          <p class="resource-summary">
+            Schnelle Erkennungsübungen für Hiragana und Katakana.
+            Ideal nach dem ersten Lernen der Zeichen.
+          </p>
+          <a class="toc-item" href="https://kana.pro/" target="_blank" rel="noopener">Kana Pro öffnen ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="resource-section" id="res-vokabeln">
+      <div class="resource-section-head">
+        <h3 class="win-h3">Vokabeln, Anki &amp; Grunddecks</h3>
+        <p class="resource-section-note">Wähle nur ein Grundwortschatz-Deck gleichzeitig</p>
+      </div>
+
+      <div class="resource-library-grid">
+        <article class="resource-library-card">
+          <span class="eyebrow">Software</span>
+          <h4 class="resource-card-title">Anki</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Desktop kostenlos</span>
+            <span class="resource-badge">Deutsch verfügbar</span>
+            <span class="resource-badge">Alle Stufen</span>
+          </div>
+          <p class="resource-summary">
+            Flexibles Spaced-Repetition-System für Vokabeln, Sätze,
+            Audio und später eigenes Mining.
+          </p>
+          <a class="toc-item" href="https://apps.ankiweb.net/" target="_blank" rel="noopener">Anki öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card recommended">
+          <span class="eyebrow">Hauptempfehlung</span>
+          <h4 class="resource-card-title">Kaishi 1.5k</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englische Bedeutungen</span>
+            <span class="resource-badge">Anfänger</span>
+            <span class="resource-badge">ca. 1.500 Wörter</span>
+          </div>
+          <p class="resource-summary">
+            Modernes, kompaktes Anfänger-Deck mit häufigen Wörtern,
+            Audio und Beispielsätzen. Gut als Brücke zu Immersion und Mining.
+          </p>
+          <p class="resource-verdict">
+            <strong>Community-Eindruck:</strong> Wird häufig als moderner,
+            überschaubarer Einstieg empfohlen. Besonders passend, wenn du
+            nicht jahrelang bei vorgefertigten Decks bleiben möchtest.
+          </p>
+          <a class="toc-item" href="https://ankiweb.net/shared/info/1196762551" target="_blank" rel="noopener">Kaishi 1.5k öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Alternative</span>
+          <h4 class="resource-card-title">Core 2k</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Anfänger</span>
+            <span class="resource-badge">ca. 2.000 Wörter</span>
+          </div>
+          <p class="resource-summary">
+            Klassisches Grundwortschatz-Deck mit größerem Umfang als Kaishi.
+          </p>
+          <a class="toc-item" href="https://ankiweb.net/shared/info/2141233552" target="_blank" rel="noopener">Core 2k öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Langzeitdeck</span>
+          <h4 class="resource-card-title">Core 6k</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Anfänger–Mittelstufe</span>
+            <span class="resource-badge">ca. 6.000 Wörter</span>
+          </div>
+          <p class="resource-summary">
+            Umfangreicher, vorgegebener Wortschatzweg. Sinnvoll für Lernende,
+            die lange mit einem fertigen Deck arbeiten möchten.
+          </p>
+          <a class="toc-item" href="https://ankiweb.net/shared/info/1880390099" target="_blank" rel="noopener">Core 6k öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Prüfungsfokus</span>
+          <h4 class="resource-card-title">JLPT Vocabulary Deck</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">JLPT</span>
+          </div>
+          <p class="resource-summary">
+            Prüfungsorientierter Wortschatz. Eher als Ergänzung für ein
+            konkretes JLPT-Ziel als als allgemeines erstes Immersionsdeck.
+          </p>
+          <a class="toc-item" href="https://ankiweb.net/shared/info/1550984460" target="_blank" rel="noopener">JLPT-Deck öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Wörterbuch &amp; SRS</span>
+          <h4 class="resource-card-title">jpdb</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos nutzbar</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Mittelstufe</span>
+          </div>
+          <p class="resource-summary">
+            Wörterbuch, Medien-Decks, Schwierigkeitslisten und ein integriertes
+            SRS für Anime, Bücher, Visual Novels und weitere Medien.
+          </p>
+          <a class="toc-item" href="https://jpdb.io/" target="_blank" rel="noopener">jpdb öffnen ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="resource-section" id="res-grammatik">
+      <div class="resource-section-head">
+        <h3 class="win-h3">Grammatik</h3>
+        <p class="resource-section-note">Erklärungen, Videos und optionale SRS-Übungen</p>
+      </div>
+
+      <div class="resource-library-grid">
+        <article class="resource-library-card recommended">
+          <span class="eyebrow">Referenz</span>
+          <h4 class="resource-card-title">Tae Kim's Grammar Guide</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Anfänger–Mittelstufe</span>
+          </div>
+          <p class="resource-summary">
+            Strukturierter Grammatik-Guide, der sich gut zum ersten Überblick
+            und späteren Nachschlagen eignet.
+          </p>
+          <a class="toc-item" href="https://guidetojapanese.org/learn/grammar" target="_blank" rel="noopener">Tae Kim öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Grammatik-SRS</span>
+          <h4 class="resource-card-title">Bunpro</h4>
+          <div class="resource-meta">
+            <span class="resource-badge paid">Kostenpflichtig</span>
+            <span class="resource-badge freemium">30 Tage Testphase</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">N5–N1</span>
+          </div>
+          <p class="resource-summary">
+            SRS-basierte Grammatikübungen mit vielen Beispielsätzen,
+            Lernpfaden und Verweisen auf externe Erklärungen.
+          </p>
+          <p class="resource-verdict">
+            <strong>Community-Eindruck:</strong> Häufig für Wiederholung und
+            Struktur gelobt. Als einziges Grammatiksystem kann es trocken
+            wirken; am besten zusammen mit echten Sätzen verwenden.
+          </p>
+          <a class="toc-item" href="https://bunpro.jp/" target="_blank" rel="noopener">Bunpro öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Videokurs</span>
+          <h4 class="resource-card-title">YouTube-Grammatik-Playlist</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Video</span>
+            <span class="resource-badge">Anfänger</span>
+          </div>
+          <p class="resource-summary">Zusammenhängende Videoreihe für grundlegende Grammatik.</p>
+          <a class="toc-item" href="https://www.youtube.com/watch?v=pSvH9vH60Ig&list=PLg9uYxuZf8x_A-vcqqyOFZu06WlhnypWj" target="_blank" rel="noopener">Playlist öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Alternative Perspektive</span>
+          <h4 class="resource-card-title">Cure Dolly Transcripts</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Anfänger–Mittelstufe</span>
+          </div>
+          <p class="resource-summary">
+            Textfassungen der Cure-Dolly-Erklärungen. Nützlich, wenn klassische
+            Schulgrammatik für dich nicht klickt.
+          </p>
+          <p class="resource-verdict">
+            <strong>Einordnung:</strong> Für manche Lernende ein Aha-Moment,
+            für andere unnötig eigenwillig. Als ergänzende Perspektive nutzen.
+          </p>
+          <a class="toc-item" href="https://kellenok.github.io/cure-script/about.html" target="_blank" rel="noopener">Transkripte öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Gaming</span>
+          <h4 class="resource-card-title">Game Gengo</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Video</span>
+            <span class="resource-badge">Anfänger–Mittelstufe</span>
+          </div>
+          <p class="resource-summary">
+            Grammatik und Sprachgebrauch anhand japanischer Videospiele.
+            Besonders motivierend für Gaming-Fans.
+          </p>
+          <a class="toc-item" href="https://www.youtube.com/@GameGengo/playlists" target="_blank" rel="noopener">Playlists öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Einzelvideo</span>
+          <h4 class="resource-card-title">Zusätzliche Grammatikerklärung</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Video</span>
+          </div>
+          <p class="resource-summary">
+            Ergänzendes Video für eine weitere Erklärungsperspektive.
+          </p>
+          <a class="toc-item" href="https://youtu.be/sbw5IDYyoF0?si=89GZr6OHCqnxltWr" target="_blank" rel="noopener">Video öffnen ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="resource-section" id="res-lesen">
+      <div class="resource-section-head">
+        <h3 class="win-h3">Lesen &amp; Graded Readers</h3>
+        <p class="resource-section-note">Vom ersten einfachen Text bis zu nativen Büchern</p>
+      </div>
+
+      <div class="resource-library-grid">
+        <article class="resource-library-card recommended">
+          <span class="eyebrow">Graded Readers</span>
+          <h4 class="resource-card-title">Tadoku Free Books</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Japanisch</span>
+            <span class="resource-badge">Starter–Fortgeschritten</span>
+            <span class="resource-badge">teilweise Audio</span>
+          </div>
+          <p class="resource-summary">
+            Große Sammlung nach Schwierigkeitsstufen sortierter Kurztexte.
+            Viele Bücher lassen sich im Browser lesen oder als PDF herunterladen.
+          </p>
+          <p class="resource-verdict">
+            <strong>Community-Eindruck:</strong> Einer der häufigsten
+            Einstiegstipps fürs Lesen. Die einfachsten Geschichten können
+            kindlich oder sehr simpel wirken, erfüllen aber ihren Zweck.
+          </p>
+          <a class="toc-item" href="https://tadoku.org/japanese/en/free-books-en/" target="_blank" rel="noopener">Tadoku öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Geführtes Lesen</span>
+          <h4 class="resource-card-title">Satori Reader</h4>
+          <div class="resource-meta">
+            <span class="resource-badge freemium">Freemium</span>
+            <span class="resource-badge paid">Vollzugang kostenpflichtig</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Mittelstufe</span>
+            <span class="resource-badge">Audio</span>
+          </div>
+          <p class="resource-summary">
+            Geschichten mit Satz-für-Satz-Erklärungen, Audio,
+            Grammatikhinweisen und konfigurierbaren Kanji-Darstellungen.
+          </p>
+          <p class="resource-verdict">
+            <strong>Community-Eindruck:</strong> Oft als starke Brücke zu
+            nativen Texten gelobt. Für komplette Anfänger meist noch zu schwer;
+            Geschmack an den Geschichten ist sehr individuell.
+          </p>
+          <a class="toc-item" href="https://www.satorireader.com/" target="_blank" rel="noopener">Satori Reader öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Lerner-Manga</span>
+          <h4 class="resource-card-title">Crystal Hunters</h4>
+          <div class="resource-meta">
+            <span class="resource-badge freemium">Band 1 kostenlos</span>
+            <span class="resource-badge paid">weitere Bände kostenpflichtig</span>
+            <span class="resource-badge">Japanisch</span>
+            <span class="resource-badge">Anfänger</span>
+          </div>
+          <p class="resource-summary">
+            Fantasy-Manga mit stark begrenztem Wortschatz, viel Wiederholung
+            und kostenlosen Sprachguides. Zusätzlich existiert eine natürlichere
+            japanische Fassung.
+          </p>
+          <p class="resource-verdict">
+            <strong>Community-Eindruck:</strong> Häufig als erster Manga
+            empfohlen. Die Wiederholungen helfen Anfängern, können für manche
+            Leser aber künstlich wirken.
+          </p>
+          <a class="toc-item" href="https://crystalhuntersmanga.com/free-stuff/" target="_blank" rel="noopener">Kostenlose Inhalte öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Schwierigkeit &amp; Reviews</span>
+          <h4 class="resource-card-title">Natively</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos nutzbar</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Alle Stufen</span>
+            <span class="resource-badge">Community-Ratings</span>
+          </div>
+          <p class="resource-summary">
+            Community-Datenbank mit Schwierigkeitsbewertungen,
+            Reviews und Leselisten für Manga, Bücher, Filme und Serien.
+          </p>
+          <p class="resource-verdict">
+            <strong>Einordnung:</strong> Sehr hilfreich für die Materialwahl.
+            Schwierigkeitswerte bleiben subjektiv und werden zuverlässiger,
+            wenn viele Personen ein Werk bewertet haben.
+          </p>
+          <a class="toc-item" href="https://learnnatively.com/search/jpn/books/" target="_blank" rel="noopener">Bücher durchsuchen ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="resource-section" id="res-hoeren">
+      <div class="resource-section-head">
+        <h3 class="win-h3">Hörverstehen &amp; Immersion</h3>
+        <p class="resource-section-note">Medienlisten, Podcasts und Schwierigkeitsdaten</p>
+      </div>
+
+      <div class="resource-library-grid">
+        <article class="resource-library-card recommended">
+          <span class="eyebrow">Große Sammlung</span>
+          <h4 class="resource-card-title">Allgemeine Immersionsliste</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Gemischt</span>
+            <span class="resource-badge">Alle Stufen</span>
+          </div>
+          <p class="resource-summary">
+            Umfangreiche Tabelle mit unterschiedlichen japanischen Medien
+            und Einstiegsmöglichkeiten.
+          </p>
+          <a class="toc-item" href="https://docs.google.com/spreadsheets/d/1w42HEKEu2AzZg9K7PI0ma9ICmr2qYEKQ9IF4XxFSnQU/edit?gid=1999205540#gid=1999205540" target="_blank" rel="noopener">Liste öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Podcasts</span>
+          <h4 class="resource-card-title">Podcast-Liste</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Japanisch</span>
+            <span class="resource-badge">Anfänger–Fortgeschritten</span>
+          </div>
+          <p class="resource-summary">
+            Nachschlageliste für japanische Podcasts mit unterschiedlichen
+            Sprechgeschwindigkeiten und Themen.
+          </p>
+          <a class="toc-item" href="https://docs.google.com/spreadsheets/d/17P2dBQHnBnHcG3ua_24IO6sP9RDC-5b3WHV9Ri2N5qU/edit?gid=0#gid=0" target="_blank" rel="noopener">Podcast-Liste öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Medien-Datenbank</span>
+          <h4 class="resource-card-title">Jiten</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">Alle Stufen</span>
+          </div>
+          <p class="resource-summary">
+            Große Liste von Anime, Manga, Büchern, Spielen und weiteren Medien,
+            sortierbar nach Titel und Datensätzen.
+          </p>
+          <a class="toc-item" href="https://jiten.moe/decks/media?offset=0&sortBy=title&sortOrder=0" target="_blank" rel="noopener">Jiten öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">YouTube</span>
+          <h4 class="resource-card-title">Japanische YouTube-Liste</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Japanisch</span>
+            <span class="resource-badge">verschiedene Niveaus</span>
+          </div>
+          <p class="resource-summary">
+            Sammlung japanischer Kanäle für Unterhaltung, Gaming,
+            Alltag und regelmäßiges Hörtraining.
+          </p>
+          <a class="toc-item" href="https://docs.google.com/spreadsheets/d/1ETQWRoNKmWKpZxUO3OCpNXSLXuXB7UpQxEYtGXjdjVw/edit?usp=sharing" target="_blank" rel="noopener">YouTube-Liste öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Japanische E-Books</span>
+          <h4 class="resource-card-title">BOOK☆WALKER Japan</h4>
+          <div class="resource-meta">
+            <span class="resource-badge paid">Kostenpflichtiger Shop</span>
+            <span class="resource-badge">Japanisch</span>
+            <span class="resource-badge">Mittelstufe–Fortgeschritten</span>
+          </div>
+          <p class="resource-summary">
+            Japanischer Shop für Manga, Light Novels und Bücher.
+            Leseproben und zeitweise kostenlose Aktionen sind möglich,
+            die meisten vollständigen Werke sind kostenpflichtig.
+          </p>
+          <a class="toc-item" href="https://bookwalker.jp/st3/" target="_blank" rel="noopener">BOOK☆WALKER öffnen ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="resource-section" id="res-jlpt">
+      <div class="resource-section-head">
+        <h3 class="win-h3">JLPT</h3>
+        <p class="resource-section-note">Offizielle Aufgaben und gezielte Prüfungsvorbereitung</p>
+      </div>
+
+      <div class="resource-library-grid">
+        <article class="resource-library-card recommended">
+          <span class="eyebrow">Offiziell</span>
+          <h4 class="resource-card-title">JLPT Sample Questions</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Japanisch / Englisch</span>
+            <span class="resource-badge">N5–N1</span>
+          </div>
+          <p class="resource-summary">
+            Offizielle Beispielaufgaben und Informationen zum Prüfungsformat.
+            Der beste Ausgangspunkt, bevor du Übungsbücher kaufst.
+          </p>
+          <a class="toc-item" href="https://www.jlpt.jp/e/samples/forlearners.html" target="_blank" rel="noopener">Offizielle Aufgaben öffnen ↗</a>
+        </article>
+
+        <article class="resource-library-card">
+          <span class="eyebrow">Anki</span>
+          <h4 class="resource-card-title">JLPT Vocabulary Deck</h4>
+          <div class="resource-meta">
+            <span class="resource-badge free">Kostenlos</span>
+            <span class="resource-badge">Englisch</span>
+            <span class="resource-badge">JLPT</span>
+          </div>
+          <p class="resource-summary">
+            Prüfungswortschatz als Ergänzung zu echten Beispielaufgaben.
+            Nicht als alleiniger Nachweis für ein JLPT-Niveau verstehen.
+          </p>
+          <a class="toc-item" href="https://ankiweb.net/shared/info/1550984460" target="_blank" rel="noopener">JLPT-Deck öffnen ↗</a>
+        </article>
+      </div>
+    </section>
+
     <p class="win-p">
-      Die Anfänger-Decks für den Wortschatz-Einstieg findest du im
-      <button class="inline-link" data-open="wortschatz">Wortschatz-Bereich</button>,
-      Prüfungsmaterial für die JLPT im
-      <button class="inline-link" data-open="jlpt">JLPT-Bereich</button>.
+      Links und Preisangaben können sich verändern. Prüfe bei kostenpflichtigen
+      Angeboten vor dem Abschluss immer die aktuelle Anbieter-Seite.
     </p>
-  `},
-  faq: { title:"よくある質問", quest:"Fragen über Fragen — hier gibt's hoffentlich die passenden Antworten.", html:`
+  `
+},
+    faq: { title:"よくある質問", quest:"Fragen über Fragen — hier gibt's hoffentlich die passenden Antworten.", html:`
     <span class="eyebrow win-eyebrow">Fragen</span>
     <h2 class="win-h2">FAQ</h2>
     <details class="faq-item" open><summary>[Platzhalter: Frage 1]</summary><p>[Platzhalter: Antworttext.]</p></details>
@@ -2768,6 +3621,23 @@ function closeAllContentWindows(){
   setActive('home', homeEl);
 }
 
+
+function scrollToResourceTarget(targetId){
+  if(!targetId) return;
+
+  requestAnimationFrame(() => {
+    const resourceWindow = document.getElementById('window-ressourcen');
+    if(!resourceWindow) return;
+
+    const content = resourceWindow.querySelector('.window-content');
+    const target = resourceWindow.querySelector('#' + CSS.escape(targetId));
+    if(!content || !target) return;
+
+    const top = Math.max(0, target.offsetTop - 18);
+    content.scrollTo({ top, behavior:'smooth' });
+  });
+}
+
 function openWindow(id, opener = null){
   if(!panels[id]) return;
 
@@ -2962,6 +3832,11 @@ document.addEventListener('click', (e) => {
   const opener = e.target.closest('[data-open]');
   if(opener){
     openWindow(opener.getAttribute('data-open'), opener);
+
+    const resourceTarget = opener.getAttribute('data-resource-target');
+    if(resourceTarget){
+      scrollToResourceTarget(resourceTarget);
+    }
     return;
   }
 
