@@ -252,9 +252,10 @@ guide: {
       <li><button class="toc-item" data-open="anki">Anki &amp; SRS</button></li>
       <li><button class="toc-item" data-open="yomitan">Yomitan</button></li>
       <li><button class="toc-item" data-open="mining">Mining</button></li>
+      <li><button class="toc-item" data-open="tools">Tools-Bibliothek</button></li>
       <li><button class="toc-item" data-open="kultur">Kultur &amp; Etikette</button></li>
       <li><button class="toc-item" data-open="jlpt">JLPT-Prüfungen</button></li>
-      <li><button class="toc-item" data-open="ressourcen">Ressourcen &amp; Tools</button></li>
+      <li><button class="toc-item" data-open="ressourcen">Ressourcen</button></li>
       <li><button class="toc-item" data-open="faq">FAQ</button></li>
       <li><button class="toc-item" data-open="kontakt">Kontakt</button></li>
     </ul>
@@ -934,6 +935,51 @@ mining: {
   title: "Mining",
   quest: "Aus echten Sätzen eigene Karten bauen — der Übergang von fertigen Decks zu deinem eigenen Wortschatz.",
   src: "pages/mining.html",
+},
+tools: {
+  title: "Tools-Bibliothek",
+  quest: "Nicht jedes Tool ist für dich. Schau nach, welches Problem du gerade wirklich hast, bevor du etwas Neues installierst.",
+  src: "pages/tools.html",
+},
+"tool-asbplayer": {
+  title: "asbplayer",
+  quest: "Untertitelzeile anklicken, Karte fertig — asbplayer nimmt dir beim Streaming-Mining viel Handarbeit ab.",
+  src: "pages/tool-asbplayer.html",
+},
+"tool-mpvacious": {
+  title: "mpvacious",
+  quest: "Dasselbe Prinzip wie asbplayer, nur für lokale Videos im Player mpv.",
+  src: "pages/tool-mpvacious.html",
+},
+"tool-textractor": {
+  title: "Textractor",
+  quest: "Kein kopierbarer Text im Spiel? Textractor liest ihn trotzdem direkt aus dem Arbeitsspeicher aus.",
+  src: "pages/tool-textractor.html",
+},
+"tool-mokuro": {
+  title: "Mokuro",
+  quest: "Macht gescannte Manga-Seiten nachträglich durchsuch- und anklickbar.",
+  src: "pages/tool-mokuro.html",
+},
+"tool-jidoujisho": {
+  title: "jidoujisho",
+  quest: "Mining unterwegs: Player, Wörterbuch und Kartenerstellung in einer Android-App.",
+  src: "pages/tool-jidoujisho.html",
+},
+"tool-jpdb": {
+  title: "jpdb",
+  quest: "Wörterbuch, Medien-Decks und ein eigenes SRS an einem Ort — praktisch, wenn du kein eigenes Setup willst.",
+  src: "pages/tool-jpdb.html",
+},
+"tool-bunpro": {
+  title: "Bunpro",
+  quest: "Grammatik mit eingebauter Wiederholung statt nur Erklärung.",
+  src: "pages/tool-bunpro.html",
+},
+"tool-natively": {
+  title: "Natively",
+  quest: "Bevor du ein Buch anfängst: Community-Bewertungen zeigen dir, ob es zu deinem Niveau passt.",
+  src: "pages/tool-natively.html",
 },
   kultur: { title:"文化 — Kultur", quest:"Sprache und Kultur gehören zusammen — hier lernst du den Kontext.", html:`
     <span class="eyebrow win-eyebrow">Kontext</span>

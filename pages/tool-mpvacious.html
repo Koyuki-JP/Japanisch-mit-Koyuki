@@ -1,0 +1,58 @@
+<!-- ============================================================
+     pages/tool-mpvacious.html -- Tool-Steckbrief "mpvacious".
+     Wird von js/windows.js per fetch() geladen.
+     ============================================================ -->
+<span class="eyebrow win-eyebrow">Tools</span>
+<h2 class="win-h2">mpvacious</h2>
+
+<h3 class="win-h3">Was ist das?</h3>
+<p class="win-p">
+  mpvacious ist eine Erweiterung für den Videoplayer <strong>mpv</strong>.
+  Sie funktioniert wie asbplayer, aber für lokal gespeicherte Videodateien
+  statt fürs Streaming: Beim Pausieren oder Zurückspulen erfasst sie den
+  aktuellen Untertitelsatz, das Audio und einen Screenshot für eine
+  Anki-Karte.
+</p>
+
+<h3 class="win-h3">Brauchst du es jetzt wirklich?</h3>
+<p class="win-p">
+  Nur, wenn du Anime oder Serien als lokale Dateien schaust (statt im
+  Browser zu streamen) und daraus minen möchtest. Für reines Schauen ohne
+  Mining brauchst du es nicht.
+</p>
+
+<h3 class="win-h3">Steckbrief</h3>
+<ul class="win-list">
+  <li><strong>Kostenlos:</strong> ja, Open Source</li>
+  <li><strong>Sprache:</strong> Englische Dokumentation, technische Konfiguration</li>
+  <li><strong>Einrichtung:</strong> mittel bis anspruchsvoll — mpv selbst ist kein Standard-Videoplayer und muss zuerst eingerichtet werden</li>
+</ul>
+
+<h3 class="win-h3">Alternativen</h3>
+<ul class="win-list">
+  <li><button class="inline-link" data-open="tool-asbplayer">asbplayer</button> — dieselbe Idee für Streaming/Browser statt lokaler Dateien</li>
+  <li><button class="inline-link" data-open="tool-jidoujisho">jidoujisho</button> — vergleichbare Funktion mobil</li>
+</ul>
+
+<h3 class="win-h3">Ein sinnvolles Setup</h3>
+<ol class="win-list">
+  <li>mpv installieren</li>
+  <li>mpvacious-Skript in den mpv-Scripts-Ordner legen</li>
+  <li>Anki mit installiertem AnkiConnect geöffnet lassen</li>
+  <li>Video mit japanischen Untertiteln öffnen und mit der eingerichteten Tastenkombination minen</li>
+</ol>
+
+<h3 class="win-h3">Typische Fehler</h3>
+<details class="faq-item">
+  <summary>mpv findet die Untertiteldatei nicht</summary>
+  <p>Meist ein falscher Dateiname, ein abweichendes Encoding oder die Untertiteldatei liegt nicht im selben Ordner wie das Video.</p>
+</details>
+<details class="faq-item">
+  <summary>Der erfasste Audio-Ausschnitt ist nicht sauber getrimmt</summary>
+  <p>Liegt meist an ungenauen Zeitstempeln in der Untertiteldatei — bei schlecht synchronisierten Untertiteln lässt sich das nur bedingt vermeiden.</p>
+</details>
+
+<div class="win-navigation">
+  <button class="toc-item" data-open="tool-asbplayer">← Zurück zu asbplayer</button>
+  <button class="toc-item" data-open="tool-textractor">Weiter zu Textractor →</button>
+</div>

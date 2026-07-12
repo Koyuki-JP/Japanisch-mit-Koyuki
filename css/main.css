@@ -75,12 +75,10 @@
   /* ---------- Bühne ---------- */
   .stage{
     position:relative; width:100%; height:100%; overflow:hidden;
-    background: url('../assets/images/background.webp') center center / cover no-repeat, #0f0b17;
+    background: #1b1030;
   }
   body.light .stage{
-    background:
-      url('../assets/images/background-light.webp') center center / cover no-repeat,
-      #f7f0e8;
+    background: #fdeef6;
   }
   body.light{
     --bg:#f7f0e8;

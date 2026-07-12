@@ -17,7 +17,8 @@ const LARGE_GUIDE_WINDOWS = new Set([
   'guide', 'toc', 'kana', 'hiragana', 'katakana', 'kanji',
   'grammatik', 'satzstruktur', 'verbformen', 'haga', 'wo', 'nide', 'teform',
   'wortschatz', 'aussprache', 'hoeren', 'immersion', 'lesen', 'anki', 'yomitan', 'mining', 'ressourcen', 'jlpt',
-  'kultur'
+  'kultur', 'tools', 'tool-asbplayer', 'tool-mpvacious', 'tool-textractor', 'tool-mokuro',
+  'tool-jidoujisho', 'tool-jpdb', 'tool-bunpro', 'tool-natively'
 ]);
 
 const MEDIUM_WINDOWS = new Set([

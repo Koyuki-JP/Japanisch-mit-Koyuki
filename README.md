@@ -52,7 +52,8 @@ gibt.
 | 🔍 **Yomitan** | Einrichtung, Wörterbücher, AnkiConnect, Troubleshooting |
 | ⛏️ **Mining** | Sentence Mining, i+1-Prinzip, Mining nach Medium |
 | 試 **JLPT** | Die fünf Stufen, Prüfungsinhalte, Einordnung |
-| 🧰 **Ressourcen** | Kuratierte, eingeordnete Tools und Guides statt bloßer Linkliste |
+| 🧰 **Tools-Bibliothek** | Steckbriefe zu asbplayer, mpvacious, Textractor, Mokuro, jidoujisho, jpdb, Bunpro, Natively |
+| 📚 **Ressourcen** | Kuratierte, eingeordnete Guides und Decks statt bloßer Linkliste |
 
 ## Geplant
 
@@ -61,7 +62,7 @@ Der weitere Ausbau folgt einem festen Phasenplan:
 - [x] Grammatik-Themenseiten, Aussprache
 - [x] Anki/SRS → Yomitan → Mining
 - [x] Immersion & Lesen
-- [ ] Tools-Bibliothek (asbplayer, Mokuro, Textractor u. a.)
+- [x] Tools-Bibliothek (asbplayer, mpvacious, Textractor, Mokuro, jidoujisho, jpdb, Bunpro, Natively)
 - [ ] Deutsche Begriffsdatenbank & Fehlerdatenbank
 - [ ] Geführte Lernwege & interaktiver Entscheidungsbaum
 - [ ] Politur, Cross-Linking, Feinschliff

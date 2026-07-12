@@ -1,0 +1,61 @@
+<!-- ============================================================
+     pages/tool-textractor.html -- Tool-Steckbrief "Textractor".
+     Wird von js/windows.js per fetch() geladen.
+     ============================================================ -->
+<span class="eyebrow win-eyebrow">Tools</span>
+<h2 class="win-h2">Textractor</h2>
+
+<h3 class="win-h3">Was ist das?</h3>
+<p class="win-p">
+  Textractor ist ein Text-Hooking-Tool für Windows. Es liest Text direkt
+  aus dem Arbeitsspeicher eines laufenden Spiels aus — nützlich für
+  Visual Novels und andere Spiele, deren Text sich sonst nicht markieren
+  oder kopieren lässt, weil er nur als Grafik dargestellt wird.
+</p>
+
+<h3 class="win-h3">Brauchst du es jetzt wirklich?</h3>
+<p class="win-p">
+  Nur, wenn du Visual Novels oder Spiele auf Japanisch lesen oder minen
+  möchtest, die keinen eingebauten Textkopie-Support haben. Für Anime,
+  Manga oder Bücher brauchst du es nicht.
+</p>
+
+<h3 class="win-h3">Steckbrief</h3>
+<ul class="win-list">
+  <li><strong>Kostenlos:</strong> ja, Open Source</li>
+  <li><strong>Sprache:</strong> Englische Oberfläche</li>
+  <li><strong>Einrichtung:</strong> mittel — der richtige Text-Hook muss teils durch Ausprobieren gefunden werden</li>
+</ul>
+
+<h3 class="win-h3">Alternativen</h3>
+<ul class="win-list">
+  <li>Manche Visual-Novel-Reader bringen eigene Text-Hooking-Funktionen mit</li>
+  <li><button class="inline-link" data-open="tool-jidoujisho">jidoujisho</button> — für mobile Spiele mit anderem Ansatz</li>
+</ul>
+
+<h3 class="win-h3">Ein sinnvolles Setup</h3>
+<ol class="win-list">
+  <li>Textractor starten und das Spiel öffnen</li>
+  <li>Über „Attach" den Spielprozess auswählen</li>
+  <li>Unter den gefundenen Text-Hooks den passenden Kandidaten testen</li>
+  <li>Das Textfenster mit Yomitan zum Nachschlagen verbinden</li>
+</ol>
+
+<h3 class="win-h3">Typische Fehler</h3>
+<details class="faq-item">
+  <summary>Es erscheint gar kein Text</summary>
+  <p>Entweder wurde noch kein passender Hook gefunden, oder das Spiel nutzt einen Kopierschutz, der das Auslesen erschwert.</p>
+</details>
+<details class="faq-item">
+  <summary>Der Text ist doppelt oder verstümmelt</summary>
+  <p>Ein anderer Hook-Kandidat aus der Liste liefert meist saubereren Text — mehrere durchprobieren.</p>
+</details>
+<details class="faq-item">
+  <summary>Textractor erkennt den Spielprozess nicht</summary>
+  <p>Textractor häufig mit Administratorrechten starten, besonders bei Spielen, die selbst erhöhte Rechte benötigen.</p>
+</details>
+
+<div class="win-navigation">
+  <button class="toc-item" data-open="tool-mpvacious">← Zurück zu mpvacious</button>
+  <button class="toc-item" data-open="tool-mokuro">Weiter zu Mokuro →</button>
+</div>
