@@ -2846,13 +2846,7 @@ function makeDraggable(win, titlebar){
   });
 }
 
-function stopResize(){
-    resizing = false;
-    win.classList.remove('resizing');
-  }
-  handle.addEventListener('pointerup', stopResize);
-  handle.addEventListener('pointercancel', stopResize);
-}
+// Removed stray stopResize duplicate (listeners are registered within makeResizable)
 
 document.addEventListener('click', (e) => {
   const guideStep = e.target.closest('[data-guide-step]');
