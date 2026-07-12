@@ -16,8 +16,8 @@ const WINDOW_SIZE_KEY = 'japanischzimmer-window-sizes-v1';
 const LARGE_GUIDE_WINDOWS = new Set([
   'guide', 'toc', 'kana', 'hiragana', 'katakana', 'kanji',
   'grammatik', 'satzstruktur', 'verbformen', 'haga', 'wo', 'nide', 'teform',
-  'wortschatz', 'aussprache', 'hoeren', 'anki', 'yomitan', 'mining', 'ressourcen', 'jlpt',
-  'kultur', 'reading', 'immersion'
+  'wortschatz', 'aussprache', 'hoeren', 'immersion', 'lesen', 'anki', 'yomitan', 'mining', 'ressourcen', 'jlpt',
+  'kultur'
 ]);
 
 const MEDIUM_WINDOWS = new Set([

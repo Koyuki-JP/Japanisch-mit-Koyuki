@@ -1,7 +1,7 @@
 /* ============================================================
    js/app.js — Kern der App: Kana-Tabellen-Helfer, alle
    Panel-Definitionen (Titel/Quest/Inhalt bzw. Pfad zur
-   ausgelagerten Seite), der Wegweiser-Begleiter (Yuki) und die
+   ausgelagerten Seite), der Wegweiser-Begleiter (Sora) und die
    grundlegende Steuerung (Hell-/Dunkelmodus).
 
    Ladereihenfolge wichtig: nach data/resources.js, js/progress.js,
@@ -247,6 +247,8 @@ guide: {
       <li><button class="toc-item" data-open="wortschatz">Wortschatz</button></li>
       <li><button class="toc-item" data-open="aussprache">Aussprache</button></li>
       <li><button class="toc-item" data-open="hoeren">Hörverstehen</button></li>
+      <li><button class="toc-item" data-open="immersion">Immersion</button></li>
+      <li><button class="toc-item" data-open="lesen">Lesen</button></li>
       <li><button class="toc-item" data-open="anki">Anki &amp; SRS</button></li>
       <li><button class="toc-item" data-open="yomitan">Yomitan</button></li>
       <li><button class="toc-item" data-open="mining">Mining</button></li>
@@ -815,6 +817,28 @@ hoeren: {
       dass du fast etwas verstehst.
     </p>
 
+    <h3 class="win-h3">Shadowing und Condensed Audio</h3>
+
+    <p class="win-p">
+      Zwei Techniken helfen dir, dein Hörtraining gezielter zu machen:
+    </p>
+
+    <p class="win-p">
+      Beim <strong>Shadowing</strong> sprichst du einen kurzen Audioclip so
+      gleichzeitig oder unmittelbar danach mit, dass du Rhythmus und
+      Betonung möglichst genau nachahmst. Das trainiert Hören und
+      Aussprache gleichzeitig — die genaue Vorgehensweise steht im
+      <button class="inline-link" data-open="aussprache">Aussprache-Bereich</button>.
+    </p>
+
+    <p class="win-p">
+      <strong>Condensed Audio</strong> ist eine gekürzte Fassung einer
+      Folge oder eines Hörbuchs, bei der stille oder dialogfreie Abschnitte
+      automatisiert herausgeschnitten wurden. Dadurch hörst du auf
+      derselben Zeit deutlich mehr echten Dialog — praktisch für passives
+      Hören nebenbei, etwa beim Pendeln oder Aufräumen.
+    </p>
+
     <h3 class="win-h3">Was tun, wenn du fast nichts verstehst?</h3>
 
     <p class="win-p">
@@ -880,11 +904,21 @@ hoeren: {
         ← Zurück zur Aussprache
       </button>
 
-      <button class="toc-item" data-open="anki">
-        Weiter zu Anki &amp; SRS →
+      <button class="toc-item" data-open="immersion">
+        Weiter zur Immersion →
       </button>
     </div>
   `
+},
+immersion: {
+  title: "Immersion",
+  quest: "Immersion ist kein Zaubertrick — regelmäßiger, echter Kontakt mit Japanisch bringt dich weiter als jede einzelne perfekte Session.",
+  src: "pages/immersion.html",
+},
+lesen: {
+  title: "Lesen",
+  quest: "Vom ersten Graded Reader bis zur Light Novel — Lesen bringt dir Kanji, Grammatik und Wortschatz gleichzeitig näher.",
+  src: "pages/lesen.html",
 },
 anki: {
   title: "Anki &amp; SRS",
@@ -1016,7 +1050,7 @@ jlpt: {
     </div>
   `}
 };
-const homeQuest = "Hallo! Ich bin Yuki — klick auf eine Kachel, um deine Reise zu beginnen!";
+const homeQuest = "Hallo! Ich bin Sora — klick auf eine Kachel, um deine Reise zu beginnen!";
 
 
 

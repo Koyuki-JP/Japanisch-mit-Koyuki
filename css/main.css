@@ -75,11 +75,11 @@
   /* ---------- Bühne ---------- */
   .stage{
     position:relative; width:100%; height:100%; overflow:hidden;
-    background: url('../assets/images/Background.png') center center / cover no-repeat, #0f0b17;
+    background: url('../assets/images/background.webp') center center / cover no-repeat, #0f0b17;
   }
   body.light .stage{
     background:
-      url('Background white.png') center center / cover no-repeat,
+      url('../assets/images/background-light.webp') center center / cover no-repeat,
       #f7f0e8;
   }
   body.light{
@@ -92,13 +92,20 @@
   }
   /* Steuerung oben links */
   .top-controls{ position:fixed; top:18px; left:20px; z-index:500; display:flex; gap:14px; }
-  .top-controls button{
+  .top-controls button,
+  .top-controls .kofi-link{
     background: rgba(255,255,255,0.06); border:1px solid var(--line); border-radius:10px;
     width:34px; height:34px; color:var(--text); font-size:1rem; cursor:pointer;
     display:flex; align-items:center; justify-content:center;
-    transition: transform .15s ease, background .15s ease;
+    text-decoration:none;
+    transition: transform .15s ease, background .15s ease, border-color .15s ease;
   }
   .top-controls button:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.12); }
+  .top-controls .kofi-link:hover{
+    transform: translateY(-2px) scale(1.08);
+    background: rgba(236,72,153,0.14);
+    border-color: var(--pink-soft);
+  }
   #window-home{
     top:50%; left:50%; transform:translate(-50%,-50%);
     width:min(74vw, 1140px);
@@ -294,7 +301,7 @@
       drop-shadow(-1.5px 1.5px 0 var(--pink-soft))
       drop-shadow(0 7px 16px rgba(236,72,153,0.28)) !important;
   }
-  .fox-wrap{ animation: bob 3.6s ease-in-out infinite; width: 84px; height:84px; display:block; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)); }
+  .fox-wrap{ animation: bob 3.6s ease-in-out infinite; width: 84px; height:84px; object-fit:contain; display:block; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)); }
   @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
   .desktop-footer{
     position:fixed; left:0; right:0; bottom:10px; z-index:8;
