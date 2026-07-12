@@ -7,6 +7,7 @@
   /* ---------- Fenster ---------- */
 .window {
   position: fixed;
+  container-type: inline-size;
 
   width: min(86vw, 1100px);
   height: min(75vh, 450px);
@@ -181,6 +182,68 @@
   .win-list li strong{ color: var(--text); }
   .win-navigation{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:1.6em; }
   .win-navigation .toc-item{ flex:1 1 auto; text-align:center; justify-content:center; margin-bottom:0; }
+
+  /* ---------- Mini-Inhaltsverzeichnis für lange Artikel ---------- */
+  .window-content.has-toc{
+    display:grid;
+    grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+    align-items:start;
+    gap: clamp(20px, 3vw, 40px);
+  }
+  .article-toc{
+    position:sticky;
+    top:0;
+    align-self:start;
+    max-height:100%;
+    padding-right:14px;
+    border-right:1px solid var(--line);
+  }
+  .article-toc-label{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.64rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color: var(--muted);
+    margin-bottom:10px;
+  }
+  .article-toc ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px; }
+  .article-toc-link{
+    display:block;
+    padding:7px 10px 7px 12px;
+    margin-left:-1px;
+    border-left:2px solid transparent;
+    border-radius:0 8px 8px 0;
+    color: var(--muted);
+    font-size:0.82rem;
+    line-height:1.4;
+    text-decoration:none;
+    transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+  }
+  .article-toc-link:hover{ color: var(--text); border-color: var(--violet); background: rgba(139,92,246,0.08); }
+  .article-toc-link.active{ color: var(--pink-soft); border-color: var(--pink); font-weight:600; }
+  .article-body{ min-width:0; }
+
+  @container (max-width: 620px){
+    .window-content.has-toc{ display:block; }
+    .article-toc{
+      position:static;
+      max-height:none;
+      padding:0 0 14px;
+      margin-bottom:1.4em;
+      border-right:none;
+      border-bottom:1px solid var(--line);
+    }
+    .article-toc ul{ flex-direction:row; flex-wrap:wrap; gap:8px; }
+    .article-toc-link{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 12px;
+      margin-left:0;
+    }
+    .article-toc-link:hover,
+    .article-toc-link.active{ border-color: var(--pink); background: rgba(139,92,246,0.08); }
+  }
   .kana-grid {
     display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; margin: 1.2em 0;
   }

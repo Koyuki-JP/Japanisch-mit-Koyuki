@@ -128,6 +128,7 @@ function buildWindow(id){
     if(id === 'ressourcen' && typeof renderResourceLibrary === 'function'){
       renderResourceLibrary(contentEl);
     }
+    buildArticleToc(contentEl, id);
     enhanceCollapsibleSections(contentEl, id);
     updateGuideProgressUI();
   }
@@ -159,6 +160,63 @@ function buildWindow(id){
   }
 
   return el;
+}
+
+/* ===================== Mini-Inhaltsverzeichnis für lange Artikel ===================== */
+function buildArticleToc(contentEl, panelId){
+  const headings = Array.from(contentEl.querySelectorAll(':scope > h3.win-h3'));
+  if(headings.length < 3) return; // zu kurz, lohnt sich noch nicht
+
+  const body = document.createElement('div');
+  body.className = 'article-body';
+  while(contentEl.firstChild){
+    body.appendChild(contentEl.firstChild);
+  }
+
+  const nav = document.createElement('nav');
+  nav.className = 'article-toc';
+  nav.setAttribute('aria-label', 'Inhaltsverzeichnis dieses Artikels');
+  nav.innerHTML = '<span class="article-toc-label">Auf dieser Seite</span>';
+
+  const list = document.createElement('ul');
+  const entries = headings.map((heading, index) => {
+    heading.id = `toc-${panelId}-${index}`;
+
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = '#' + heading.id;
+    link.className = 'article-toc-link';
+    link.textContent = heading.textContent.trim();
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      contentEl.scrollTo({ top: Math.max(0, heading.offsetTop - 14), behavior: 'smooth' });
+    });
+    li.appendChild(link);
+    list.appendChild(li);
+    return { heading, link };
+  });
+  nav.appendChild(list);
+
+  contentEl.classList.add('has-toc');
+  contentEl.appendChild(nav);
+  contentEl.appendChild(body);
+
+  let ticking = false;
+  const setActiveLink = () => {
+    const pos = contentEl.scrollTop + 24;
+    let current = entries[0];
+    entries.forEach(entry => {
+      if(entry.heading.offsetTop <= pos) current = entry;
+    });
+    entries.forEach(entry => entry.link.classList.toggle('active', entry === current));
+    ticking = false;
+  };
+  contentEl.addEventListener('scroll', () => {
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(setActiveLink);
+  });
+  setActiveLink();
 }
 
 function bringToFront(el){ zCounter += 1; el.style.zIndex = zCounter; }
