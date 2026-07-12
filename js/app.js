@@ -245,6 +245,7 @@ guide: {
       <li><button class="toc-item" data-open="kanji">Kanji</button></li>
       <li><button class="toc-item" data-open="grammatik">Grammatik</button></li>
       <li><button class="toc-item" data-open="wortschatz">Wortschatz</button></li>
+      <li><button class="toc-item" data-open="aussprache">Aussprache</button></li>
       <li><button class="toc-item" data-open="hoeren">Hörverstehen</button></li>
       <li><button class="toc-item" data-open="kultur">Kultur &amp; Etikette</button></li>
       <li><button class="toc-item" data-open="jlpt">JLPT-Prüfungen</button></li>
@@ -614,6 +615,12 @@ teform: {
   src: "pages/wortschatz.html",
 },
 
+aussprache: {
+  title: "発音 — Aussprache",
+  quest: "Mora, lange Vokale und Pitch Accent — kleine Details, die großen Einfluss darauf haben, wie gut du verstanden wirst.",
+  src: "pages/aussprache.html",
+},
+
 hoeren: {
   title: "聴解 — Hörverstehen",
 
@@ -866,8 +873,8 @@ hoeren: {
     </button>
 
     <div class="win-navigation">
-      <button class="toc-item" data-open="wortschatz">
-        ← Zurück zum Wortschatz
+      <button class="toc-item" data-open="aussprache">
+        ← Zurück zur Aussprache
       </button>
 
       <button class="toc-item" data-open="ressourcen" data-resource-target="res-lesen">
@@ -896,14 +903,92 @@ jlpt: {
     faq: { title:"よくある質問", quest:"Fragen über Fragen — hier gibt's hoffentlich die passenden Antworten.", html:`
     <span class="eyebrow win-eyebrow">Fragen</span>
     <h2 class="win-h2">FAQ</h2>
-    <details class="faq-item" open><summary>[Platzhalter: Frage 1]</summary><p>[Platzhalter: Antworttext.]</p></details>
-    <details class="faq-item"><summary>[Platzhalter: Frage 2]</summary><p>[Platzhalter: Antworttext.]</p></details>
-    <details class="faq-item"><summary>[Platzhalter: Frage 3]</summary><p>[Platzhalter: Antworttext.]</p></details>
+
+    <details class="faq-item" open>
+      <summary>Ist das Japanischzimmer wirklich komplett kostenlos?</summary>
+      <p>
+        Ja. Keine Paywall, kein Kursverkauf, keine versteckten
+        Premium-Inhalte. Manche verlinkten externen Tools (z. B. Bunpro)
+        sind selbst kostenpflichtig — das steht dann aber immer klar dabei.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Brauche ich Vorkenntnisse, um hier anzufangen?</summary>
+      <p>
+        Nein. Der Anfänger-Guide setzt bei null an. Kannst du schon Kana
+        oder sogar Grammatik, kannst du direkt zu den passenden Bereichen
+        springen.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Muss ich erst alle Kanji können, bevor ich mit echten Inhalten anfange?</summary>
+      <p>
+        Nein — im Gegenteil. Gerade durch Lesen, Hören und Immersion lernst
+        du Kanji und Wortschatz schneller wiederzuerkennen. Warte nicht,
+        bis du dich „bereit“ fühlst.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Muss ich den JLPT machen?</summary>
+      <p>
+        Nein. Du kannst erfolgreich Japanisch lernen, ohne je eine
+        JLPT-Prüfung abzulegen. Er kann aber ein hilfreiches Ziel sein,
+        wenn dir klare Meilensteine oder ein offizieller Nachweis wichtig
+        sind.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>In welcher Reihenfolge sollte ich die Bereiche durcharbeiten?</summary>
+      <p>
+        Als groben roten Faden empfiehlt sich Kana → erster Wortschatz →
+        Grammatik-Grundlagen → früh mit Immersion beginnen → später Mining.
+        Der Anfänger-Guide führt dich Schritt für Schritt durch genau
+        diesen Weg.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Manche Bereiche wirken noch unvollständig — wird die Seite weiter ausgebaut?</summary>
+      <p>
+        Ja, laufend. Das Japanischzimmer wächst in Phasen von einem
+        Anfänger-Guide zu einer vollständigen deutschsprachigen
+        Wissensbibliothek für Japanischlernende — unter anderem mit mehr
+        Grammatik, Mining, Yomitan, Aussprache und einem Tools-Bereich.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Ich habe einen Fehler gefunden oder eine Idee für neue Inhalte — was tue ich?</summary>
+      <p>
+        Immer gerne melden! Schreib mir per E-Mail oder auf Discord — beides
+        findest du im Kontakt-Bereich.
+      </p>
+    </details>
+
+    <div class="win-navigation">
+      <button class="toc-item" data-open="kontakt">Kontakt öffnen →</button>
+    </div>
   `},
   kontakt: { title:"コンタクト", quest:"Du hast eine Frage an mich persönlich? Nur zu!", html:`
     <span class="eyebrow win-eyebrow">Kontakt</span>
     <h2 class="win-h2">Schreib mir</h2>
-    <p class="win-p">[Platzhalter: Einladender Text, wie und warum man Kontakt aufnehmen kann.]</p>
+    <p class="win-p">
+      Das Japanischzimmer wird von einer einzelnen Person gebaut und
+      gepflegt — Fehler und Lücken passieren also garantiert. Wenn dir
+      etwas kaputt vorkommt, unklar erklärt ist oder einfach fehlt, sag
+      mir gerne Bescheid.
+    </p>
+    <p class="win-p">
+      Genauso willkommen sind Themenwünsche, Ressourcen-Tipps, die anderen
+      Lernenden helfen könnten, oder einfach eine Nachricht, wenn dir das
+      Japanischzimmer bei deinem Lernweg geholfen hat. Für schnellen
+      Austausch eignet sich Discord am besten, für längere Nachrichten
+      oder persönliche Anliegen die E-Mail.
+    </p>
     <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
       <a class="btn btn-primary" href="mailto:hallo.koyuki@proton.me">✉ E-Mail schreiben</a>
       <a class="btn btn-discord" href="https://discord.gg/XhAEFS4RFV" target="_blank" rel="noopener">
