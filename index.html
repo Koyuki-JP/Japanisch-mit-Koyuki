@@ -138,7 +138,7 @@
   .window-content{ padding: 28px clamp(20px,4vw,36px) 32px; overflow-y:auto; flex: 1 1 auto; min-height: 0; position: relative; }
 
   .home-intro{ text-align:center; }
-  .home-intro h1{ font-size: clamp(1.8rem, 4.2vw, 2.3rem); margin: 0.2em 0 0.15em; }
+  .home-intro h1{ font-family:'Sora', sans-serif; font-size: clamp(1.8rem, 4.2vw, 2.3rem); margin: 0.2em 0 0.15em; }
   .home-intro h1 .accent{ color: var(--pink-soft); }
   .home-intro p{ color: var(--muted); font-size: 1rem; margin: 0 0 1.6rem; }
 
@@ -160,9 +160,118 @@
   .tile-btn .label{ font-size:0.76rem; color: var(--muted); text-align:center; line-height:1.3; }
   .tile-btn:hover .label{ color: rgba(255,255,255,0.92); }
 
+  .tile-btn.featured{
+    position:relative;
+    border-color: rgba(240,171,252,0.72);
+    background:
+      linear-gradient(var(--bg-panel-2), var(--bg-panel-2)) padding-box,
+      linear-gradient(135deg, var(--pink), var(--violet)) border-box;
+    box-shadow: 0 12px 28px -18px rgba(236,72,153,0.9);
+  }
+  .tile-btn.featured::after{
+    content:"Empfohlener Start";
+    position:absolute;
+    top:-9px;
+    left:50%;
+    transform:translateX(-50%);
+    white-space:nowrap;
+    padding:4px 8px;
+    border-radius:999px;
+    background:linear-gradient(120deg, var(--pink), var(--violet));
+    color:white;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.52rem;
+    letter-spacing:0.04em;
+  }
+  .tile-progress{
+    width:72%;
+    height:4px;
+    border-radius:999px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.09);
+  }
+  .tile-progress > span{
+    display:block;
+    width:0%;
+    height:100%;
+    border-radius:inherit;
+    background:linear-gradient(90deg, var(--pink), var(--violet));
+    transition:width .2s ease;
+  }
+  .tile-progress-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.58rem;
+    color:var(--muted);
+  }
+
+  .guide-progress{
+    margin: 0 0 1.5em;
+    padding:18px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--bg-panel-2);
+  }
+  .guide-progress-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:10px;
+  }
+  .guide-progress-title{ font-weight:700; font-size:0.95rem; }
+  .guide-progress-count{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--pink-soft);
+    font-size:0.75rem;
+  }
+  .guide-progress-bar{
+    height:8px;
+    overflow:hidden;
+    border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    margin-bottom:14px;
+  }
+  .guide-progress-fill{
+    width:0%;
+    height:100%;
+    border-radius:inherit;
+    background:linear-gradient(90deg, var(--pink), var(--violet));
+    transition:width .2s ease;
+  }
+  .guide-checklist{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:8px;
+  }
+  .guide-step{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 12px;
+    background:rgba(255,255,255,0.025);
+    color:var(--text);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-align:left;
+    font-size:0.82rem;
+    transition:border-color .15s ease, background .15s ease, transform .15s ease;
+  }
+  .guide-step:hover{ border-color:var(--violet); transform:translateY(-1px); }
+  .guide-step::before{
+    content:"○";
+    color:var(--pink-soft);
+    font-family:'JetBrains Mono', monospace;
+  }
+  .guide-step.done{
+    background:rgba(139,92,246,0.12);
+    border-color:rgba(240,171,252,0.5);
+  }
+  .guide-step.done::before{ content:"✓"; }
+
   .win-eyebrow{ margin-bottom:6px; display:block; }
-  .win-h2{ font-size:1.55rem; margin:0.1em 0 0.9em; }
-  .win-h3{ font-size:1.12rem; margin:1.3em 0 0.6em; color: var(--pink-soft); font-family:'Shippori Mincho', serif; }
+  .win-h2{ font-family:inherit; font-size:1.55rem; margin:0.1em 0 0.9em; }
+  .win-h3{ font-family:inherit; font-size:1.12rem; margin:1.3em 0 0.6em; color: var(--pink-soft); }
   .win-p{ color: var(--muted); font-size:0.98rem; line-height:1.75; margin:0 0 1.05em; }
 
   .win-list{ margin: 0 0 1.1em; padding-left: 1.3em; color: var(--muted); font-size:0.96rem; line-height:1.75; }
@@ -292,7 +401,12 @@
       <h1>hallo! das ist, dass <span class="accent">日本語部屋 Japanischzimmer</span></h1>
       <p>ein klarer, verständlicher Lernweg für Japanisch!</p>
       <div class="tile-grid">
-        <button class="tile-btn" data-open="guide"><span class="glyph">初</span><span class="label">Anfänger-Guide</span></button>
+        <button class="tile-btn featured" data-open="guide">
+          <span class="glyph">初</span>
+          <span class="label">Anfänger-Guide</span>
+          <span class="tile-progress" aria-hidden="true"><span id="homeGuideProgressFill"></span></span>
+          <span class="tile-progress-label" id="homeGuideProgressLabel">0 von 5</span>
+        </button>
         <button class="tile-btn" data-open="toc"><span class="glyph">目</span><span class="label">Inhalts&shy;verzeichnis</span></button>
         <button class="tile-btn" data-open="ressourcen"><span class="glyph">本</span><span class="label">Ressourcen</span></button>
         <button class="tile-btn" data-open="faq"><span class="glyph">?</span><span class="label">FAQ</span></button>
@@ -404,6 +518,23 @@ guide: {
     <span class="eyebrow win-eyebrow">Für absolute Anfänger:innen</span>
 
     <h2 class="win-h2">Anfänger-Guide</h2>
+
+    <div class="guide-progress" aria-label="Fortschritt im Anfänger-Guide">
+      <div class="guide-progress-head">
+        <span class="guide-progress-title">Dein Fortschritt</span>
+        <span class="guide-progress-count" id="guideProgressCount">0 von 5 erledigt</span>
+      </div>
+      <div class="guide-progress-bar" aria-hidden="true">
+        <div class="guide-progress-fill" id="guideProgressFill"></div>
+      </div>
+      <div class="guide-checklist">
+        <button class="guide-step" type="button" data-guide-step="kana">Kana verstanden</button>
+        <button class="guide-step" type="button" data-guide-step="wortschatz">Wortschatz geplant</button>
+        <button class="guide-step" type="button" data-guide-step="grammatik">Grammatik eingeordnet</button>
+        <button class="guide-step" type="button" data-guide-step="immersion">Immersion begonnen</button>
+        <button class="guide-step" type="button" data-guide-step="mining">Mining eingeordnet</button>
+      </div>
+    </div>
 
     <p class="win-p">
       Du fängst gerade erst mit Japanisch an und weißt nicht, wo du beginnen sollst?
@@ -1881,6 +2012,56 @@ jlpt: {
 };
 const homeQuest = "Hallo! Ich bin Yuki — klick auf eine Kachel, um deine Reise zu beginnen!";
 
+
+/* ===================== Fortschritt Anfänger-Guide ===================== */
+const GUIDE_PROGRESS_KEY = 'japanischzimmer-guide-progress-v1';
+const GUIDE_STEPS = ['kana', 'wortschatz', 'grammatik', 'immersion', 'mining'];
+
+function getGuideProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(GUIDE_PROGRESS_KEY) || '[]');
+    return new Set(Array.isArray(saved) ? saved.filter(step => GUIDE_STEPS.includes(step)) : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveGuideProgress(progress){
+  localStorage.setItem(GUIDE_PROGRESS_KEY, JSON.stringify([...progress]));
+}
+
+function updateGuideProgressUI(){
+  const progress = getGuideProgress();
+  const done = progress.size;
+  const percent = (done / GUIDE_STEPS.length) * 100;
+
+  const guideFill = document.getElementById('guideProgressFill');
+  const guideCount = document.getElementById('guideProgressCount');
+  const homeFill = document.getElementById('homeGuideProgressFill');
+  const homeLabel = document.getElementById('homeGuideProgressLabel');
+
+  if(guideFill) guideFill.style.width = `${percent}%`;
+  if(guideCount) guideCount.textContent = `${done} von ${GUIDE_STEPS.length} erledigt`;
+  if(homeFill) homeFill.style.width = `${percent}%`;
+  if(homeLabel) homeLabel.textContent = done === GUIDE_STEPS.length
+    ? 'Guide abgeschlossen ✓'
+    : `${done} von ${GUIDE_STEPS.length}`;
+
+  document.querySelectorAll('[data-guide-step]').forEach(button => {
+    const isDone = progress.has(button.dataset.guideStep);
+    button.classList.toggle('done', isDone);
+    button.setAttribute('aria-pressed', String(isDone));
+  });
+}
+
+function toggleGuideStep(step){
+  if(!GUIDE_STEPS.includes(step)) return;
+  const progress = getGuideProgress();
+  progress.has(step) ? progress.delete(step) : progress.add(step);
+  saveGuideProgress(progress);
+  updateGuideProgressUI();
+}
+
 /* ===================== Fenster-Engine ===================== */
 const windowsRoot = document.getElementById('windows-root');
 const homeEl = document.getElementById('window-home');
@@ -1906,6 +2087,7 @@ function buildWindow(id){
     </div>
   `;
   windowsRoot.appendChild(el);
+  updateGuideProgressUI();
   makeDraggable(el, el.querySelector('.window-titlebar'));
   makeResizable(el, el.querySelector('.resize-handle'));
   el.addEventListener('pointerdown', () => setActive(id, el));
@@ -2000,11 +2182,18 @@ function makeResizable(win, handle){
 }
 
 document.addEventListener('click', (e) => {
+  const guideStep = e.target.closest('[data-guide-step]');
+  if(guideStep){
+    toggleGuideStep(guideStep.dataset.guideStep);
+    return;
+  }
+
   const opener = e.target.closest('[data-open]');
   if(opener) openWindow(opener.getAttribute('data-open'));
 });
 homeEl.addEventListener('pointerdown', () => setActive('home', homeEl));
 makeResizable(homeEl, homeEl.querySelector('.resize-handle'));
+updateGuideProgressUI();
 
 /* ===================== Wegweiser-Begleiter ===================== */
 const wegweiser = document.getElementById('wegweiser');
