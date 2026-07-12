@@ -272,6 +272,37 @@
   .win-eyebrow{ margin-bottom:6px; display:block; }
   .win-h2{ font-family:'Nunito', sans-serif; font-size:1.55rem; margin:0.1em 0 0.9em; }
   .win-h3{ font-family:'Nunito', sans-serif; font-size:1.12rem; margin:1.3em 0 0.6em; color: var(--pink-soft); }
+
+  .win-h3.collapsible-title{
+    position:relative;
+    padding-right:2rem;
+    cursor:pointer;
+    user-select:none;
+    transition:color .15s ease, opacity .15s ease;
+  }
+  .win-h3.collapsible-title:hover{
+    color:var(--pink);
+  }
+  .win-h3.collapsible-title::after{
+    content:"⌄";
+    position:absolute;
+    right:0.2rem;
+    top:50%;
+    transform:translateY(-50%) rotate(0deg);
+    font-family:'Sora', sans-serif;
+    font-size:1rem;
+    color:var(--muted);
+    transition:transform .18s ease, color .18s ease;
+  }
+  .win-h3.collapsible-title[aria-expanded="false"]::after{
+    transform:translateY(-50%) rotate(-90deg);
+  }
+  .win-h3.collapsible-title:hover::after{
+    color:var(--pink-soft);
+  }
+  .collapsible-hidden{
+    display:none !important;
+  }
   .win-p{ color: var(--muted); font-size:0.98rem; line-height:1.75; margin:0 0 1.05em; }
 
   .win-list{ margin: 0 0 1.1em; padding-left: 1.3em; color: var(--muted); font-size:0.96rem; line-height:1.75; }
@@ -398,7 +429,7 @@
   <div class="window open" id="window-home">
     <div class="window-titlebar static"><span class="tab-label">Start</span></div>
     <div class="window-content home-intro">
-      <h1>Hallo! Das ist das <span class="accent">Japanischzimmer</span></h1>
+      <h1>Willkommen im<span class="accent">Japanischzimmer</span></h1>
       <p>Ein klarer, verständlicher Lernweg für Japanisch!</p>
       <div class="tile-grid">
         <button class="tile-btn featured" data-open="guide">
@@ -2062,6 +2093,93 @@ function toggleGuideStep(step){
   updateGuideProgressUI();
 }
 
+
+/* ===================== Einklappbare Guide-Abschnitte ===================== */
+const COLLAPSE_STATE_KEY = 'japanischzimmer-collapsed-sections-v1';
+
+function getCollapsedSections(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(COLLAPSE_STATE_KEY) || '{}');
+    return saved && typeof saved === 'object' ? saved : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveCollapsedSections(state){
+  localStorage.setItem(COLLAPSE_STATE_KEY, JSON.stringify(state));
+}
+
+function getSectionSiblings(title){
+  const siblings = [];
+  let node = title.nextElementSibling;
+
+  while(node && !node.matches('.win-h3')){
+    siblings.push(node);
+    node = node.nextElementSibling;
+  }
+
+  return siblings;
+}
+
+function setSectionCollapsed(title, collapsed, persist = true){
+  getSectionSiblings(title).forEach(element => {
+    element.classList.toggle('collapsible-hidden', collapsed);
+  });
+
+  title.setAttribute('aria-expanded', String(!collapsed));
+
+  if(persist){
+    const state = getCollapsedSections();
+    state[title.dataset.collapseKey] = collapsed;
+    saveCollapsedSections(state);
+  }
+}
+
+function createCollapseKey(title, panelId, index){
+  const parentPath = [];
+  let parent = title.parentElement;
+
+  while(parent && !parent.classList.contains('window-content')){
+    const parentIndex = Array.from(parent.parentElement?.children || []).indexOf(parent);
+    parentPath.unshift(parentIndex);
+    parent = parent.parentElement;
+  }
+
+  return `${panelId}:${parentPath.join('.')}:${index}:${title.textContent.trim()}`;
+}
+
+function enhanceCollapsibleSections(contentRoot, panelId){
+  const titles = Array.from(contentRoot.querySelectorAll('.win-h3'));
+  const state = getCollapsedSections();
+
+  titles.forEach((title, index) => {
+    if(title.classList.contains('collapsible-title')) return;
+
+    const key = createCollapseKey(title, panelId, index);
+    title.classList.add('collapsible-title');
+    title.dataset.collapseKey = key;
+    title.setAttribute('role', 'button');
+    title.setAttribute('tabindex', '0');
+
+    const collapsed = state[key] === true;
+    setSectionCollapsed(title, collapsed, false);
+
+    const toggle = () => {
+      const isExpanded = title.getAttribute('aria-expanded') === 'true';
+      setSectionCollapsed(title, isExpanded);
+    };
+
+    title.addEventListener('click', toggle);
+    title.addEventListener('keydown', event => {
+      if(event.key === 'Enter' || event.key === ' '){
+        event.preventDefault();
+        toggle();
+      }
+    });
+  });
+}
+
 /* ===================== Fenster-Engine ===================== */
 const windowsRoot = document.getElementById('windows-root');
 const homeEl = document.getElementById('window-home');
@@ -2087,6 +2205,7 @@ function buildWindow(id){
     </div>
   `;
   windowsRoot.appendChild(el);
+  enhanceCollapsibleSections(el.querySelector('.window-content'), id);
   updateGuideProgressUI();
   makeDraggable(el, el.querySelector('.window-titlebar'));
   makeResizable(el, el.querySelector('.resize-handle'));
