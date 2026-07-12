@@ -790,6 +790,56 @@
     }
   }
 
+
+  /* ===== Startseite: saubere Abstände ===== */
+  #window-home .window-content{
+    padding:0;
+    overflow:hidden;
+  }
+
+  #window-home .home-intro{
+    padding:
+      clamp(42px, 6.2cqh, 68px)
+      clamp(34px, 4.8cqw, 64px)
+      clamp(34px, 5cqh, 54px);
+    gap:clamp(18px, 2.8cqh, 30px);
+  }
+
+  #window-home .home-intro h1{
+    margin:0;
+  }
+
+  #window-home .home-intro p{
+    margin:0 0 clamp(10px, 1.6cqh, 20px);
+  }
+
+  #window-home .tile-grid{
+    gap:
+      clamp(18px, 2.6cqh, 28px)
+      clamp(18px, 2.6cqw, 28px);
+    margin:0;
+  }
+
+  #window-home .tile-btn{
+    padding:
+      clamp(20px, 3.4cqh, 36px)
+      clamp(18px, 2.8cqw, 28px);
+  }
+
+  @container (max-width: 560px){
+    #window-home .home-intro{
+      padding:
+        clamp(24px, 4cqh, 36px)
+        clamp(18px, 4cqw, 28px)
+        clamp(20px, 3.6cqh, 30px);
+      gap:14px;
+    }
+
+    #window-home .tile-grid{
+      gap:12px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -2770,19 +2820,26 @@ function openWindow(id, opener = null){
 }
 
 function makeDraggable(win, titlebar){
-  let dragging = false, startX, startY, origX, origY;
+  let dragging = false;
+  let startX = 0;
+  let startY = 0;
+  let origX = 0;
+  let origY = 0;
+
   titlebar.addEventListener('pointerdown', (e) => {
     if(e.target.closest('.win-close')) return;
+
     dragging = true;
-    setActive(win.id.replace('window-',''), win);
-    startX = e.clientX; startY = e.clientY;
+    setActive(win.id.replace('window-','') || 'home', win);
+
+    startX = e.clientX;
+    startY = e.clientY;
+
     const rect = win.getBoundingClientRect();
     origX = rect.left;
     origY = rect.top;
 
-    // Sicherheitshalber immer auf feste Koordinaten setzen.
-    // Da positionCascade die Zentrierung bereits entfernt, entsteht
-    // hierbei auch beim ersten Ziehen kein Sprung mehr.
+    // Vor dem Ziehen auf feste Koordinaten wechseln, damit nichts springt.
     win.style.transition = 'none';
     win.style.transform = 'none';
     win.style.left = origX + 'px';
@@ -2790,63 +2847,110 @@ function makeDraggable(win, titlebar){
 
     titlebar.setPointerCapture(e.pointerId);
   });
+
   titlebar.addEventListener('pointermove', (e) => {
     if(!dragging) return;
-    win.style.left = (origX + (e.clientX - startX)) + 'px';
-    win.style.top = (origY + (e.clientY - startY)) + 'px';
-    updateWegweiser();
+
+    const maxLeft = Math.max(12, window.innerWidth - win.offsetWidth - 12);
+    const maxTop = Math.max(12, window.innerHeight - win.offsetHeight - 12);
+
+    const nextLeft = Math.min(
+      Math.max(12, origX + (e.clientX - startX)),
+      maxLeft
+    );
+
+    const nextTop = Math.min(
+      Math.max(12, origY + (e.clientY - startY)),
+      maxTop
+    );
+
+    win.style.left = nextLeft + 'px';
+    win.style.top = nextTop + 'px';
+
+    positionWegweiser();
   });
+
   function stopDragging(){
+    if(!dragging) return;
     dragging = false;
+
     requestAnimationFrame(() => {
       win.style.transition = '';
     });
   }
-  const minH = parseFloat(getComputedStyle(win).minHeight) || 360;
+
+  titlebar.addEventListener('pointerup', stopDragging);
+  titlebar.addEventListener('pointercancel', stopDragging);
+}
+
+function makeResizable(win, handle){
+  let resizing = false;
+  let startX = 0;
+  let startY = 0;
+  let startW = 0;
+  let startH = 0;
 
   handle.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
     e.stopPropagation();
+
     resizing = true;
     setActive(win.id.replace('window-','') || 'home', win);
+
     const rect = win.getBoundingClientRect();
     startX = e.clientX;
     startY = e.clientY;
     startW = rect.width;
     startH = rect.height;
 
+    // Beim ersten Resize von CSS-/Auto-Größen auf feste Pixel wechseln.
     win.style.width = startW + 'px';
     win.style.height = startH + 'px';
     win.style.maxHeight = '92vh';
     win.classList.add('resizing');
+
     handle.setPointerCapture(e.pointerId);
   });
 
   handle.addEventListener('pointermove', (e) => {
     if(!resizing) return;
 
-    const nextWidth = Math.max(minW, startW + (e.clientX - startX));
-    const nextHeight = Math.max(minH, startH + (e.clientY - startY));
+    const computed = getComputedStyle(win);
+    const minW = parseFloat(computed.minWidth) || 320;
+    const minH = parseFloat(computed.minHeight) || 260;
+    const maxW = Math.max(minW, window.innerWidth - 24);
+    const maxH = Math.max(minH, window.innerHeight - 24);
+
+    const nextWidth = Math.min(
+      Math.max(minW, startW + (e.clientX - startX)),
+      maxW
+    );
+
+    const nextHeight = Math.min(
+      Math.max(minH, startH + (e.clientY - startY)),
+      maxH
+    );
 
     win.style.width = nextWidth + 'px';
     win.style.height = nextHeight + 'px';
 
     if(win.id){
-      saveWindowSize(win.id.replace('window-','') || 'home', nextWidth, nextHeight);
+      const id = win.id.replace('window-','') || 'home';
+      saveWindowSize(id, nextWidth, nextHeight);
     }
+
+    positionWegweiser();
   });
 
-  handle.addEventListener('pointerup', () => {
+  function stopResizing(){
+    if(!resizing) return;
     resizing = false;
     win.classList.remove('resizing');
-  });
+  }
 
-  handle.addEventListener('pointercancel', () => {
-    resizing = false;
-    win.classList.remove('resizing');
-  });
+  handle.addEventListener('pointerup', stopResizing);
+  handle.addEventListener('pointercancel', stopResizing);
 }
-
-// Removed stray stopResize duplicate (listeners are registered within makeResizable)
 
 document.addEventListener('click', (e) => {
   const guideStep = e.target.closest('[data-guide-step]');
@@ -2871,6 +2975,7 @@ document.addEventListener('click', (e) => {
     closeAllContentWindows();
   }
 });
+applySavedWindowSize('home', homeEl);
 homeEl.addEventListener('pointerdown', () => setActive('home', homeEl));
 makeResizable(homeEl, homeEl.querySelector('.resize-handle'));
 updateGuideProgressUI();
