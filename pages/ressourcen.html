@@ -1,0 +1,83 @@
+<!-- ============================================================
+     pages/ressourcen.html -- Inhalt des Ressourcen-Fensters.
+     Wird von js/windows.js per fetch() geladen und in das Fenster
+     eingesetzt. Die eigentlichen Ressourcen-Karten stehen NICHT hier,
+     sondern in data/resources.js -- js/resources.js fuellt die leeren
+     <div class="resource-library-grid" data-resource-grid="..."></div>
+     Container weiter unten automatisch.
+     ============================================================ -->
+<span class="eyebrow win-eyebrow">Bibliothek</span>
+<h2 class="win-h2">Ressourcen &amp; Tools</h2>
+<p class="win-p">
+      Diese Sammlung ist nach Einsatzzweck sortiert. Sprache, Niveau und
+      Kostenmodell stehen direkt an jeder Empfehlung. Du brauchst nicht alles:
+      Wähle pro Lernbereich zunächst höchstens ein oder zwei Werkzeuge.
+    </p>
+<div class="resource-warning">
+<strong>Hinweis zu den Lernwegen:</strong>
+      Einige Guides vertreten sehr intensive Immersionsmethoden.
+      Nutze sie als Inspiration und Baukasten, nicht als unumstößlichen
+      Stundenplan. Ein nachhaltiger Lernweg darf zu deinem Alltag passen.
+    </div>
+<nav aria-label="Ressourcenkategorien" class="resource-toolbar">
+<button class="resource-jump" data-open="ressourcen" data-resource-target="res-guides">Lernwege</button>
+<button class="resource-jump" data-open="ressourcen" data-resource-target="res-kana">Kana</button>
+<button class="resource-jump" data-open="ressourcen" data-resource-target="res-vokabeln">Vokabeln &amp; Anki</button>
+<button class="resource-jump" data-open="ressourcen" data-resource-target="res-grammatik">Grammatik</button>
+<button class="resource-jump" data-open="ressourcen" data-resource-target="res-lesen">Lesen</button>
+<button class="resource-jump" data-open="ressourcen" data-resource-target="res-hoeren">Hören &amp; Immersion</button>
+<button class="resource-jump" data-open="ressourcen" data-resource-target="res-jlpt">JLPT</button>
+</nav>
+<section class="resource-section" id="res-guides">
+<div class="resource-section-head">
+<h3 class="win-h3">Lernwege &amp; Methoden</h3>
+<p class="resource-section-note">Englischsprachige Meta-Guides und Erfahrungsberichte</p>
+</div>
+<div class="resource-library-grid" data-resource-grid="res-guides"></div>
+</section>
+<section class="resource-section" id="res-kana">
+<div class="resource-section-head">
+<h3 class="win-h3">Kana lernen und üben</h3>
+<p class="resource-section-note">Für die ersten Tage und kurze Wiederholungen</p>
+</div>
+<div class="resource-library-grid" data-resource-grid="res-kana"></div>
+</section>
+<section class="resource-section" id="res-vokabeln">
+<div class="resource-section-head">
+<h3 class="win-h3">Vokabeln, Anki &amp; Grunddecks</h3>
+<p class="resource-section-note">Wähle nur ein Grundwortschatz-Deck gleichzeitig</p>
+</div>
+<div class="resource-library-grid" data-resource-grid="res-vokabeln"></div>
+</section>
+<section class="resource-section" id="res-grammatik">
+<div class="resource-section-head">
+<h3 class="win-h3">Grammatik</h3>
+<p class="resource-section-note">Erklärungen, Videos und optionale SRS-Übungen</p>
+</div>
+<div class="resource-library-grid" data-resource-grid="res-grammatik"></div>
+</section>
+<section class="resource-section" id="res-lesen">
+<div class="resource-section-head">
+<h3 class="win-h3">Lesen &amp; Graded Readers</h3>
+<p class="resource-section-note">Vom ersten einfachen Text bis zu nativen Büchern</p>
+</div>
+<div class="resource-library-grid" data-resource-grid="res-lesen"></div>
+</section>
+<section class="resource-section" id="res-hoeren">
+<div class="resource-section-head">
+<h3 class="win-h3">Hörverstehen &amp; Immersion</h3>
+<p class="resource-section-note">Medienlisten, Podcasts und Schwierigkeitsdaten</p>
+</div>
+<div class="resource-library-grid" data-resource-grid="res-hoeren"></div>
+</section>
+<section class="resource-section" id="res-jlpt">
+<div class="resource-section-head">
+<h3 class="win-h3">JLPT</h3>
+<p class="resource-section-note">Offizielle Aufgaben und gezielte Prüfungsvorbereitung</p>
+</div>
+<div class="resource-library-grid" data-resource-grid="res-jlpt"></div>
+</section>
+<p class="win-p">
+      Links und Preisangaben können sich verändern. Prüfe bei kostenpflichtigen
+      Angeboten vor dem Abschluss immer die aktuelle Anbieter-Seite.
+    </p>

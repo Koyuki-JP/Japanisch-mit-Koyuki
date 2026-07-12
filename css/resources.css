@@ -1,0 +1,161 @@
+/* ============================================================
+   resources.css — Alles rund um den Ressourcen-Tab: Toolbar,
+   Bibliotheks-Karten, Badges, Zusammenfassungen, Warnhinweise
+   ============================================================ */
+
+.resource-grid {
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; margin: 1.2em 0;
+  }
+.resource-card {
+    background: var(--bg-panel-2); border:1px solid var(--line); border-radius: 14px;
+    padding: 18px 18px 16px; display:block;
+  }
+.resource-card .win-h3 { margin-top:0.2em; }
+.resource-card .toc-item { margin-top: 0.6em; }
+  /* ===== Ressourcenbibliothek ===== */
+  .resource-toolbar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:1rem 0 1.5rem;
+  }
+  .resource-jump{
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:8px 12px;
+    background:var(--bg-panel-2);
+    color:var(--text);
+    cursor:pointer;
+    font-size:0.76rem;
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .resource-jump:hover{
+    transform:translateY(-2px);
+    border-color:var(--pink-soft);
+    background:rgba(139,92,246,0.14);
+  }
+  .resource-section{
+    scroll-margin-top:20px;
+    margin:2rem 0 2.6rem;
+    padding-top:0.25rem;
+  }
+  .resource-section-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:0.9rem;
+    border-bottom:1px solid var(--line);
+    padding-bottom:0.65rem;
+  }
+  .resource-section-head .win-h3{
+    margin:0;
+  }
+  .resource-section-note{
+    margin:0;
+    color:var(--muted);
+    font-size:0.78rem;
+    line-height:1.5;
+    text-align:right;
+    max-width:34rem;
+  }
+  .resource-library-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:14px;
+  }
+  .resource-library-card{
+    background:var(--bg-panel-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .resource-library-card.recommended{
+    border-color:rgba(240,171,252,0.55);
+    box-shadow:0 14px 34px -26px rgba(236,72,153,0.95);
+  }
+  .resource-card-title{
+    margin:0.55rem 0 0.65rem;
+    font-family:'Nunito',sans-serif;
+    font-size:1.08rem;
+    color:var(--text);
+  }
+  .resource-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:0.85rem;
+  }
+  .resource-badge{
+    display:inline-flex;
+    align-items:center;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:4px 8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.57rem;
+    line-height:1;
+    color:var(--muted);
+    background:rgba(255,255,255,0.025);
+  }
+  .resource-badge.free{
+    color:#9ee6b2;
+    border-color:rgba(94,208,130,0.32);
+  }
+  .resource-badge.paid{
+    color:#ffc0d9;
+    border-color:rgba(236,72,153,0.32);
+  }
+  .resource-badge.freemium{
+    color:#f6d48d;
+    border-color:rgba(246,196,96,0.32);
+  }
+  .resource-badge.hardcore{
+    color:#d6b7ff;
+    border-color:rgba(139,92,246,0.42);
+  }
+  .resource-summary{
+    margin:0 0 0.8rem;
+    color:var(--muted);
+    font-size:0.86rem;
+    line-height:1.62;
+  }
+  .resource-verdict{
+    margin:auto 0 0.85rem;
+    padding:10px 12px;
+    border-left:2px solid var(--pink-soft);
+    background:rgba(139,92,246,0.07);
+    color:var(--muted);
+    font-size:0.77rem;
+    line-height:1.55;
+  }
+  .resource-verdict strong{
+    color:var(--text);
+  }
+  .resource-library-card .toc-item{
+    margin-top:auto;
+    margin-bottom:0;
+  }
+  .resource-warning{
+    border:1px solid rgba(246,196,96,0.26);
+    background:rgba(246,196,96,0.06);
+    border-radius:12px;
+    padding:14px 16px;
+    color:var(--muted);
+    font-size:0.84rem;
+    line-height:1.65;
+    margin:1rem 0 1.5rem;
+  }
+  .resource-cta{
+    margin:1.2rem 0;
+    padding:14px 16px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:rgba(139,92,246,0.07);
+  }
+  .resource-cta p{
+    margin:0 0 0.75rem;
+  }

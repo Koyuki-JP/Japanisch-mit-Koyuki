@@ -1,0 +1,349 @@
+/* ============================================================
+   main.css — Basis: Reset, Farbvariablen, Typografie,
+   Hintergrund/Bühne, Steuerung oben links, Start-Fenster (Home),
+   Kacheln, Wegweiser-Begleiter, Footer
+   ============================================================ */
+
+  :root{
+    --bg: #14101e;
+    --bg-panel: #1e1728;
+    --bg-panel-2: #271d36;
+    --violet: #8b5cf6;
+    --violet-deep: #6d28d9;
+    --pink: #ec4899;
+    --pink-soft: #f0abfc;
+    --text: #f5f1fb;
+    --muted: #a99cc7;
+    --line: rgba(139, 92, 246, 0.22);
+    --radius: 18px;
+  }
+  *{ box-sizing: border-box; }
+  html, body{ height:100%; margin:0; overflow:hidden; }
+  html{ font-size: 18px; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color .42s ease, color .32s ease;
+  }
+  .stage{
+    transition: background-image .5s ease, background-color .5s ease;
+  }
+  .window,
+  .window-content,
+  .tile-btn,
+  .kana-card,
+  .resource-card,
+  .mini-card,
+  .guide-progress,
+  .guide-step,
+  .toc-item,
+  .bubble,
+  .top-controls button{
+    transition:
+      background-color .32s ease,
+      border-color .32s ease,
+      color .32s ease,
+      box-shadow .32s ease;
+  }
+  .home-intro p,
+  .tile-btn .label,
+  .tile-progress-label,
+  .win-p,
+  .win-list,
+  .faq-item p,
+  .mini-card p,
+  .desktop-footer{
+    transition: color .32s ease;
+  }
+  /* Der Anfänger-Guide bleibt bewusst direkter und ohne weiche Theme-Animation. */
+  .tile-btn.featured,
+  .tile-btn.featured *,
+  .guide-progress,
+  .guide-progress *{
+    transition-duration: .15s;
+  }
+  .jp{ font-family:'Shippori Mincho', serif; }
+  a{ color:inherit; }
+  ::selection{ background: var(--violet); color:white; }
+  button{ font-family: inherit; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:0.66rem;
+    letter-spacing:0.12em; text-transform:uppercase; color: var(--pink-soft);
+  }
+  /* ---------- Bühne ---------- */
+  .stage{
+    position:relative; width:100%; height:100%; overflow:hidden;
+    background: url('../assets/images/Background.png') center center / cover no-repeat, #0f0b17;
+  }
+  body.light .stage{
+    background:
+      url('Background white.png') center center / cover no-repeat,
+      #f7f0e8;
+  }
+  body.light{
+    --bg:#f7f0e8;
+    --bg-panel:#fffaf4;
+    --bg-panel-2:#f8eef7;
+    --text:#342640;
+    --muted:#756786;
+    --line:rgba(177,112,180,0.28);
+  }
+  /* Steuerung oben links */
+  .top-controls{ position:fixed; top:18px; left:20px; z-index:500; display:flex; gap:14px; }
+  .top-controls button{
+    background: rgba(255,255,255,0.06); border:1px solid var(--line); border-radius:10px;
+    width:34px; height:34px; color:var(--text); font-size:1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .top-controls button:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.12); }
+  #window-home{
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    width:min(74vw, 1140px);
+    height:min(74vh, 780px);
+    max-height:84vh;
+    min-width:420px;
+    z-index:5;
+    opacity:1;
+    pointer-events:all;
+    container-type:size;
+  }
+  #window-home.open{ transform:translate(-50%,-50%) scale(1); }
+  #window-home.resizing{ transition:none; }
+  .home-intro{
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    min-height:0;
+    height:100%;
+    overflow:hidden;
+    gap:clamp(14px, 2.4cqh, 28px);
+    padding:
+      clamp(28px, 4.8cqh, 52px)
+      clamp(26px, 4cqw, 56px)
+      clamp(28px, 4.2cqh, 44px);
+  }
+  #window-home .window-content{
+    padding:0;
+    overflow:hidden;
+  }
+  .home-intro h1{
+    font-family:'Nunito', sans-serif;
+    font-size:clamp(1.5rem, min(4.5cqw, 4.8cqh), 2.55rem);
+    line-height:1.12;
+    overflow-wrap:anywhere;
+    margin:0;
+    flex:0 0 auto;
+  }
+  .home-intro h1 .accent{ color: var(--pink-soft); }
+  .home-intro p{
+    color:var(--muted);
+    font-size:clamp(0.82rem, min(1.8cqw, 1.95cqh), 1.02rem);
+    line-height:1.45;
+    margin:0;
+    flex:0 0 auto;
+  }
+  .tile-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    grid-template-rows:repeat(2, minmax(0, 1fr));
+    gap:
+      clamp(14px, 2.2cqh, 24px)
+      clamp(14px, 2.2cqw, 24px);
+    flex:1 1 auto;
+    min-height:0;
+    height:100%;
+    align-content:stretch;
+  }
+  .tile-btn{
+    background:var(--bg-panel-2);
+    border:1px solid var(--line);
+    border-radius:clamp(12px, 1.7cqw, 18px);
+    padding:
+      clamp(18px, 3.2cqh, 34px)
+      clamp(16px, 2.6cqw, 24px);
+    cursor:pointer;
+    color:var(--text);
+    min-width:0;
+    min-height:0;
+    height:100%;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(8px, 1.5cqh, 16px);
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .tile-btn:hover{
+    transform: translateY(-3px);
+    border-color: transparent;
+    background: linear-gradient(160deg, var(--violet), var(--pink));
+  }
+  .tile-btn .glyph{
+    font-size:clamp(1.55rem, min(4.6cqw, 5.2cqh), 2.7rem);
+    line-height:1;
+    font-family:'Noto Sans JP', sans-serif;
+    font-weight:700;
+    flex:0 0 auto;
+  }
+  .tile-btn .label{
+    font-size:clamp(0.72rem, min(1.65cqw, 1.85cqh), 0.95rem);
+    color:var(--muted);
+    text-align:center;
+    line-height:1.35;
+    overflow-wrap:anywhere;
+    flex:0 0 auto;
+  }
+  .tile-btn:hover .label{ color: rgba(255,255,255,0.92); }
+  .tile-btn.featured{
+    position:relative;
+    padding-top:clamp(28px, 4.2cqh, 42px);
+    border-color: rgba(240,171,252,0.72);
+    background:
+      linear-gradient(var(--bg-panel-2), var(--bg-panel-2)) padding-box,
+      linear-gradient(135deg, var(--pink), var(--violet)) border-box;
+    box-shadow: 0 12px 28px -18px rgba(236,72,153,0.9);
+  }
+  .tile-btn.featured:hover{
+    transform: translateY(-3px);
+    border-color: transparent;
+    background: linear-gradient(160deg, var(--violet), var(--pink));
+    box-shadow: 0 16px 30px -16px rgba(236,72,153,0.9);
+  }
+  .tile-btn.featured:hover .label,
+  .tile-btn.featured:hover .tile-progress-label{
+    color: rgba(255,255,255,0.94);
+  }
+  .tile-btn.featured:hover .tile-progress{
+    background: rgba(255,255,255,0.22);
+  }
+  .tile-btn.featured::after{
+    content:"Empfohlener Start";
+    position:absolute;
+    top:-9px;
+    left:50%;
+    transform:translateX(-50%);
+    white-space:nowrap;
+    padding:4px 8px;
+    border-radius:999px;
+    background:linear-gradient(120deg, var(--pink), var(--violet));
+    color:white;
+    font-family:'JetBrains Mono', monospace;
+    font-size:clamp(0.42rem, min(1.1cqw, 1.2cqh), 0.62rem);
+    letter-spacing:0.04em;
+  }
+  .tile-progress{
+    width:clamp(56%, 68%, 74%);
+    margin-top:2px;
+    height:clamp(3px, 0.45cqh, 5px);
+    border-radius:999px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.09);
+  }
+  .tile-progress > span{
+    display:block;
+    width:0%;
+    height:100%;
+    border-radius:inherit;
+    background:linear-gradient(90deg, var(--pink), var(--violet));
+    transition:width .2s ease;
+  }
+  .tile-progress-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:clamp(0.5rem, min(1.1cqw, 1.2cqh), 0.66rem);
+    color:var(--muted);
+    margin-top:2px;
+    flex:0 0 auto;
+  }
+  /* ---------- Wegweiser (Quest-Begleiter) ---------- */
+  .wegweiser{
+    position: fixed;
+    width: 170px;
+    z-index: 600;
+    display:flex; flex-direction:column; align-items:center;
+    transition: left .28s cubic-bezier(.2,.8,.2,1), top .28s cubic-bezier(.2,.8,.2,1);
+    pointer-events:none;
+  }
+  .bubble{
+    background: var(--pink-soft);
+    border:1px solid rgba(240,171,252,0.55);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 0.82rem;
+    line-height:1.5;
+    color:#342640;
+    box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5);
+    position: relative; margin-bottom: 10px; text-align:center;
+  }
+  .bubble::after{
+    content:""; position:absolute; bottom:-7px; left:50%; transform:translateX(-50%);
+    width:14px; height:14px; background:var(--pink-soft);
+    border-right:1px solid rgba(240,171,252,0.55);
+    border-bottom:1px solid rgba(240,171,252,0.55);
+    rotate: 45deg;
+  }
+  body.light .fox-wrap{
+    filter:
+      drop-shadow(1.5px 1.5px 0 var(--pink-soft))
+      drop-shadow(-1.5px -1.5px 0 var(--pink-soft))
+      drop-shadow(1.5px -1.5px 0 var(--pink-soft))
+      drop-shadow(-1.5px 1.5px 0 var(--pink-soft))
+      drop-shadow(0 7px 16px rgba(236,72,153,0.28)) !important;
+  }
+  .fox-wrap{ animation: bob 3.6s ease-in-out infinite; width: 84px; height:84px; display:block; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)); }
+  @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
+  .desktop-footer{
+    position:fixed; left:0; right:0; bottom:10px; z-index:8;
+    text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.7rem; color: var(--muted);
+    pointer-events:none;
+  }
+  /* ===== Startseite: letzter Spacing-Feinschliff ===== */
+  #window-home .home-intro{
+    gap:clamp(16px, 2.6cqh, 28px);
+  }
+  #window-home .tile-grid{
+    margin-top:clamp(2px, 0.6cqh, 10px);
+  }
+  #window-home .tile-btn{
+    box-sizing:border-box;
+  }
+  #window-home .tile-btn.featured::after{
+    top:12px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:clamp(0.48rem, min(1.05cqw, 1.1cqh), 0.66rem);
+    padding:5px 10px;
+  }
+  /* ===== Startseite: saubere Abstände ===== */
+  #window-home .window-content{
+    padding:0;
+    overflow:hidden;
+  }
+  #window-home .home-intro{
+    padding:
+      clamp(42px, 6.2cqh, 68px)
+      clamp(34px, 4.8cqw, 64px)
+      clamp(34px, 5cqh, 54px);
+    gap:clamp(18px, 2.8cqh, 30px);
+  }
+  #window-home .home-intro h1{
+    margin:0;
+  }
+  #window-home .home-intro p{
+    margin:0 0 clamp(10px, 1.6cqh, 20px);
+  }
+  #window-home .tile-grid{
+    gap:
+      clamp(18px, 2.6cqh, 28px)
+      clamp(18px, 2.6cqw, 28px);
+    margin:0;
+  }
+  #window-home .tile-btn{
+    padding:
+      clamp(20px, 3.4cqh, 36px)
+      clamp(18px, 2.8cqw, 28px);
+  }
