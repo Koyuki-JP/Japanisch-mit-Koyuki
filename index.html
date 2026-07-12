@@ -88,7 +88,7 @@
   }
   body.light .stage{
     background:
-      url('Background-white.png') center center / cover no-repeat,
+      url('Background white.png') center center / cover no-repeat,
       #f7f0e8;
   }
 
@@ -222,6 +222,22 @@
       linear-gradient(var(--bg-panel-2), var(--bg-panel-2)) padding-box,
       linear-gradient(135deg, var(--pink), var(--violet)) border-box;
     box-shadow: 0 12px 28px -18px rgba(236,72,153,0.9);
+  }
+
+  .tile-btn.featured:hover{
+    transform: translateY(-3px);
+    border-color: transparent;
+    background: linear-gradient(160deg, var(--violet), var(--pink));
+    box-shadow: 0 16px 30px -16px rgba(236,72,153,0.9);
+  }
+
+  .tile-btn.featured:hover .label,
+  .tile-btn.featured:hover .tile-progress-label{
+    color: rgba(255,255,255,0.94);
+  }
+
+  .tile-btn.featured:hover .tile-progress{
+    background: rgba(255,255,255,0.22);
   }
   .tile-btn.featured::after{
     content:"Empfohlener Start";
@@ -445,25 +461,31 @@
     pointer-events:none;
   }
   .bubble{
-    background: var(--bg-panel); border:1px solid var(--line); border-radius: 14px;
-    padding: 12px 14px; font-size: 0.82rem; line-height:1.5; color: var(--text);
+    background: var(--pink-soft);
+    border:1px solid rgba(240,171,252,0.55);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 0.82rem;
+    line-height:1.5;
+    color:#342640;
     box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5);
     position: relative; margin-bottom: 10px; text-align:center;
   }
   .bubble::after{
     content:""; position:absolute; bottom:-7px; left:50%; transform:translateX(-50%);
-    width:14px; height:14px; background:var(--bg-panel);
-    border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    width:14px; height:14px; background:var(--pink-soft);
+    border-right:1px solid rgba(240,171,252,0.55);
+    border-bottom:1px solid rgba(240,171,252,0.55);
     rotate: 45deg;
   }
 
   body.light .fox-wrap{
     filter:
-      drop-shadow(1.5px 1.5px 0 #b56576)
-      drop-shadow(-1.5px -1.5px 0 #b56576)
-      drop-shadow(1.5px -1.5px 0 #b56576)
-      drop-shadow(-1.5px 1.5px 0 #b56576)
-      drop-shadow(0 6px 15px rgba(181,101,118,0.3)) !important;
+      drop-shadow(1.5px 1.5px 0 var(--pink-soft))
+      drop-shadow(-1.5px -1.5px 0 var(--pink-soft))
+      drop-shadow(1.5px -1.5px 0 var(--pink-soft))
+      drop-shadow(-1.5px 1.5px 0 var(--pink-soft))
+      drop-shadow(0 7px 16px rgba(236,72,153,0.28)) !important;
   }
 
   .fox-wrap{ animation: bob 3.6s ease-in-out infinite; width: 84px; height:84px; display:block; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)); }
