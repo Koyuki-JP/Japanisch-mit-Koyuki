@@ -2229,8 +2229,23 @@ function positionCascade(el){
   const idx = openCount % 6;
   openCount += 1;
   const offset = idx * 26;
-  el.style.left = `calc(50% - 320px + ${offset}px)`;
-  el.style.top = `calc(50% - 210px + ${offset}px)`;
+
+  // Inhaltsfenster werden direkt mit echten Pixelkoordinaten positioniert.
+  // Dadurch bleibt beim allerersten Ziehen keine translate-Zentrierung übrig,
+  // die das Fenster seitlich springen lassen könnte.
+  const rect = el.getBoundingClientRect();
+  const centeredLeft = Math.max(12, (window.innerWidth - rect.width) / 2 + offset);
+  const centeredTop = Math.max(12, (window.innerHeight - rect.height) / 2 + offset);
+
+  el.style.transition = 'none';
+  el.style.transform = 'none';
+  el.style.left = centeredLeft + 'px';
+  el.style.top = centeredTop + 'px';
+
+  // Nach einem Frame darf die normale Einblendanimation wieder greifen.
+  requestAnimationFrame(() => {
+    el.style.transition = '';
+  });
 }
 
 function setActive(id, el){
@@ -2307,9 +2322,10 @@ function makeDraggable(win, titlebar){
     origX = rect.left;
     origY = rect.top;
 
-    // Das Fenster ist anfangs mit translate(-50%, -50%) zentriert.
-    // Vor dem Ziehen wird diese Transformation entfernt, sonst springt
-    // das Fenster beim ersten Bewegen seitlich weg.
+    // Sicherheitshalber immer auf feste Koordinaten setzen.
+    // Da positionCascade die Zentrierung bereits entfernt, entsteht
+    // hierbei auch beim ersten Ziehen kein Sprung mehr.
+    win.style.transition = 'none';
     win.style.transform = 'none';
     win.style.left = origX + 'px';
     win.style.top = origY + 'px';
@@ -2322,8 +2338,15 @@ function makeDraggable(win, titlebar){
     win.style.top = (origY + (e.clientY - startY)) + 'px';
     updateWegweiser();
   });
-  titlebar.addEventListener('pointerup', () => { dragging = false; });
-  titlebar.addEventListener('pointercancel', () => { dragging = false; });
+  function stopDragging(){
+    dragging = false;
+    requestAnimationFrame(() => {
+      win.style.transition = '';
+    });
+  }
+
+  titlebar.addEventListener('pointerup', stopDragging);
+  titlebar.addEventListener('pointercancel', stopDragging);
 }
 
 function makeResizable(win, handle){
