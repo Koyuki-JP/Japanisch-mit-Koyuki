@@ -5,7 +5,7 @@ Grammatik, Vokabeln, Immersion, Mining und hilfreichen Tools.
 
 ## Status
 
-Das Projekt befindet sich noch im Aufbau.
+Das Projekt befindet sich noch im Aufbau und wird mit Hilfe von Ai gecoded!
 
 ## Website
 
