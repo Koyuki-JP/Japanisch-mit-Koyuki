@@ -6,7 +6,7 @@
 <title>Japanischzimmer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Sora:wght@300;400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg: #14101e;
@@ -89,7 +89,7 @@
 
   z-index: 20;
 }
-  .window.open{ opacity:1; transform:scale(1); pointer-events:all; }
+  .window.open{ opacity:1; pointer-events:all; }
   .window.resizing{ transition:none; }
 
   #window-home{
@@ -138,7 +138,7 @@
   .window-content{ padding: 28px clamp(20px,4vw,36px) 32px; overflow-y:auto; flex: 1 1 auto; min-height: 0; position: relative; }
 
   .home-intro{ text-align:center; }
-  .home-intro h1{ font-family:'Sora', sans-serif; font-size: clamp(1.8rem, 4.2vw, 2.3rem); margin: 0.2em 0 0.15em; }
+  .home-intro h1{ font-family:'Nunito', sans-serif; font-size: clamp(1.8rem, 4.2vw, 2.3rem); margin: 0.2em 0 0.15em; }
   .home-intro h1 .accent{ color: var(--pink-soft); }
   .home-intro p{ color: var(--muted); font-size: 1rem; margin: 0 0 1.6rem; }
 
@@ -270,8 +270,8 @@
   .guide-step.done::before{ content:"✓"; }
 
   .win-eyebrow{ margin-bottom:6px; display:block; }
-  .win-h2{ font-family:inherit; font-size:1.55rem; margin:0.1em 0 0.9em; }
-  .win-h3{ font-family:inherit; font-size:1.12rem; margin:1.3em 0 0.6em; color: var(--pink-soft); }
+  .win-h2{ font-family:'Nunito', sans-serif; font-size:1.55rem; margin:0.1em 0 0.9em; }
+  .win-h3{ font-family:'Nunito', sans-serif; font-size:1.12rem; margin:1.3em 0 0.6em; color: var(--pink-soft); }
   .win-p{ color: var(--muted); font-size:0.98rem; line-height:1.75; margin:0 0 1.05em; }
 
   .win-list{ margin: 0 0 1.1em; padding-left: 1.3em; color: var(--muted); font-size:0.96rem; line-height:1.75; }
@@ -398,8 +398,8 @@
   <div class="window open" id="window-home">
     <div class="window-titlebar static"><span class="tab-label">Start</span></div>
     <div class="window-content home-intro">
-      <h1>hallo! das ist, dass <span class="accent">日本語部屋 Japanischzimmer</span></h1>
-      <p>ein klarer, verständlicher Lernweg für Japanisch!</p>
+      <h1>Hallo! Das ist das <span class="accent">Japanischzimmer</span></h1>
+      <p>Ein klarer, verständlicher Lernweg für Japanisch!</p>
       <div class="tile-grid">
         <button class="tile-btn featured" data-open="guide">
           <span class="glyph">初</span>
@@ -423,7 +423,7 @@
 
   <!-- Wegweiser -->
   <div class="wegweiser" id="wegweiser">
-    <div class="bubble" id="wegweiserText">Hallo! Ich bin dein Yuki — klick auf eine Kachel, um deine Reise zu beginnen!</div>
+    <div class="bubble" id="wegweiserText">Hallo! Ich bin Yuki, dein Wegweiser. Klick auf eine Kachel, um deine Reise zu beginnen!</div>
     <img class="fox-wrap" src="Questie.png" alt="Yuki, dein Wegweiser">
   </div>
 
@@ -673,7 +673,7 @@ guide: {
   html: `
     <span class="eyebrow win-eyebrow">Schriftsystem</span>
 
-    <h2 class="win-h2">Hiragana & Katakana</h2>
+    <h2 class="win-h2">Hiragana &amp; Katakana</h2>
 
     <p class="win-p">
       Japanisch verwendet mehrere Schriftsysteme. Für deinen Einstieg sind zuerst
@@ -1014,7 +1014,7 @@ kanji: {
     </ol>
 
     <p class="win-p">
-      Du musst nicht warten, bis du hunderte Kanji kennst, bevor du mit
+      Du musst nicht warten, bis du Hunderte Kanji kennst, bevor du mit
       echten Inhalten beginnst. Durch wiederholte Begegnungen werden die
       Zeichen mit der Zeit vertrauter.
     </p>
@@ -2115,13 +2115,37 @@ function setActive(id, el){
   updateWegweiser();
 }
 
+function closeAllContentWindows(){
+  Object.values(state).forEach(({ el }) => {
+    el.classList.remove('open');
+  });
+  setActive('home', homeEl);
+}
+
 function openWindow(id){
   if(!panels[id]) return;
+
+  // Es bleibt immer nur ein großes Inhaltsfenster geöffnet.
+  Object.entries(state).forEach(([windowId, entry]) => {
+    if(windowId !== id) entry.el.classList.remove('open');
+  });
+
   let s = state[id];
-  if(!s){ s = { el: buildWindow(id), positioned:false }; state[id] = s; }
-  if(!s.positioned){ positionCascade(s.el); s.positioned = true; }
+  if(!s){
+    s = { el: buildWindow(id), positioned:false };
+    state[id] = s;
+  }
+
+  if(!s.positioned){
+    positionCascade(s.el);
+    s.positioned = true;
+  }
+
   s.el.classList.add('open');
   setActive(id, s.el);
+
+  const content = s.el.querySelector('.window-content');
+  if(content) content.scrollTop = 0;
 }
 
 function makeDraggable(win, titlebar){
@@ -2189,7 +2213,20 @@ document.addEventListener('click', (e) => {
   }
 
   const opener = e.target.closest('[data-open]');
-  if(opener) openWindow(opener.getAttribute('data-open'));
+  if(opener){
+    openWindow(opener.getAttribute('data-open'));
+    return;
+  }
+
+  // Ein Klick auf den freien Hintergrund schließt alle Inhaltsfenster.
+  const clickedInterface =
+    e.target.closest('.window') ||
+    e.target.closest('.wegweiser') ||
+    e.target.closest('.top-controls');
+
+  if(!clickedInterface && e.target.closest('.stage')){
+    closeAllContentWindows();
+  }
 });
 homeEl.addEventListener('pointerdown', () => setActive('home', homeEl));
 makeResizable(homeEl, homeEl.querySelector('.resize-handle'));
