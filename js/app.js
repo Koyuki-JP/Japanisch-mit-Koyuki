@@ -425,6 +425,28 @@ kanji: {
       Nutze sie zunächst nur als Orientierungshilfe.
     </p>
 
+    <h3 class="win-h3">Ähnliche Kanji unterscheiden</h3>
+
+    <p class="win-p">
+      Manche Kanji unterscheiden sich nur durch einen einzigen Strich oder
+      ein kleines Detail. Gerade am Anfang führt das leicht zu Verwechslungen.
+    </p>
+
+    <ul class="win-list">
+      <li><strong>未</strong> (noch nicht) vs. <strong>末</strong> (Ende) — der obere Strich ist unterschiedlich lang</li>
+      <li><strong>人</strong> (Mensch) vs. <strong>入</strong> (hinein) — die Striche kreuzen sich unterschiedlich</li>
+      <li><strong>大</strong> (groß) vs. <strong>犬</strong> (Hund) — nur ein zusätzlicher Punkt</li>
+      <li><strong>土</strong> (Erde) vs. <strong>士</strong> (Krieger/Fachmann) — die Strichlängen sind vertauscht</li>
+    </ul>
+
+    <p class="win-p">
+      Radikale helfen dir dabei, solche Zeichen bewusster zu betrachten,
+      statt sie nur oberflächlich als „ähnlich aussehende Form“ abzuspeichern.
+      Beim Lesen in echten Wörtern fällt der Unterschied mit der Zeit fast
+      automatisch auf, weil der Kontext meist eindeutig macht, welches
+      Zeichen gemeint ist.
+    </p>
+
     <h3 class="win-h3">Musst du Kanji schreiben können?</h3>
 
     <p class="win-p">
@@ -457,6 +479,40 @@ kanji: {
       Du musst nicht warten, bis du Hunderte Kanji kennst, bevor du mit
       echten Inhalten beginnst. Durch wiederholte Begegnungen werden die
       Zeichen mit der Zeit vertrauter.
+    </p>
+
+    <h3 class="win-h3">RTK und WaniKani einordnen</h3>
+
+    <p class="win-p">
+      Zwei Namen begegnen dir beim Thema Kanji besonders häufig:
+      <strong>Remembering the Kanji</strong> (RTK) und <strong>WaniKani</strong>.
+      Beide gehen einen anderen Weg als das oben beschriebene Vorgehen über
+      Wörter.
+    </p>
+
+    <ul class="win-list">
+      <li>
+        <strong>RTK</strong> lehrt Kanji isoliert über selbst erdachte
+        Eselsbrücken zu Bedeutung und Aufbau — bewusst ohne Lesungen. Erst
+        danach lernst du, wie die Zeichen in echten Wörtern ausgesprochen
+        werden.
+      </li>
+      <li>
+        <strong>WaniKani</strong> ist ein webbasiertes SRS, das Radikale,
+        Kanji und Vokabeln in aufeinander aufbauenden Stufen kombiniert und
+        dabei sowohl Bedeutung als auch Lesung direkt mitliefert.
+      </li>
+    </ul>
+
+    <p class="win-p">
+      Beide Systeme können funktionieren, sind aber ein zusätzliches,
+      eigenständiges Lernprojekt neben Vokabeln und Immersion — nicht
+      automatisch der bessere Weg. Für die meisten Anfänger:innen reicht
+      es völlig, Kanji direkt über häufige Wörter zu lernen. RTK oder
+      WaniKani lohnen sich vor allem, wenn dir das reine Erkennen von
+      Formen leichter fällt als das Lernen über Wörter, oder wenn du
+      gezielt eine breite Kanji-Basis vor viel Wortschatzarbeit aufbauen
+      möchtest.
     </p>
 
     <h3 class="win-h3">Was solltest du vermeiden?</h3>
@@ -519,6 +575,36 @@ grammatik: {
   title: "文法 — Grammatik",
   quest: "Grammatik ist kein Regelmonster. Nutze sie als Landkarte, damit echte japanische Sätze nach und nach Sinn ergeben.",
   src: "pages/grammatik.html",
+},
+satzstruktur: {
+  title: "文の構造 — Satzstruktur",
+  quest: "Im Japanischen steht das Verb am Ende. Alles davor darfst du relativ frei anordnen, solange die Partikel stimmen.",
+  src: "pages/grammatik-satzstruktur.html",
+},
+verbformen: {
+  title: "動詞の形 — Verbformen",
+  quest: "Drei Verbgruppen, ein System. Sobald du sie erkennst, folgen die Formen fast von selbst.",
+  src: "pages/grammatik-verbformen.html",
+},
+haga: {
+  title: "は・が",
+  quest: "は für das Thema, が für neue Information. Klingt knifflig, wird aber mit jedem Beispiel klarer.",
+  src: "pages/grammatik-haga.html",
+},
+wo: {
+  title: "を",
+  quest: "Was gegessen, gelesen oder gekauft wird, bekommt ein を. Kurz, aber unverzichtbar.",
+  src: "pages/grammatik-wo.html",
+},
+nide: {
+  title: "に・で",
+  quest: "に für Existenz und Zeit, で für Handlungsorte und Mittel. Zwei kleine Partikel mit großem Unterschied.",
+  src: "pages/grammatik-nide.html",
+},
+teform: {
+  title: "て形 — die て-Form",
+  quest: "Die て-Form verbindet Handlungen, Bitten und laufende Aktionen — ein zentraler Baustein für vieles danach.",
+  src: "pages/grammatik-teform.html",
 },
 
   wortschatz: {
