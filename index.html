@@ -148,10 +148,10 @@
 
   #window-home{
     top:50%; left:50%; transform:translate(-50%,-50%);
-    width:min(90vw, 700px);
-    height:auto;
-    max-height:80vh;
-    min-width:260px;
+    width:min(78vw, 1200px);
+    height:min(76vh, 820px);
+    max-height:86vh;
+    min-width:420px;
     z-index:5;
     opacity:1;
     pointer-events:all;
@@ -207,7 +207,8 @@
     text-align:center;
     display:flex;
     flex-direction:column;
-    min-height:0;
+    min-height:100%;
+    height:100%;
   }
   .home-intro h1{
     font-family:'Nunito', sans-serif;
@@ -222,7 +223,7 @@
   .tile-grid{
     display:grid;
     grid-template-columns:repeat(3, minmax(0, 1fr));
-    grid-template-rows:repeat(2, minmax(110px, 1fr));
+    grid-template-rows:repeat(2, minmax(170px, 1fr));
     gap:
       clamp(8px, 2cqh, 14px)
       clamp(8px, 2cqw, 14px);
@@ -275,7 +276,7 @@
     }
   }
 
-  @container (max-width: 420px){
+  @container (max-width: 520px){
     .home-intro h1{
       font-size:clamp(1.3rem, 7cqw, 1.65rem);
       margin-top:0;
@@ -344,7 +345,7 @@
   }
 
 
-  @container (max-width: 320px){
+  @container (max-width: 360px){
     .window-content{
       padding-left:12px;
       padding-right:12px;
@@ -2472,6 +2473,80 @@ function geheZuNaechstemBereich(naechsterBereichId, ausloeser = null){
   openWindow(naechsterBereichId, ausloeser);
 }
 
+
+/* ===================== Fenstergrößen merken ===================== */
+const WINDOW_SIZE_KEY = 'japanischzimmer-window-sizes-v1';
+
+const LARGE_GUIDE_WINDOWS = new Set([
+  'guide', 'toc', 'kana', 'hiragana', 'katakana', 'kanji',
+  'grammatik', 'wortschatz', 'hoeren', 'ressourcen', 'jlpt',
+  'kultur', 'reading', 'immersion'
+]);
+
+const MEDIUM_WINDOWS = new Set([
+  'faq', 'kontakt'
+]);
+
+function clamp(value, min, max){
+  return Math.min(Math.max(value, min), max);
+}
+
+function getDefaultWindowSize(id){
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+
+  // Große Inhaltsfenster sollen ungefähr 60–70 % des Bildschirms nutzen.
+  if(LARGE_GUIDE_WINDOWS.has(id)){
+    return {
+      width: clamp(Math.round(vw * 0.66), 820, Math.round(vw * 0.88)),
+      height: clamp(Math.round(vh * 0.74), 560, Math.round(vh * 0.88))
+    };
+  }
+
+  // Kleinere Utility-Fenster bleiben kompakter, aber dennoch deutlich nutzbar.
+  if(MEDIUM_WINDOWS.has(id)){
+    return {
+      width: clamp(Math.round(vw * 0.56), 620, Math.round(vw * 0.82)),
+      height: clamp(Math.round(vh * 0.60), 420, Math.round(vh * 0.78))
+    };
+  }
+
+  // Fallback für alles andere.
+  return {
+    width: clamp(Math.round(vw * 0.60), 720, Math.round(vw * 0.86)),
+    height: clamp(Math.round(vh * 0.66), 480, Math.round(vh * 0.84))
+    };
+}
+
+
+function getSavedWindowSizes(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(WINDOW_SIZE_KEY) || '{}');
+    return saved && typeof saved === 'object' ? saved : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveWindowSize(id, width, height){
+  const sizes = getSavedWindowSizes();
+  sizes[id] = { width, height };
+  localStorage.setItem(WINDOW_SIZE_KEY, JSON.stringify(sizes));
+}
+
+function applySavedWindowSize(id, el){
+  const defaults = getDefaultWindowSize(id);
+  el.style.width = defaults.width + 'px';
+  el.style.height = defaults.height + 'px';
+
+  const sizes = getSavedWindowSizes();
+  const saved = sizes[id];
+  if(!saved) return;
+
+  if(saved.width) el.style.width = Math.max(420, saved.width) + 'px';
+  if(saved.height) el.style.height = Math.max(360, saved.height) + 'px';
+}
+
 /* ===================== Fenster-Engine ===================== */
 const windowsRoot = document.getElementById('windows-root');
 const homeEl = document.getElementById('window-home');
@@ -2497,6 +2572,7 @@ function buildWindow(id){
     </div>
   `;
   windowsRoot.appendChild(el);
+  applySavedWindowSize(id, el);
   enhanceCollapsibleSections(el.querySelector('.window-content'), id);
   updateGuideProgressUI();
   makeDraggable(el, el.querySelector('.window-titlebar'));
@@ -2645,32 +2721,52 @@ function makeDraggable(win, titlebar){
 
 function makeResizable(win, handle){
   let resizing = false, startX, startY, startW, startH;
+  const minW = parseFloat(getComputedStyle(win).minWidth) || 420;
+  const minH = parseFloat(getComputedStyle(win).minHeight) || 360;
+
   handle.addEventListener('pointerdown', (e) => {
     e.stopPropagation();
     resizing = true;
     setActive(win.id.replace('window-','') || 'home', win);
     const rect = win.getBoundingClientRect();
-    startX = e.clientX; startY = e.clientY;
-    startW = rect.width; startH = rect.height;
-    // Beim ersten Resize von "auto"-Höhe auf feste Werte umstellen,
-    // damit sich das Fenster nicht mehr am Inhalt orientiert.
+    startX = e.clientX;
+    startY = e.clientY;
+    startW = rect.width;
+    startH = rect.height;
+
     win.style.width = startW + 'px';
     win.style.height = startH + 'px';
     win.style.maxHeight = '92vh';
     win.classList.add('resizing');
     handle.setPointerCapture(e.pointerId);
   });
+
   handle.addEventListener('pointermove', (e) => {
     if(!resizing) return;
-    const maxW = window.innerWidth - 24;
-    const maxH = window.innerHeight - 24;
-    const newW = Math.min(Math.max(startW + (e.clientX - startX), 320), maxW);
-    const newH = Math.min(Math.max(startH + (e.clientY - startY), 260), maxH);
-    win.style.width = newW + 'px';
-    win.style.height = newH + 'px';
-    positionWegweiser();
+
+    const nextWidth = Math.max(minW, startW + (e.clientX - startX));
+    const nextHeight = Math.max(minH, startH + (e.clientY - startY));
+
+    win.style.width = nextWidth + 'px';
+    win.style.height = nextHeight + 'px';
+
+    if(win.id){
+      saveWindowSize(win.id.replace('window-','') || 'home', nextWidth, nextHeight);
+    }
   });
-  function stopResize(){
+
+  handle.addEventListener('pointerup', () => {
+    resizing = false;
+    win.classList.remove('resizing');
+  });
+
+  handle.addEventListener('pointercancel', () => {
+    resizing = false;
+    win.classList.remove('resizing');
+  });
+}
+
+function stopResize(){
     resizing = false;
     win.classList.remove('resizing');
   }
