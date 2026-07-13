@@ -113,10 +113,12 @@ Themenseiten von Konditionalformen über Passiv/Kausativ bis zu
 Keigo-Grundlagen, im gleichen Format wie die bestehenden
 Grammatikseiten.
 
-Noch offen, bewusst zurückgestellt:
+- [x] Teilbare Direktlinks: alle 55 Panels haben jetzt eine eigene,
+      echte URL (z. B. `/hiragana/`) mit eigenem Titel und Vorschautext
+      zum Teilen/Verlinken — die Navigation innerhalb der Seite bleibt
+      dabei komplett client-seitig wie bisher
 
-- [ ] Teilbare Direktlinks / Routing für einzelne Panels prüfen (größere
-      Architekturentscheidung — bewusst nicht im Alleingang entschieden)
+Damit ist auch der Feedback-Phasenplan vollständig abgearbeitet.
 
 Das seitliche Mini-Inhaltsverzeichnis für lange Artikel läuft bereits
 automatisch auf jedem Panel mit mehreren Zwischenüberschriften, nicht nur
