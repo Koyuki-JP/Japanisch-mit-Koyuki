@@ -43,6 +43,7 @@ gibt.
 | 🈁 **Kana** | Hiragana & Katakana inkl. Dakuten, Yōon, Lerntabellen — Zeichen anklicken zum Anhören, plus eigenes Erkennungs-Quiz |
 | 漢 **Kanji** | Lernstrategie, Radikale, RTK/WaniKani-Einordnung, ähnliche Kanji |
 | 文 **Grammatik** | Satzstruktur, Verbformen, は・が, を, に・で, て-Form — je mit Beispielen, typischen Fehlern und Mini-Quiz |
+| 📘 **Fortgeschrittener Guide** | Grammatik auf JLPT-N4/N3-Niveau: Geben & Nehmen, Verbindungsformen, Konditionalformen, Passiv & Kausativ, Vermutung, Erklärung/Konsequenz, Grund & Konzession, Zeit & Abfolge, formale Bezugsausdrücke, Einschränkung & Verstärkung, Pflicht & Unmöglichkeit, Keigo-Grundlagen — 12 Themenseiten, ~45 Grammatikpunkte |
 | 単 **Wortschatz** | Aufbau eines Grundwortschatzes, Anki-Grunddecks im Vergleich |
 | 🗣️ **Aussprache** | Mora, lange Vokale, Pitch Accent, Shadowing |
 | 👂 **Hörverstehen** | Aktives/passives Hören, Untertitel-Strategie, Condensed Audio |
@@ -59,6 +60,7 @@ gibt.
 | 🧭 **Geführte Lernwege** | 6 Pfade (Anfänger, Anime, Manga, Visual Novel, Hörverstehen, JLPT) je mit fertiger Setup-Checkliste |
 | 🌀 **Entscheidungsbaum** | Interaktives „Was brauche ich jetzt?" — führt per Ja/Nein-Fragen zum passenden nächsten Schritt |
 | ⛩️ **Kultur & Etikette** | Höflichkeitsebenen, Namen/Anrede, Alltagskultur, Fiktion vs. Realität |
+| 参考 **Quellenverzeichnis** | Nachschlagewerke und Referenzen hinter den Grammatik-Erklärungen (DBJG, Imabi, Tae Kim, Jisho u. a.) |
 
 ## Geplant
 
@@ -93,17 +95,27 @@ erledigt:
 
 - [x] Redaktionelle Wiederholungen im KWS-Text reduzieren (größte
       Häufungen in Wortschatz, Hörverstehen, Guide und Hiragana entschärft)
-- [x] Zielgruppenebenen geprüft — die bestehende Dreiteilung (Einstieg /
-      Vertiefung / Werkzeuge & Referenz) reicht aktuell aus; eine eigene
-      „Fortgeschritten"-Ebene lohnt sich erst, sobald es echte
-      fortgeschrittene Grammatikthemen gibt
+- [x] Zielgruppenebenen geprüft — ursprünglich als "reicht aktuell aus"
+      eingestuft; mit dem Fortgeschrittenen Guide (siehe unten) ist die
+      vierte Ebene "Fortgeschritten" inzwischen tatsächlich entstanden
 - [x] Anfängerführung visuell gestaffelt: Der Anfänger-Guide markiert
       seine 5 Schritte jetzt mit Jetzt/Bald/Laufend/Später-Badges
+- [x] Quellen- und Aktualisierungssystem gestartet: eigenes
+      Quellenverzeichnis mit den Nachschlagewerken hinter den
+      Grammatik-Erklärungen (DBJG, Imabi, Tae Kim, Maggie Sensei,
+      Bunpro, Jisho)
+
+Neu dazugekommen (nicht ursprünglich geplant): ein kompletter
+**Fortgeschrittener Guide** mit Grammatik auf JLPT-N4/N3-Niveau — 12
+Themenseiten von Konditionalformen über Passiv/Kausativ bis zu
+Keigo-Grundlagen, im gleichen Format wie die bestehenden
+Grammatikseiten.
 
 Noch offen, bewusst zurückgestellt:
 
-- [ ] Quellen- und Aktualisierungssystem für Grammatik-/Deck-/Toolseiten
-      (braucht erst noch die angekündigte Quellensammlung)
+- [ ] Quellenverzeichnis auf Deck-/Toolseiten ausweiten (aktuell deckt es
+      nur die Grammatikseiten ab) und "Stand/zuletzt geprüft"-Angaben
+      ergänzen
 - [ ] Teilbare Direktlinks / Routing für einzelne Panels prüfen (größere
       Architekturentscheidung)
 

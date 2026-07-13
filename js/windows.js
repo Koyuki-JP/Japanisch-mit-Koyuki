@@ -19,7 +19,10 @@ const LARGE_GUIDE_WINDOWS = new Set([
   'wortschatz', 'aussprache', 'hoeren', 'immersion', 'lesen', 'anki', 'yomitan', 'mining', 'ressourcen', 'jlpt',
   'kultur', 'tools', 'tool-asbplayer', 'tool-mpvacious', 'tool-textractor', 'tool-mokuro',
   'tool-jidoujisho', 'tool-jpdb', 'tool-bunpro', 'tool-natively', 'glossar', 'fehlerhilfe',
-  'lernwege', 'entscheidungsbaum'
+  'lernwege', 'entscheidungsbaum',
+  'fortgeschritten', 'fgGebenNehmen', 'fgVerbindungen', 'fgKonditional', 'fgPassivKausativ',
+  'fgVermutung', 'fgErklaerung', 'fgGrundKonzession', 'fgZeitAbfolge', 'fgBezug',
+  'fgEinschraenkung', 'fgPflicht', 'fgKeigo', 'quellen'
 ]);
 
 const MEDIUM_WINDOWS = new Set([

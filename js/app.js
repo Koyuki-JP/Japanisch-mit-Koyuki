@@ -374,9 +374,9 @@ guide: {
       welche Tür wohin führt.
     </p>
     <p class="win-p">
-      Alle Bereiche der Seite, gruppiert nach Einstieg, Vertiefung und
-      Werkzeuge &amp; Referenz. Nicht sicher, wo du anfangen sollst? Tag 1
-      oder der Entscheidungsbaum helfen dir weiter.
+      Alle Bereiche der Seite, gruppiert nach Einstieg, Vertiefung,
+      Fortgeschritten und Werkzeuge &amp; Referenz. Nicht sicher, wo du
+      anfangen sollst? Tag 1 oder der Entscheidungsbaum helfen dir weiter.
     </p>
 
     <h3 class="win-h3">Einstieg</h3>
@@ -405,11 +405,17 @@ guide: {
       <li><button class="toc-item" data-open="jlpt">JLPT-Prüfungen</button></li>
     </ul>
 
+    <h3 class="win-h3">Fortgeschritten</h3>
+    <ul class="toc-list">
+      <li><button class="toc-item" data-open="fortgeschritten">Fortgeschrittener Guide (N4/N3)</button></li>
+    </ul>
+
     <h3 class="win-h3">Werkzeuge &amp; Referenz</h3>
     <ul class="toc-list">
       <li><button class="toc-item" data-open="tools">Tools-Bibliothek</button></li>
       <li><button class="toc-item" data-open="glossar">Glossar</button></li>
       <li><button class="toc-item" data-open="fehlerhilfe">Fehlerdatenbank</button></li>
+      <li><button class="toc-item" data-open="quellen">Quellenverzeichnis</button></li>
       <li><button class="toc-item" data-open="ressourcen">Ressourcen</button></li>
       <li><button class="toc-item" data-open="faq">FAQ</button></li>
       <li><button class="toc-item" data-open="kontakt">Kontakt</button></li>
@@ -1111,6 +1117,78 @@ teform: {
   title: "て形 — die て-Form",
   quest: "Die て-Form verbindet Handlungen, Bitten und laufende Aktionen — ein zentraler Baustein für vieles danach.",
   src: "pages/grammatik-teform.html",
+},
+
+fortgeschritten: {
+  title: "上級ガイド — Fortgeschrittener Guide",
+  quest: "Die Grundlagen sitzen? Dann warten hier Passiv, Kausativ und Co. — Grammatik auf JLPT-N4/N3-Niveau.",
+  src: "pages/fortgeschritten.html",
+},
+fgGebenNehmen: {
+  title: "あげる・くれる・もらう erweitert",
+  quest: "Wer gibt wem was — und warum klingt das im Japanischen manchmal höflicher als im Deutschen?",
+  src: "pages/fg-geben-nehmen.html",
+},
+fgVerbindungen: {
+  title: "ておく・てしまう・ていく・てくる",
+  quest: "Vier kleine Anhängsel an die て-Form, die einem Satz eine ganz eigene Nuance geben.",
+  src: "pages/fg-verbindungen.html",
+},
+fgKonditional: {
+  title: "ば・たら・と・なら",
+  quest: "Vier Wege, 'wenn' zu sagen — und vier Situationen, in denen nur eine davon wirklich passt.",
+  src: "pages/fg-konditional.html",
+},
+fgPassivKausativ: {
+  title: "受身・使役 — Passiv & Kausativ",
+  quest: "Wer tut hier eigentlich was mit wem? Passiv und Kausativ drehen die Satzrichtung um.",
+  src: "pages/fg-passiv-kausativ.html",
+},
+fgVermutung: {
+  title: "そう・らしい・ようだ・はず",
+  quest: "Japanisch hat auffällig viele Wörter für 'ich glaube, dass...' — hier lernst du, welches wann passt.",
+  src: "pages/fg-vermutung.html",
+},
+fgErklaerung: {
+  title: "わけだ・わけではない・ものだ",
+  quest: "Erklärungen, Einschränkungen und leise Widersprüche — feine Nuancen, die viel über den Ton eines Satzes verraten.",
+  src: "pages/fg-erklaerung.html",
+},
+fgGrundKonzession: {
+  title: "のに・おかげで・ものの",
+  quest: "Warum etwas passiert ist — und warum es trotzdem anders kam, als erwartet.",
+  src: "pages/fg-grund-konzession.html",
+},
+fgZeitAbfolge: {
+  title: "たとたん・最中に・たびに",
+  quest: "Der genaue Zeitpunkt macht im Japanischen oft den ganzen Unterschied.",
+  src: "pages/fg-zeit-abfolge.html",
+},
+fgBezug: {
+  title: "に対して・において・によって",
+  quest: "Formelle Bezugs-Partikel, die dir in Nachrichten, Aufsätzen und offiziellen Texten ständig begegnen.",
+  src: "pages/fg-bezug.html",
+},
+fgEinschraenkung: {
+  title: "ばかりに・ぬきで・に限る",
+  quest: "Kleine Wörter mit großer Wirkung — sie schränken ein, verstärken oder schließen etwas bewusst aus.",
+  src: "pages/fg-einschraenkung.html",
+},
+fgPflicht: {
+  title: "ざるを得ない・てはならない",
+  quest: "Wenn 'müssen' und 'nicht können' im Japanischen noch ein paar zusätzliche Formen bekommen.",
+  src: "pages/fg-pflicht.html",
+},
+fgKeigo: {
+  title: "敬語 — Register & Keigo-Grundlagen",
+  quest: "Höflichkeitsstufen sind kein Regelmonster, sondern ein Werkzeugkasten — hier lernst du die ersten Werkzeuge kennen.",
+  src: "pages/fg-keigo.html",
+},
+
+quellen: {
+  title: "参考文献 — Quellenverzeichnis",
+  quest: "Woher kommt das alles eigentlich? Hier findest du die Nachschlagewerke und Referenzen hinter den Grammatik-Erklärungen.",
+  src: "pages/quellen.html",
 },
 
   wortschatz: {
