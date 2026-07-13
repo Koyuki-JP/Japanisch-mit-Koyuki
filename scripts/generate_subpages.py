@@ -44,7 +44,7 @@ SUBPAGE_DIR = "go"
 
 # Muss zum ?v=... in index.html passen -- bei jedem Cache-Busting-Bump
 # hier mit anpassen und das Skript neu laufen lassen.
-CACHE_VERSION = "20260713-29"
+CACHE_VERSION = "20260713-30"
 
 # Panel-IDs, die im Code camelCase sind (fuer JS-Objektschluessel
 # praktisch), aber als URL lieber lesbares kebab-case haben sollen.
@@ -62,6 +62,18 @@ SLUG_OVERRIDES = {
     "fgEinschraenkung": "fg-einschraenkung",
     "fgPflicht": "fg-pflicht",
     "fgKeigo": "fg-keigo",
+    "n2Zeit": "n2-zeit",
+    "n2GrundPerspektive": "n2-grund-perspektive",
+    "n2WeitereGruende": "n2-weitere-gruende",
+    "n2GegensatzErwartung": "n2-gegensatz-erwartung",
+    "n2Bedingung": "n2-bedingung",
+    "n2MoeglichkeitSchluss": "n2-moeglichkeit-schluss",
+    "n2Vermutung": "n2-vermutung",
+    "n2Einschraenkung": "n2-einschraenkung",
+    "n2Bezug1": "n2-bezug-1",
+    "n2Bezug2": "n2-bezug-2",
+    "n2UmHerum": "n2-um-herum",
+    "n2Ausdruecke": "n2-ausdruecke",
 }
 
 

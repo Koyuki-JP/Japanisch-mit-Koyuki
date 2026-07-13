@@ -414,6 +414,7 @@ guide: {
     <h3 class="win-h3">Fortgeschritten</h3>
     <ul class="toc-list">
       <li><button class="toc-item" data-open="fortgeschritten">Fortgeschrittener Guide (N4/N3)</button></li>
+      <li><button class="toc-item" data-open="experte">Experten-Guide (N2)</button></li>
     </ul>
 
     <h3 class="win-h3">Werkzeuge &amp; Referenz</h3>
@@ -1189,6 +1190,72 @@ fgKeigo: {
   title: "敬語 — Register & Keigo-Grundlagen",
   quest: "Höflichkeitsstufen sind kein Regelmonster, sondern ein Werkzeugkasten — hier lernst du die ersten Werkzeuge kennen.",
   src: "pages/fg-keigo.html",
+},
+
+experte: {
+  title: "上級ガイド II — Experten-Guide (N2)",
+  quest: "Grammatik auf JLPT-N2-Niveau — ab hier liest du Texte, die gar nicht für Lernende geschrieben wurden.",
+  src: "pages/experte.html",
+},
+n2Zeit: {
+  title: "Zeitliche Nuancen",
+  quest: "Acht Formen, die alle etwas mit Zeitpunkten zu tun haben — aber jede beantwortet eine andere Frage.",
+  src: "pages/n2-zeit.html",
+},
+n2GrundPerspektive: {
+  title: "から-Familie — Grund & Perspektive",
+  quest: "から bildet auf N2-Niveau eine ganze Familie von Ausdrücken für Standpunkt und Perspektive.",
+  src: "pages/n2-grund-perspektive.html",
+},
+n2WeitereGruende: {
+  title: "Weitere Gründe & Anlässe",
+  quest: "Acht weitere Wege, einen Grund auszudrücken — von nüchtern-erklärend bis fast schon vorwurfsvoll.",
+  src: "pages/n2-weitere-gruende.html",
+},
+n2GegensatzErwartung: {
+  title: "Gegensatz & Erwartung, vertieft",
+  quest: "Erst vier Formen, die eine Erwartung gegen die Realität stellen — dann drei, mit denen du selbst eine formulierst.",
+  src: "pages/n2-gegensatz-erwartung.html",
+},
+n2Bedingung: {
+  title: "Bedingung, vertieft",
+  quest: "Sechs speziellere Bedingungs-Nuancen, die auf ば・たら・と・なら aufbauen.",
+  src: "pages/n2-bedingung.html",
+},
+n2MoeglichkeitSchluss: {
+  title: "Möglichkeit, Unmöglichkeit & Schlussfolgerung",
+  quest: "Ist etwas möglich, unmöglich oder alternativlos? Und was folgt eigentlich aus einer Beobachtung?",
+  src: "pages/n2-moeglichkeit-schluss.html",
+},
+n2Vermutung: {
+  title: "Vermutung & Anzeichen, vertieft",
+  quest: "Von sichtbaren Anzeichen an Wörtern selbst bis zu förmlichen Vermutungen und Gerüchten.",
+  src: "pages/n2-vermutung.html",
+},
+n2Einschraenkung: {
+  title: "Einschränkung & Betonung",
+  quest: "Formen, die etwas ausweiten, etwas bewusst ignorieren oder etwas besonders hervorheben.",
+  src: "pages/n2-einschraenkung.html",
+},
+n2Bezug1: {
+  title: "Formale Bezugs-Partikel I",
+  quest: "にとって・における・に応じて・にわたって・に基づいて・によると — typisch für Nachrichten und offizielle Texte.",
+  src: "pages/n2-bezug-1.html",
+},
+n2Bezug2: {
+  title: "Formale Bezugs-Partikel II",
+  quest: "Übereinstimmung, Reaktion, zeitliche Reihenfolge, Stärke in einem Bereich, Stellvertretung und Vergleich.",
+  src: "pages/n2-bezug-2.html",
+},
+n2UmHerum: {
+  title: "Um … herum & auf Grundlage von",
+  quest: "Fünf を-Partikel, die beschreiben, wie sich etwas um ein Thema, einen Mittelpunkt oder eine Grundlage herum organisiert.",
+  src: "pages/n2-um-herum.html",
+},
+n2Ausdruecke: {
+  title: "Weitere feste Ausdrücke",
+  quest: "Acht Ausdrücke zum Abschluss, die sich nicht sauber in eine andere Kategorie einordnen lassen.",
+  src: "pages/n2-ausdruecke.html",
 },
 
 quellen: {

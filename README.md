@@ -44,6 +44,7 @@ gibt.
 | 漢 **Kanji** | Lernstrategie, Radikale, RTK/WaniKani-Einordnung, ähnliche Kanji |
 | 文 **Grammatik** | Satzstruktur, Verbformen, は・が, を, に・で, て-Form — je mit Beispielen, typischen Fehlern und Mini-Quiz |
 | 📘 **Fortgeschrittener Guide** | Grammatik auf JLPT-N4/N3-Niveau: Geben & Nehmen, Verbindungsformen, Konditionalformen, Passiv & Kausativ, Vermutung, Erklärung/Konsequenz, Grund & Konzession, Zeit & Abfolge, formale Bezugsausdrücke, Einschränkung & Verstärkung, Pflicht & Unmöglichkeit, Keigo-Grundlagen — 12 Themenseiten, ~45 Grammatikpunkte |
+| 🎓 **Experten-Guide** | Grammatik auf JLPT-N2-Niveau: zeitliche Nuancen, から-Familie, weitere Gründe, Gegensatz/Erwartung, Bedingung, Möglichkeit/Schlussfolgerung, Vermutung, Einschränkung/Betonung, formale Bezugs-Partikel, feste Ausdrücke — 12 Themenseiten, ~89 Grammatikpunkte |
 | 単 **Wortschatz** | Aufbau eines Grundwortschatzes, Anki-Grunddecks im Vergleich |
 | 🗣️ **Aussprache** | Mora, lange Vokale, Pitch Accent, Shadowing |
 | 👂 **Hörverstehen** | Aktives/passives Hören, Untertitel-Strategie, Condensed Audio |
@@ -66,8 +67,9 @@ gibt.
 
 **Als Nächstes:**
 
-- [ ] Experten-Guide (N2/N1) als dritte Stufe nach Anfänger- und
-      Fortgeschrittenem Guide, gleiches Format und Vorgehen
+- [ ] Experten-Guide N1 als vierte Stufe — der N2-Teil ist fertig,
+      N1 folgt als eigene, spätere Phase (bewusst getrennt, da der
+      gesamte N2+N1-Umfang zusammen ~285-450 Grammatikpunkte umfasst)
 
 **Bereits umgesetzt:**
 
@@ -85,6 +87,10 @@ gibt.
   der Prüfung"), Lesemodus (⤢-Maximieren-Button pro Fenster),
   teilbare Direktlinks (`/go/<slug>/` + 🔗-Kopier-Button pro Fenster),
   Suchleiste über alle Panel-Titel/-Kurzbeschreibungen
+- **Experten-Guide N2** — 12 Themenseiten, ~89 Grammatikpunkte,
+  gegengeprüft gegen externe Quellen, überall verlinkt
+  (Inhaltsverzeichnis, Entscheidungsbaum, Lernwege, JLPT-Seite,
+  Quellenverzeichnis)
 
 Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS) —
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf

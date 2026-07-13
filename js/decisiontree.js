@@ -30,8 +30,15 @@ const DECISION_TREE = {
   q_grammatik_advanced: {
     question: "Möchtest du deine Grammatik vertiefen (Passiv, Kausativ, Konditionalformen …), oder erstmal mit Immersion weitermachen?",
     options: [
-      { label: "Grammatik vertiefen", next: "rec_fortgeschritten" },
+      { label: "Grammatik vertiefen", next: "q_grammatik_level" },
       { label: "Immersion", next: "q_immersion" }
+    ]
+  },
+  q_grammatik_level: {
+    question: "Passiv, Kausativ und Konditionalformen — ist dir das noch neu, oder sitzt das schon?",
+    options: [
+      { label: "Noch neu", next: "rec_fortgeschritten" },
+      { label: "Sitzt schon", next: "rec_experte" }
     ]
   },
   q_immersion: {
@@ -70,6 +77,10 @@ const DECISION_TREE = {
   rec_fortgeschritten: {
     recommendation: "Der Fortgeschrittene Guide führt dich durch Grammatik auf JLPT-N4/N3-Niveau — Passiv, Kausativ, Konditionalformen und mehr.",
     panel: "fortgeschritten", panelLabel: "Zum Fortgeschrittenen Guide"
+  },
+  rec_experte: {
+    recommendation: "Der Experten-Guide führt dich durch Grammatik auf JLPT-N2-Niveau — feinere Nuancen und formellere Ausdrucksformen für Texte, die nicht mehr für Lernende geschrieben wurden.",
+    panel: "experte", panelLabel: "Zum Experten-Guide"
   },
   rec_immersion: {
     recommendation: "Zeit, mit Immersion anzufangen — auch mit wenig Verständnis ist das schon sinnvoll.",

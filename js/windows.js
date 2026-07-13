@@ -22,7 +22,11 @@ const LARGE_GUIDE_WINDOWS = new Set([
   'lernwege', 'entscheidungsbaum',
   'fortgeschritten', 'fgGebenNehmen', 'fgVerbindungen', 'fgKonditional', 'fgPassivKausativ',
   'fgVermutung', 'fgErklaerung', 'fgGrundKonzession', 'fgZeitAbfolge', 'fgBezug',
-  'fgEinschraenkung', 'fgPflicht', 'fgKeigo', 'quellen'
+  'fgEinschraenkung', 'fgPflicht', 'fgKeigo',
+  'experte', 'n2Zeit', 'n2GrundPerspektive', 'n2WeitereGruende', 'n2GegensatzErwartung',
+  'n2Bedingung', 'n2MoeglichkeitSchluss', 'n2Vermutung', 'n2Einschraenkung',
+  'n2Bezug1', 'n2Bezug2', 'n2UmHerum', 'n2Ausdruecke',
+  'quellen'
 ]);
 
 const MEDIUM_WINDOWS = new Set([
