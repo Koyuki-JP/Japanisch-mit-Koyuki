@@ -62,6 +62,6 @@ function scrollToResourceTarget(targetId){
     if(!content || !target) return;
 
     const top = Math.max(0, target.offsetTop - 18);
-    content.scrollTo({ top, behavior: 'smooth' });
+    content.scrollTo({ top, behavior: scrollBehaviorPref() });
   });
 }

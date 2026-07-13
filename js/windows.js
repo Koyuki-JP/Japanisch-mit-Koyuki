@@ -89,6 +89,15 @@ function setWegweiserHidden(hidden){
   if(wegweiserEl) wegweiserEl.classList.toggle('wegweiser-hidden', hidden);
 }
 
+/* Für alle scrollTo({behavior: ...})-Aufrufe (hier und in
+   js/resources.js) -- CSS allein kann kein per-JS ausgelöstes Scrollen
+   abschwächen, deshalb hier zusätzlich zur globalen
+   prefers-reduced-motion-Regel in css/main.css. */
+function scrollBehaviorPref(){
+  return (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    ? 'auto' : 'smooth';
+}
+
 /* Gleiche Schwelle wie der bestehende Sora-mobile-dock-Umschalter
    (siehe positionWegweiser() in js/app.js) -- unter dieser Breite gilt
    das freie Fenstersystem als unpraktisch (kein Platz zum Ziehen/
@@ -365,7 +374,7 @@ function buildArticleToc(contentEl, panelId){
     link.textContent = heading.textContent.trim();
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      contentEl.scrollTo({ top: Math.max(0, heading.offsetTop - 14), behavior: 'smooth' });
+      contentEl.scrollTo({ top: Math.max(0, heading.offsetTop - 14), behavior: scrollBehaviorPref() });
     });
     li.appendChild(link);
     list.appendChild(li);
@@ -447,7 +456,7 @@ function scrollToResourceTarget(targetId){
     if(!content || !target) return;
 
     const top = Math.max(0, target.offsetTop - 18);
-    content.scrollTo({ top, behavior:'smooth' });
+    content.scrollTo({ top, behavior: scrollBehaviorPref() });
   });
 }
 

@@ -30,6 +30,17 @@
       + escapeHtml(text.slice(idx + query.length));
   }
 
+  /* Wenn ein Treffer nur im Fließtext steckt (nicht in Titel/
+     Kurzbeschreibung), zeigt ein kurzer Ausschnitt rund um die
+     Fundstelle mehr als die sonst unpassende Kurzbeschreibung. */
+  function snippetAround(text, q){
+    const idx = text.toLowerCase().indexOf(q);
+    if(idx === -1) return text.slice(0, 100);
+    const start = Math.max(0, idx - 40);
+    const end = Math.min(text.length, idx + q.length + 60);
+    return (start > 0 ? '… ' : '') + text.slice(start, end).trim() + (end < text.length ? ' …' : '');
+  }
+
   function runSearch(query){
     const q = query.trim().toLowerCase();
     if(!q){
@@ -37,9 +48,22 @@
       renderResults(q);
       return;
     }
+    const bodyIndex = typeof SEARCH_INDEX !== 'undefined' ? SEARCH_INDEX : {};
     currentMatches = Object.keys(panels)
-      .map(id => ({ id, title: panels[id].title || id, quest: panels[id].quest || '' }))
-      .filter(item => item.title.toLowerCase().includes(q) || item.quest.toLowerCase().includes(q))
+      .map(id => {
+        const title = panels[id].title || id;
+        const quest = panels[id].quest || '';
+        const body = bodyIndex[id] || '';
+        const titleHit = title.toLowerCase().includes(q);
+        const questHit = quest.toLowerCase().includes(q);
+        const bodyHit = body.toLowerCase().includes(q);
+        if(!titleHit && !questHit && !bodyHit) return null;
+        const score = titleHit ? 3 : (questHit ? 2 : 1);
+        const desc = (titleHit || questHit) ? quest : snippetAround(body, q);
+        return { id, title, desc, score };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score)
       .slice(0, 12);
     renderResults(q);
   }
@@ -60,7 +84,7 @@
     resultsEl.innerHTML = currentMatches.map((item, i) => `
       <button class="search-result${i === 0 ? ' active' : ''}" data-search-open="${item.id}">
         <span class="search-result-title">${highlight(item.title, query)}</span>
-        <span class="search-result-desc">${highlight(item.quest, query)}</span>
+        <span class="search-result-desc">${highlight(item.desc, query)}</span>
       </button>
     `).join('');
   }
@@ -78,7 +102,10 @@
     openWindow(id, toggleBtn);
   }
 
+  let lastFocused = null;
+
   function openOverlay(){
+    lastFocused = document.activeElement;
     overlay.hidden = false;
     input.value = '';
     resultsEl.innerHTML = '';
@@ -90,7 +117,31 @@
   function closeOverlay(){
     overlay.hidden = true;
     input.blur();
+    // Fokus zurück an das Element, von dem aus die Suche geöffnet wurde
+    // (Suche-Button oder das Element, auf dem "/" gedrückt wurde).
+    if(lastFocused && typeof lastFocused.focus === 'function'){
+      lastFocused.focus();
+    }
+    lastFocused = null;
   }
+
+  /* Fokusfalle: Tab/Umschalt+Tab bleiben innerhalb des Dialogs, statt
+     dahinterliegende Seite zu erreichen, solange die Suche offen ist. */
+  overlay.addEventListener('keydown', (e) => {
+    if(e.key !== 'Tab') return;
+    const focusable = Array.from(overlay.querySelectorAll('button, input, [tabindex]:not([tabindex="-1"])'))
+      .filter(el => !el.disabled);
+    if(!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if(e.shiftKey && document.activeElement === first){
+      e.preventDefault();
+      last.focus();
+    } else if(!e.shiftKey && document.activeElement === last){
+      e.preventDefault();
+      first.focus();
+    }
+  });
 
   toggleBtn.addEventListener('click', () => {
     if(overlay.hidden) openOverlay(); else closeOverlay();

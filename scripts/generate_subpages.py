@@ -20,6 +20,9 @@ Wann erneut ausfuehren:
 - nach jedem Hochzaehlen der Cache-Busting-Version (CACHE_VERSION unten
   anpassen)
 - wenn ein neues Panel in js/app.js dazukommt
+- wenn sich der Inhalt einer pages/*.html-Datei oder eines inline
+  html-Templates in js/app.js aendert -- sonst bleibt data/search-index.js
+  (Volltextsuche) veraltet
 
 Liest Panel-IDs, Titel und Kurzbeschreibung (quest-Text) direkt aus
 js/app.js, damit nichts doppelt gepflegt werden muss. Die camelCase-
@@ -34,9 +37,15 @@ Alle Unterseiten liegen gebündelt unter einem gemeinsamen Oberordner
 (SUBPAGE_DIR), damit die Repo-Wurzel auf GitHub nicht mit 55 einzelnen
 Ordnern zugemüllt wird -- aus /hiragana/ wird so /go/hiragana/.
 
+Erzeugt außerdem data/search-index.js: Fließtext aus jeder pages/*.html
+bzw. jedem inline html-Template (Tags entfernt), für die Volltextsuche
+in js/search.js -- damit findet die Suche auch Begriffe, die nur im
+Artikeltext stehen, nicht nur im Panel-Titel/der Kurzbeschreibung.
+
 Aufruf:
     python scripts/generate_subpages.py
 """
+import json
 import re
 from pathlib import Path
 
@@ -50,7 +59,7 @@ SUBPAGE_DIR = "go"
 
 # Muss zum ?v=... in index.html passen -- bei jedem Cache-Busting-Bump
 # hier mit anpassen und das Skript neu laufen lassen.
-CACHE_VERSION = "20260713-35"
+CACHE_VERSION = "20260713-36"
 
 def load_slug_overrides():
     """Liest PANEL_SLUG_OVERRIDES aus data/panel-slugs.js -- dieselbe
@@ -121,14 +130,43 @@ def extract_panels(app_js_text):
         quest_m = re.search(r'quest\s*:\s*"([^"]*)"', block)
         title = title_m.group(1) if title_m else key
         quest = quest_m.group(1) if quest_m else ''
-        results.append((key, title, quest))
+        results.append((key, title, quest, block))
     return results
 
 
 def decode_entities(s):
     return (s.replace('&amp;', '&')
              .replace('&quot;', '"')
-             .replace('&#39;', "'"))
+             .replace('&#39;', "'")
+             .replace('&nbsp;', ' '))
+
+
+def strip_html_to_text(html_text):
+    """Entfernt Tags, dekodiert die gaengigsten Entities, normalisiert
+    Leerraum -- fuer den Volltext-Suchindex, nicht fuer Anzeige."""
+    text = re.sub(r'<[^>]+>', ' ', html_text)
+    text = decode_entities(text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+
+def extract_panel_body(block, panel_id):
+    """Liefert den durchsuchbaren Fliesstext eines Panels -- entweder
+    aus einer ausgelagerten pages/*.html-Datei (src) oder aus einem
+    inline html-Template-Literal direkt im panels-Objekt."""
+    src_m = re.search(r'src\s*:\s*"([^"]*)"', block)
+    if src_m:
+        path = ROOT / src_m.group(1)
+        if not path.exists():
+            print(f"  Warnung: {src_m.group(1)} fuer Panel '{panel_id}' nicht gefunden")
+            return ''
+        return strip_html_to_text(path.read_text(encoding='utf-8'))
+
+    html_m = re.search(r'html\s*:\s*`([\s\S]*?)`', block)
+    if html_m:
+        return strip_html_to_text(html_m.group(1))
+
+    return ''
 
 
 def escape_attr(s):
@@ -171,7 +209,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </div>
 
   <div class="search-overlay" id="searchOverlay" hidden>
-    <div class="search-panel">
+    <div class="search-panel" role="dialog" aria-modal="true" aria-label="Suche">
       <div class="search-input-row">
         <span class="search-icon" aria-hidden="true">\U0001f50d</span>
         <input type="text" id="searchInput" class="search-input" placeholder="Wonach suchst du? (z. B. JLPT, て-Form, Kanji)" autocomplete="off">
@@ -225,6 +263,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
      app.js zuletzt (baut u. a. die Panel-Definitionen und startet den Wegweiser) -->
 <script src="../../data/resources.js?v={cache_version}"></script>
 <script src="../../data/panel-slugs.js?v={cache_version}"></script>
+<script src="../../data/search-index.js?v={cache_version}"></script>
 <script src="../../js/progress.js?v={cache_version}"></script>
 <script src="../../js/windows.js?v={cache_version}"></script>
 <script src="../../js/resources.js?v={cache_version}"></script>
@@ -247,7 +286,8 @@ def main():
     print(f"{len(panels)} Panels in js/app.js gefunden")
 
     generated = []
-    for panel_id, title, quest in panels:
+    search_index = {}
+    for panel_id, title, quest, block in panels:
         slug = slug_for(panel_id)
         out_dir = ROOT / SUBPAGE_DIR / slug
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -267,11 +307,39 @@ def main():
         out_file.write_text(html, encoding='utf-8')
         generated.append((panel_id, slug, canonical))
 
+        body = extract_panel_body(block, panel_id)
+        if body:
+            search_index[panel_id] = body
+
+    write_search_index(search_index)
+
     print(f"{len(generated)} Unterseiten erzeugt unter jeweils {SUBPAGE_DIR}/<slug>/index.html")
 
     write_sitemap(generated)
 
     return generated
+
+
+def write_search_index(search_index):
+    """Schreibt data/search-index.js -- Fliesstext jedes Panels (Tags
+    entfernt) fuer die Volltextsuche in js/search.js. Titel/Kurz-
+    beschreibung stehen schon im panels-Objekt (js/app.js) und werden
+    hier nicht dupliziert."""
+    lines = ['/* ============================================================',
+             '   data/search-index.js -- automatisch erzeugt von',
+             '   scripts/generate_subpages.py, NICHT von Hand bearbeiten.',
+             '   Fliesstext jedes Panels (HTML-Tags entfernt) fuer die',
+             '   Volltextsuche in js/search.js -- Aenderungen an einer',
+             '   pages/*.html-Datei erst nach erneutem Skriptlauf sichtbar.',
+             '   ============================================================ */',
+             'const SEARCH_INDEX = {']
+    for panel_id, body in search_index.items():
+        lines.append(f'  {json.dumps(panel_id)}: {json.dumps(body, ensure_ascii=False)},')
+    lines.append('};')
+
+    out = ROOT / 'data' / 'search-index.js'
+    out.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    print(f"data/search-index.js erzeugt ({len(search_index)} Panels)")
 
 
 def write_sitemap(generated):

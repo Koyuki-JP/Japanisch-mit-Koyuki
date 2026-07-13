@@ -18,6 +18,20 @@
     --radius: 18px;
   }
   *{ box-sizing: border-box; }
+  /* Wer reduzierte Bewegung eingestellt hat (Sora-Wippen, Fenster-
+     Übergänge, Glow, Maximieren-Animation, Sanftes-Scrollen-JS-Aufrufe
+     -- siehe scrollBehaviorPref() in js/windows.js), bekommt praktisch
+     sofortige statt animierte Übergänge. Bewusst als globale Regel statt
+     einzeln pro Animation, damit auch künftige Animationen automatisch
+     erfasst werden. */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
   html, body{ height:100%; margin:0; overflow:hidden; }
   html{ font-size: 18px; }
   body{
