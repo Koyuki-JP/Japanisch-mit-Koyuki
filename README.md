@@ -100,10 +100,12 @@ erledigt:
       vierte Ebene "Fortgeschritten" inzwischen tatsächlich entstanden
 - [x] Anfängerführung visuell gestaffelt: Der Anfänger-Guide markiert
       seine 5 Schritte jetzt mit Jetzt/Bald/Laufend/Später-Badges
-- [x] Quellen- und Aktualisierungssystem gestartet: eigenes
-      Quellenverzeichnis mit den Nachschlagewerken hinter den
-      Grammatik-Erklärungen (DBJG, Imabi, Tae Kim, Maggie Sensei,
-      Bunpro, Jisho)
+- [x] Quellen- und Aktualisierungssystem: Quellenverzeichnis deckt jetzt
+      Grammatik (DBJG, Imabi, Tae Kim, Maggie Sensei, Bunpro, Jisho),
+      Vokabel-Decks und Tools ab, inkl. "Stand der Prüfung"-Angaben.
+      Dabei aufgefallen: Textractor gilt 2026 als nicht mehr aktiv
+      gepflegt, LunaTranslator als aktueller Nachfolger — entsprechender
+      Hinweis auf der Textractor-Seite ergänzt
 
 Neu dazugekommen (nicht ursprünglich geplant): ein kompletter
 **Fortgeschrittener Guide** mit Grammatik auf JLPT-N4/N3-Niveau — 12
@@ -113,11 +115,8 @@ Grammatikseiten.
 
 Noch offen, bewusst zurückgestellt:
 
-- [ ] Quellenverzeichnis auf Deck-/Toolseiten ausweiten (aktuell deckt es
-      nur die Grammatikseiten ab) und "Stand/zuletzt geprüft"-Angaben
-      ergänzen
 - [ ] Teilbare Direktlinks / Routing für einzelne Panels prüfen (größere
-      Architekturentscheidung)
+      Architekturentscheidung — bewusst nicht im Alleingang entschieden)
 
 Das seitliche Mini-Inhaltsverzeichnis für lange Artikel läuft bereits
 automatisch auf jedem Panel mit mehreren Zwischenüberschriften, nicht nur
