@@ -799,6 +799,30 @@ const RESOURCE_LIBRARY = {
         "verdict": "",
         "href": "https://bookwalker.jp/st3/",
         "linkLabel": "BOOK☆WALKER öffnen ↗"
+      },
+      {
+        "recommended": false,
+        "eyebrow": "Fortschritt tracken",
+        "title": "jp343 Immersion Tracker",
+        "badges": [
+          {
+            "label": "Kostenlos",
+            "type": "free"
+          },
+          {
+            "label": "Browser-Erweiterung",
+            "type": null
+          },
+          {
+            "label": "Alle Stufen",
+            "type": null
+          }
+        ],
+        "summary": "Zählt deine Immersionszeit auf YouTube, Netflix, Crunchyroll & Co. automatisch mit und zeigt sie als Statistik und Streak.",
+        "verdictLabel": "Warum nutzen?",
+        "verdict": "Viele Anfänger:innen unterschätzen ihren Fortschritt. Ein Tracker zeigt dir nicht, wie gut dein Japanisch ist — er erinnert dich daran, dass jede Stunde zählt und Fortschritt Zeit braucht.",
+        "href": "https://jp343.com/",
+        "linkLabel": "jp343 öffnen ↗"
       }
     ]
   },
