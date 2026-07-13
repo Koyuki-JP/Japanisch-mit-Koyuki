@@ -1721,3 +1721,16 @@ document.getElementById('modeToggle').addEventListener('click', () => document.b
 
 /* initial */
 updateWegweiser();
+
+/* Schriftarten und das Fuchs-Bild laden asynchron nach — die erste
+   Positionierung kann dadurch noch mit falschen Maßen rechnen (z. B.
+   Fallback-Font-Metriken). Nach dem Nachladen einmal neu positionieren,
+   damit der Wegweiser nicht versehentlich eine Kachel überlappt. */
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(positionWegweiser);
+}
+const wegweiserFox = wegweiser.querySelector('.fox-wrap');
+if(wegweiserFox && !wegweiserFox.complete){
+  wegweiserFox.addEventListener('load', positionWegweiser, { once: true });
+}
+window.addEventListener('load', positionWegweiser);

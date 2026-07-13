@@ -561,6 +561,14 @@ function makeResizable(win, handle){
   handle.addEventListener('pointercancel', stopResizing);
 }
 
+document.addEventListener('keydown', (e) => {
+  if(e.key !== 'Escape') return;
+  const maximizedWindow = document.querySelector('.window.maximized');
+  if(maximizedWindow){
+    maximizedWindow.querySelector('[data-maximize]')?.click();
+  }
+});
+
 document.addEventListener('click', (e) => {
   const guideStep = e.target.closest('[data-guide-step]');
   if(guideStep){
