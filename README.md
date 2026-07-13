@@ -84,6 +84,10 @@ mittlerweile ebenfalls komplett abgearbeitet:
 - [x] Einmaliger Hinweis zur Fenster-Bedienung beim ersten Besuch
 - [x] Gruppiertes Inhaltsverzeichnis (Einstieg / Vertiefung / Referenz)
 
+Alle Fenstertexte wurden außerdem einmal komplett nach einem eigenen
+Redaktionsleitfaden (KWS) überarbeitet — persönlicherer Ton, mehr Kontext
+zum Warum, klarere nächste Schritte auf jeder Seite.
+
 ## Tech-Stack
 
 Bewusst schlank gehalten — kein Framework, kein Build-Schritt:

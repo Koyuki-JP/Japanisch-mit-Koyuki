@@ -102,14 +102,14 @@ tag1: {
     </p>
 
     <div class="win-quote">
-      Heutiges Ziel: Lerne die ersten Hiragana-Zeichen kennen — nicht alle
+      Heutiges Ziel: Lerne die ersten Hiragana-Zeichen kennen. Nicht alle
       46 auf einmal, nur ein paar.
     </div>
 
     <p class="win-p">
       Auf der Kana-Seite kannst du dir jedes Zeichen per Klick vorlesen
-      lassen. Wenn du magst, teste dich danach kurz mit dem Kana-Quiz —
-      aber auch das ist heute schon optional.
+      lassen. Wenn du magst, teste dich danach kurz mit dem Kana-Quiz.
+      Aber auch das ist heute schon optional.
     </p>
 
     <button class="toc-item" data-open="kana">
@@ -118,8 +118,8 @@ tag1: {
 
     <p class="win-p" style="margin-top:1.4em;">
       Mehr willst du noch nicht wissen? Gut so. Sobald du bereit für die
-      nächsten Schritte bist — Wortschatz, Grammatik, Immersion — findest
-      du im vollständigen Anfänger-Guide die komplette Reihenfolge.
+      nächsten Schritte bist, findest du im vollständigen Anfänger-Guide
+      die komplette Reihenfolge: Wortschatz, Grammatik und Immersion.
     </p>
 
     <button class="inline-link" data-open="guide">
@@ -154,88 +154,143 @@ guide: {
 
     <p class="win-p">
       Du fängst gerade erst mit Japanisch an und weißt nicht, wo du beginnen sollst?
-      Dann bist du hier richtig.
     </p>
 
     <p class="win-p">
-      Japanischlernen wirkt am Anfang oft chaotisch. Hiragana, Katakana, Kanji,
-      Grammatik, Vokabeln, Anki, Immersion und plötzlich reden alle über Mining.
-      Du musst aber nicht alles gleichzeitig lernen.
+      Dann bist du hier genau richtig.
     </p>
 
     <p class="win-p">
-      Der wichtigste erste Schritt ist, dir eine stabile Grundlage aufzubauen.
-      Dieser Guide zeigt dir eine sinnvolle Reihenfolge und erklärt, was du am
-      Anfang wirklich brauchst.
+      Am Anfang wirkt Japanisch schnell wie ein ganzer Berg aus neuen Begriffen:
+      Hiragana, Katakana, Kanji, Grammatik, Vokabeln, Anki, Immersion und
+      irgendwann fällt auch noch das Wort „Mining“.
+    </p>
+
+    <p class="win-p">
+      Keine Sorge. Du musst das nicht alles gleichzeitig verstehen oder einrichten.
+    </p>
+
+    <p class="win-p">
+      Dieser Guide führt dich Schritt für Schritt durch die Reihenfolge, die für
+      die meisten Anfänger:innen am sinnvollsten ist. Du bekommst zuerst eine
+      stabile Grundlage und kümmerst dich erst später um die Dinge, die du dann
+      wirklich brauchst.
     </p>
 
     <h3 class="win-h3">1. Lerne Hiragana und Katakana</h3>
 
     <p class="win-p">
-      Hiragana und Katakana sind die beiden grundlegenden japanischen
-      Silbenschriften. Ohne sie bist du dauerhaft auf Umschriften wie
-      „konnichiwa“ angewiesen, die dich später eher bremsen.
+      Fast jeder Lernweg beginnt mit Hiragana und Katakana. Die beiden
+      Silbenschriften begegnen dir überall und geben dir zum ersten Mal das
+      Gefühl, wirklich Japanisch zu lesen.
     </p>
 
     <p class="win-p">
-      Du musst die Zeichen am Anfang nicht perfekt aus dem Gedächtnis schreiben
-      können. Es reicht zunächst, wenn du sie zuverlässig erkennst und lesen kannst.
-      Lerne zuerst Hiragana und danach Katakana.
+      Ohne Kana bleibst du auf Umschriften wie „konnichiwa“ angewiesen. Das
+      wirkt am Anfang bequemer, bremst dich später aber eher aus.
+    </p>
+
+    <p class="win-p">
+      Du musst die Zeichen noch nicht perfekt aus dem Gedächtnis schreiben
+      können. Für den Anfang reicht es, wenn du sie zuverlässig erkennst und
+      langsam lesen kannst.
+    </p>
+
+    <p class="win-p">
+      Beginne mit Hiragana. Sobald die meisten Zeichen vertraut wirken, nimmst
+      du Katakana dazu.
     </p>
 
     <h3 class="win-h3">2. Baue einen ersten Wortschatz auf</h3>
 
     <p class="win-p">
       Sobald du die Kana einigermaßen lesen kannst, kannst du mit häufigen
-      japanischen Wörtern beginnen. Ein gutes Anfänger-Deck mit ungefähr
-      1.000 bis 1.500 häufigen Wörtern erleichtert dir den Einstieg in echte
-      japanische Inhalte.
+      japanischen Wörtern anfangen.
     </p>
 
     <p class="win-p">
-      Wichtiger als möglichst viele neue Karten ist, dass du regelmäßig lernst
-      und deine täglichen Wiederholungen überschaubar bleiben.
+      Ein gutes Anfänger-Deck mit ungefähr 1.000 bis 1.500 häufigen Wörtern
+      sorgt dafür, dass dir in Anime, Manga, Spielen oder einfachen Texten
+      immer öfter etwas bekannt vorkommt.
+    </p>
+
+    <p class="win-p">
+      Du musst dabei keinen Geschwindigkeitsrekord aufstellen. Wichtiger ist,
+      dass du regelmäßig lernst und deine täglichen Wiederholungen nicht zu
+      einem zweiten Vollzeitjob werden.
+    </p>
+
+    <p class="win-p">
+      Fünf bis zehn neue Wörter, die du langfristig behältst, sind wertvoller
+      als zwanzig Karten, vor denen du dich nach einer Woche versteckst.
     </p>
 
     <h3 class="win-h3">3. Lerne grundlegende Grammatik</h3>
 
     <p class="win-p">
-      Japanische Grammatik funktioniert anders als deutsche Grammatik.
-      Du musst aber nicht sofort jede Regel auswendig lernen.
+      Japanische Grammatik funktioniert anders als deutsche Grammatik. Genau
+      deshalb fühlt sie sich am Anfang manchmal verkehrt herum an.
     </p>
 
     <p class="win-p">
-      Dein erstes Ziel ist es, einfache Satzstrukturen, Partikel und
-      Verbformen wiederzuerkennen. Grammatik soll dir dabei helfen,
-      echte Sätze besser zu verstehen.
+      Du musst aber nicht sofort jede Regel und jede Verbform auswendig lernen.
+    </p>
+
+    <p class="win-p">
+      Dein erstes Ziel ist viel kleiner: Du möchtest häufige Satzstrukturen,
+      Partikel und Verbformen wiedererkennen. Grammatik soll dir helfen, echte
+      Sätze zu entschlüsseln, nicht dich mit Fachbegriffen zu erschlagen.
+    </p>
+
+    <p class="win-p">
+      Mit jeder neuen Struktur wird aus einem scheinbaren Zeichensalat ein
+      kleines Stück verständliches Japanisch.
     </p>
 
     <h3 class="win-h3">4. Beginne früh mit Immersion</h3>
 
     <p class="win-p">
       Immersion bedeutet, dass du regelmäßig echtes Japanisch hörst oder liest.
-      Dazu gehören zum Beispiel Anime, Manga, Podcasts, Spiele, Videos und
-      Visual Novels.
     </p>
 
     <p class="win-p">
-      Am Anfang wirst du nur wenig verstehen. Das ist vollkommen normal.
-      Du musst nicht warten, bis du dich bereit fühlst. Immersion ist kein
-      Endpunkt des Lernens, sondern ein wichtiger Teil davon.
+      Das können Anime, Manga, Podcasts, Spiele, Videos, Light Novels oder
+      Visual Novels sein. Entscheidend ist nicht das Medium, sondern dass du
+      immer wieder Kontakt mit der Sprache hast.
+    </p>
+
+    <p class="win-p">
+      Am Anfang wirst du nur wenig verstehen. Das ist nicht das Zeichen, dass
+      du noch nicht bereit bist. Es ist der normale Anfang.
+    </p>
+
+    <p class="win-p">
+      Du musst also nicht warten, bis du „genug gelernt“ hast. Immersion ist
+      kein Endpunkt, sondern der Ort, an dem dein Wissen langsam lebendig wird.
     </p>
 
     <h3 class="win-h3">5. Starte später mit Mining</h3>
 
     <p class="win-p">
-      Beim Mining sammelst du interessante Wörter und Sätze aus den Inhalten,
+      Stell dir vor, du liest einen Manga und ein Wort taucht auf, das du
+      gestern schon in einem Anime gehört hast. Genau solche Wörter sind gute
+      Kandidaten fürs Mining.
+    </p>
+
+    <p class="win-p">
+      Beim Mining sammelst du interessante Wörter oder Sätze aus den Inhalten,
       die du selbst konsumierst, und erstellst daraus eigene Lernkarten.
     </p>
 
     <p class="win-p">
-      Du musst damit nicht direkt am ersten Tag anfangen. Baue zunächst eine
-      kleine Grundlage auf und gewöhne dich an Vokabeln, Grammatik und Immersion.
-      Sobald dir regelmäßig nützliche Wörter begegnen, kannst du dein eigenes
-      Mining-System einrichten.
+      Damit musst du nicht am ersten Tag anfangen. Zuerst reichen Kana, ein
+      kleiner Grundwortschatz, etwas Grammatik und regelmäßige Immersion
+      völlig aus.
+    </p>
+
+    <p class="win-p">
+      Sobald dir immer wieder Wörter begegnen, die du wirklich behalten
+      möchtest, lohnt es sich, dein eigenes Mining-System einzurichten.
     </p>
 
     <h3 class="win-h3">Ein einfacher Tagesplan</h3>
@@ -247,25 +302,45 @@ guide: {
     </ul>
 
     <p class="win-p">
-      Du musst nicht jeden Bereich jeden Tag perfekt abdecken. Entscheidend ist,
-      dass du regelmäßig Kontakt mit Japanisch hast und dein Lernplan langfristig
-      in deinen Alltag passt.
+      Das ist keine Pflichtliste, die du jeden Tag perfekt abhaken musst.
+    </p>
+
+    <p class="win-p">
+      An manchen Tagen schaffst du mehr, an anderen vielleicht nur ein paar
+      Wiederholungen oder eine Anime-Folge. Entscheidend ist, dass Japanisch
+      regelmäßig in deinem Alltag auftaucht und dein Lernplan auch nach
+      mehreren Monaten noch zu dir passt.
+    </p>
+
+    <p class="win-p">
+      Wenn du bis hier gelesen hast, kennst du bereits die wichtigsten
+      Bausteine deines ersten Lernwegs.
     </p>
 
     <p class="win-p">
       <strong>
-        Du brauchst am Anfang weder perfektes Kanjiwissen noch ein kompliziertes
-        Mining-Setup. Beginne klein und erweitere dein System erst dann,
-        wenn du es wirklich brauchst.
+        Du brauchst am Anfang weder perfektes Kanjiwissen noch ein
+        kompliziertes Mining-Setup. Beginne klein. Sobald deine Grundlage
+        wächst, kannst du dein System Schritt für Schritt erweitern.
       </strong>
     </p>
 
     <div class="resource-cta">
       <p class="win-p">
-        Nicht sicher, was zu deinem Ziel passt — Anime, Manga, Visual
-        Novels oder der JLPT? Der Entscheidungsbaum führt dich in ein
-        paar Fragen zum passenden nächsten Schritt, die geführten
-        Lernwege zeigen dir fertige Setups je nach Fokus.
+        Nicht sicher, was zu deinem Ziel passt?
+      </p>
+      <p class="win-p">
+        Vielleicht möchtest du vor allem Anime verstehen, Manga lesen, Visual
+        Novels spielen oder dich auf den JLPT vorbereiten.
+      </p>
+      <p class="win-p">
+        Der Entscheidungsbaum führt dich mit ein paar kurzen Fragen zum
+        passenden nächsten Schritt. In den geführten Lernwegen findest du
+        außerdem fertige Setups für unterschiedliche Ziele.
+      </p>
+      <p class="win-p">
+        Dein nächster Schritt: Fang mit Kana an und lerne heute nur die
+        ersten Zeichen kennen.
       </p>
       <button class="toc-item" data-open="entscheidungsbaum">
         Was brauche ich jetzt? →
@@ -293,6 +368,11 @@ guide: {
   toc: { title:"目次", quest:"Hier findest du alle Stationen deiner Reise. Wähle dein nächstes Ziel!", html:`
     <span class="eyebrow win-eyebrow">Übersicht</span>
     <h2 class="win-h2">Inhaltsverzeichnis</h2>
+    <p class="win-p">
+      Auf dieser Seite ist inzwischen einiges zusammengekommen. Keine Sorge:
+      Du brauchst nicht alles auf einmal. Diese Übersicht zeigt dir nur,
+      welche Tür wohin führt.
+    </p>
     <p class="win-p">
       Alle Bereiche der Seite, gruppiert nach Einstieg, Vertiefung und
       Werkzeuge &amp; Referenz. Nicht sicher, wo du anfangen sollst? Tag 1
@@ -334,6 +414,11 @@ guide: {
       <li><button class="toc-item" data-open="faq">FAQ</button></li>
       <li><button class="toc-item" data-open="kontakt">Kontakt</button></li>
     </ul>
+
+    <p class="win-p">
+      Du hast jetzt die ganze Landkarte gesehen. Dein nächster Schritt muss
+      trotzdem nur eine einzige Station sein.
+    </p>
   `},
  kana: {
   title: "かな — Kana",
@@ -352,36 +437,171 @@ hiragana: {
   html: `
     <span class="eyebrow win-eyebrow">Schriftsystem</span>
     <h2 class="win-h2">Hiragana</h2>
+
     <p class="win-p">
-      Hiragana ist die grundlegendste japanische Silbenschrift. Jedes Zeichen steht
-      für einen festen Laut. Unten findest du die Grundzeichen (Gojūon), die
-      Zeichen mit Dakuten/Handakuten sowie die Yōon-Kombinationen mit kleinem
-      ゃ・ゅ・ょ.
+      Hiragana ist die Schrift, mit der für viele Lernende das erste echte
+      Japanisch beginnt.
     </p>
 
     <p class="win-p">
-      🔊 Klick auf ein Zeichen in den Tabellen, um es dir vorlesen zu lassen —
-      das funktioniert über die Sprachausgabe deines Browsers und braucht
-      keine zusätzliche App. Falls dein Gerät keine japanische Stimme
-      installiert hat, bleibt die Tabelle trotzdem ganz normal nutzbar.
+      Jedes Zeichen steht für einen festen Laut. Das macht Hiragana deutlich
+      übersichtlicher, als es auf den ersten Blick wirkt.
+    </p>
+
+    <p class="win-p">
+      Unten findest du:
+    </p>
+
+    <ul class="win-list">
+      <li>die 46 Grundzeichen</li>
+      <li>Dakuten und Handakuten</li>
+      <li>Yōon-Kombinationen mit kleinem ゃ・ゅ・ょ</li>
+    </ul>
+
+    <p class="win-p">
+      Du musst nicht alles sofort auswendig können. Lerne die Zeichen in
+      kleinen Gruppen und komm regelmäßig zu den Tabellen zurück.
+    </p>
+
+    <h3 class="win-h3">Zeichen anhören</h3>
+
+    <p class="win-p">
+      🔊 Klick auf ein Zeichen in den Tabellen, um es dir vorlesen zu lassen.
+    </p>
+
+    <p class="win-p">
+      Die Aussprache läuft über die Sprachausgabe deines Browsers. Du
+      brauchst dafür keine zusätzliche App.
+    </p>
+
+    <p class="win-p">
+      Falls auf deinem Gerät keine japanische Stimme installiert ist, bleibt
+      die Tabelle trotzdem ganz normal nutzbar. Dann kannst du die Zeichen
+      weiterhin lesen und lernen, nur die Audioausgabe fällt weg.
+    </p>
+
+    <p class="win-p">
+      Hör dir ein Zeichen ruhig mehrmals an und sprich es leise nach.
+      Perfekte Aussprache ist heute noch nicht das Ziel. Wichtig ist
+      zuerst, dass du Laut und Zeichen miteinander verbindest.
     </p>
 
     <h3 class="win-h3">Die Grundzeichen (Gojūon)</h3>
+
+    <p class="win-p">
+      Die Gojūon-Tabelle enthält die grundlegenden Hiragana.
+    </p>
+
+    <p class="win-p">
+      Beginne am besten mit einer Reihe, zum Beispiel:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">あ・い・う・え・お</p>
+    </div>
+
+    <p class="win-p">
+      Danach kannst du dich Schritt für Schritt durch die nächsten Reihen
+      arbeiten.
+    </p>
+
+    <p class="win-p">
+      Versuche nicht, die gesamte Tabelle in einer Sitzung in deinen Kopf
+      zu pressen. Fünf Zeichen, die morgen noch da sind, bringen dir mehr
+      als 46 Zeichen, die sich heute Abend schon wieder verabschiedet haben.
+    </p>
+
     ${kanaTable(HIRAGANA_MAIN, 5)}
 
     <h3 class="win-h3">Dakuten &amp; Handakuten</h3>
+
     <p class="win-p">
-      Zwei kleine Striche (゛) oder ein kleiner Kreis (゜) verändern den Laut
-      eines Zeichens, z. B. wird か (ka) zu が (ga).
+      Manche Hiragana verändern ihren Laut durch kleine Zusatzzeichen.
     </p>
+
+    <p class="win-p">
+      Dakuten sind zwei kleine Striche:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">か wird zu が</p>
+    </div>
+
+    <p class="win-p">
+      Der Laut verändert sich dabei zum Beispiel von „ka“ zu „ga“.
+    </p>
+
+    <p class="win-p">
+      Handakuten ist ein kleiner Kreis:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">は wird zu ぱ</p>
+    </div>
+
+    <p class="win-p">
+      Dadurch wird aus „ha“ der Laut „pa“.
+    </p>
+
+    <p class="win-p">
+      Du lernst hier also keine komplett neue Schrift. Du erkennst ein
+      bekanntes Zeichen und ergänzt eine feste Lautveränderung.
+    </p>
+
     ${kanaTable(HIRAGANA_DAKUTEN, 5)}
 
     <h3 class="win-h3">Yōon — Kombinationen</h3>
+
     <p class="win-p">
-      Ein Zeichen auf „i" (z. B. き) kombiniert mit einem kleinen ゃ・ゅ・ょ
-      ergibt einen neuen, einzelnen Laut, z. B. きゃ (kya).
+      Bei Yōon wird ein Hiragana aus der i-Reihe mit einem kleinen
+      ゃ・ゅ・ょ kombiniert.
     </p>
+
+    <p class="win-p">
+      Zum Beispiel:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">き + ゃ = きゃ</p>
+    </div>
+
+    <p class="win-p">
+      きゃ wird nicht als zwei getrennte Laute gelesen, sondern zusammen
+      als „kya“.
+    </p>
+
+    <p class="win-p">
+      Achte darauf, dass ゃ・ゅ・ょ kleiner geschrieben werden. In normaler
+      Größe würden sie zwei getrennte Laute bilden.
+    </p>
+
+    <p class="win-p">
+      Auch hier gilt: Du musst nicht jede Kombination sofort perfekt
+      beherrschen. Sobald du das Muster verstanden hast, werden dir die
+      Formen beim Lesen immer vertrauter.
+    </p>
+
     ${kanaTable(HIRAGANA_YOON, 3)}
+
+    <h3 class="win-h3">Wie du diese Seite nutzen kannst</h3>
+
+    <ol class="win-list">
+      <li>Wähle eine kleine Gruppe von Zeichen.</li>
+      <li>Klick jedes Zeichen an und hör dir den Laut an.</li>
+      <li>Sprich den Laut kurz nach.</li>
+      <li>Schau weg und versuche, die Zeichen wiederzuerkennen.</li>
+      <li>Wiederhole die Gruppe später noch einmal.</li>
+    </ol>
+
+    <p class="win-p">
+      Bleib zunächst bei kurzen Einheiten von fünf bis fünfzehn Minuten.
+    </p>
+
+    <p class="win-p">
+      Dein nächster Schritt: Lerne heute nur die erste Hiragana-Reihe
+      あ・い・う・え・お und teste danach, welche Zeichen du ohne Hilfe
+      wiedererkennst.
+    </p>
 
     <button class="toc-item" data-open="kanaquiz">Zeichen im Kana-Quiz testen →</button>
 
@@ -397,32 +617,202 @@ katakana: {
   html: `
     <span class="eyebrow win-eyebrow">Schriftsystem</span>
     <h2 class="win-h2">Katakana</h2>
+
     <p class="win-p">
-      Katakana stellt dieselben Laute wie Hiragana dar, wird aber vor allem für
-      Fremdwörter, ausländische Namen und Lautmalerei verwendet. Die Zeichen
-      wirken eckiger als Hiragana.
+      Katakana zeigt dieselben grundlegenden Laute wie Hiragana, sieht aber
+      kantiger und markanter aus.
     </p>
 
     <p class="win-p">
-      🔊 Auch hier gilt: Klick auf ein Zeichen, um es dir vorlesen zu lassen.
+      Du begegnest Katakana besonders häufig bei:
+    </p>
+
+    <ul class="win-list">
+      <li>Fremdwörtern</li>
+      <li>ausländischen Namen</li>
+      <li>Produktnamen</li>
+      <li>Lautmalerei</li>
+      <li>bestimmten Hervorhebungen</li>
+    </ul>
+
+    <p class="win-p">
+      Ein bekanntes Beispiel ist:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">ホテル</p>
+    </div>
+
+    <p class="win-p">
+      Das Wort bedeutet „Hotel“ und wird in Katakana geschrieben, weil es
+      aus einer anderen Sprache übernommen wurde.
+    </p>
+
+    <p class="win-p">
+      Katakana wirkt am Anfang oft etwas schwieriger als Hiragana, weil
+      manche Zeichen sich sehr ähnlich sehen. Das ist normal. Mit
+      regelmäßiger Wiederholung werden die Unterschiede nach und nach
+      klarer.
+    </p>
+
+    <h3 class="win-h3">Zeichen anhören</h3>
+
+    <p class="win-p">
+      🔊 Klick auf ein Zeichen, um es dir vorlesen zu lassen.
+    </p>
+
+    <p class="win-p">
+      Die Aussprache läuft über die Sprachausgabe deines Browsers. Du
+      brauchst dafür keine zusätzliche App.
+    </p>
+
+    <p class="win-p">
+      Falls dein Gerät keine japanische Stimme installiert hat, kannst du
+      die Tabelle trotzdem ganz normal zum Lernen verwenden.
+    </p>
+
+    <p class="win-p">
+      Sprich die Zeichen ruhig kurz nach. Dein Ziel ist zuerst, Laut und
+      Schriftbild miteinander zu verbinden.
     </p>
 
     <h3 class="win-h3">Die Grundzeichen (Gojūon)</h3>
+
+    <p class="win-p">
+      Die Grundzeichen folgen denselben Lautreihen wie Hiragana.
+    </p>
+
+    <p class="win-p">
+      Wenn du Hiragana schon kennst, lernst du also keine neuen Laute. Du
+      lernst nur ein zweites Schriftbild dafür.
+    </p>
+
+    <p class="win-p">
+      Beginne wieder mit kleinen Gruppen.
+    </p>
+
+    <p class="win-p">
+      Zum Beispiel:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">ア・イ・ウ・エ・オ</p>
+    </div>
+
+    <p class="win-p">
+      Danach arbeitest du dich Reihe für Reihe weiter.
+    </p>
+
+    <p class="win-p">
+      Achte besonders auf ähnlich aussehende Zeichen wie:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">シ und ツ</p>
+    </div>
+
+    <div class="example-box">
+      <p class="example-jp">ソ und ン</p>
+    </div>
+
+    <p class="win-p">
+      Solche Paare verwirren fast alle am Anfang. Das ist kein Zeichen,
+      dass du schlecht lernst. Dein Blick muss sich einfach erst an die
+      kleinen Unterschiede gewöhnen.
+    </p>
+
     ${kanaTable(KATAKANA_MAIN, 5)}
 
     <h3 class="win-h3">Dakuten &amp; Handakuten</h3>
+
     <p class="win-p">
-      Genau wie bei Hiragana verändern ゛ und ゜ den Laut eines Zeichens,
-      z. B. wird カ (ka) zu ガ (ga).
+      Genau wie bei Hiragana verändern Dakuten und Handakuten den Laut
+      eines Zeichens.
     </p>
+
+    <p class="win-p">
+      Dakuten sind zwei kleine Striche:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">カ wird zu ガ</p>
+    </div>
+
+    <p class="win-p">
+      Aus „ka“ wird „ga“.
+    </p>
+
+    <p class="win-p">
+      Handakuten ist ein kleiner Kreis:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">ハ wird zu パ</p>
+    </div>
+
+    <p class="win-p">
+      Aus „ha“ wird „pa“.
+    </p>
+
+    <p class="win-p">
+      Das Muster ist also bereits bekannt. Du überträgst nur das, was du
+      bei Hiragana gelernt hast, auf Katakana.
+    </p>
+
     ${kanaTable(KATAKANA_DAKUTEN, 5)}
 
     <h3 class="win-h3">Yōon — Kombinationen</h3>
+
     <p class="win-p">
-      Auch hier ergibt ein Zeichen auf „i" kombiniert mit kleinem ャ・ュ・ョ
-      einen neuen Laut, z. B. キャ (kya).
+      Auch bei Katakana können Zeichen aus der i-Reihe mit kleinem
+      ャ・ュ・ョ kombiniert werden.
     </p>
+
+    <p class="win-p">
+      Zum Beispiel:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">キ + ャ = キャ</p>
+    </div>
+
+    <p class="win-p">
+      キャ wird zusammen als „kya“ gelesen.
+    </p>
+
+    <p class="win-p">
+      Die kleinen Zeichen sind wichtig. In normaler Größe würden sie
+      getrennt gelesen werden.
+    </p>
+
+    <p class="win-p">
+      Sobald du das Prinzip aus Hiragana kennst, funktioniert es hier
+      fast genauso.
+    </p>
+
     ${kanaTable(KATAKANA_YOON, 3)}
+
+    <h3 class="win-h3">Wie du diese Seite nutzen kannst</h3>
+
+    <ol class="win-list">
+      <li>Wähle eine kleine Reihe von Zeichen.</li>
+      <li>Hör dir jedes Zeichen an.</li>
+      <li>Sprich den Laut kurz nach.</li>
+      <li>Vergleiche ähnliche Zeichen bewusst miteinander.</li>
+      <li>Wiederhole die Gruppe später noch einmal.</li>
+    </ol>
+
+    <p class="win-p">
+      Katakana braucht bei vielen etwas länger als Hiragana. Lass dich
+      davon nicht nerven. Gerade durch Fremdwörter wirst du die Zeichen
+      später immer wieder sehen.
+    </p>
+
+    <p class="win-p">
+      Dein nächster Schritt: Lerne heute nur die erste Katakana-Reihe
+      ア・イ・ウ・エ・オ und schau danach, welche Zeichen du ohne Hilfe
+      erkennst.
+    </p>
 
     <button class="toc-item" data-open="kanaquiz">Zeichen im Kana-Quiz testen →</button>
 
@@ -441,6 +831,13 @@ kanji: {
     <span class="eyebrow win-eyebrow">Schriftsystem</span>
 
     <h2 class="win-h2">Kanji</h2>
+
+    <p class="win-p">
+      Kanji sehen am Anfang oft aus wie eine endlose Wand aus Strichen.
+      Fast alle Lernenden fühlen sich davon zuerst erschlagen. Die gute
+      Nachricht: Du lernst diese Wand nicht auf einmal, sondern Wort für
+      Wort.
+    </p>
 
     <p class="win-p">
       Kanji sind Schriftzeichen, die ursprünglich aus dem Chinesischen
@@ -578,7 +975,7 @@ kanji: {
     </ol>
 
     <p class="win-p">
-      Du musst nicht warten, bis du Hunderte Kanji kennst, bevor du mit
+      Du brauchst nicht warten, bis du Hunderte Kanji kennst, bevor du mit
       echten Inhalten beginnst. Durch wiederholte Begegnungen werden die
       Zeichen mit der Zeit vertrauter.
     </p>
@@ -661,6 +1058,12 @@ kanji: {
       </strong>
     </p>
 
+    <p class="win-p">
+      Wenn du bis hier gelesen hast, kennst du bereits den wichtigsten
+      Gedanken: Kanji werden nicht als gigantischer Block bezwungen. Dein
+      nächster Schritt ist ein einziges häufiges Wort mit Kanji.
+    </p>
+
     <div class="win-navigation">
       <button class="toc-item" data-open="kana">
         ← Zurück zu Kana
@@ -736,7 +1139,14 @@ hoeren: {
     <p class="win-p">
       Hörverstehen gehört zu den Fähigkeiten, die sich nur langsam aufbauen.
       Am Anfang klingt Japanisch oft wie ein einziger schneller Wortstrom.
-      Das ist normal und bedeutet nicht, dass du schlecht lernst.
+      Das ist völlig normal und bedeutet nicht, dass du schlecht lernst.
+    </p>
+
+    <p class="win-p">
+      Am Anfang klingt gesprochenes Japanisch oft wie ein einziger
+      schneller Strom ohne sichtbare Wortgrenzen. Das ist kein Beweis,
+      dass dein Hörverstehen schlecht ist. Dein Gehirn lernt gerade erst,
+      im Rauschen kleine bekannte Inseln zu finden.
     </p>
 
     <p class="win-p">
@@ -747,7 +1157,7 @@ hoeren: {
     <h3 class="win-h3">Höre von Anfang an echtes Japanisch</h3>
 
     <p class="win-p">
-      Du musst nicht warten, bis du viele Vokabeln und Grammatikpunkte kennst.
+      Du brauchst nicht warten, bis du viele Vokabeln und Grammatikpunkte kennst.
       Beginne früh mit Inhalten, die du gerne hörst:
     </p>
 
@@ -768,7 +1178,7 @@ hoeren: {
     <h3 class="win-h3">Verstehen muss nicht vollständig sein</h3>
 
     <p class="win-p">
-      Du musst nicht jedes Wort verstehen, damit Hörpraxis sinnvoll ist.
+      Du brauchst nicht jedes Wort verstehen, damit Hörpraxis sinnvoll ist.
     </p>
 
     <p class="win-p">
@@ -909,7 +1319,7 @@ hoeren: {
     </p>
 
     <p class="win-p">
-      Du musst aber nicht jede Folge zehnmal analysieren.
+      Du brauchst aber nicht jede Folge zehnmal analysieren.
       Wiederhole vor allem Inhalte, die dir gefallen oder bei denen du merkst,
       dass du fast etwas verstehst.
     </p>
@@ -952,7 +1362,7 @@ hoeren: {
     </ul>
 
     <p class="win-p">
-      Du musst nicht jedes unbekannte Wort nachschlagen.
+      Du brauchst nicht jedes unbekannte Wort nachschlagen.
       Konzentriere dich auf Wörter, die mehrfach vorkommen oder für das
       Verständnis wichtig sind.
     </p>
@@ -995,6 +1405,12 @@ hoeren: {
     <button class="toc-item" data-open="ressourcen" data-resource-target="res-hoeren">
       Hörverstehen-Ressourcen öffnen →
     </button>
+
+    <p class="win-p">
+      Hörfortschritt wächst oft leise. Wähle heute einen kurzen Clip, höre
+      ihn einmal ohne und einmal mit japanischen Untertiteln und achte nur
+      auf ein bekanntes Wort.
+    </p>
 
     <div class="win-navigation">
       <button class="toc-item" data-open="aussprache">
@@ -1117,6 +1533,12 @@ jlpt: {
     <span class="eyebrow win-eyebrow">Fragen</span>
     <h2 class="win-h2">FAQ</h2>
 
+    <p class="win-p">
+      Manche Fragen tauchen fast bei allen am Anfang auf. Hier findest du
+      ehrliche Antworten, ohne dass du dich erst durch zwanzig
+      widersprüchliche Forenbeiträge graben musst.
+    </p>
+
     <details class="faq-item" open>
       <summary>Ist Japanisch mit Koyuki wirklich komplett kostenlos?</summary>
       <p>
@@ -1195,6 +1617,12 @@ jlpt: {
       </p>
     </details>
 
+    <p class="win-p">
+      Ist deine Frage noch offen, ist das kein Problem. Die passende
+      Themenseite geht meist tiefer und zeigt dir den nächsten
+      praktischen Schritt.
+    </p>
+
     <div class="win-navigation">
       <button class="toc-item" data-open="kontakt">Kontakt öffnen →</button>
     </div>
@@ -1202,6 +1630,16 @@ jlpt: {
   kontakt: { title:"コンタクト", quest:"Du hast eine Frage an mich persönlich? Nur zu!", html:`
     <span class="eyebrow win-eyebrow">Kontakt</span>
     <h2 class="win-h2">Schreib mir</h2>
+    <p class="win-p">
+      Danke, dass du beim Verbessern mithilfst. Hinter jeder guten
+      Lernseite stehen viele kleine Hinweise von Menschen, die sie
+      wirklich benutzen.
+    </p>
+    <p class="win-p">
+      Hast du einen Fehler gefunden, fehlt dir eine Erklärung oder hängt
+      ein Teil der Seite? Solches Feedback hilft dabei, das
+      Japanischzimmer Stück für Stück besser zu machen.
+    </p>
     <p class="win-p">
       Japanisch mit Koyuki wird von einer einzelnen Person gebaut und
       gepflegt — Fehler und Lücken passieren also garantiert. Wenn dir
