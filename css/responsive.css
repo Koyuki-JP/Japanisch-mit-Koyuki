@@ -22,6 +22,18 @@
     }
   }
 
+  /* Fenster starten im mobilen Modus (siehe isMobileMode() in
+     js/windows.js) automatisch maximiert, mit top:3vh aus
+     toggleMaximize() -- das ueberlappt auf Handy-Breiten mit der
+     Top-Controls-Zeile (seit Phase 2 42px hohe Tap-Ziele). Maximierte
+     Fenster starten hier deshalb unterhalb der Steuerleiste. */
+  @media (max-width: 760px){
+    .window.maximized{
+      top: 72px !important;
+      height: calc(96vh - 72px) !important;
+    }
+  }
+
   @container (max-width: 560px){
     .tile-grid{
       grid-template-columns:repeat(2, minmax(0, 1fr));

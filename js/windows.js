@@ -89,6 +89,15 @@ function setWegweiserHidden(hidden){
   if(wegweiserEl) wegweiserEl.classList.toggle('wegweiser-hidden', hidden);
 }
 
+/* Gleiche Schwelle wie der bestehende Sora-mobile-dock-Umschalter
+   (siehe positionWegweiser() in js/app.js) -- unter dieser Breite gilt
+   das freie Fenstersystem als unpraktisch (kein Platz zum Ziehen/
+   Verkleinern nebeneinander), Fenster öffnen sich dort stattdessen
+   automatisch im Maximiert-Zustand, siehe openWindow(). */
+function isMobileMode(){
+  return window.innerWidth <= 760;
+}
+
 function getDefaultWindowSize(id){
   const vw = window.innerWidth;
   const vh = window.innerHeight;
@@ -481,6 +490,18 @@ function openWindow(id, opener = null){
     });
   }
 
+  if(isMobileMode()){
+    // Im mobilen Modus ist immer nur ein Fenster gleichzeitig sinnvoll
+    // sichtbar (jedes öffnet maximiert) -- kein Kaskadieren mehrerer
+    // offener Fenster im Hintergrund wie auf dem Desktop.
+    Object.entries(state).forEach(([windowId, entry]) => {
+      if(windowId !== id){
+        entry.el.classList.remove('open');
+        entry.persistent = false;
+      }
+    });
+  }
+
   if(!s.positioned){
     positionCascade(s.el);
     s.positioned = true;
@@ -488,6 +509,13 @@ function openWindow(id, opener = null){
 
   s.el.classList.add('open');
   setActive(id, s.el);
+
+  if(isMobileMode() && !s.el.classList.contains('maximized')){
+    // Freies Ziehen/Verkleinern ist auf schmalen Bildschirmen unpraktisch --
+    // Fenster starten dort direkt im vorhandenen Maximiert-Zustand (blendet
+    // dabei automatisch auch Sora aus, siehe toggleMaximize()).
+    s.el.querySelector('[data-maximize]')?.click();
+  }
 
   if(typeof maybeShowWindowHint === 'function') maybeShowWindowHint();
 
