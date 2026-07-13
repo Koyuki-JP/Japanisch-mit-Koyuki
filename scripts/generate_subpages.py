@@ -24,6 +24,10 @@ Wann erneut ausfuehren:
 Liest Panel-IDs, Titel und Kurzbeschreibung (quest-Text) direkt aus
 js/app.js, damit nichts doppelt gepflegt werden muss.
 
+Alle Unterseiten liegen gebündelt unter einem gemeinsamen Oberordner
+(SUBPAGE_DIR), damit die Repo-Wurzel auf GitHub nicht mit 55 einzelnen
+Ordnern zugemüllt wird -- aus /hiragana/ wird so /go/hiragana/.
+
 Aufruf:
     python scripts/generate_subpages.py
 """
@@ -32,6 +36,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_BASE = "https://koyuki-jp.github.io/Japanisch-mit-Koyuki"
+
+# Gemeinsamer Oberordner fuer alle generierten Unterseiten (repo-root-
+# relativ). Bei Aenderung: alte SUBPAGE_DIR-Ordner von Hand loeschen,
+# Skript neu laufen lassen, sitemap.xml neu erzeugen.
+SUBPAGE_DIR = "go"
 
 # Muss zum ?v=... in index.html passen -- bei jedem Cache-Busting-Bump
 # hier mit anpassen und das Skript neu laufen lassen.
@@ -132,10 +141,10 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@700&family=Sora:wght@400;700&family=Nunito:wght@700&family=Noto+Sans+JP:wght@500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../css/main.css?v={cache_version}">
-<link rel="stylesheet" href="../css/windows.css?v={cache_version}">
-<link rel="stylesheet" href="../css/resources.css?v={cache_version}">
-<link rel="stylesheet" href="../css/responsive.css?v={cache_version}">
+<link rel="stylesheet" href="../../css/main.css?v={cache_version}">
+<link rel="stylesheet" href="../../css/windows.css?v={cache_version}">
+<link rel="stylesheet" href="../../css/resources.css?v={cache_version}">
+<link rel="stylesheet" href="../../css/responsive.css?v={cache_version}">
 </head>
 <body>
 <div class="stage" id="stage">
@@ -174,7 +183,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <!-- Wegweiser -->
   <div class="wegweiser" id="wegweiser">
     <div class="bubble" id="wegweiserText">Hallo! Ich bin Sora, dein Wegweiser. Klick auf eine Kachel, um deine Reise zu beginnen — oben links findest du außerdem das Inhaltsverzeichnis mit allen Bereichen.</div>
-    <img class="fox-wrap" src="../assets/images/questie.webp" alt="Sora, dein Wegweiser" width="84" height="84">
+    <img class="fox-wrap" src="../../assets/images/questie.webp" alt="Sora, dein Wegweiser" width="84" height="84">
   </div>
 
   <div class="desktop-footer">© 2026 · Japanisch mit Koyuki</div>
@@ -187,13 +196,13 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
      Vorlage im Skript selbst, dann das Skript erneut ausfuehren. -->
 <!-- Ladereihenfolge ist wichtig: data zuerst, dann progress/windows/resources,
      app.js zuletzt (baut u. a. die Panel-Definitionen und startet den Wegweiser) -->
-<script src="../data/resources.js?v={cache_version}"></script>
-<script src="../js/progress.js?v={cache_version}"></script>
-<script src="../js/windows.js?v={cache_version}"></script>
-<script src="../js/resources.js?v={cache_version}"></script>
-<script src="../js/decisiontree.js?v={cache_version}"></script>
-<script src="../js/kanaquiz.js?v={cache_version}"></script>
-<script src="../js/app.js?v={cache_version}"></script>
+<script src="../../data/resources.js?v={cache_version}"></script>
+<script src="../../js/progress.js?v={cache_version}"></script>
+<script src="../../js/windows.js?v={cache_version}"></script>
+<script src="../../js/resources.js?v={cache_version}"></script>
+<script src="../../js/decisiontree.js?v={cache_version}"></script>
+<script src="../../js/kanaquiz.js?v={cache_version}"></script>
+<script src="../../js/app.js?v={cache_version}"></script>
 <script>
   if (typeof openWindow === 'function') {{ openWindow('{panel_id}'); }}
 </script>
@@ -211,13 +220,13 @@ def main():
     generated = []
     for panel_id, title, quest in panels:
         slug = slug_for(panel_id)
-        out_dir = ROOT / slug
+        out_dir = ROOT / SUBPAGE_DIR / slug
         out_dir.mkdir(parents=True, exist_ok=True)
         out_file = out_dir / 'index.html'
 
         clean_title = escape_attr(decode_entities(title))
         clean_desc = escape_attr(decode_entities(quest))
-        canonical = f"{SITE_BASE}/{slug}/"
+        canonical = f"{SITE_BASE}/{SUBPAGE_DIR}/{slug}/"
 
         html = PAGE_TEMPLATE.format(
             title=clean_title,
@@ -229,8 +238,34 @@ def main():
         out_file.write_text(html, encoding='utf-8')
         generated.append((panel_id, slug, canonical))
 
-    print(f"{len(generated)} Unterseiten erzeugt unter jeweils <slug>/index.html")
+    print(f"{len(generated)} Unterseiten erzeugt unter jeweils {SUBPAGE_DIR}/<slug>/index.html")
+
+    write_sitemap(generated)
+
     return generated
+
+
+def write_sitemap(generated):
+    """Schreibt sitemap.xml (Startseite + eine Zeile pro Unterseite) neu.
+    Wird bei jedem Lauf komplett neu erzeugt, nicht von Hand gepflegt."""
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        '  <url>',
+        f'    <loc>{SITE_BASE}/</loc>',
+        '    <priority>1.0</priority>',
+        '  </url>',
+    ]
+    for panel_id, slug, canonical in generated:
+        lines.append('  <url>')
+        lines.append(f'    <loc>{canonical}</loc>')
+        lines.append('    <priority>0.7</priority>')
+        lines.append('  </url>')
+    lines.append('</urlset>')
+
+    out = ROOT / 'sitemap.xml'
+    out.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    print(f"sitemap.xml aktualisiert mit {len(generated) + 1} URLs")
 
 
 if __name__ == '__main__':
