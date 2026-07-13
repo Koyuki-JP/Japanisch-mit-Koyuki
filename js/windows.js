@@ -665,7 +665,8 @@ document.addEventListener('click', (e) => {
   const clickedInterface =
     e.target.closest('.window') ||
     e.target.closest('.wegweiser') ||
-    e.target.closest('.top-controls');
+    e.target.closest('.top-controls') ||
+    e.target.closest('.search-overlay');
 
   if(!clickedInterface && e.target.closest('.stage')){
     closeAllContentWindows();
