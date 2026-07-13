@@ -24,7 +24,14 @@ const DECISION_TREE = {
     question: "Verstehst du grundlegende Grammatik (Satzstruktur, は・が, て-Form …)?",
     options: [
       { label: "Nein", next: "rec_grammatik" },
-      { label: "Ja", next: "q_immersion" }
+      { label: "Ja", next: "q_grammatik_advanced" }
+    ]
+  },
+  q_grammatik_advanced: {
+    question: "Möchtest du deine Grammatik vertiefen (Passiv, Kausativ, Konditionalformen …), oder erstmal mit Immersion weitermachen?",
+    options: [
+      { label: "Grammatik vertiefen", next: "rec_fortgeschritten" },
+      { label: "Immersion", next: "q_immersion" }
     ]
   },
   q_immersion: {
@@ -59,6 +66,10 @@ const DECISION_TREE = {
   rec_grammatik: {
     recommendation: "Arbeite dich durch die Grammatik-Grundlagen.",
     panel: "grammatik", panelLabel: "Zu Grammatik"
+  },
+  rec_fortgeschritten: {
+    recommendation: "Der Fortgeschrittene Guide führt dich durch Grammatik auf JLPT-N4/N3-Niveau — Passiv, Kausativ, Konditionalformen und mehr.",
+    panel: "fortgeschritten", panelLabel: "Zum Fortgeschrittenen Guide"
   },
   rec_immersion: {
     recommendation: "Zeit, mit Immersion anzufangen — auch mit wenig Verständnis ist das schon sinnvoll.",

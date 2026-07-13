@@ -339,6 +339,12 @@ guide: {
         außerdem fertige Setups für unterschiedliche Ziele.
       </p>
       <p class="win-p">
+        Und wenn diese fünf Schritte irgendwann sitzen? Dann wartet der
+        <button class="inline-link" data-open="fortgeschritten">Fortgeschrittene Guide</button>
+        mit Grammatik auf JLPT-N4/N3-Niveau — Passiv, Kausativ,
+        Konditionalformen und mehr.
+      </p>
+      <p class="win-p">
         Dein nächster Schritt: Fang mit Kana an und lerne heute nur die
         ersten Zeichen kennen.
       </p>

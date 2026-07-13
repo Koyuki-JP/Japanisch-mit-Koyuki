@@ -110,7 +110,13 @@ function createCollapseKey(title, panelId, index){
 }
 
 function enhanceCollapsibleSections(contentRoot, panelId){
-  const titles = Array.from(contentRoot.querySelectorAll('.win-h3'));
+  // Nur echte Abschnittsüberschriften sollen aufklappbar werden — nicht
+  // verschachtelte h3 in Karten (z. B. .resource-card), sonst landet der
+  // Klapp-Pfeil mitten in mehrzeiligen Kartentiteln. buildArticleToc()
+  // packt lange Artikel in .article-body; dort zählen nur die direkten
+  // Kinder als Abschnitte, genau wie beim Mini-Inhaltsverzeichnis selbst.
+  const scope = contentRoot.querySelector(':scope > .article-body') || contentRoot;
+  const titles = Array.from(scope.querySelectorAll(':scope > h3.win-h3'));
   const state = getCollapsedSections();
 
   titles.forEach((title, index) => {
