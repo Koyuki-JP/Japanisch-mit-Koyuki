@@ -34,25 +34,13 @@ const MEDIUM_WINDOWS = new Set([
 ]);
 
 /* ===================== Direktlink pro Fenster ===================== */
-/* Muss zu SLUG_OVERRIDES in scripts/generate_subpages.py passen. */
+/* Slug-Zuordnung kommt aus data/panel-slugs.js (einzige Quelle,
+   wird auch von scripts/generate_subpages.py ausgelesen). */
 const SUBPAGE_BASE = 'https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/';
-const SUBPAGE_SLUG_OVERRIDES = {
-  fgGebenNehmen: 'fg-geben-nehmen',
-  fgVerbindungen: 'fg-verbindungen',
-  fgKonditional: 'fg-konditional',
-  fgPassivKausativ: 'fg-passiv-kausativ',
-  fgVermutung: 'fg-vermutung',
-  fgErklaerung: 'fg-erklaerung',
-  fgGrundKonzession: 'fg-grund-konzession',
-  fgZeitAbfolge: 'fg-zeit-abfolge',
-  fgBezug: 'fg-bezug',
-  fgEinschraenkung: 'fg-einschraenkung',
-  fgPflicht: 'fg-pflicht',
-  fgKeigo: 'fg-keigo',
-};
 
 function subpageUrlFor(id){
-  const slug = SUBPAGE_SLUG_OVERRIDES[id] || id;
+  const overrides = typeof PANEL_SLUG_OVERRIDES !== 'undefined' ? PANEL_SLUG_OVERRIDES : {};
+  const slug = overrides[id] || id;
   return SUBPAGE_BASE + slug + '/';
 }
 
@@ -177,7 +165,7 @@ function buildWindow(id){
       <div class="window-controls">
         <button class="win-share" data-share="${id}" title="Link zu diesem Fenster kopieren" aria-label="Direktlink kopieren">🔗</button>
         <button class="win-maximize" data-maximize="${id}" title="Maximieren" aria-label="Fenstergröße umschalten">⤢</button>
-        <button class="win-close" data-close="${id}">✕</button>
+        <button class="win-close" data-close="${id}" title="Fenster schließen" aria-label="Fenster schließen">✕</button>
       </div>
     </div>
     <div class="window-content">${data.html || '<p class="win-p">Lade Inhalt …</p>'}</div>
@@ -200,7 +188,18 @@ function buildWindow(id){
       state[id].persistent = false;
     }
 
-    if(activeId === id) setActive('home', homeEl);
+    if(activeId === id){
+      // Nicht immer zu Home zurueckspringen -- falls noch andere Fenster
+      // offen sind, wird stattdessen das oberste davon aktiv.
+      const remaining = Object.entries(state)
+        .filter(([wid, entry]) => wid !== id && entry.el.classList.contains('open'))
+        .sort((a, b) => (parseInt(b[1].el.style.zIndex) || 0) - (parseInt(a[1].el.style.zIndex) || 0));
+      if(remaining.length){
+        setActive(remaining[0][0], remaining[0][1].el);
+      } else {
+        setActive('home', homeEl);
+      }
+    }
   });
 
   /* ---------- Direktlink kopieren ---------- */

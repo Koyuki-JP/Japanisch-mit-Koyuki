@@ -22,7 +22,13 @@ Wann erneut ausfuehren:
 - wenn ein neues Panel in js/app.js dazukommt
 
 Liest Panel-IDs, Titel und Kurzbeschreibung (quest-Text) direkt aus
-js/app.js, damit nichts doppelt gepflegt werden muss.
+js/app.js, damit nichts doppelt gepflegt werden muss. Die camelCase-
+zu-kebab-case-Slug-Zuordnung kommt ebenso automatisch aus
+data/panel-slugs.js -- das ist dieselbe Datei, die js/windows.js im
+Browser fuer den 🔗-Direktlink-Button verwendet. Frueher gab es hier
+eine eigene Python-Kopie dieser Zuordnung, die beim Hinzufuegen neuer
+Panels leicht vergessen wurde (siehe: N2-Direktlink-Bug, Juli 2026) --
+jetzt gibt es nur noch eine einzige Quelle.
 
 Alle Unterseiten liegen gebündelt unter einem gemeinsamen Oberordner
 (SUBPAGE_DIR), damit die Repo-Wurzel auf GitHub nicht mit 55 einzelnen
@@ -44,37 +50,33 @@ SUBPAGE_DIR = "go"
 
 # Muss zum ?v=... in index.html passen -- bei jedem Cache-Busting-Bump
 # hier mit anpassen und das Skript neu laufen lassen.
-CACHE_VERSION = "20260713-32"
+CACHE_VERSION = "20260713-33"
 
-# Panel-IDs, die im Code camelCase sind (fuer JS-Objektschluessel
-# praktisch), aber als URL lieber lesbares kebab-case haben sollen.
-# Muss zu den Dateinamen unter pages/ passen.
-SLUG_OVERRIDES = {
-    "fgGebenNehmen": "fg-geben-nehmen",
-    "fgVerbindungen": "fg-verbindungen",
-    "fgKonditional": "fg-konditional",
-    "fgPassivKausativ": "fg-passiv-kausativ",
-    "fgVermutung": "fg-vermutung",
-    "fgErklaerung": "fg-erklaerung",
-    "fgGrundKonzession": "fg-grund-konzession",
-    "fgZeitAbfolge": "fg-zeit-abfolge",
-    "fgBezug": "fg-bezug",
-    "fgEinschraenkung": "fg-einschraenkung",
-    "fgPflicht": "fg-pflicht",
-    "fgKeigo": "fg-keigo",
-    "n2Zeit": "n2-zeit",
-    "n2GrundPerspektive": "n2-grund-perspektive",
-    "n2WeitereGruende": "n2-weitere-gruende",
-    "n2GegensatzErwartung": "n2-gegensatz-erwartung",
-    "n2Bedingung": "n2-bedingung",
-    "n2MoeglichkeitSchluss": "n2-moeglichkeit-schluss",
-    "n2Vermutung": "n2-vermutung",
-    "n2Einschraenkung": "n2-einschraenkung",
-    "n2Bezug1": "n2-bezug-1",
-    "n2Bezug2": "n2-bezug-2",
-    "n2UmHerum": "n2-um-herum",
-    "n2Ausdruecke": "n2-ausdruecke",
-}
+def load_slug_overrides():
+    """Liest PANEL_SLUG_OVERRIDES aus data/panel-slugs.js -- dieselbe
+    Datei, die js/windows.js direkt im Browser fuer den Direktlink-
+    Button einliest. So gibt es nur eine Stelle, an der camelCase-
+    Panel-IDs (fgGebenNehmen, n2Zeit, ...) auf ihren URL-Slug
+    (fg-geben-nehmen, n2-zeit, ...) abgebildet werden."""
+    js_text = (ROOT / 'data' / 'panel-slugs.js').read_text(encoding='utf-8')
+    start = js_text.index('const PANEL_SLUG_OVERRIDES = {')
+    brace_start = js_text.index('{', start)
+    depth = 0
+    brace_end = None
+    for i in range(brace_start, len(js_text)):
+        if js_text[i] == '{':
+            depth += 1
+        elif js_text[i] == '}':
+            depth -= 1
+        if depth == 0:
+            brace_end = i
+            break
+    body = js_text[brace_start + 1:brace_end]
+    pairs = re.findall(r'(\w+)\s*:\s*"([\w-]+)"', body)
+    return dict(pairs)
+
+
+SLUG_OVERRIDES = load_slug_overrides()
 
 
 def slug_for(panel_id):
@@ -222,6 +224,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <!-- Ladereihenfolge ist wichtig: data zuerst, dann progress/windows/resources,
      app.js zuletzt (baut u. a. die Panel-Definitionen und startet den Wegweiser) -->
 <script src="../../data/resources.js?v={cache_version}"></script>
+<script src="../../data/panel-slugs.js?v={cache_version}"></script>
 <script src="../../js/progress.js?v={cache_version}"></script>
 <script src="../../js/windows.js?v={cache_version}"></script>
 <script src="../../js/resources.js?v={cache_version}"></script>
