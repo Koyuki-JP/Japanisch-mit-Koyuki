@@ -1577,6 +1577,11 @@ tools: {
   quest: "Bevor du ein Buch anfängst: Community-Bewertungen zeigen dir, ob es zu deinem Niveau passt.",
   src: "pages/tool-natively.html",
 },
+"tool-jp343-tracker": {
+  title: "jp343 Immersion Tracker",
+  quest: "Immersion-Fortschritt automatisch mitzählen statt ihn nur zu erahnen — Streaming-Zeit, Streaks und Statistiken auf Knopfdruck.",
+  src: "pages/tool-jp343-tracker.html",
+},
 glossar: {
   title: "Glossar",
   quest: "Mining, i+1, FSRS, Shadowing — Fachbegriffe kurz und auf Deutsch erklärt.",

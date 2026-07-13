@@ -53,7 +53,7 @@ gibt.
 | 🔍 **Yomitan** | Einrichtung, Wörterbücher, AnkiConnect, Troubleshooting |
 | ⛏️ **Mining** | Sentence Mining, i+1-Prinzip, Mining nach Medium |
 | 試 **JLPT** | Die fünf Stufen, Prüfungsinhalte, Einordnung |
-| 🧰 **Tools-Bibliothek** | Steckbriefe zu asbplayer, mpvacious, Textractor, Mokuro, jidoujisho, jpdb, Bunpro, Natively |
+| 🧰 **Tools-Bibliothek** | Steckbriefe zu asbplayer, mpvacious, Textractor, Mokuro, jidoujisho, jpdb, Bunpro, Natively, jp343 Immersion Tracker |
 | 📚 **Ressourcen** | Kuratierte, eingeordnete Guides und Decks statt bloßer Linkliste |
 | 🔤 **Glossar** | ~25 Fachbegriffe (Mining, i+1, FSRS, Pitch Accent u. a.) kurz auf Deutsch erklärt |
 | 🛠️ **Fehlerdatenbank** | Troubleshooting nach Kategorie: Sync, Kartenfelder, Wörterbücher, Frequenzlisten, mobile Nutzung, Browser |

@@ -18,7 +18,7 @@ const LARGE_GUIDE_WINDOWS = new Set([
   'grammatik', 'satzstruktur', 'verbformen', 'haga', 'wo', 'nide', 'teform',
   'wortschatz', 'aussprache', 'hoeren', 'immersion', 'lesen', 'anki', 'yomitan', 'mining', 'ressourcen', 'jlpt',
   'kultur', 'tools', 'tool-asbplayer', 'tool-mpvacious', 'tool-textractor', 'tool-mokuro',
-  'tool-jidoujisho', 'tool-jpdb', 'tool-bunpro', 'tool-natively', 'glossar', 'fehlerhilfe',
+  'tool-jidoujisho', 'tool-jpdb', 'tool-bunpro', 'tool-natively', 'tool-jp343-tracker', 'glossar', 'fehlerhilfe',
   'lernwege', 'entscheidungsbaum',
   'fortgeschritten', 'fgGebenNehmen', 'fgVerbindungen', 'fgKonditional', 'fgPassivKausativ',
   'fgVermutung', 'fgErklaerung', 'fgGrundKonzession', 'fgZeitAbfolge', 'fgBezug',
