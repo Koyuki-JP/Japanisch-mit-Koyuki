@@ -64,87 +64,45 @@ gibt.
 
 ## Geplant
 
-Der ursprüngliche Phasenplan für die Kerninhalte ist komplett abgearbeitet:
+**Als Nächstes:**
 
-- [x] Grammatik-Themenseiten, Aussprache
-- [x] Anki/SRS → Yomitan → Mining
-- [x] Immersion & Lesen
-- [x] Tools-Bibliothek (asbplayer, mpvacious, Textractor, Mokuro, jidoujisho, jpdb, Bunpro, Natively)
-- [x] Deutsche Begriffsdatenbank & Fehlerdatenbank
-- [x] Geführte Lernwege & interaktiver Entscheidungsbaum
-- [x] Politur: Cross-Linking, Kultur-Bereich, veraltete Platzhalter bereinigt
-
-Japanisch mit Koyuki wächst trotzdem weiter — neue Inhalte, weitere
-Tool-Steckbriefe und Feinschliff kommen laufend dazu.
-
-Ein zweiter, gezielt auf Anfänger:innen ausgerichteter Feinschliff ist
-mittlerweile ebenfalls komplett abgearbeitet:
-
-- [x] Kana-Tabellen mit Aussprache per Sprachausgabe (Web Speech API)
-- [x] Interaktives Kana-Erkennungs-Quiz
-- [x] Kurzer Tag-1-Schnelleinstieg vor dem vollen Anfänger-Guide
-- [x] Einmaliger Hinweis zur Fenster-Bedienung beim ersten Besuch
-- [x] Gruppiertes Inhaltsverzeichnis (Einstieg / Vertiefung / Referenz)
-
-Alle Fenstertexte wurden außerdem einmal komplett nach einem eigenen
-Redaktionsleitfaden (KWS) überarbeitet — persönlicherer Ton, mehr Kontext
-zum Warum, klarere nächste Schritte auf jeder Seite.
-
-Aus der Feedback-Runde (externe Bestandsaufnahme) sind mittlerweile
-erledigt:
-
-- [x] Redaktionelle Wiederholungen im KWS-Text reduzieren (größte
-      Häufungen in Wortschatz, Hörverstehen, Guide und Hiragana entschärft)
-- [x] Zielgruppenebenen geprüft — ursprünglich als "reicht aktuell aus"
-      eingestuft; mit dem Fortgeschrittenen Guide (siehe unten) ist die
-      vierte Ebene "Fortgeschritten" inzwischen tatsächlich entstanden
-- [x] Anfängerführung visuell gestaffelt: Der Anfänger-Guide markiert
-      seine 5 Schritte jetzt mit Jetzt/Bald/Laufend/Später-Badges
-- [x] Quellen- und Aktualisierungssystem: Quellenverzeichnis deckt jetzt
-      Grammatik (DBJG, Imabi, Tae Kim, Maggie Sensei, Bunpro, Jisho),
-      Vokabel-Decks und Tools ab, inkl. "Stand der Prüfung"-Angaben.
-      Dabei aufgefallen: Textractor gilt 2026 als nicht mehr aktiv
-      gepflegt, LunaTranslator als aktueller Nachfolger — entsprechender
-      Hinweis auf der Textractor-Seite ergänzt
-
-Neu dazugekommen (nicht ursprünglich geplant): ein kompletter
-**Fortgeschrittener Guide** mit Grammatik auf JLPT-N4/N3-Niveau — 12
-Themenseiten von Konditionalformen über Passiv/Kausativ bis zu
-Keigo-Grundlagen, im gleichen Format wie die bestehenden
-Grammatikseiten.
-
-- [x] Teilbare Direktlinks: alle 55 Panels haben jetzt eine eigene,
-      echte URL (gebündelt unter `/go/`, z. B. `/go/hiragana/`) mit
-      eigenem Titel und Vorschautext zum Teilen/Verlinken — dazu ein
-      🔗-Button in jeder Fenster-Titelleiste, der den passenden Link
-      direkt in die Zwischenablage kopiert. Die Navigation innerhalb
-      der Seite bleibt dabei komplett client-seitig wie bisher
-
-Damit ist auch der Feedback-Phasenplan vollständig abgearbeitet.
-
-Als Nächstes geplant:
-
-- [ ] Suchleiste: durchsucht alle Panel-Titel/-Kurzbeschreibungen live
-      und öffnet Treffer direkt — kein Backend, rein client-seitig
 - [ ] Experten-Guide (N2/N1) als dritte Stufe nach Anfänger- und
       Fortgeschrittenem Guide, gleiches Format und Vorgehen
 
-Das seitliche Mini-Inhaltsverzeichnis für lange Artikel läuft bereits
-automatisch auf jedem Panel mit mehreren Zwischenüberschriften, nicht nur
-im Anfänger-Guide. Jedes Fenster lässt sich außerdem per ⤢-Button (oder
-Doppelklick auf die Titelleiste) auf Lesemodus-Größe maximieren — das
-deckt den ursprünglich geplanten separaten "Lesemodus" bereits ab.
+**Bereits umgesetzt:**
+
+- **Kerninhalte** — Grammatik, Wortschatz, Aussprache, Hörverstehen,
+  Immersion, Lesen, Anki/SRS, Yomitan, Mining, JLPT, Tools-Bibliothek,
+  Ressourcen, Glossar, Fehlerdatenbank, Lernwege, Entscheidungsbaum,
+  Kultur, Quellenverzeichnis
+- **Anfänger-Feinschliff** — Kana-Aussprache per Sprachausgabe,
+  interaktives Kana-Quiz, Tag-1-Schnelleinstieg, einmaliger
+  Fenster-Bedienungshinweis, gruppiertes Inhaltsverzeichnis
+- **Feedback-Runde** (externe Bestandsaufnahme) — redaktionelle
+  Überarbeitung, **Fortgeschrittener Guide** (JLPT-N4/N3-Grammatik,
+  12 Themenseiten, ~45 Punkte), visuell gestaffelter Anfänger-Guide,
+  erweitertes Quellenverzeichnis (Grammatik, Decks, Tools mit "Stand
+  der Prüfung"), Lesemodus (⤢-Maximieren-Button pro Fenster),
+  teilbare Direktlinks (`/go/<slug>/` + 🔗-Kopier-Button pro Fenster),
+  Suchleiste über alle Panel-Titel/-Kurzbeschreibungen
+
+Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS) —
+persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf
+jeder Seite. Das seitliche Mini-Inhaltsverzeichnis für lange Artikel
+läuft automatisch auf jedem Panel mit mehreren Zwischenüberschriften.
 
 ## Tech-Stack
 
 Bewusst schlank gehalten — kein Framework, kein Build-Schritt:
 
 - reines **HTML / CSS / Vanilla JavaScript**
-- eigenes kleines Fenster-System (Drag, Resize, Fokus) in [`js/windows.js`](js/windows.js)
+- eigenes kleines Fenster-System (Drag, Resize, Fokus, Maximieren) in [`js/windows.js`](js/windows.js)
 - Inhalte liegen entweder direkt in [`js/app.js`](js/app.js) oder werden bei Bedarf aus [`pages/*.html`](pages) nachgeladen
 - Ressourcen-Bibliothek wird aus [`data/resources.js`](data/resources.js) gerendert
 - interaktiver Entscheidungsbaum in [`js/decisiontree.js`](js/decisiontree.js)
 - interaktives Kana-Quiz in [`js/kanaquiz.js`](js/kanaquiz.js)
+- clientseitige Suche über alle Panel-Titel/-Kurzbeschreibungen in [`js/search.js`](js/search.js)
+- teilbare Direktlinks unter `go/` werden aus den Panel-Daten in `js/app.js` generiert — siehe [`scripts/generate_subpages.py`](scripts/generate_subpages.py)
 
 ## Lokal starten
 
@@ -168,10 +126,15 @@ Jede andere einfache Static-Server-Lösung (z. B. die VS-Code-Erweiterung
 index.html          Einstiegspunkt, Fenster-Grundgerüst
 css/                 main / windows / resources / responsive
 js/                  windows.js (Fenster-Engine), app.js (Panel-Inhalte),
-                     progress.js, resources.js, decisiontree.js
+                     progress.js, resources.js, decisiontree.js,
+                     kanaquiz.js, search.js
 pages/               ausgelagerte, längere Fensterinhalte (*.html)
 data/                Ressourcen-Bibliothek als Daten
 assets/              Bilder & Icons
+go/                  automatisch erzeugte Direktlink-Unterseiten
+                     (nicht von Hand bearbeiten, siehe scripts/)
+scripts/             generate_subpages.py -- erzeugt go/ + sitemap.xml
+                     aus den Panel-Daten in js/app.js
 ```
 
 ## Mitreden
