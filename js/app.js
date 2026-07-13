@@ -1118,7 +1118,7 @@ jlpt: {
     <h2 class="win-h2">FAQ</h2>
 
     <details class="faq-item" open>
-      <summary>Ist das Japanischzimmer wirklich komplett kostenlos?</summary>
+      <summary>Ist Japanisch mit Koyuki wirklich komplett kostenlos?</summary>
       <p>
         Ja. Keine Paywall, kein Kursverkauf, keine versteckten
         Premium-Inhalte. Manche verlinkten externen Tools (z. B. Bunpro)
@@ -1203,15 +1203,15 @@ jlpt: {
     <span class="eyebrow win-eyebrow">Kontakt</span>
     <h2 class="win-h2">Schreib mir</h2>
     <p class="win-p">
-      Das Japanischzimmer wird von einer einzelnen Person gebaut und
+      Japanisch mit Koyuki wird von einer einzelnen Person gebaut und
       gepflegt — Fehler und Lücken passieren also garantiert. Wenn dir
       etwas kaputt vorkommt, unklar erklärt ist oder einfach fehlt, sag
       mir gerne Bescheid.
     </p>
     <p class="win-p">
       Genauso willkommen sind Themenwünsche, Ressourcen-Tipps, die anderen
-      Lernenden helfen könnten, oder einfach eine Nachricht, wenn dir das
-      Japanischzimmer bei deinem Lernweg geholfen hat. Für schnellen
+      Lernenden helfen könnten, oder einfach eine Nachricht, wenn dir
+      Japanisch mit Koyuki bei deinem Lernweg geholfen hat. Für schnellen
       Austausch eignet sich Discord am besten, für längere Nachrichten
       oder persönliche Anliegen die E-Mail.
     </p>

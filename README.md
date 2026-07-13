@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏮 Japanischzimmer
+# 🏮 Japanisch mit Koyuki
 
 **Eine kostenlose, deutschsprachige Lernplattform für Japanisch — geführter Lernweg *und* Nachschlagewerk in einem.**
 
@@ -14,7 +14,7 @@
 
 ---
 
-Das Japanischzimmer soll sich vom Anfänger-Guide zu einer vollständigen
+Japanisch mit Koyuki soll sich vom Anfänger-Guide zu einer vollständigen
 kostenlosen Anlaufstelle für Japanischlernende im deutschsprachigen Raum
 entwickeln. Kein Kursverkauf, keine versteckten Premium-Inhalte, keine
 künstliche Verknappung — nur klare, ehrliche Erklärungen und eigene
@@ -72,7 +72,7 @@ Der ursprüngliche Phasenplan für die Kerninhalte ist komplett abgearbeitet:
 - [x] Geführte Lernwege & interaktiver Entscheidungsbaum
 - [x] Politur: Cross-Linking, Kultur-Bereich, veraltete Platzhalter bereinigt
 
-Das Japanischzimmer wächst trotzdem weiter — neue Inhalte, weitere
+Japanisch mit Koyuki wächst trotzdem weiter — neue Inhalte, weitere
 Tool-Steckbriefe und Feinschliff kommen laufend dazu.
 
 Ein zweiter, gezielt auf Anfänger:innen ausgerichteter Feinschliff ist
@@ -127,12 +127,12 @@ assets/              Bilder & Icons
 
 Fehler gefunden, ein Thema fehlt, oder du hast einen Ressourcen-Tipp?
 Meld dich gerne direkt über den Kontakt-Bereich der Seite (E-Mail oder
-Discord) — das Japanischzimmer wird von einer einzelnen Person gebaut,
+Discord) — Japanisch mit Koyuki wird von einer einzelnen Person gebaut,
 Rückmeldungen helfen entsprechend viel.
 
 ## Unterstützen
 
-Das Japanischzimmer bleibt kostenlos, ohne Paywall und ohne Kursverkauf.
+Japanisch mit Koyuki bleibt kostenlos, ohne Paywall und ohne Kursverkauf.
 Wenn dir die Seite hilft und du das unterstützen möchtest:
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/koyuki_japanischzimmer)
