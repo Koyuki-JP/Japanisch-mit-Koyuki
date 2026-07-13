@@ -211,7 +211,13 @@
       linear-gradient(var(--bg-panel-2), var(--bg-panel-2)) padding-box,
       linear-gradient(135deg, var(--pink), var(--violet)) border-box;
     box-shadow: 0 12px 28px -18px rgba(236,72,153,0.9);
+    animation: featured-glow 3.2s ease-in-out infinite;
   }
+  @keyframes featured-glow{
+    0%, 100%{ box-shadow: 0 12px 28px -18px rgba(236,72,153,0.9); }
+    50%{ box-shadow: 0 12px 32px -14px rgba(236,72,153,1); }
+  }
+  .tile-btn.featured:hover{ animation-play-state: paused; }
   .tile-btn.featured:hover{
     transform: translateY(-3px);
     border-color: transparent;

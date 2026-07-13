@@ -137,7 +137,10 @@ function buildWindow(id){
   el.innerHTML = `
     <div class="window-titlebar">
       <span class="tab-label">${data.title}</span>
-      <button class="win-close" data-close="${id}">✕</button>
+      <div class="window-controls">
+        <button class="win-maximize" data-maximize="${id}" title="Maximieren" aria-label="Fenstergröße umschalten">⤢</button>
+        <button class="win-close" data-close="${id}">✕</button>
+      </div>
     </div>
     <div class="window-content">${data.html || '<p class="win-p">Lade Inhalt …</p>'}</div>
     <div class="resize-handle" title="Größe ändern">
@@ -152,12 +155,64 @@ function buildWindow(id){
   el.querySelector('[data-close]').addEventListener('click', (e) => {
     e.stopPropagation();
     el.classList.remove('open');
+    el.classList.remove('maximized');
 
     if(state[id]){
       state[id].persistent = false;
     }
 
     if(activeId === id) setActive('home', homeEl);
+  });
+
+  /* ---------- Maximieren / Wiederherstellen ---------- */
+  let preMaximizeRect = null;
+  const maxBtn = el.querySelector('[data-maximize]');
+  function toggleMaximize(){
+    setActive(id, el);
+
+    if(el.classList.contains('maximized')){
+      el.classList.remove('maximized');
+      if(preMaximizeRect){
+        el.style.left = preMaximizeRect.left;
+        el.style.top = preMaximizeRect.top;
+        el.style.width = preMaximizeRect.width;
+        el.style.height = preMaximizeRect.height;
+      }
+      maxBtn.textContent = '⤢';
+      maxBtn.title = 'Maximieren';
+    } else {
+      const rect = el.getBoundingClientRect();
+      preMaximizeRect = {
+        left: rect.left + 'px',
+        top: rect.top + 'px',
+        width: rect.width + 'px',
+        height: rect.height + 'px'
+      };
+      // Auf feste Pixelwerte wechseln, bevor animiert wird (sonst springt ein
+      // noch nie verschobenes Fenster, weil es per CSS-Transform zentriert ist).
+      el.style.transform = 'none';
+      el.style.left = preMaximizeRect.left;
+      el.style.top = preMaximizeRect.top;
+      el.style.width = preMaximizeRect.width;
+      el.style.height = preMaximizeRect.height;
+
+      requestAnimationFrame(() => {
+        el.classList.add('maximized');
+        el.style.left = '3vw';
+        el.style.top = '3vh';
+        el.style.width = '94vw';
+        el.style.height = '94vh';
+      });
+      maxBtn.textContent = '⤡';
+      maxBtn.title = 'Wiederherstellen';
+    }
+
+    requestAnimationFrame(positionWegweiser);
+  }
+  maxBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMaximize(); });
+  el.querySelector('.window-titlebar').addEventListener('dblclick', (e) => {
+    if(e.target.closest('.win-close') || e.target.closest('.win-maximize')) return;
+    toggleMaximize();
   });
 
   function finalizeContent(){
@@ -379,7 +434,8 @@ function makeDraggable(win, titlebar){
   let origY = 0;
 
   titlebar.addEventListener('pointerdown', (e) => {
-    if(e.target.closest('.win-close')) return;
+    if(e.target.closest('.win-close') || e.target.closest('.win-maximize')) return;
+    if(win.classList.contains('maximized')) return;
 
     dragging = true;
     setActive(win.id.replace('window-','') || 'home', win);
@@ -443,6 +499,7 @@ function makeResizable(win, handle){
   let startH = 0;
 
   handle.addEventListener('pointerdown', (e) => {
+    if(win.classList.contains('maximized')) return;
     e.preventDefault();
     e.stopPropagation();
 
