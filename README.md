@@ -88,6 +88,19 @@ Alle Fenstertexte wurden außerdem einmal komplett nach einem eigenen
 Redaktionsleitfaden (KWS) überarbeitet — persönlicherer Ton, mehr Kontext
 zum Warum, klarere nächste Schritte auf jeder Seite.
 
+Nächste geplante Runde, abgeleitet aus einer externen Bestandsaufnahme:
+
+- [ ] Redaktionelle Wiederholungen im KWS-Text reduzieren
+- [ ] Zielgruppenebenen prüfen (fehlt eine eigene Ebene „Fortgeschritten"?)
+- [ ] Anfängerführung visuell staffeln (heute / als Nächstes / später)
+- [ ] Optionaler Lesemodus für lange Artikel
+- [ ] Quellen- und Aktualisierungssystem für Grammatik-/Deck-/Toolseiten
+- [ ] Teilbare Direktlinks / Routing für einzelne Panels prüfen
+
+Das seitliche Mini-Inhaltsverzeichnis für lange Artikel läuft bereits
+automatisch auf jedem Panel mit mehreren Zwischenüberschriften, nicht nur
+im Anfänger-Guide.
+
 ## Tech-Stack
 
 Bewusst schlank gehalten — kein Framework, kein Build-Schritt:
