@@ -15,10 +15,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@700&family=Sora:wght@400;700&family=Nunito:wght@700&family=Noto+Sans+JP:wght@500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../../css/main.css?v=20260713-27">
-<link rel="stylesheet" href="../../css/windows.css?v=20260713-27">
-<link rel="stylesheet" href="../../css/resources.css?v=20260713-27">
-<link rel="stylesheet" href="../../css/responsive.css?v=20260713-27">
+<link rel="stylesheet" href="../../css/main.css?v=20260713-28">
+<link rel="stylesheet" href="../../css/windows.css?v=20260713-28">
+<link rel="stylesheet" href="../../css/resources.css?v=20260713-28">
+<link rel="stylesheet" href="../../css/responsive.css?v=20260713-28">
 </head>
 <body>
 <div class="stage" id="stage">
@@ -26,7 +26,20 @@
   <div class="top-controls">
     <button id="modeToggle" title="Hell-/Dunkelmodus">🌙</button>
     <button class="toc-shortcut" data-open="toc" title="Inhaltsverzeichnis öffnen">📑</button>
+    <button id="searchToggle" title="Suche (oder Taste „/“)" aria-label="Suche öffnen">🔍</button>
     <a class="kofi-link" href="https://ko-fi.com/koyuki_japanischzimmer" target="_blank" rel="noopener" title="Unterstütz mich auf Ko-fi">☕</a>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay" hidden>
+    <div class="search-panel">
+      <div class="search-input-row">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Wonach suchst du? (z. B. JLPT, て-Form, Kanji)" autocomplete="off">
+        <button class="search-close" id="searchClose" aria-label="Suche schließen">✕</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+      <div class="search-empty" id="searchEmpty" hidden>Keine Treffer. Versuch's mit einem anderen Begriff.</div>
+    </div>
   </div>
 
   <!-- Home-Fenster -->
@@ -70,13 +83,14 @@
      Vorlage im Skript selbst, dann das Skript erneut ausfuehren. -->
 <!-- Ladereihenfolge ist wichtig: data zuerst, dann progress/windows/resources,
      app.js zuletzt (baut u. a. die Panel-Definitionen und startet den Wegweiser) -->
-<script src="../../data/resources.js?v=20260713-27"></script>
-<script src="../../js/progress.js?v=20260713-27"></script>
-<script src="../../js/windows.js?v=20260713-27"></script>
-<script src="../../js/resources.js?v=20260713-27"></script>
-<script src="../../js/decisiontree.js?v=20260713-27"></script>
-<script src="../../js/kanaquiz.js?v=20260713-27"></script>
-<script src="../../js/app.js?v=20260713-27"></script>
+<script src="../../data/resources.js?v=20260713-28"></script>
+<script src="../../js/progress.js?v=20260713-28"></script>
+<script src="../../js/windows.js?v=20260713-28"></script>
+<script src="../../js/resources.js?v=20260713-28"></script>
+<script src="../../js/decisiontree.js?v=20260713-28"></script>
+<script src="../../js/kanaquiz.js?v=20260713-28"></script>
+<script src="../../js/app.js?v=20260713-28"></script>
+<script src="../../js/search.js?v=20260713-28"></script>
 <script>
   if (typeof openWindow === 'function') { openWindow('fgKonditional'); }
 </script>

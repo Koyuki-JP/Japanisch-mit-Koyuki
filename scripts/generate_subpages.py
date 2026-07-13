@@ -44,7 +44,7 @@ SUBPAGE_DIR = "go"
 
 # Muss zum ?v=... in index.html passen -- bei jedem Cache-Busting-Bump
 # hier mit anpassen und das Skript neu laufen lassen.
-CACHE_VERSION = "20260713-27"
+CACHE_VERSION = "20260713-28"
 
 # Panel-IDs, die im Code camelCase sind (fuer JS-Objektschluessel
 # praktisch), aber als URL lieber lesbares kebab-case haben sollen.
@@ -152,7 +152,20 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <div class="top-controls">
     <button id="modeToggle" title="Hell-/Dunkelmodus">\U0001f319</button>
     <button class="toc-shortcut" data-open="toc" title="Inhaltsverzeichnis öffnen">\U0001f4d1</button>
+    <button id="searchToggle" title="Suche (oder Taste „/“)" aria-label="Suche öffnen">\U0001f50d</button>
     <a class="kofi-link" href="https://ko-fi.com/koyuki_japanischzimmer" target="_blank" rel="noopener" title="Unterstütz mich auf Ko-fi">☕</a>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay" hidden>
+    <div class="search-panel">
+      <div class="search-input-row">
+        <span class="search-icon" aria-hidden="true">\U0001f50d</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Wonach suchst du? (z. B. JLPT, て-Form, Kanji)" autocomplete="off">
+        <button class="search-close" id="searchClose" aria-label="Suche schließen">✕</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+      <div class="search-empty" id="searchEmpty" hidden>Keine Treffer. Versuch's mit einem anderen Begriff.</div>
+    </div>
   </div>
 
   <!-- Home-Fenster -->
@@ -203,6 +216,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <script src="../../js/decisiontree.js?v={cache_version}"></script>
 <script src="../../js/kanaquiz.js?v={cache_version}"></script>
 <script src="../../js/app.js?v={cache_version}"></script>
+<script src="../../js/search.js?v={cache_version}"></script>
 <script>
   if (typeof openWindow === 'function') {{ openWindow('{panel_id}'); }}
 </script>
