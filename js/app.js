@@ -224,6 +224,21 @@ guide: {
 
     <div class="resource-cta">
       <p class="win-p">
+        Nicht sicher, was zu deinem Ziel passt — Anime, Manga, Visual
+        Novels oder der JLPT? Der Entscheidungsbaum führt dich in ein
+        paar Fragen zum passenden nächsten Schritt, die geführten
+        Lernwege zeigen dir fertige Setups je nach Fokus.
+      </p>
+      <button class="toc-item" data-open="entscheidungsbaum">
+        Was brauche ich jetzt? →
+      </button>
+      <button class="toc-item" data-open="lernwege">
+        Geführte Lernwege ansehen →
+      </button>
+    </div>
+
+    <div class="resource-cta">
+      <p class="win-p">
         Du möchtest verschiedene Lernwege vergleichen? Im Ressourcenbereich
         findest du kompakte und intensive Immersions-Guides mit Einordnung.
       </p>
@@ -241,6 +256,8 @@ guide: {
     <span class="eyebrow win-eyebrow">Übersicht</span>
     <h2 class="win-h2">Inhaltsverzeichnis</h2>
     <ul class="toc-list">
+      <li><button class="toc-item" data-open="entscheidungsbaum">Was brauche ich jetzt?</button></li>
+      <li><button class="toc-item" data-open="lernwege">Geführte Lernwege</button></li>
       <li><button class="toc-item" data-open="kana">Kana — Hiragana &amp; Katakana</button></li>
       <li><button class="toc-item" data-open="kanji">Kanji</button></li>
       <li><button class="toc-item" data-open="grammatik">Grammatik</button></li>
@@ -548,8 +565,9 @@ kanji: {
     <h3 class="win-h3">Ein sinnvoller Anfang</h3>
 
     <p class="win-p">
-      Starte mit einem häufigkeitsbasierten Anfänger-Vokabeldeck oder mit
-      Wörtern aus deinem aktuellen Lernmaterial. Dadurch lernst du
+      Starte mit einem häufigkeitsbasierten Anfänger-Vokabeldeck (siehe
+      <button class="inline-link" data-open="wortschatz">Wortschatz-Bereich</button>)
+      oder mit Wörtern aus deinem aktuellen Lernmaterial. Dadurch lernst du
       automatisch viele häufige Kanji in einem verständlichen Zusammenhang.
     </p>
 
@@ -993,12 +1011,21 @@ fehlerhilfe: {
   quest: "Technische Probleme gehören dazu. Hier findest du Lösungen für die häufigsten Stolpersteine.",
   src: "pages/fehlerhilfe.html",
 },
-  kultur: { title:"文化 — Kultur", quest:"Sprache und Kultur gehören zusammen — hier lernst du den Kontext.", html:`
-    <span class="eyebrow win-eyebrow">Kontext</span>
-    <h2 class="win-h2">Kultur &amp; Etikette</h2>
-    <p class="win-p">[Platzhalter: Höflichkeitsebenen, Alltagskultur, Umgangsformen.]</p>
-    <span class="placeholder-tag">// Inhalt folgt</span>
-  `},
+lernwege: {
+  title: "Lernwege",
+  quest: "Anime, Manga, Visual Novels oder JLPT — je nach Ziel lohnen sich andere Schwerpunkte.",
+  src: "pages/lernwege.html",
+},
+entscheidungsbaum: {
+  title: "Was brauche ich jetzt?",
+  quest: "Beantworte ein paar kurze Fragen, dann zeige ich dir einen passenden nächsten Schritt.",
+  src: "pages/entscheidungsbaum.html",
+},
+  kultur: {
+    title: "文化 — Kultur",
+    quest: "Sprache und Kultur gehören zusammen — hier lernst du den Kontext.",
+    src: "pages/kultur.html",
+  },
 jlpt: {
   title: "試験 — JLPT",
 
@@ -1057,17 +1084,30 @@ jlpt: {
         Als groben roten Faden empfiehlt sich Kana → erster Wortschatz →
         Grammatik-Grundlagen → früh mit Immersion beginnen → später Mining.
         Der Anfänger-Guide führt dich Schritt für Schritt durch genau
-        diesen Weg.
+        diesen Weg. Bist du unsicher, was <em>speziell für dich</em> als
+        Nächstes sinnvoll ist, hilft der
+        <button class="inline-link" data-open="entscheidungsbaum">Entscheidungsbaum</button>
+        oder einer der
+        <button class="inline-link" data-open="lernwege">geführten Lernwege</button>.
       </p>
     </details>
 
     <details class="faq-item">
-      <summary>Manche Bereiche wirken noch unvollständig — wird die Seite weiter ausgebaut?</summary>
+      <summary>Ich verstehe einen Fachbegriff nicht oder habe ein technisches Problem</summary>
       <p>
-        Ja, laufend. Das Japanischzimmer wächst in Phasen von einem
-        Anfänger-Guide zu einer vollständigen deutschsprachigen
-        Wissensbibliothek für Japanischlernende — unter anderem mit mehr
-        Grammatik, Mining, Yomitan, Aussprache und einem Tools-Bereich.
+        Für Fachbegriffe (Mining, i+1, FSRS, Shadowing …) gibt es das
+        <button class="inline-link" data-open="glossar">Glossar</button>,
+        für technische Probleme (Anki-Sync, Yomitan, Untertitel …) die
+        <button class="inline-link" data-open="fehlerhilfe">Fehlerdatenbank</button>.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Wird die Seite noch weiter ausgebaut?</summary>
+      <p>
+        Ja. Die geplante Kerninhalts-Bibliothek (Grammatik, Mining,
+        Yomitan, Tools, Glossar, Lernwege) ist inzwischen fertig — Politur,
+        weitere Feinheiten und neue Inhalte kommen aber laufend dazu.
       </p>
     </details>
 

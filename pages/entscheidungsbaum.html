@@ -1,0 +1,35 @@
+<!-- ============================================================
+     pages/entscheidungsbaum.html -- Inhalt des "Entscheidungsbaum"-
+     Fensters. Wird von js/windows.js per fetch() geladen; der
+     interaktive Teil (#decisionTreeRoot) wird danach von
+     initDecisionTree() aus js/decisiontree.js befüllt.
+     ============================================================ -->
+<span class="eyebrow win-eyebrow">Wegweiser</span>
+<h2 class="win-h2">Was brauche ich jetzt?</h2>
+
+<p class="win-p">
+  Nicht sicher, wo du weitermachen sollst? Beantworte ein paar kurze
+  Fragen — Sora zeigt dir, was als Nächstes sinnvoll ist.
+</p>
+
+<div id="decisionTreeRoot"></div>
+
+<h3 class="win-h3">Schnellfragen</h3>
+<p class="win-p">
+  Manchmal weißt du schon genau, wo dein Problem liegt. Dann bringt dich
+  einer dieser Links direkt zum passenden Bereich:
+</p>
+<ul class="toc-list">
+  <li><button class="toc-item" data-open="anki">Ich habe zu viele Anki-Reviews</button></li>
+  <li><button class="toc-item" data-open="hoeren">Ich verstehe beim Hören fast nichts</button></li>
+  <li><button class="toc-item" data-open="lesen">Ich möchte Manga lesen</button></li>
+  <li><button class="toc-item" data-open="mining">Ich möchte Anime minen</button></li>
+  <li><button class="toc-item" data-open="jlpt">Ich lerne für den JLPT</button></li>
+  <li><button class="toc-item" data-open="aussprache">Ich möchte besser sprechen</button></li>
+  <li><button class="toc-item" data-open="yomitan">Ich suche ein Wörterbuch</button></li>
+  <li><button class="toc-item" data-open="tools">Ich brauche ein technisches Setup</button></li>
+</ul>
+
+<div class="win-navigation">
+  <button class="toc-item" data-open="lernwege">Zu den geführten Lernwegen →</button>
+</div>

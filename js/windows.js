@@ -18,7 +18,8 @@ const LARGE_GUIDE_WINDOWS = new Set([
   'grammatik', 'satzstruktur', 'verbformen', 'haga', 'wo', 'nide', 'teform',
   'wortschatz', 'aussprache', 'hoeren', 'immersion', 'lesen', 'anki', 'yomitan', 'mining', 'ressourcen', 'jlpt',
   'kultur', 'tools', 'tool-asbplayer', 'tool-mpvacious', 'tool-textractor', 'tool-mokuro',
-  'tool-jidoujisho', 'tool-jpdb', 'tool-bunpro', 'tool-natively', 'glossar', 'fehlerhilfe'
+  'tool-jidoujisho', 'tool-jpdb', 'tool-bunpro', 'tool-natively', 'glossar', 'fehlerhilfe',
+  'lernwege', 'entscheidungsbaum'
 ]);
 
 const MEDIUM_WINDOWS = new Set([
@@ -129,6 +130,9 @@ function buildWindow(id){
     const contentEl = el.querySelector('.window-content');
     if(id === 'ressourcen' && typeof renderResourceLibrary === 'function'){
       renderResourceLibrary(contentEl);
+    }
+    if(id === 'entscheidungsbaum' && typeof initDecisionTree === 'function'){
+      initDecisionTree(contentEl);
     }
     buildArticleToc(contentEl, id);
     enhanceCollapsibleSections(contentEl, id);

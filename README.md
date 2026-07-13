@@ -56,18 +56,24 @@ gibt.
 | 📚 **Ressourcen** | Kuratierte, eingeordnete Guides und Decks statt bloßer Linkliste |
 | 🔤 **Glossar** | ~25 Fachbegriffe (Mining, i+1, FSRS, Pitch Accent u. a.) kurz auf Deutsch erklärt |
 | 🛠️ **Fehlerdatenbank** | Troubleshooting nach Kategorie: Sync, Kartenfelder, Wörterbücher, Frequenzlisten, mobile Nutzung, Browser |
+| 🧭 **Geführte Lernwege** | 6 Pfade (Anfänger, Anime, Manga, Visual Novel, Hörverstehen, JLPT) je mit fertiger Setup-Checkliste |
+| 🌀 **Entscheidungsbaum** | Interaktives „Was brauche ich jetzt?" — führt per Ja/Nein-Fragen zum passenden nächsten Schritt |
+| ⛩️ **Kultur & Etikette** | Höflichkeitsebenen, Namen/Anrede, Alltagskultur, Fiktion vs. Realität |
 
 ## Geplant
 
-Der weitere Ausbau folgt einem festen Phasenplan:
+Der ursprüngliche Phasenplan für die Kerninhalte ist komplett abgearbeitet:
 
 - [x] Grammatik-Themenseiten, Aussprache
 - [x] Anki/SRS → Yomitan → Mining
 - [x] Immersion & Lesen
 - [x] Tools-Bibliothek (asbplayer, mpvacious, Textractor, Mokuro, jidoujisho, jpdb, Bunpro, Natively)
 - [x] Deutsche Begriffsdatenbank & Fehlerdatenbank
-- [ ] Geführte Lernwege & interaktiver Entscheidungsbaum
-- [ ] Politur, Cross-Linking, Feinschliff
+- [x] Geführte Lernwege & interaktiver Entscheidungsbaum
+- [x] Politur: Cross-Linking, Kultur-Bereich, veraltete Platzhalter bereinigt
+
+Das Japanischzimmer wächst trotzdem weiter — neue Inhalte, weitere
+Tool-Steckbriefe und Feinschliff kommen laufend dazu.
 
 ## Tech-Stack
 
@@ -77,6 +83,7 @@ Bewusst schlank gehalten — kein Framework, kein Build-Schritt:
 - eigenes kleines Fenster-System (Drag, Resize, Fokus) in [`js/windows.js`](js/windows.js)
 - Inhalte liegen entweder direkt in [`js/app.js`](js/app.js) oder werden bei Bedarf aus [`pages/*.html`](pages) nachgeladen
 - Ressourcen-Bibliothek wird aus [`data/resources.js`](data/resources.js) gerendert
+- interaktiver Entscheidungsbaum in [`js/decisiontree.js`](js/decisiontree.js)
 
 ## Lokal starten
 
@@ -100,7 +107,7 @@ Jede andere einfache Static-Server-Lösung (z. B. die VS-Code-Erweiterung
 index.html          Einstiegspunkt, Fenster-Grundgerüst
 css/                 main / windows / resources / responsive
 js/                  windows.js (Fenster-Engine), app.js (Panel-Inhalte),
-                     progress.js, resources.js
+                     progress.js, resources.js, decisiontree.js
 pages/               ausgelagerte, längere Fensterinhalte (*.html)
 data/                Ressourcen-Bibliothek als Daten
 assets/              Bilder & Icons
