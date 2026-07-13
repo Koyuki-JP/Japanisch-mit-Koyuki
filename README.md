@@ -40,7 +40,7 @@ gibt.
 
 | Bereich | Inhalt |
 |---|---|
-| 🈁 **Kana** | Hiragana & Katakana inkl. Dakuten, Yōon, Lerntabellen |
+| 🈁 **Kana** | Hiragana & Katakana inkl. Dakuten, Yōon, Lerntabellen — Zeichen anklicken zum Anhören, plus eigenes Erkennungs-Quiz |
 | 漢 **Kanji** | Lernstrategie, Radikale, RTK/WaniKani-Einordnung, ähnliche Kanji |
 | 文 **Grammatik** | Satzstruktur, Verbformen, は・が, を, に・で, て-Form — je mit Beispielen, typischen Fehlern und Mini-Quiz |
 | 単 **Wortschatz** | Aufbau eines Grundwortschatzes, Anki-Grunddecks im Vergleich |
@@ -75,6 +75,15 @@ Der ursprüngliche Phasenplan für die Kerninhalte ist komplett abgearbeitet:
 Das Japanischzimmer wächst trotzdem weiter — neue Inhalte, weitere
 Tool-Steckbriefe und Feinschliff kommen laufend dazu.
 
+Ein zweiter, gezielt auf Anfänger:innen ausgerichteter Feinschliff ist
+mittlerweile ebenfalls komplett abgearbeitet:
+
+- [x] Kana-Tabellen mit Aussprache per Sprachausgabe (Web Speech API)
+- [x] Interaktives Kana-Erkennungs-Quiz
+- [x] Kurzer Tag-1-Schnelleinstieg vor dem vollen Anfänger-Guide
+- [x] Einmaliger Hinweis zur Fenster-Bedienung beim ersten Besuch
+- [x] Gruppiertes Inhaltsverzeichnis (Einstieg / Vertiefung / Referenz)
+
 ## Tech-Stack
 
 Bewusst schlank gehalten — kein Framework, kein Build-Schritt:
@@ -84,6 +93,7 @@ Bewusst schlank gehalten — kein Framework, kein Build-Schritt:
 - Inhalte liegen entweder direkt in [`js/app.js`](js/app.js) oder werden bei Bedarf aus [`pages/*.html`](pages) nachgeladen
 - Ressourcen-Bibliothek wird aus [`data/resources.js`](data/resources.js) gerendert
 - interaktiver Entscheidungsbaum in [`js/decisiontree.js`](js/decisiontree.js)
+- interaktives Kana-Quiz in [`js/kanaquiz.js`](js/kanaquiz.js)
 
 ## Lokal starten
 

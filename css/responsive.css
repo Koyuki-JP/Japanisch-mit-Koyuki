@@ -36,13 +36,10 @@
       height:auto;
       display:grid;
       grid-template-columns:42px minmax(0, 1fr);
-      grid-template-areas:
-        "glyph label"
-        "glyph progress";
+      grid-template-areas: "glyph label";
       align-items:center;
       justify-items:start;
       column-gap:12px;
-      row-gap:4px;
       padding:12px 14px;
       text-align:left;
     }
@@ -57,20 +54,6 @@
       text-align:left;
       font-size:0.72rem;
       width:100%;
-    }
-
-    .tile-progress{
-      grid-area:progress;
-      width:100%;
-      margin:0;
-    }
-
-    .tile-progress-label{
-      grid-area:progress;
-      justify-self:end;
-      align-self:end;
-      font-size:0.48rem;
-      transform:translateY(14px);
     }
 
     .tile-btn.featured::after{
@@ -119,10 +102,6 @@
       padding:10px 10px 8px;
       gap:4px;
     }
-
-    .tile-progress-label{
-      font-size:0.52rem;
-    }
   }
   @container (max-height: 430px){
     #window-home .window-content{
@@ -150,10 +129,6 @@
 
     .tile-btn .label{
       font-size:0.62rem;
-    }
-
-    .tile-progress{
-      height:3px;
     }
   }
   @media (max-width: 760px){

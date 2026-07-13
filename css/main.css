@@ -49,7 +49,6 @@
   }
   .home-intro p,
   .tile-btn .label,
-  .tile-progress-label,
   .win-p,
   .win-list,
   .faq-item p,
@@ -219,12 +218,8 @@
     background: linear-gradient(160deg, var(--violet), var(--pink));
     box-shadow: 0 16px 30px -16px rgba(236,72,153,0.9);
   }
-  .tile-btn.featured:hover .label,
-  .tile-btn.featured:hover .tile-progress-label{
+  .tile-btn.featured:hover .label{
     color: rgba(255,255,255,0.94);
-  }
-  .tile-btn.featured:hover .tile-progress{
-    background: rgba(255,255,255,0.22);
   }
   .tile-btn.featured::after{
     content:"Empfohlener Start";
@@ -240,29 +235,6 @@
     font-family:'JetBrains Mono', monospace;
     font-size:clamp(0.42rem, min(1.1cqw, 1.2cqh), 0.62rem);
     letter-spacing:0.04em;
-  }
-  .tile-progress{
-    width:clamp(56%, 68%, 74%);
-    margin-top:2px;
-    height:clamp(3px, 0.45cqh, 5px);
-    border-radius:999px;
-    overflow:hidden;
-    background:rgba(255,255,255,0.09);
-  }
-  .tile-progress > span{
-    display:block;
-    width:0%;
-    height:100%;
-    border-radius:inherit;
-    background:linear-gradient(90deg, var(--pink), var(--violet));
-    transition:width .2s ease;
-  }
-  .tile-progress-label{
-    font-family:'JetBrains Mono', monospace;
-    font-size:clamp(0.5rem, min(1.1cqw, 1.2cqh), 0.66rem);
-    color:var(--muted);
-    margin-top:2px;
-    flex:0 0 auto;
   }
   /* ---------- Wegweiser (Quest-Begleiter) ---------- */
   .wegweiser{

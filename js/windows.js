@@ -14,7 +14,7 @@
 const WINDOW_SIZE_KEY = 'japanischzimmer-window-sizes-v1';
 
 const LARGE_GUIDE_WINDOWS = new Set([
-  'guide', 'toc', 'kana', 'hiragana', 'katakana', 'kanji',
+  'guide', 'toc', 'kana', 'kanaquiz', 'hiragana', 'katakana', 'kanji',
   'grammatik', 'satzstruktur', 'verbformen', 'haga', 'wo', 'nide', 'teform',
   'wortschatz', 'aussprache', 'hoeren', 'immersion', 'lesen', 'anki', 'yomitan', 'mining', 'ressourcen', 'jlpt',
   'kultur', 'tools', 'tool-asbplayer', 'tool-mpvacious', 'tool-textractor', 'tool-mokuro',
@@ -23,8 +23,42 @@ const LARGE_GUIDE_WINDOWS = new Set([
 ]);
 
 const MEDIUM_WINDOWS = new Set([
-  'faq', 'kontakt'
+  'faq', 'kontakt', 'tag1'
 ]);
+
+/* ===================== Kana-Aussprache (Sprachausgabe) ===================== */
+const speechSupported = 'speechSynthesis' in window;
+let japaneseVoice = null;
+
+function pickJapaneseVoice(){
+  if(!speechSupported) return;
+  const voices = window.speechSynthesis.getVoices();
+  japaneseVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('ja')) || null;
+}
+
+if(speechSupported){
+  pickJapaneseVoice();
+  window.speechSynthesis.addEventListener('voiceschanged', pickJapaneseVoice);
+}
+
+function speakKana(char, cellEl){
+  if(!speechSupported) return;
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(char);
+  utterance.lang = 'ja-JP';
+  if(japaneseVoice) utterance.voice = japaneseVoice;
+  utterance.rate = 0.85;
+
+  if(cellEl){
+    cellEl.classList.add('speaking');
+    const clearSpeaking = () => cellEl.classList.remove('speaking');
+    utterance.addEventListener('end', clearSpeaking);
+    utterance.addEventListener('error', clearSpeaking);
+  }
+
+  window.speechSynthesis.speak(utterance);
+}
 
 function clamp(value, min, max){
   return Math.min(Math.max(value, min), max);
@@ -133,6 +167,9 @@ function buildWindow(id){
     }
     if(id === 'entscheidungsbaum' && typeof initDecisionTree === 'function'){
       initDecisionTree(contentEl);
+    }
+    if(id === 'kanaquiz' && typeof initKanaQuiz === 'function'){
+      initKanaQuiz(contentEl);
     }
     buildArticleToc(contentEl, id);
     enhanceCollapsibleSections(contentEl, id);
@@ -328,6 +365,8 @@ function openWindow(id, opener = null){
   s.el.classList.add('open');
   setActive(id, s.el);
 
+  if(typeof maybeShowWindowHint === 'function') maybeShowWindowHint();
+
   const content = s.el.querySelector('.window-content');
   if(content) content.scrollTop = 0;
 }
@@ -469,6 +508,12 @@ document.addEventListener('click', (e) => {
   const guideStep = e.target.closest('[data-guide-step]');
   if(guideStep){
     toggleGuideStep(guideStep.dataset.guideStep);
+    return;
+  }
+
+  const kanaCell = e.target.closest('[data-kana-speak]');
+  if(kanaCell){
+    speakKana(kanaCell.dataset.kanaSpeak, kanaCell);
     return;
   }
 

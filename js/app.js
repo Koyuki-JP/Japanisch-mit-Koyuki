@@ -14,7 +14,7 @@ function kanaTable(cells, cols){
   cols = cols || 5;
   const items = cells.map(c => {
     if(!c) return `<div class="kana-cell empty"></div>`;
-    return `<div class="kana-cell"><span class="char">${c[0]}</span><span class="romaji">${c[1]}</span></div>`;
+    return `<button type="button" class="kana-cell" data-kana-speak="${c[0]}" aria-label="${c[0]}, gelesen ${c[1]}, anhören"><span class="char">${c[0]}</span><span class="romaji">${c[1]}</span></button>`;
   }).join('');
   return `<div class="kana-table" style="grid-template-columns:repeat(${cols},1fr);">${items}</div>`;
 }
@@ -89,6 +89,44 @@ const KATAKANA_YOON = [
 /* ===================== Fensterinhalte ===================== */
 
 const panels = {
+tag1: {
+  title: "一日目 — Tag 1",
+  quest: "Nur ein Ziel für heute: Lerne die ersten Hiragana-Zeichen kennen. Mehr brauchst du jetzt nicht.",
+  html: `
+    <span class="eyebrow win-eyebrow">Erster Besuch</span>
+    <h2 class="win-h2">Willkommen! Fangen wir klein an.</h2>
+
+    <p class="win-p">
+      Du bist neu hier und weißt noch nicht, wo du anfangen sollst? Das ist
+      völlig normal. Für heute brauchst du nur ein einziges Ziel.
+    </p>
+
+    <div class="win-quote">
+      Heutiges Ziel: Lerne die ersten Hiragana-Zeichen kennen — nicht alle
+      46 auf einmal, nur ein paar.
+    </div>
+
+    <p class="win-p">
+      Auf der Kana-Seite kannst du dir jedes Zeichen per Klick vorlesen
+      lassen. Wenn du magst, teste dich danach kurz mit dem Kana-Quiz —
+      aber auch das ist heute schon optional.
+    </p>
+
+    <button class="toc-item" data-open="kana">
+      Jetzt mit Kana starten →
+    </button>
+
+    <p class="win-p" style="margin-top:1.4em;">
+      Mehr willst du noch nicht wissen? Gut so. Sobald du bereit für die
+      nächsten Schritte bist — Wortschatz, Grammatik, Immersion — findest
+      du im vollständigen Anfänger-Guide die komplette Reihenfolge.
+    </p>
+
+    <button class="inline-link" data-open="guide">
+      Zum vollständigen Anfänger-Guide →
+    </button>
+  `
+},
 guide: {
   title: "初心者ガイド",
   quest: "Willkommen zum Guide! Als Erstes solltest du dich mit dem japanischen Schriftsystem vertraut machen.",
@@ -255,10 +293,24 @@ guide: {
   toc: { title:"目次", quest:"Hier findest du alle Stationen deiner Reise. Wähle dein nächstes Ziel!", html:`
     <span class="eyebrow win-eyebrow">Übersicht</span>
     <h2 class="win-h2">Inhaltsverzeichnis</h2>
+    <p class="win-p">
+      Alle Bereiche der Seite, gruppiert nach Einstieg, Vertiefung und
+      Werkzeuge &amp; Referenz. Nicht sicher, wo du anfangen sollst? Tag 1
+      oder der Entscheidungsbaum helfen dir weiter.
+    </p>
+
+    <h3 class="win-h3">Einstieg</h3>
     <ul class="toc-list">
+      <li><button class="toc-item" data-open="tag1">Tag 1 — Hier starten</button></li>
+      <li><button class="toc-item" data-open="guide">Anfänger-Guide</button></li>
       <li><button class="toc-item" data-open="entscheidungsbaum">Was brauche ich jetzt?</button></li>
       <li><button class="toc-item" data-open="lernwege">Geführte Lernwege</button></li>
       <li><button class="toc-item" data-open="kana">Kana — Hiragana &amp; Katakana</button></li>
+      <li><button class="toc-item" data-open="kanaquiz">Kana-Quiz</button></li>
+    </ul>
+
+    <h3 class="win-h3">Vertiefung</h3>
+    <ul class="toc-list">
       <li><button class="toc-item" data-open="kanji">Kanji</button></li>
       <li><button class="toc-item" data-open="grammatik">Grammatik</button></li>
       <li><button class="toc-item" data-open="wortschatz">Wortschatz</button></li>
@@ -269,11 +321,15 @@ guide: {
       <li><button class="toc-item" data-open="anki">Anki &amp; SRS</button></li>
       <li><button class="toc-item" data-open="yomitan">Yomitan</button></li>
       <li><button class="toc-item" data-open="mining">Mining</button></li>
+      <li><button class="toc-item" data-open="kultur">Kultur &amp; Etikette</button></li>
+      <li><button class="toc-item" data-open="jlpt">JLPT-Prüfungen</button></li>
+    </ul>
+
+    <h3 class="win-h3">Werkzeuge &amp; Referenz</h3>
+    <ul class="toc-list">
       <li><button class="toc-item" data-open="tools">Tools-Bibliothek</button></li>
       <li><button class="toc-item" data-open="glossar">Glossar</button></li>
       <li><button class="toc-item" data-open="fehlerhilfe">Fehlerdatenbank</button></li>
-      <li><button class="toc-item" data-open="kultur">Kultur &amp; Etikette</button></li>
-      <li><button class="toc-item" data-open="jlpt">JLPT-Prüfungen</button></li>
       <li><button class="toc-item" data-open="ressourcen">Ressourcen</button></li>
       <li><button class="toc-item" data-open="faq">FAQ</button></li>
       <li><button class="toc-item" data-open="kontakt">Kontakt</button></li>
@@ -284,6 +340,11 @@ guide: {
 
   quest: "Kana sind dein Fundament. Lerne zuerst Hiragana und danach Katakana. Perfektes Schreiben ist am Anfang nicht nötig, sicheres Erkennen schon.",
   src: "pages/kana.html",
+},
+kanaquiz: {
+  title: "Kana-Quiz",
+  quest: "Teste in ein paar Fragen, wie sicher du Hiragana und Katakana schon erkennst!",
+  src: "pages/kanaquiz.html",
 },
 hiragana: {
   title: "ひらがな — Hiragana",
@@ -296,6 +357,13 @@ hiragana: {
       für einen festen Laut. Unten findest du die Grundzeichen (Gojūon), die
       Zeichen mit Dakuten/Handakuten sowie die Yōon-Kombinationen mit kleinem
       ゃ・ゅ・ょ.
+    </p>
+
+    <p class="win-p">
+      🔊 Klick auf ein Zeichen in den Tabellen, um es dir vorlesen zu lassen —
+      das funktioniert über die Sprachausgabe deines Browsers und braucht
+      keine zusätzliche App. Falls dein Gerät keine japanische Stimme
+      installiert hat, bleibt die Tabelle trotzdem ganz normal nutzbar.
     </p>
 
     <h3 class="win-h3">Die Grundzeichen (Gojūon)</h3>
@@ -315,6 +383,8 @@ hiragana: {
     </p>
     ${kanaTable(HIRAGANA_YOON, 3)}
 
+    <button class="toc-item" data-open="kanaquiz">Zeichen im Kana-Quiz testen →</button>
+
     <div class="win-navigation">
       <button class="toc-item" data-open="kana">← Zurück zu Kana</button>
       <button class="toc-item" data-open="katakana">Weiter zu Katakana →</button>
@@ -333,6 +403,10 @@ katakana: {
       wirken eckiger als Hiragana.
     </p>
 
+    <p class="win-p">
+      🔊 Auch hier gilt: Klick auf ein Zeichen, um es dir vorlesen zu lassen.
+    </p>
+
     <h3 class="win-h3">Die Grundzeichen (Gojūon)</h3>
     ${kanaTable(KATAKANA_MAIN, 5)}
 
@@ -349,6 +423,8 @@ katakana: {
       einen neuen Laut, z. B. キャ (kya).
     </p>
     ${kanaTable(KATAKANA_YOON, 3)}
+
+    <button class="toc-item" data-open="kanaquiz">Zeichen im Kana-Quiz testen →</button>
 
     <div class="win-navigation">
       <button class="toc-item" data-open="hiragana">← Zurück zu Hiragana</button>
@@ -1159,6 +1235,18 @@ const wegweiserText = document.getElementById('wegweiserText');
 function updateWegweiser(){
   wegweiserText.textContent = activeId === 'home' ? homeQuest : (panels[activeId] ? panels[activeId].quest : homeQuest);
   positionWegweiser();
+}
+
+/* Einmaliger Hinweis zur Fenster-Bedienung (Ziehen/Größe ändern) beim
+   allerersten geöffneten Fenster — danach nie wieder, per localStorage. */
+const WINDOW_HINT_KEY = 'japanischzimmer-window-hint-seen-v1';
+const WINDOW_HINT_TEXT = "Kleiner Tipp: Du kannst dieses Fenster an der Titelleiste verschieben und unten rechts in der Größe verändern.";
+
+function maybeShowWindowHint(){
+  if(localStorage.getItem(WINDOW_HINT_KEY)) return;
+  localStorage.setItem(WINDOW_HINT_KEY, '1');
+  wegweiserText.textContent = WINDOW_HINT_TEXT;
+  setTimeout(updateWegweiser, 7000);
 }
 
 function positionWegweiser(){
