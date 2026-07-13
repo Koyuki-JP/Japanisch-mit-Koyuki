@@ -72,7 +72,8 @@
   }
   .window-controls{ display:flex; align-items:center; gap:6px; }
   .win-close,
-  .win-maximize{
+  .win-maximize,
+  .win-share{
     width:28px; height:28px; border-radius:50%;
     background: rgba(26,20,36,0.28); border:none; color:#1a1424;
     font-size:0.8rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
@@ -82,6 +83,9 @@
   .win-maximize{ font-size:0.85rem; }
   .win-maximize:hover{ background: rgba(26,20,36,0.5); transform: scale(1.08); }
   .window.maximized .win-maximize{ background: rgba(26,20,36,0.4); }
+  .win-share{ font-size:0.78rem; }
+  .win-share:hover{ background: rgba(26,20,36,0.5); transform: scale(1.08); }
+  .win-share.copied{ background:#2e7d4f; color:#fff; }
   .window-content{
     padding:36px clamp(16px,4vw,45px) 40px;
     overflow-y:auto;

@@ -29,6 +29,29 @@ const MEDIUM_WINDOWS = new Set([
   'faq', 'kontakt', 'tag1'
 ]);
 
+/* ===================== Direktlink pro Fenster ===================== */
+/* Muss zu SLUG_OVERRIDES in scripts/generate_subpages.py passen. */
+const SUBPAGE_BASE = 'https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/';
+const SUBPAGE_SLUG_OVERRIDES = {
+  fgGebenNehmen: 'fg-geben-nehmen',
+  fgVerbindungen: 'fg-verbindungen',
+  fgKonditional: 'fg-konditional',
+  fgPassivKausativ: 'fg-passiv-kausativ',
+  fgVermutung: 'fg-vermutung',
+  fgErklaerung: 'fg-erklaerung',
+  fgGrundKonzession: 'fg-grund-konzession',
+  fgZeitAbfolge: 'fg-zeit-abfolge',
+  fgBezug: 'fg-bezug',
+  fgEinschraenkung: 'fg-einschraenkung',
+  fgPflicht: 'fg-pflicht',
+  fgKeigo: 'fg-keigo',
+};
+
+function subpageUrlFor(id){
+  const slug = SUBPAGE_SLUG_OVERRIDES[id] || id;
+  return SUBPAGE_BASE + slug + '/';
+}
+
 /* ===================== Kana-Aussprache (Sprachausgabe) ===================== */
 const speechSupported = 'speechSynthesis' in window;
 let japaneseVoice = null;
@@ -148,6 +171,7 @@ function buildWindow(id){
     <div class="window-titlebar">
       <span class="tab-label">${data.title}</span>
       <div class="window-controls">
+        <button class="win-share" data-share="${id}" title="Link zu diesem Fenster kopieren" aria-label="Direktlink kopieren">🔗</button>
         <button class="win-maximize" data-maximize="${id}" title="Maximieren" aria-label="Fenstergröße umschalten">⤢</button>
         <button class="win-close" data-close="${id}">✕</button>
       </div>
@@ -173,6 +197,28 @@ function buildWindow(id){
     }
 
     if(activeId === id) setActive('home', homeEl);
+  });
+
+  /* ---------- Direktlink kopieren ---------- */
+  const shareBtn = el.querySelector('[data-share]');
+  shareBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const url = subpageUrlFor(id);
+    const showCopied = () => {
+      shareBtn.textContent = '✓';
+      shareBtn.title = 'Link kopiert!';
+      shareBtn.classList.add('copied');
+      setTimeout(() => {
+        shareBtn.textContent = '🔗';
+        shareBtn.title = 'Link zu diesem Fenster kopieren';
+        shareBtn.classList.remove('copied');
+      }, 1500);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(showCopied).catch(() => window.prompt('Link kopieren:', url));
+    } else {
+      window.prompt('Link kopieren:', url);
+    }
   });
 
   /* ---------- Maximieren / Wiederherstellen ---------- */
@@ -224,7 +270,7 @@ function buildWindow(id){
   }
   maxBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMaximize(); });
   el.querySelector('.window-titlebar').addEventListener('dblclick', (e) => {
-    if(e.target.closest('.win-close') || e.target.closest('.win-maximize')) return;
+    if(e.target.closest('.win-close') || e.target.closest('.win-maximize') || e.target.closest('.win-share')) return;
     toggleMaximize();
   });
 
@@ -447,7 +493,7 @@ function makeDraggable(win, titlebar){
   let origY = 0;
 
   titlebar.addEventListener('pointerdown', (e) => {
-    if(e.target.closest('.win-close') || e.target.closest('.win-maximize')) return;
+    if(e.target.closest('.win-close') || e.target.closest('.win-maximize') || e.target.closest('.win-share')) return;
     if(win.classList.contains('maximized')) return;
 
     dragging = true;
