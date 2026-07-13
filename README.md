@@ -114,11 +114,20 @@ Keigo-Grundlagen, im gleichen Format wie die bestehenden
 Grammatikseiten.
 
 - [x] Teilbare Direktlinks: alle 55 Panels haben jetzt eine eigene,
-      echte URL (z. B. `/hiragana/`) mit eigenem Titel und Vorschautext
-      zum Teilen/Verlinken — die Navigation innerhalb der Seite bleibt
-      dabei komplett client-seitig wie bisher
+      echte URL (gebündelt unter `/go/`, z. B. `/go/hiragana/`) mit
+      eigenem Titel und Vorschautext zum Teilen/Verlinken — dazu ein
+      🔗-Button in jeder Fenster-Titelleiste, der den passenden Link
+      direkt in die Zwischenablage kopiert. Die Navigation innerhalb
+      der Seite bleibt dabei komplett client-seitig wie bisher
 
 Damit ist auch der Feedback-Phasenplan vollständig abgearbeitet.
+
+Als Nächstes geplant:
+
+- [ ] Suchleiste: durchsucht alle Panel-Titel/-Kurzbeschreibungen live
+      und öffnet Treffer direkt — kein Backend, rein client-seitig
+- [ ] Experten-Guide (N2/N1) als dritte Stufe nach Anfänger- und
+      Fortgeschrittenem Guide, gleiches Format und Vorgehen
 
 Das seitliche Mini-Inhaltsverzeichnis für lange Artikel läuft bereits
 automatisch auf jedem Panel mit mehreren Zwischenüberschriften, nicht nur
