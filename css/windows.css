@@ -184,6 +184,43 @@
   .win-h3.collapsible-title:hover::after{
     color:var(--pink-soft);
   }
+  /* ---------- Ablauf-Badges (heute / bald / laufend / später) ---------- */
+  .win-h3[data-stage]::before{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.6rem;
+    font-weight:400;
+    letter-spacing:0.08em;
+    padding:3px 8px;
+    border-radius:999px;
+    margin-right:10px;
+    vertical-align:middle;
+    transform:translateY(-1px);
+  }
+  .win-h3[data-stage="jetzt"]::before{
+    content:"Jetzt";
+    background: linear-gradient(120deg, var(--pink), var(--violet));
+    color:#fff;
+  }
+  .win-h3[data-stage="bald"]::before{
+    content:"Bald";
+    background: rgba(139,92,246,0.16);
+    color: var(--violet);
+    border:1px solid rgba(139,92,246,0.35);
+  }
+  body.light .win-h3[data-stage="bald"]::before{ color: var(--violet-deep); }
+  .win-h3[data-stage="laufend"]::before{
+    content:"Laufend";
+    background: rgba(240,171,252,0.14);
+    color: var(--pink-soft);
+    border:1px solid rgba(240,171,252,0.4);
+  }
+  .win-h3[data-stage="spaeter"]::before{
+    content:"Später";
+    background: transparent;
+    color: var(--muted);
+    border:1px solid var(--line);
+  }
   .collapsible-hidden{
     display:none !important;
   }

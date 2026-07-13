@@ -177,7 +177,7 @@ guide: {
       wirklich brauchst.
     </p>
 
-    <h3 class="win-h3">1. Lerne Hiragana und Katakana</h3>
+    <h3 class="win-h3" data-stage="jetzt">1. Lerne Hiragana und Katakana</h3>
 
     <p class="win-p">
       Fast jeder Lernweg beginnt mit Hiragana und Katakana. Die beiden
@@ -201,7 +201,7 @@ guide: {
       du Katakana dazu.
     </p>
 
-    <h3 class="win-h3">2. Baue einen ersten Wortschatz auf</h3>
+    <h3 class="win-h3" data-stage="bald">2. Baue einen ersten Wortschatz auf</h3>
 
     <p class="win-p">
       Sobald du die Kana einigermaßen lesen kannst, kannst du mit häufigen
@@ -225,7 +225,7 @@ guide: {
       als zwanzig Karten, vor denen du dich nach einer Woche versteckst.
     </p>
 
-    <h3 class="win-h3">3. Lerne grundlegende Grammatik</h3>
+    <h3 class="win-h3" data-stage="bald">3. Lerne grundlegende Grammatik</h3>
 
     <p class="win-p">
       Japanische Grammatik funktioniert anders als deutsche Grammatik. Genau
@@ -247,7 +247,7 @@ guide: {
       kleines Stück verständliches Japanisch.
     </p>
 
-    <h3 class="win-h3">4. Beginne früh mit Immersion</h3>
+    <h3 class="win-h3" data-stage="laufend">4. Beginne früh mit Immersion</h3>
 
     <p class="win-p">
       Immersion bedeutet, dass du regelmäßig echtes Japanisch hörst oder liest.
@@ -269,7 +269,7 @@ guide: {
       kein Endpunkt, sondern der Ort, an dem dein Wissen langsam lebendig wird.
     </p>
 
-    <h3 class="win-h3">5. Starte später mit Mining</h3>
+    <h3 class="win-h3" data-stage="spaeter">5. Starte später mit Mining</h3>
 
     <p class="win-p">
       Stell dir vor, du liest einen Manga und ein Wort taucht auf, das du
@@ -283,9 +283,9 @@ guide: {
     </p>
 
     <p class="win-p">
-      Damit musst du nicht am ersten Tag anfangen. Zuerst reichen Kana, ein
-      kleiner Grundwortschatz, etwas Grammatik und regelmäßige Immersion
-      völlig aus.
+      Damit hat es aber am ersten Tag noch keine Eile. Zuerst reichen Kana,
+      ein kleiner Grundwortschatz, etwas Grammatik und regelmäßige
+      Immersion völlig aus.
     </p>
 
     <p class="win-p">
@@ -576,9 +576,9 @@ hiragana: {
     </p>
 
     <p class="win-p">
-      Auch hier gilt: Du musst nicht jede Kombination sofort perfekt
-      beherrschen. Sobald du das Muster verstanden hast, werden dir die
-      Formen beim Lesen immer vertrauter.
+      Auch hier reicht es, das Muster einmal verstanden zu haben — den
+      Rest übernimmt mit der Zeit das Lesen von selbst, die Formen werden
+      dir dabei automatisch vertrauter.
     </p>
 
     ${kanaTable(HIRAGANA_YOON, 3)}
@@ -1178,7 +1178,7 @@ hoeren: {
     <h3 class="win-h3">Verstehen muss nicht vollständig sein</h3>
 
     <p class="win-p">
-      Du brauchst nicht jedes Wort verstehen, damit Hörpraxis sinnvoll ist.
+      Hörpraxis funktioniert auch, wenn längst nicht jedes Wort ankommt.
     </p>
 
     <p class="win-p">
@@ -1362,7 +1362,7 @@ hoeren: {
     </ul>
 
     <p class="win-p">
-      Du brauchst nicht jedes unbekannte Wort nachschlagen.
+      Nicht jedes unbekannte Wort braucht einen Klick ins Wörterbuch.
       Konzentriere dich auf Wörter, die mehrfach vorkommen oder für das
       Verständnis wichtig sind.
     </p>

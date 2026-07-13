@@ -64,6 +64,13 @@ function clamp(value, min, max){
   return Math.min(Math.max(value, min), max);
 }
 
+/* Im maximierten Lesemodus ist kein Platz mehr neben dem Fenster für Sora —
+   statt sie schlecht zu positionieren, blenden wir sie dort einfach aus. */
+function setWegweiserHidden(hidden){
+  const wegweiserEl = document.getElementById('wegweiser');
+  if(wegweiserEl) wegweiserEl.classList.toggle('wegweiser-hidden', hidden);
+}
+
 function getDefaultWindowSize(id){
   const vw = window.innerWidth;
   const vh = window.innerHeight;
@@ -156,6 +163,7 @@ function buildWindow(id){
     e.stopPropagation();
     el.classList.remove('open');
     el.classList.remove('maximized');
+    setWegweiserHidden(false);
 
     if(state[id]){
       state[id].persistent = false;
@@ -172,6 +180,7 @@ function buildWindow(id){
 
     if(el.classList.contains('maximized')){
       el.classList.remove('maximized');
+      setWegweiserHidden(false);
       if(preMaximizeRect){
         el.style.left = preMaximizeRect.left;
         el.style.top = preMaximizeRect.top;
@@ -181,6 +190,7 @@ function buildWindow(id){
       maxBtn.textContent = '⤢';
       maxBtn.title = 'Maximieren';
     } else {
+      setWegweiserHidden(true);
       const rect = el.getBoundingClientRect();
       preMaximizeRect = {
         left: rect.left + 'px',

@@ -88,18 +88,30 @@ Alle Fenstertexte wurden außerdem einmal komplett nach einem eigenen
 Redaktionsleitfaden (KWS) überarbeitet — persönlicherer Ton, mehr Kontext
 zum Warum, klarere nächste Schritte auf jeder Seite.
 
-Nächste geplante Runde, abgeleitet aus einer externen Bestandsaufnahme:
+Aus der Feedback-Runde (externe Bestandsaufnahme) sind mittlerweile
+erledigt:
 
-- [ ] Redaktionelle Wiederholungen im KWS-Text reduzieren
-- [ ] Zielgruppenebenen prüfen (fehlt eine eigene Ebene „Fortgeschritten"?)
-- [ ] Anfängerführung visuell staffeln (heute / als Nächstes / später)
-- [ ] Optionaler Lesemodus für lange Artikel
+- [x] Redaktionelle Wiederholungen im KWS-Text reduzieren (größte
+      Häufungen in Wortschatz, Hörverstehen, Guide und Hiragana entschärft)
+- [x] Zielgruppenebenen geprüft — die bestehende Dreiteilung (Einstieg /
+      Vertiefung / Werkzeuge & Referenz) reicht aktuell aus; eine eigene
+      „Fortgeschritten"-Ebene lohnt sich erst, sobald es echte
+      fortgeschrittene Grammatikthemen gibt
+- [x] Anfängerführung visuell gestaffelt: Der Anfänger-Guide markiert
+      seine 5 Schritte jetzt mit Jetzt/Bald/Laufend/Später-Badges
+
+Noch offen, bewusst zurückgestellt:
+
 - [ ] Quellen- und Aktualisierungssystem für Grammatik-/Deck-/Toolseiten
-- [ ] Teilbare Direktlinks / Routing für einzelne Panels prüfen
+      (braucht erst noch die angekündigte Quellensammlung)
+- [ ] Teilbare Direktlinks / Routing für einzelne Panels prüfen (größere
+      Architekturentscheidung)
 
 Das seitliche Mini-Inhaltsverzeichnis für lange Artikel läuft bereits
 automatisch auf jedem Panel mit mehreren Zwischenüberschriften, nicht nur
-im Anfänger-Guide.
+im Anfänger-Guide. Jedes Fenster lässt sich außerdem per ⤢-Button (oder
+Doppelklick auf die Titelleiste) auf Lesemodus-Größe maximieren — das
+deckt den ursprünglich geplanten separaten "Lesemodus" bereits ab.
 
 ## Tech-Stack
 
