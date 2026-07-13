@@ -3,6 +3,25 @@
    Bildschirme und schmale/kurze Fenster
    ============================================================ */
 
+  /* #window-home hat min-width:420px, .window hat min-width:320px
+     (main.css/windows.css) -- praktisch beim Ziehen am Resize-Griff
+     auf dem Desktop, aber auf Handy-Breiten (320-430px) sorgt genau
+     dieser feste Boden dafuer, dass das Fenster ueber den sichtbaren
+     Bereich hinaus laeuft, egal welche Breite JS via el.style.width
+     setzt (min-width gewinnt in CSS immer gegen width). Deshalb hier
+     explizit auf einer echten Media-Query aufgehoben, nicht nur in
+     den Container-Queries weiter unten (die reagieren auf die
+     Fenstergroesse selbst, die durch den festen Boden ja nie kleiner
+     wird). */
+  @media (max-width: 480px){
+    #window-home,
+    .window{
+      min-width: 0;
+      width: calc(100vw - 16px) !important;
+      left: 50%;
+    }
+  }
+
   @container (max-width: 560px){
     .tile-grid{
       grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -131,10 +150,32 @@
       font-size:0.62rem;
     }
   }
+  @media (max-width: 480px){
+    /* Tap-Ziele der obersten Steuerleiste waren mit 34px unter der
+       gängigen Mindestempfehlung von ~44px für Touch-Bedienung. */
+    .top-controls{ gap: 10px; }
+    .top-controls button,
+    .top-controls .kofi-link{
+      width: 42px; height: 42px;
+    }
+  }
   @media (max-width: 760px){
     .wegweiser{ width: 140px; }
     .fox-wrap{ width:64px; height:64px; }
     .wegweiser.mobile-dock{ left:50% !important; transform: translateX(-50%); top:auto !important; bottom: 14px; }
+    /* Lange Wegweiser-Texte (variieren je nach Panel) konnten die
+       Sprechblase im dock so hoch wachsen lassen, dass sie mit dem
+       Fensterinhalt dahinter kollidiert -- deshalb hier gedeckelt. */
+    .wegweiser.mobile-dock .bubble{
+      max-height: 3.4em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      font-size: 0.74rem;
+      padding: 9px 12px;
+    }
+    .wegweiser.mobile-dock .fox-wrap{ width: 48px; height: 48px; }
   }
   @container (max-width: 520px){
     #window-home .home-intro{

@@ -141,8 +141,15 @@ function applySavedWindowSize(id, el){
   const saved = sizes[id];
   if(!saved) return;
 
-  if(saved.width) el.style.width = Math.max(420, saved.width) + 'px';
-  if(saved.height) el.style.height = Math.max(360, saved.height) + 'px';
+  // Eine auf einem großen Bildschirm gespeicherte Größe darf auf einem
+  // schmalen/kurzen Bildschirm (z. B. Handy) nicht wieder über den
+  // sichtbaren Bereich hinausragen -- deshalb zusaetzlich an die
+  // aktuelle Fensterviewport-Groesse deckeln.
+  const maxWidth = Math.max(280, window.innerWidth - 16);
+  const maxHeight = Math.max(240, window.innerHeight - 16);
+
+  if(saved.width) el.style.width = Math.min(Math.max(420, saved.width), maxWidth) + 'px';
+  if(saved.height) el.style.height = Math.min(Math.max(360, saved.height), maxHeight) + 'px';
 }
 
 /* ===================== Fenster-Engine ===================== */
