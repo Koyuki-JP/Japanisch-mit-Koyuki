@@ -1224,7 +1224,7 @@ jlpt: {
     </div>
   `}
 };
-const homeQuest = "Hallo! Ich bin Sora — klick auf eine Kachel, um deine Reise zu beginnen!";
+const homeQuest = "Hallo! Ich bin Sora — klick auf eine Kachel, um deine Reise zu beginnen! Oben links findest du außerdem das Inhaltsverzeichnis mit allen Bereichen.";
 
 
 

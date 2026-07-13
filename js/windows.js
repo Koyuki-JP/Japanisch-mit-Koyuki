@@ -322,7 +322,7 @@ function openWindow(id, opener = null){
   if(!panels[id]) return;
 
   const sourceWindow = opener ? opener.closest('.window') : null;
-  const openedFromHome = sourceWindow?.id === 'window-home';
+  const openedFromHome = sourceWindow?.id === 'window-home' || !!(opener && opener.closest('.top-controls'));
   const sourceId = sourceWindow && sourceWindow.id !== 'window-home'
     ? sourceWindow.id.replace('window-', '')
     : null;
