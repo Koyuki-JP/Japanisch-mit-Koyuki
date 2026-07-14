@@ -57,9 +57,12 @@
 
     .tile-grid{
       grid-template-columns:1fr;
-      grid-template-rows:repeat(6, minmax(64px, 1fr));
+      /* auto statt 1fr: der Container hat hier keine feste Hoehe mehr
+         (siehe Scroll-Fallback weiter unten), 1fr wuerde sich in einem
+         intrinsisch hohen Grid nicht zuverlaessig am tatsaechlichen
+         Inhalt orientieren. */
+      grid-template-rows:repeat(6, minmax(64px, auto));
       gap:8px;
-      overflow:hidden;
     }
 
     .tile-btn{
@@ -125,10 +128,15 @@
       font-size:0.9rem;
     }
 
-    .tile-grid{
-      grid-template-rows:repeat(2, minmax(0, 1fr));
-    }
-
+    /* Kein grid-template-rows hier: die Basisregel (main.css) setzt
+       fuer den 3-spaltigen Desktop-/Breitbild-Fall bereits die
+       passenden 2 Zeilen. Bei schmalen Handy-Bildschirmen (Container
+       max-width 520px) uebernimmt stattdessen die dortige Regel mit
+       6 Zeilen fuer die einspaltige Liste -- ein hier gesetztes
+       grid-template-rows wuerde je nach Cascade-Reihenfolge mit
+       genau dieser Regel kollidieren, weil auf echten Handys (Fenster
+       nur 74vh hoch) fast immer beide Container-Queries gleichzeitig
+       zutreffen. */
     .tile-btn{
       padding:10px 10px 8px;
       gap:4px;
@@ -150,7 +158,6 @@
     }
 
     .tile-grid{
-      grid-template-rows:repeat(2, minmax(0, 1fr));
       gap:6px;
     }
 
@@ -181,6 +188,7 @@
     .wegweiser.mobile-dock .bubble{
       max-height: 3.4em;
       overflow: hidden;
+      text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -236,5 +244,49 @@
 
     .resource-library-grid{
       grid-template-columns:1fr;
+    }
+  }
+
+  /* Die Startseite versucht oben per clamp()+cqh/cqw, alles ohne
+     Scrollen in den verfuegbaren Platz zu quetschen. Auf sehr kurzen/
+     schmalen Handy-Bildschirmen (eingeblendete Browser-Leiste, groessere
+     Systemschrift, ungewoehnliches Seitenverhaeltnis) reicht das
+     manchmal trotzdem nicht -- bisher wurde der Rest dann per
+     overflow:hidden abgeschnitten statt sichtbar zu bleiben ("scuffed",
+     halb abgeschnittener Inhalt ohne Moeglichkeit, den Rest zu sehen).
+     Ab hier gilt deshalb: lieber scrollen als abschneiden. Wenn der
+     Inhalt passt, aendert sich optisch nichts (kein Scrollbalken). */
+  @media (max-width:760px){
+    /* .window-content und .home-intro sind im Markup dasselbe Element
+       (<div class="window-content home-intro">) -- deshalb hier in
+       einer Regel zusammengefasst statt in zwei getrennten, sonst
+       wuerde ein spaeteres overflow-Shorthand das vorher gesetzte
+       overflow-y wieder ueberschreiben. */
+    #window-home .window-content{
+      overflow-y:auto;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
+      overscroll-behavior:contain;
+      height:auto;
+      min-height:100%;
+    }
+    #window-home .tile-grid{
+      height:auto;
+      min-height:0;
+    }
+    #window-home .tile-btn{
+      height:auto;
+      min-height:64px;
+    }
+    /* #window-home bekommt anders als normale Inhaltsfenster nie die
+       .maximized-Klasse (siehe .window.maximized .resize-handle in
+       windows.css), der Resize-Griff blieb auf dem Handy deshalb
+       sichtbar und per Touch bedienbar -- ein winziges Eck-Element,
+       leicht aus Versehen zu treffen, das die Startseite dann per
+       Inline-Style auf eine kaputte Groesse zieht und das (per
+       saveWindowSize) sogar dauerhaft in localStorage speichert. Auf
+       dem Handy ergibt manuelles Resizen ohnehin keinen Sinn. */
+    #window-home .resize-handle{
+      display:none;
     }
   }
