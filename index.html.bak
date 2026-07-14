@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Was brauche ich jetzt? | Japanisch mit Koyuki</title>
-<meta name="description" content="Beantworte ein paar kurze Fragen, dann zeige ich dir einen passenden nächsten Schritt.">
-<link rel="canonical" href="https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/entscheidungsbaum/">
-<meta property="og:title" content="Was brauche ich jetzt? | Japanisch mit Koyuki">
-<meta property="og:description" content="Beantworte ein paar kurze Fragen, dann zeige ich dir einen passenden nächsten Schritt.">
+<title>Japanisch mit Koyuki</title>
+<meta name="description" content="Kostenlose, deutschsprachige Lernplattform für Japanisch: von Hiragana bis JLPT N2, mit geführtem Lernweg, Grammatik-Guides und kuratierten Ressourcen.">
+<link rel="canonical" href="https://koyuki-jp.github.io/Japanisch-mit-Koyuki/">
+<meta property="og:title" content="Japanisch mit Koyuki">
+<meta property="og:description" content="Kostenlose, deutschsprachige Lernplattform für Japanisch: von Hiragana bis JLPT N2, mit geführtem Lernweg, Grammatik-Guides und kuratierten Ressourcen.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/entscheidungsbaum/">
+<meta property="og:url" content="https://koyuki-jp.github.io/Japanisch-mit-Koyuki/">
+<meta property="og:image" content="https://koyuki-jp.github.io/Japanisch-mit-Koyuki/assets/images/questie.webp">
 <meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A6%8A%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@700&family=Sora:wght@400;700&family=Nunito:wght@700&family=Noto+Sans+JP:wght@500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../../css/main.css?v=20260715-14">
-<link rel="stylesheet" href="../../css/windows.css?v=20260715-14">
-<link rel="stylesheet" href="../../css/resources.css?v=20260715-14">
-<link rel="stylesheet" href="../../css/responsive.css?v=20260715-14">
+<link rel="stylesheet" href="css/main.css?v=20260715-14">
+<link rel="stylesheet" href="css/windows.css?v=20260715-14">
+<link rel="stylesheet" href="css/resources.css?v=20260715-14">
+<link rel="stylesheet" href="css/responsive.css?v=20260715-14">
 </head>
 <body>
 <div class="stage" id="stage">
@@ -70,7 +72,7 @@
   <!-- Wegweiser -->
   <div class="wegweiser" id="wegweiser">
     <div class="bubble" id="wegweiserText">Hallo! Ich bin Sora, dein Wegweiser. Klick auf eine Kachel, um deine Reise zu beginnen, oben links findest du außerdem das Inhaltsverzeichnis mit allen Bereichen.</div>
-    <img class="fox-wrap" src="../../assets/images/questie.webp" alt="Sora, dein Wegweiser" width="84" height="84">
+    <img class="fox-wrap" src="assets/images/questie.webp" alt="Sora, dein Wegweiser" width="84" height="84">
   </div>
 
   <div class="desktop-footer">© 2026 · Japanisch mit Koyuki</div>
@@ -78,24 +80,18 @@
 </div>
 
 
-<!-- Diese Datei wurde automatisch von scripts/generate_subpages.py
-     erzeugt. Nicht von Hand bearbeiten -- Aenderungen gehoeren in die
-     Vorlage im Skript selbst, dann das Skript erneut ausfuehren. -->
 <!-- Ladereihenfolge ist wichtig: data zuerst, dann progress/windows/resources,
      app.js zuletzt (baut u. a. die Panel-Definitionen und startet den Wegweiser) -->
-<script src="../../data/resources.js?v=20260715-14"></script>
-<script src="../../data/panel-slugs.js?v=20260715-14"></script>
-<script src="../../data/search-index.js?v=20260715-14"></script>
-<script src="../../js/progress.js?v=20260715-14"></script>
-<script src="../../js/windows.js?v=20260715-14"></script>
-<script src="../../js/resources.js?v=20260715-14"></script>
-<script src="../../js/decisiontree.js?v=20260715-14"></script>
-<script src="../../js/kanaquiz.js?v=20260715-14"></script>
-<script src="../../js/app.js?v=20260715-14"></script>
-<script src="../../js/search.js?v=20260715-14"></script>
-<script>
-  if (typeof openWindow === 'function') { openWindow('entscheidungsbaum'); }
-</script>
+<script src="data/resources.js?v=20260715-14"></script>
+<script src="data/panel-slugs.js?v=20260715-14"></script>
+<script src="data/search-index.js?v=20260715-14"></script>
+<script src="js/progress.js?v=20260715-14"></script>
+<script src="js/windows.js?v=20260715-14"></script>
+<script src="js/resources.js?v=20260715-14"></script>
+<script src="js/decisiontree.js?v=20260715-14"></script>
+<script src="js/kanaquiz.js?v=20260715-14"></script>
+<script src="js/app.js?v=20260715-14"></script>
+<script src="js/search.js?v=20260715-14"></script>
 
 </body>
 </html>

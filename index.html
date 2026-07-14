@@ -17,10 +17,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@700&family=Sora:wght@400;700&family=Nunito:wght@700&family=Noto+Sans+JP:wght@500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/main.css?v=20260715-13">
-<link rel="stylesheet" href="css/windows.css?v=20260715-13">
-<link rel="stylesheet" href="css/resources.css?v=20260715-13">
-<link rel="stylesheet" href="css/responsive.css?v=20260715-13">
+<link rel="stylesheet" href="css/main.css?v=20260715-14">
+<link rel="stylesheet" href="css/windows.css?v=20260715-14">
+<link rel="stylesheet" href="css/resources.css?v=20260715-14">
+<link rel="stylesheet" href="css/responsive.css?v=20260715-14">
 </head>
 <body>
 <div class="stage" id="stage">
@@ -82,16 +82,44 @@
 
 <!-- Ladereihenfolge ist wichtig: data zuerst, dann progress/windows/resources,
      app.js zuletzt (baut u. a. die Panel-Definitionen und startet den Wegweiser) -->
-<script src="data/resources.js?v=20260715-13"></script>
-<script src="data/panel-slugs.js?v=20260715-13"></script>
-<script src="data/search-index.js?v=20260715-13"></script>
-<script src="js/progress.js?v=20260715-13"></script>
-<script src="js/windows.js?v=20260715-13"></script>
-<script src="js/resources.js?v=20260715-13"></script>
-<script src="js/decisiontree.js?v=20260715-13"></script>
-<script src="js/kanaquiz.js?v=20260715-13"></script>
-<script src="js/app.js?v=20260715-13"></script>
-<script src="js/search.js?v=20260715-13"></script>
+<script src="data/resources.js?v=20260715-14"></script>
+<script src="data/panel-slugs.js?v=20260715-14"></script>
+<script src="data/search-index.js?v=20260715-14"></script>
+<script src="js/progress.js?v=20260715-14"></script>
+<script src="js/windows.js?v=20260715-14"></script>
+<script src="js/resources.js?v=20260715-14"></script>
+<script src="js/decisiontree.js?v=20260715-14"></script>
+<script src="js/kanaquiz.js?v=20260715-14"></script>
+<script src="js/app.js?v=20260715-14"></script>
+<script src="js/search.js?v=20260715-14"></script>
 
+
+<script>
+(async function() {
+  const results = {};
+  const ids = Object.keys(panels);
+  for (const id of ids) {
+    try {
+      openWindow(id);
+      const el = document.getElementById('window-' + id);
+      if (el && el.contentReady) await el.contentReady;
+      const content = el ? el.querySelector('.window-content') : null;
+      const len = content ? content.innerHTML.length : 0;
+      const ruby = content ? content.querySelectorAll('ruby').length : 0;
+      const listen = content ? content.querySelectorAll('[data-listen]').length : 0;
+      results[id] = {ok: len > 0, len: len, ruby: ruby, listen: listen};
+      if (el) el.querySelector('[data-close]')?.click();
+    } catch(e) {
+      results[id] = {ok: false, error: String(e)};
+    }
+  }
+  const div = document.createElement('div');
+  div.id = 'smoke-results';
+  div.style.display = 'none';
+  div.textContent = JSON.stringify(results);
+  document.body.appendChild(div);
+  document.title = 'SMOKE_TEST_DONE';
+})();
+</script>
 </body>
 </html>
