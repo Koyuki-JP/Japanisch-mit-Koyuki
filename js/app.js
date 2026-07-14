@@ -415,6 +415,7 @@ guide: {
     <ul class="toc-list">
       <li><button class="toc-item" data-open="fortgeschritten">Fortgeschrittener Guide (N4/N3)</button></li>
       <li><button class="toc-item" data-open="experte">Experten-Guide (N2)</button></li>
+      <li><button class="toc-item" data-open="n1">Meister-Guide (N1)</button></li>
     </ul>
 
     <h3 class="win-h3">Werkzeuge &amp; Referenz</h3>
@@ -1457,6 +1458,67 @@ n2Ausdruecke: {
   title: "Weitere feste Ausdrücke",
   quest: "Acht Ausdrücke zum Abschluss, die sich nicht sauber in eine andere Kategorie einordnen lassen.",
   src: "pages/n2-ausdruecke.html",
+},
+
+n1: {
+  title: "上級ガイド III: Meister-Guide (N1)",
+  quest: "Grammatik auf JLPT-N1-Niveau: literarisches Register und feste Ausdrücke für Zeitungen, Reden und gehobene Texte.",
+  src: "pages/n1.html",
+},
+n1Emphase: {
+  title: "Emphase & Extremfall",
+  quest: "Sechs Formen, die einen Extremfall markieren, um den Rest der Aussage umso stärker zu machen.",
+  src: "pages/n1-emphase.html",
+},
+n1Konzession1: {
+  title: "Konzession & Gegensatz I",
+  quest: "Fünf Formen, die auf のに・ものの・にもかかわらず aufbauen, mit literarischerem Register.",
+  src: "pages/n1-konzession-1.html",
+},
+n1Konzession2: {
+  title: "Konzession & Gegensatz II",
+  quest: "Starker Kontrast, Steigerung, ein überraschender Wechsel und ein reduziertes Mindestmaß.",
+  src: "pages/n1-konzession-2.html",
+},
+n1BedingungGrund: {
+  title: "Bedingung & Grund, formell",
+  quest: "Fünf Formen, die eine besondere Bedingung setzen oder einen Grund formell benennen.",
+  src: "pages/n1-bedingung-grund.html",
+},
+n1GrundVorwand: {
+  title: "Grund, Vorwand & Ausnahme",
+  quest: "Überwindung trotz Widerstand, ein fragwürdiger Vorwand, strikte Übereinstimmung und vergebliche Mühe.",
+  src: "pages/n1-grund-vorwand.html",
+},
+n1Zeit1: {
+  title: "Zeitliche Abfolge I",
+  quest: "Drei fast synonyme Varianten von „kaum dass…“, ein dauerhafter Zustandswechsel und eine frustrierende Wiederholung.",
+  src: "pages/n1-zeit-1.html",
+},
+n1Zeit2: {
+  title: "Zeitliche Abfolge II",
+  quest: "Startpunkte, ein durchlaufener Prozess, ein Schlusspunkt, zwei kombinierte Handlungen und ein höflicher Rahmen.",
+  src: "pages/n1-zeit-2.html",
+},
+n1Zwang: {
+  title: "Zwang & Unausweichlichkeit",
+  quest: "Äußerer Zwang, ein sich verschlechterndes Ende und ein Gefühl, das sich nicht unterdrücken lässt.",
+  src: "pages/n1-zwang.html",
+},
+n1VerbotWert: {
+  title: "Verbot, Wert & Würdigkeit",
+  quest: "Ist etwas verboten, wertvoll, erträglich, leicht vorstellbar, angemessen oder überhaupt erreichbar?",
+  src: "pages/n1-verbot-wert.html",
+},
+n1ZustandVergleich: {
+  title: "Zustand, Anschein & Vergleich",
+  quest: "Von „wirkt wie“ über „bedeckt mit“ bis zu „nur X kann das“.",
+  src: "pages/n1-zustand-vergleich.html",
+},
+n1Ausdruecke: {
+  title: "Weitere feste Ausdrücke",
+  quest: "Neun Ausdrücke zum Abschluss, die sich nicht sauber in eine andere Kategorie einordnen lassen.",
+  src: "pages/n1-ausdruecke.html",
 },
 
 quellen: {

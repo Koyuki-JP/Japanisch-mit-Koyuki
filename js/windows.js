@@ -26,6 +26,9 @@ const LARGE_GUIDE_WINDOWS = new Set([
   'experte', 'n2Zeit', 'n2GrundPerspektive', 'n2WeitereGruende', 'n2GegensatzErwartung',
   'n2Bedingung', 'n2MoeglichkeitSchluss', 'n2Vermutung', 'n2Einschraenkung',
   'n2Bezug1', 'n2Bezug2', 'n2UmHerum', 'n2Ausdruecke',
+  'n1', 'n1Emphase', 'n1Konzession1', 'n1Konzession2', 'n1BedingungGrund',
+  'n1GrundVorwand', 'n1Zeit1', 'n1Zeit2', 'n1Zwang', 'n1VerbotWert',
+  'n1ZustandVergleich', 'n1Ausdruecke',
   'quellen'
 ]);
 

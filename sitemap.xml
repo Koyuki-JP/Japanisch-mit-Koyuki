@@ -169,6 +169,54 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-emphase/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-konzession-1/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-konzession-2/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-bedingung-grund/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-grund-vorwand/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-zeit-1/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-zeit-2/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-zwang/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-verbot-wert/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-zustand-vergleich/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/n1-ausdruecke/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://koyuki-jp.github.io/Japanisch-mit-Koyuki/go/quellen/</loc>
     <priority>0.7</priority>
   </url>

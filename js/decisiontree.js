@@ -79,7 +79,7 @@ const DECISION_TREE = {
     panel: "fortgeschritten", panelLabel: "Zum Fortgeschrittenen Guide"
   },
   rec_experte: {
-    recommendation: "Der Experten-Guide führt dich durch Grammatik auf JLPT-N2-Niveau: feinere Nuancen und formellere Ausdrucksformen für Texte, die nicht mehr für Lernende geschrieben wurden.",
+    recommendation: "Der Experten-Guide führt dich durch Grammatik auf JLPT-N2-Niveau: feinere Nuancen und formellere Ausdrucksformen für Texte, die nicht mehr für Lernende geschrieben wurden. Danach wartet noch der Meister-Guide (N1) mit literarischem Register für Zeitungen und gehobene Texte.",
     panel: "experte", panelLabel: "Zum Experten-Guide"
   },
   rec_immersion: {
