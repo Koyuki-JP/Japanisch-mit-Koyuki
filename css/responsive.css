@@ -247,36 +247,86 @@
     }
   }
 
-  /* Die Startseite versucht oben per clamp()+cqh/cqw, alles ohne
-     Scrollen in den verfuegbaren Platz zu quetschen. Auf sehr kurzen/
-     schmalen Handy-Bildschirmen (eingeblendete Browser-Leiste, groessere
-     Systemschrift, ungewoehnliches Seitenverhaeltnis) reicht das
-     manchmal trotzdem nicht -- bisher wurde der Rest dann per
-     overflow:hidden abgeschnitten statt sichtbar zu bleiben ("scuffed",
-     halb abgeschnittener Inhalt ohne Moeglichkeit, den Rest zu sehen).
-     Ab hier gilt deshalb: lieber scrollen als abschneiden. Wenn der
-     Inhalt passt, aendert sich optisch nichts (kein Scrollbalken). */
+  /* ===== Startseite auf dem Handy: eigenstaendiges, einfacheres Layout =====
+     Die bisherige Mobile-Strategie (alles per clamp()+cqh/cqw in eine
+     kleine, feste 74vh-Box quetschen, dabei kollidierende Width-/
+     Height-Container-Queries fuer die Kachel-Zeilen) hat wiederholt zu
+     Bugs gefuehrt: leere/ueberlappende Kacheln, Scroll-Bereich zu knapp
+     fuer die letzte Kachel, Sora kollidiert mit dem Fensterinhalt.
+     Ab hier deshalb ein grundlegend anderer, robusterer Ansatz statt
+     eines weiteren Flickens: die Startseite bekommt auf dem Handy fast
+     den ganzen Bildschirm mit natuerlicher (nicht erzwungener) Groesse,
+     Sora wird komplett ausgeblendet. */
   @media (max-width:760px){
+    .wegweiser{
+      display:none !important;
+    }
+    #window-home{
+      /* Schaltet alle @container-Regeln weiter oben fuer dieses
+         Element ab (die "alles reinquetschen"-Strategie), die
+         Startseite bekommt hier ein eigenes, einfaches Layout. */
+      container-type: normal;
+      top: 60px;
+      left: 8px;
+      right: 8px;
+      bottom: 12px;
+      width: auto !important;
+      height: auto !important;
+      max-height: none;
+      min-width: 0;
+      transform: none !important;
+    }
     /* .window-content und .home-intro sind im Markup dasselbe Element
-       (<div class="window-content home-intro">) -- deshalb hier in
-       einer Regel zusammengefasst statt in zwei getrennten, sonst
-       wuerde ein spaeteres overflow-Shorthand das vorher gesetzte
-       overflow-y wieder ueberschreiben. */
+       (<div class="window-content home-intro">). */
     #window-home .window-content{
-      overflow-y:auto;
-      overflow-x:hidden;
-      -webkit-overflow-scrolling:touch;
-      overscroll-behavior:contain;
-      height:auto;
-      min-height:100%;
+      height: 100%;
+      padding: 24px 20px 28px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      display: block;
+      text-align: left;
+    }
+    #window-home .home-intro h1{
+      font-size: 1.5rem;
+      margin: 0 0 10px;
+    }
+    #window-home .home-intro p{
+      font-size: 0.9rem;
+      margin: 0 0 20px;
     }
     #window-home .tile-grid{
-      height:auto;
-      min-height:0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: auto;
     }
     #window-home .tile-btn{
-      height:auto;
-      min-height:64px;
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      grid-template-areas: "glyph label";
+      align-items: center;
+      justify-items: start;
+      column-gap: 14px;
+      padding: 16px;
+      text-align: left;
+      height: auto;
+      min-height: 0;
+    }
+    #window-home .tile-btn .glyph{
+      grid-area: glyph;
+      font-size: 1.6rem;
+    }
+    #window-home .tile-btn .label{
+      grid-area: label;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    #window-home .tile-btn.featured::after{
+      top: -8px;
+      left: 16px;
+      transform: none;
     }
     /* #window-home bekommt anders als normale Inhaltsfenster nie die
        .maximized-Klasse (siehe .window.maximized .resize-handle in
