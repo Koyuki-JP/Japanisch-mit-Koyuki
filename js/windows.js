@@ -44,7 +44,10 @@ function subpageUrlFor(id){
   return SUBPAGE_BASE + slug + '/';
 }
 
-/* ===================== Kana-Aussprache (Sprachausgabe) ===================== */
+/* ===================== Sprachausgabe (Kana + Beispielsätze) =====================
+   speakKana() liest trotz des Namens jeden beliebigen japanischen Text vor --
+   wird sowohl für einzelne Kana-Zeichen als auch für [data-listen]-Buttons an
+   Beispielsätzen benutzt. */
 const speechSupported = 'speechSynthesis' in window;
 let japaneseVoice = null;
 
@@ -685,6 +688,12 @@ document.addEventListener('click', (e) => {
   const kanaCell = e.target.closest('[data-kana-speak]');
   if(kanaCell){
     speakKana(kanaCell.dataset.kanaSpeak, kanaCell);
+    return;
+  }
+
+  const listenBtn = e.target.closest('[data-listen]');
+  if(listenBtn){
+    speakKana(listenBtn.dataset.listen, listenBtn);
     return;
   }
 

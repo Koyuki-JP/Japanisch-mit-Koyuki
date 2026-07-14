@@ -156,8 +156,14 @@ scripts/             generate_subpages.py -- erzeugt go/ + sitemap.xml
 
 Fehler gefunden, ein Thema fehlt, oder du hast einen Ressourcen-Tipp?
 Meld dich gerne direkt über den Kontakt-Bereich der Seite (E-Mail oder
-Discord) — Japanisch mit Koyuki wird von einer einzelnen Person gebaut,
+Discord). Japanisch mit Koyuki wird von einer einzelnen Person gebaut,
 Rückmeldungen helfen entsprechend viel.
+
+**Gesucht:** eine Stimme für die Beispielsätze und Hiragana/Katakana-Tabellen.
+Die Seite hat bereits eine automatische Sprachausgabe (Browser-TTS), eine
+echte, gut ausgesprochene Aufnahme wäre für viele Lernende aber deutlich
+angenehmer zu hören. Wer flüssig und mit guter Aussprache vorlesen kann
+und Lust hat mitzuhelfen, meldet sich gerne über den Kontakt-Bereich.
 
 ## Unterstützen
 

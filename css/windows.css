@@ -371,8 +371,23 @@
   .example-box + .example-box{ margin-top:-0.6em; }
   .example-jp{
     font-family:'Noto Sans JP', sans-serif; font-size:1.08rem; color:var(--text);
-    margin:0 0 4px; line-height:1.5;
+    margin:0 0 4px; line-height:2.1;
   }
+  .example-jp ruby{ ruby-align:center; }
+  .example-jp rt{
+    font-family:'JetBrains Mono', monospace; font-size:0.62em; color:var(--pink-soft);
+    font-weight:400; user-select:none;
+  }
+  .example-listen{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:50%; border:1px solid var(--line);
+    background:var(--bg-panel); color:var(--text); font-size:0.8rem;
+    cursor:pointer; padding:0; margin-right:8px; vertical-align:-6px;
+    transition:border-color 0.15s, background 0.15s;
+  }
+  .example-listen:hover{ border-color:var(--pink-soft); }
+  .example-listen:focus-visible{ outline:2px solid var(--pink-soft); outline-offset:2px; }
+  .example-listen.speaking{ background:var(--pink-soft); border-color:var(--pink-soft); color:#1a1520; }
   .example-reading{
     font-family:'JetBrains Mono', monospace; font-size:0.74rem; color:var(--pink-soft);
     margin:0 0 6px; letter-spacing:0.02em;
