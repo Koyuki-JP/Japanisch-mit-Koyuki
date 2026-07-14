@@ -100,7 +100,9 @@ gibt.
   Themenseiten von Fortgeschrittenem und Experten-Guide deutlich
   vertieft (mehr Beispiele, genaue Anschlussregeln, Register-Hinweise,
   Abgrenzung zu ähnlichen Formen statt knapper "vs."-Boxen), Kanji +
-  Furigana statt Romaji plus Hörbutton in den Grammatik-Grundlagen,
+  Furigana statt Romaji plus Hörbutton jetzt auf allen 29
+  Grammatik-Vertiefungsseiten (5 Grammatik-Grundlagen + kompletter
+  Fortgeschrittener Guide + kompletter Experten-Guide N2),
   Leseposition wird jetzt pro Fenster gemerkt, und der komplette
   Anfänger-Bereich (Kana, Grammatik-Grundlagen, Verbformen,
   Wortschatz, Aussprache, Hörverstehen) wurde ebenfalls vertieft,
