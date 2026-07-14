@@ -208,6 +208,7 @@ function buildWindow(id){
   el.addEventListener('pointerdown', () => setActive(id, el));
   el.querySelector('[data-close]').addEventListener('click', (e) => {
     e.stopPropagation();
+    saveReadingPosition(id, el.querySelector('.window-content'));
     el.classList.remove('open');
     el.classList.remove('maximized');
     setWegweiserHidden(false);
@@ -319,6 +320,8 @@ function buildWindow(id){
     buildArticleToc(contentEl, id);
     enhanceCollapsibleSections(contentEl, id);
     updateGuideProgressUI();
+    restoreReadingPosition(id, contentEl);
+    watchReadingPosition(id, contentEl);
   }
 
   if(data.html){

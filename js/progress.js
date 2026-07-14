@@ -147,6 +147,50 @@ function enhanceCollapsibleSections(contentRoot, panelId){
 }
 
 
+/* ===================== Lesestelle merken pro Fenster ===================== */
+const SCROLL_POSITION_KEY = 'japanischzimmer-scroll-position-v1';
+const SCROLL_SAVE_THRESHOLD = 40; // darunter zählt es als "ganz oben", nichts zu merken
+
+function getScrollPositions(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(SCROLL_POSITION_KEY) || '{}');
+    return saved && typeof saved === 'object' ? saved : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveReadingPosition(panelId, contentEl){
+  if(!contentEl) return;
+  const state = getScrollPositions();
+  if(contentEl.scrollTop > SCROLL_SAVE_THRESHOLD){
+    state[panelId] = contentEl.scrollTop;
+  } else {
+    delete state[panelId];
+  }
+  localStorage.setItem(SCROLL_POSITION_KEY, JSON.stringify(state));
+}
+
+function restoreReadingPosition(panelId, contentEl){
+  if(!contentEl) return;
+  const saved = getScrollPositions()[panelId];
+  if(typeof saved === 'number'){
+    // Ein Frame warten, bis Inhalt/Kollaps-Zustand ihre endgültige Höhe haben.
+    requestAnimationFrame(() => { contentEl.scrollTop = saved; });
+  }
+}
+
+function watchReadingPosition(panelId, contentEl){
+  if(!contentEl || contentEl.dataset.scrollWatched) return;
+  contentEl.dataset.scrollWatched = 'true';
+  let debounceTimer = null;
+  contentEl.addEventListener('scroll', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => saveReadingPosition(panelId, contentEl), 400);
+  });
+}
+
+
 /* Kompatible Weiter-Navigation für Guide-Schritte */
 function geheZuNaechstemBereich(naechsterBereichId, ausloeser = null){
   openWindow(naechsterBereichId, ausloeser);
