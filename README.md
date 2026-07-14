@@ -45,6 +45,7 @@ gibt.
 | 文 **Grammatik** | Satzstruktur, Verbformen, は・が, を, に・で, て-Form, je mit Beispielen, typischen Fehlern und Mini-Quiz |
 | 📘 **Fortgeschrittener Guide** | Grammatik auf JLPT-N4/N3-Niveau: Geben & Nehmen, Verbindungsformen, Konditionalformen, Passiv & Kausativ, Vermutung, Erklärung/Konsequenz, Grund & Konzession, Zeit & Abfolge, formale Bezugsausdrücke, Einschränkung & Verstärkung, Pflicht & Unmöglichkeit, Keigo-Grundlagen. 12 Themenseiten, ~45 Grammatikpunkte |
 | 🎓 **Experten-Guide** | Grammatik auf JLPT-N2-Niveau: zeitliche Nuancen, から-Familie, weitere Gründe, Gegensatz/Erwartung, Bedingung, Möglichkeit/Schlussfolgerung, Vermutung, Einschränkung/Betonung, formale Bezugs-Partikel, feste Ausdrücke. 12 Themenseiten, ~89 Grammatikpunkte |
+| 🥋 **Meister-Guide** | Grammatik auf JLPT-N1-Niveau: Emphase/Extremfall, Konzession & Gegensatz, Bedingung/Grund formell, Zeitliche Abfolge, Zwang & Unausweichlichkeit, Verbot/Wert/Würdigkeit, Zustand/Anschein/Vergleich, feste Ausdrücke. 11 Themenseiten, 66 Grammatikpunkte |
 | 単 **Wortschatz** | Aufbau eines Grundwortschatzes, Anki-Grunddecks im Vergleich |
 | 🗣️ **Aussprache** | Mora, lange Vokale, Pitch Accent, Shadowing |
 | 👂 **Hörverstehen** | Aktives/passives Hören, Untertitel-Strategie, Condensed Audio |
@@ -64,12 +65,6 @@ gibt.
 | 参考 **Quellenverzeichnis** | Nachschlagewerke und Referenzen hinter den Grammatik-Erklärungen (DBJG, Imabi, Tae Kim, Jisho u. a.) |
 
 ## Geplant
-
-**Als Nächstes:**
-
-- [ ] Experten-Guide N1 als vierte Stufe: der N2-Teil ist fertig,
-      N1 folgt als eigene, spätere Phase (bewusst getrennt, da der
-      gesamte N2+N1-Umfang zusammen ~285-450 Grammatikpunkte umfasst)
 
 **Bereits umgesetzt:**
 
@@ -112,6 +107,14 @@ gibt.
   haben jetzt zusätzlich Herkunftsgeschichte (Heian-Zeit, onna-de,
   buddhistische Mönche) und praktische Wort-Beispiele statt nur
   Zeichentabellen
+- **Handy-Startseite entbuggt**: eigenes, schlankes Mobile-Layout statt
+  der gequetschten Desktop-Box (behebt überlappende/leere Kacheln),
+  Sora auf dem Handy komplett ausgeblendet statt Kollisionen zu flicken
+- **Meister-Guide N1**: 11 Themenseiten, 66 Grammatikpunkte, gegen
+  mehrere Quellen abgeglichen, überall verlinkt (Experten-Guide-Ende,
+  Entscheidungsbaum, Lernwege, JLPT-Seite, Grammatik-Übersicht,
+  Inhaltsverzeichnis, Quellenverzeichnis), alle Beispielsätze direkt im
+  Kanji+Furigana+Hörbutton-Format
 
 Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS):
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf
