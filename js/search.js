@@ -6,6 +6,11 @@
    ============================================================ */
 
 (function(){
+  // Muss synchron beim ersten Ausführen erfasst werden -- danach ist
+  // document.currentScript wieder null. Liefert die absolute URL dieser
+  // Datei, egal ob von index.html oder go/<slug>/index.html geladen.
+  const SELF_SRC = document.currentScript ? document.currentScript.src : '';
+
   const toggleBtn = document.getElementById('searchToggle');
   const overlay = document.getElementById('searchOverlay');
   const input = document.getElementById('searchInput');
@@ -17,6 +22,26 @@
 
   let activeIndex = -1;
   let currentMatches = [];
+  let searchIndexPromise = null;
+
+  /* data/search-index.js ist mit Abstand die größte JS-Datei (Volltext
+     aller Panels) und wird nur für die Suche gebraucht -- statt sie auf
+     jeder Seitenanfrage mitzuladen, holen wir sie erst beim ersten
+     Öffnen der Suche nach. runSearch() hat ohnehin schon einen Fallback
+     auf {}, falls SEARCH_INDEX noch nicht da ist. */
+  function ensureSearchIndex(){
+    if(searchIndexPromise) return searchIndexPromise;
+    searchIndexPromise = new Promise((resolve) => {
+      if(typeof SEARCH_INDEX !== 'undefined'){ resolve(); return; }
+      if(!SELF_SRC){ resolve(); return; }
+      const script = document.createElement('script');
+      script.src = SELF_SRC.replace('/js/search.js', '/data/search-index.js');
+      script.onload = () => resolve();
+      script.onerror = () => resolve();
+      document.head.appendChild(script);
+    });
+    return searchIndexPromise;
+  }
 
   function escapeHtml(s){
     return s.replace(/[&<>]/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;'}[c]));
@@ -112,6 +137,11 @@
     emptyEl.hidden = true;
     activeIndex = -1;
     requestAnimationFrame(() => input.focus());
+    ensureSearchIndex().then(() => {
+      // Falls der Nutzer schon getippt hat, bevor der Volltext-Index da war,
+      // Ergebnisse mit dem jetzt vollständigen Index neu berechnen.
+      if(!overlay.hidden && input.value.trim()) runSearch(input.value);
+    });
   }
 
   function closeOverlay(){

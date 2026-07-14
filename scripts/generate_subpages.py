@@ -59,7 +59,7 @@ SUBPAGE_DIR = "go"
 
 # Muss zum ?v=... in index.html passen -- bei jedem Cache-Busting-Bump
 # hier mit anpassen und das Skript neu laufen lassen.
-CACHE_VERSION = "20260716-1"
+CACHE_VERSION = "20260716-2"
 
 def load_slug_overrides():
     """Liest PANEL_SLUG_OVERRIDES aus data/panel-slugs.js -- dieselbe
@@ -263,7 +263,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
      app.js zuletzt (baut u. a. die Panel-Definitionen und startet den Wegweiser) -->
 <script src="../../data/resources.js?v={cache_version}"></script>
 <script src="../../data/panel-slugs.js?v={cache_version}"></script>
-<script src="../../data/search-index.js?v={cache_version}"></script>
 <script src="../../js/progress.js?v={cache_version}"></script>
 <script src="../../js/windows.js?v={cache_version}"></script>
 <script src="../../js/resources.js?v={cache_version}"></script>

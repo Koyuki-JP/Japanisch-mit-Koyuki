@@ -115,6 +115,10 @@ gibt.
   Entscheidungsbaum, Lernwege, JLPT-Seite, Grammatik-Übersicht,
   Inhaltsverzeichnis, Quellenverzeichnis), alle Beispielsätze direkt im
   Kanji+Furigana+Hörbutton-Format
+- **Ladezeit-Optimierung**: der Volltext-Suchindex (337 KB, größter
+  Einzelposten beim ersten Laden) wird jetzt erst beim tatsächlichen
+  Öffnen der Suche nachgeladen statt bei jedem Seitenaufruf, eager
+  JS-Payload dadurch um etwa 67 % gesenkt
 
 Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS):
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf
