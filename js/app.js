@@ -476,6 +476,31 @@ hiragana: {
       kleinen Gruppen und komm regelmäßig zu den Tabellen zurück.
     </p>
 
+    <h3 class="win-h3">Woher kommt Hiragana eigentlich?</h3>
+
+    <p class="win-p">
+      Hiragana ist noch gar nicht so alt, wie es wirkt: Es entstand vor
+      etwas mehr als tausend Jahren in der Heian-Zeit, aus vereinfachten,
+      fließend geschriebenen Formen chinesischer Schriftzeichen. Geprägt
+      haben diese neue, weiche Schrift damals vor allem Frauen am
+      Kaiserhof, denen der formelle Zugang zu Kanji oft verwehrt blieb.
+      Hiragana trug deshalb lange den Beinamen 女手 (onna-de,
+      „Frauenhand").
+    </p>
+
+    <div class="win-quote">
+      Eines der frühesten Meisterwerke der Weltliteratur, die
+      „Geschichte vom Prinzen Genji" (源氏物語), wurde um das Jahr 1000
+      von der Hofdame Murasaki Shikibu größtenteils in Hiragana
+      geschrieben, lange bevor Frauen offiziell Kanji lernen durften.
+    </div>
+
+    <p class="win-p">
+      Wenn du gerade Hiragana übst, lernst du also dieselbe Schrift, mit
+      der Japans erste große Romanautorin geschrieben hat, nicht nur ein
+      technisches Lautalphabet.
+    </p>
+
     <h3 class="win-h3">Zeichen anhören</h3>
 
     <p class="win-p">
@@ -664,6 +689,38 @@ hiragana: {
       め sieht aus wie ein Auge, und め ist auch das japanische Wort dafür.
     </p>
 
+    <h3 class="win-h3">Ein paar Wörter, die du jetzt schon lesen kannst</h3>
+
+    <p class="win-p">
+      Sobald du die Grundzeichen einmal durchgegangen bist, kannst du
+      eine ganze Reihe der häufigsten Alltagswörter Japans komplett in
+      Hiragana lesen, ganz ohne ein einziges Kanji zu brauchen:
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp jp"><button class="example-listen" data-listen="ありがとう" title="Wort anhören" aria-label="Wort anhören">🔊</button>ありがとう</p>
+      <p class="example-de">danke</p>
+    </div>
+    <div class="example-box">
+      <p class="example-jp jp"><button class="example-listen" data-listen="おはよう" title="Wort anhören" aria-label="Wort anhören">🔊</button>おはよう</p>
+      <p class="example-de">guten Morgen (unter Freund:innen)</p>
+    </div>
+    <div class="example-box">
+      <p class="example-jp jp"><button class="example-listen" data-listen="おいしい" title="Wort anhören" aria-label="Wort anhören">🔊</button>おいしい</p>
+      <p class="example-de">lecker</p>
+    </div>
+    <div class="example-box">
+      <p class="example-jp jp"><button class="example-listen" data-listen="がんばって" title="Wort anhören" aria-label="Wort anhören">🔊</button>がんばって</p>
+      <p class="example-de">gib dein Bestes, viel Erfolg</p>
+    </div>
+
+    <p class="win-p">
+      Klick dich ruhig durch die Wörter und hör sie dir an. Das ist kein
+      Zufallstreffer: Ein großer Teil des japanischen Grundwortschatzes
+      lässt sich komplett in Hiragana schreiben, Kanji kommt meist erst
+      bei längeren oder abstrakteren Wörtern dazu.
+    </p>
+
     <h3 class="win-h3">Wie du diese Seite nutzen kannst</h3>
 
     <ol class="win-list">
@@ -734,6 +791,26 @@ katakana: {
       manche Zeichen sich sehr ähnlich sehen. Das ist normal. Mit
       regelmäßiger Wiederholung werden die Unterschiede nach und nach
       klarer.
+    </p>
+
+    <h3 class="win-h3">Woher kommt Katakana eigentlich?</h3>
+
+    <p class="win-p">
+      Katakana ist fast genauso alt wie Hiragana, entstand aber aus
+      einem ganz anderen Bedürfnis. Buddhistische Mönche brauchten im 9.
+      Jahrhundert eine schnelle Möglichkeit, sich die Aussprache
+      chinesischer Sutren an den Rand zu kritzeln. Statt ganzer, elegant
+      geschwungener Zeichen wie bei Hiragana benutzten sie nur einzelne
+      Bruchstücke von Kanji, kantig und schnell hingeschrieben. „Kata"
+      (片) bedeutet dabei so viel wie „ein Teil von, ein Fragment".
+    </p>
+
+    <p class="win-p">
+      Genau das erklärt, warum sich Hiragana und Katakana bis heute so
+      unterschiedlich anfühlen: Hiragana wirkt weich und fließend, weil
+      es aus ganzen, kursiv geschriebenen Zeichen entstand. Katakana
+      wirkt eckig und praktisch, weil es aus abgekürzten Merkzeichen für
+      den schnellen Gebrauch entstand, nicht aus schöner Schönschrift.
     </p>
 
     <h3 class="win-h3">Zeichen anhören</h3>
@@ -898,6 +975,35 @@ katakana: {
       ist die neutrale Schreibweise, ねこ (mit Hiragana) wirkt weicher und
       kindlicher, und ネコ (mit Katakana) klingt eher sachlich, fast wie in
       einem Fachtext. Gleiches Wort, drei Schreibweisen, drei Tonfälle.
+    </p>
+
+    <h3 class="win-h3">Woher kommen die Wörter wirklich? Nicht alles ist Englisch</h3>
+
+    <p class="win-p">
+      Katakana-Wörter wirken oft wie verkleidetes Englisch, aber
+      überraschend viele stammen aus ganz anderen Sprachen, vor allem
+      aus dem Portugiesischen, Niederländischen und Deutschen, den
+      ersten europäischen Sprachen, mit denen Japan über Jahrhunderte
+      Handelskontakt hatte.
+    </p>
+
+    <ul class="win-list">
+      <li><strong>パン</strong> (pan, „Brot") stammt aus dem
+      portugiesischen „pão", nicht aus dem Englischen</li>
+      <li><strong>タバコ</strong> (tabako, „Zigarette") kommt ebenfalls
+      aus dem Portugiesischen, von „tabaco"</li>
+      <li><strong>アルバイト</strong> (arubaito, „Nebenjob") stammt aus
+      dem Deutschen: „Arbeit"</li>
+      <li><strong>カルテ</strong> (karute, „Patientenakte") kommt aus
+      dem deutschen „Karte"</li>
+      <li><strong>コック</strong> (kokku, „Koch") stammt aus dem
+      niederländischen „kok"</li>
+    </ul>
+
+    <p class="win-p">
+      Das lohnt sich zu wissen, bevor du bei einem Katakana-Wort
+      automatisch nach einer englischen Herkunft suchst und nicht
+      fündig wirst, manchmal ist es einfach kein Englisch.
     </p>
 
     <h3 class="win-h3">Wie du diese Seite nutzen kannst</h3>
