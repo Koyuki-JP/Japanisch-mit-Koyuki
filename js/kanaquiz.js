@@ -1,5 +1,5 @@
 /* ============================================================
-   js/kanaquiz.js — Interaktives Kana-Erkennungs-Quiz im
+   js/kanaquiz.js: Interaktives Kana-Erkennungs-Quiz im
    Kana-Quiz-Panel. Nutzt dieselben Zeichen-Daten wie die
    Kana-Tabellen (HIRAGANA- und KATAKANA-Arrays aus js/app.js) und
    die Sprachausgabe speakKana() aus js/windows.js. windows.js ruft

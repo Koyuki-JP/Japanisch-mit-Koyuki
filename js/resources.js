@@ -1,5 +1,5 @@
 /* ============================================================
-   js/resources.js — Logik für den Ressourcen-Tab: rendert die
+   js/resources.js: Logik für den Ressourcen-Tab: rendert die
    Ressourcen-Bibliothek aus data/resources.js in die leeren
    Grid-Container von pages/ressourcen.html und kümmert sich um
    das Scrollen zu einem Abschnitt (Toolbar-Sprungmarken).

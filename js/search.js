@@ -1,5 +1,5 @@
 /* ============================================================
-   js/search.js — Client-seitige Suche über alle Panel-Titel und
+   js/search.js: Client-seitige Suche über alle Panel-Titel und
    Kurzbeschreibungen (panels[id].quest aus js/app.js). Kein
    Backend, filtert live beim Tippen, Treffer öffnen per Klick
    oder Enter.

@@ -1,5 +1,5 @@
 /* ============================================================
-   js/progress.js — Fortschritts-Tracking für den Anfänger-Guide
+   js/progress.js: Fortschritts-Tracking für den Anfänger-Guide
    (Checkliste + Fortschrittsbalken, per localStorage gespeichert)
    und die einklappbaren Abschnitte (win-h3) innerhalb der Fenster.
    ============================================================ */
@@ -110,7 +110,7 @@ function createCollapseKey(title, panelId, index){
 }
 
 function enhanceCollapsibleSections(contentRoot, panelId){
-  // Nur echte Abschnittsüberschriften sollen aufklappbar werden — nicht
+  // Nur echte Abschnittsüberschriften sollen aufklappbar werden, nicht
   // verschachtelte h3 in Karten (z. B. .resource-card), sonst landet der
   // Klapp-Pfeil mitten in mehrzeiligen Kartentiteln. buildArticleToc()
   // packt lange Artikel in .article-body; dort zählen nur die direkten

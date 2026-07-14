@@ -1,5 +1,5 @@
 /* ============================================================
-   data/resources.js — Inhaltsdaten für die Ressourcen-Bibliothek
+   data/resources.js: Inhaltsdaten für die Ressourcen-Bibliothek
    (Ressourcen-Tab). Neue Tools/Guides hier eintragen -- js/resources.js
    rendert daraus automatisch die Karten im Ressourcen-Fenster.
 
@@ -820,7 +820,7 @@ const RESOURCE_LIBRARY = {
         ],
         "summary": "Zählt deine Immersionszeit auf YouTube, Netflix, Crunchyroll & Co. automatisch mit und zeigt sie als Statistik und Streak.",
         "verdictLabel": "Warum nutzen?",
-        "verdict": "Viele Anfänger:innen unterschätzen ihren Fortschritt. Ein Tracker zeigt dir nicht, wie gut dein Japanisch ist — er erinnert dich daran, dass jede Stunde zählt und Fortschritt Zeit braucht.",
+        "verdict": "Viele Anfänger:innen unterschätzen ihren Fortschritt. Ein Tracker zeigt dir nicht, wie gut dein Japanisch ist, er erinnert dich daran, dass jede Stunde zählt und Fortschritt Zeit braucht.",
         "href": "https://jp343.com/",
         "linkLabel": "jp343 öffnen ↗"
       }

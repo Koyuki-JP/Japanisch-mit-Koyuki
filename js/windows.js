@@ -1,5 +1,5 @@
 /* ============================================================
-   js/windows.js — Das Fenster-System: Fenstergrößen (inkl.
+   js/windows.js: Das Fenster-System: Fenstergrößen (inkl.
    Speichern in localStorage), Erzeugen/Öffnen/Schließen von
    Fenstern, Ziehen (Drag) und Skalieren (Resize).
 
@@ -85,7 +85,7 @@ function clamp(value, min, max){
   return Math.min(Math.max(value, min), max);
 }
 
-/* Im maximierten Lesemodus ist kein Platz mehr neben dem Fenster für Sora —
+/* Im maximierten Lesemodus ist kein Platz mehr neben dem Fenster für Sora,
    statt sie schlecht zu positionieren, blenden wir sie dort einfach aus. */
 function setWegweiserHidden(hidden){
   const wegweiserEl = document.getElementById('wegweiser');

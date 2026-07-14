@@ -1,5 +1,5 @@
 /* ============================================================
-   data/panel-slugs.js — Einzige Quelle für Panel-IDs, die im Code
+   data/panel-slugs.js: Einzige Quelle für Panel-IDs, die im Code
    camelCase sind (praktisch als JS-Objektschlüssel), aber als
    Direktlink-URL lesbares kebab-case haben sollen. Muss zu den
    Dateinamen unter pages/ passen.

@@ -1,5 +1,5 @@
 /* ============================================================
-   js/decisiontree.js — Interaktiver Entscheidungsbaum "Was
+   js/decisiontree.js: Interaktiver Entscheidungsbaum "Was
    brauche ich jetzt?" im Entscheidungsbaum-Panel. windows.js ruft
    initDecisionTree() auf, sobald pages/entscheidungsbaum.html in
    das Fenster eingesetzt wurde (siehe finalizeContent()).
@@ -35,7 +35,7 @@ const DECISION_TREE = {
     ]
   },
   q_grammatik_level: {
-    question: "Passiv, Kausativ und Konditionalformen — ist dir das noch neu, oder sitzt das schon?",
+    question: "Passiv, Kausativ und Konditionalformen: ist dir das noch neu, oder sitzt das schon?",
     options: [
       { label: "Noch neu", next: "rec_fortgeschritten" },
       { label: "Sitzt schon", next: "rec_experte" }
@@ -63,7 +63,7 @@ const DECISION_TREE = {
     ]
   },
   rec_kana: {
-    recommendation: "Starte mit Kana — dem Fundament für alles Weitere.",
+    recommendation: "Starte mit Kana, dem Fundament für alles Weitere.",
     panel: "kana", panelLabel: "Zu Kana"
   },
   rec_wortschatz: {
@@ -75,15 +75,15 @@ const DECISION_TREE = {
     panel: "grammatik", panelLabel: "Zu Grammatik"
   },
   rec_fortgeschritten: {
-    recommendation: "Der Fortgeschrittene Guide führt dich durch Grammatik auf JLPT-N4/N3-Niveau — Passiv, Kausativ, Konditionalformen und mehr.",
+    recommendation: "Der Fortgeschrittene Guide führt dich durch Grammatik auf JLPT-N4/N3-Niveau: Passiv, Kausativ, Konditionalformen und mehr.",
     panel: "fortgeschritten", panelLabel: "Zum Fortgeschrittenen Guide"
   },
   rec_experte: {
-    recommendation: "Der Experten-Guide führt dich durch Grammatik auf JLPT-N2-Niveau — feinere Nuancen und formellere Ausdrucksformen für Texte, die nicht mehr für Lernende geschrieben wurden.",
+    recommendation: "Der Experten-Guide führt dich durch Grammatik auf JLPT-N2-Niveau: feinere Nuancen und formellere Ausdrucksformen für Texte, die nicht mehr für Lernende geschrieben wurden.",
     panel: "experte", panelLabel: "Zum Experten-Guide"
   },
   rec_immersion: {
-    recommendation: "Zeit, mit Immersion anzufangen — auch mit wenig Verständnis ist das schon sinnvoll.",
+    recommendation: "Zeit, mit Immersion anzufangen, auch mit wenig Verständnis ist das schon sinnvoll.",
     panel: "immersion", panelLabel: "Zur Immersion"
   },
   rec_keep_immersion: {
@@ -91,7 +91,7 @@ const DECISION_TREE = {
     panel: "immersion", panelLabel: "Zur Immersion"
   },
   rec_yomitan: {
-    recommendation: "Richte zuerst Yomitan ein — das ist die technische Basis fürs Mining.",
+    recommendation: "Richte zuerst Yomitan ein, das ist die technische Basis fürs Mining.",
     panel: "yomitan", panelLabel: "Zu Yomitan"
   },
   rec_mining: {
