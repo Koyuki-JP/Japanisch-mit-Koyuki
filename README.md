@@ -106,9 +106,12 @@ gibt.
   Leseposition wird jetzt pro Fenster gemerkt, und der komplette
   Anfänger-Bereich (Kana, Grammatik-Grundlagen, Verbformen,
   Wortschatz, Aussprache, Hörverstehen) wurde ebenfalls vertieft,
-  bewusst einfach gehalten statt akademisch-dicht, und die komplette
+  bewusst einfach gehalten statt akademisch-dicht, die komplette
   Seite ist jetzt frei von Gedankenstrichen (Komma, Punkt oder
-  Doppelpunkt statt „—", je nach Satzbau)
+  Doppelpunkt statt „—", je nach Satzbau), und Hiragana/Katakana
+  haben jetzt zusätzlich Herkunftsgeschichte (Heian-Zeit, onna-de,
+  buddhistische Mönche) und praktische Wort-Beispiele statt nur
+  Zeichentabellen
 
 Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS):
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf
