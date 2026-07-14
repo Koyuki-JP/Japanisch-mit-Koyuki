@@ -59,7 +59,7 @@ SUBPAGE_DIR = "go"
 
 # Muss zum ?v=... in index.html passen -- bei jedem Cache-Busting-Bump
 # hier mit anpassen und das Skript neu laufen lassen.
-CACHE_VERSION = "20260715-6"
+CACHE_VERSION = "20260715-7"
 
 def load_slug_overrides():
     """Liest PANEL_SLUG_OVERRIDES aus data/panel-slugs.js -- dieselbe
