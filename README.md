@@ -101,7 +101,10 @@ gibt.
   vertieft (mehr Beispiele, genaue Anschlussregeln, Register-Hinweise,
   Abgrenzung zu ähnlichen Formen statt knapper "vs."-Boxen), Kanji +
   Furigana statt Romaji plus Hörbutton in den Grammatik-Grundlagen,
-  und Leseposition wird jetzt pro Fenster gemerkt
+  Leseposition wird jetzt pro Fenster gemerkt, und der komplette
+  Anfänger-Bereich (Kana, Grammatik-Grundlagen, Verbformen,
+  Wortschatz, Aussprache, Hörverstehen) wurde ebenfalls vertieft,
+  bewusst einfach gehalten statt akademisch-dicht
 
 Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS):
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf
