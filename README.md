@@ -91,6 +91,15 @@ gibt.
   gegengeprüft gegen externe Quellen, überall verlinkt
   (Inhaltsverzeichnis, Entscheidungsbaum, Lernwege, JLPT-Seite,
   Quellenverzeichnis)
+- **Review-Nacharbeit** (nach ausführlicher externer Review v1.10) —
+  N2-Direktlink-Bug behoben (einzige Quelle für Panel-Slugs statt
+  zweier hand-gepflegter Listen), eigener Mobile-Modus (kein
+  Drag/Resize mehr auf kleinen Screens), Volltextsuche über alle
+  Panel-Inhalte, SEO-Grundlagen (Meta-Tags, Sitemap), Fokusfalle im
+  Such-Overlay, `prefers-reduced-motion`-Unterstützung — und alle 24
+  Themenseiten von Fortgeschrittenem und Experten-Guide deutlich
+  vertieft (mehr Beispiele, genaue Anschlussregeln, Register-Hinweise,
+  Abgrenzung zu ähnlichen Formen statt knapper "vs."-Boxen)
 
 Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS) —
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf
