@@ -1,11 +1,11 @@
 /* ============================================================
-   js/app.js — Kern der App: Kana-Tabellen-Helfer, alle
+   js/app.js: Kern der App, Kana-Tabellen-Helfer, alle
    Panel-Definitionen (Titel/Quest/Inhalt bzw. Pfad zur
    ausgelagerten Seite), der Wegweiser-Begleiter (Sora) und die
    grundlegende Steuerung (Hell-/Dunkelmodus).
 
    Ladereihenfolge wichtig: nach data/resources.js, js/progress.js,
-   js/windows.js und js/resources.js einbinden — diese Datei ruft
+   js/windows.js und js/resources.js einbinden. Diese Datei ruft
    ganz am Ende updateWegweiser() auf, wenn alles andere bereits
    bereitsteht.
    ============================================================ */
@@ -90,7 +90,7 @@ const KATAKANA_YOON = [
 
 const panels = {
 tag1: {
-  title: "一日目 — Tag 1",
+  title: "一日目: Tag 1",
   quest: "Nur ein Ziel für heute: Lerne die ersten Hiragana-Zeichen kennen. Mehr brauchst du jetzt nicht.",
   html: `
     <span class="eyebrow win-eyebrow">Erster Besuch</span>
@@ -341,7 +341,7 @@ guide: {
       <p class="win-p">
         Und wenn diese fünf Schritte irgendwann sitzen? Dann wartet der
         <button class="inline-link" data-open="fortgeschritten">Fortgeschrittene Guide</button>
-        mit Grammatik auf JLPT-N4/N3-Niveau — Passiv, Kausativ,
+        mit Grammatik auf JLPT-N4/N3-Niveau: Passiv, Kausativ,
         Konditionalformen und mehr.
       </p>
       <p class="win-p">
@@ -387,11 +387,11 @@ guide: {
 
     <h3 class="win-h3">Einstieg</h3>
     <ul class="toc-list">
-      <li><button class="toc-item" data-open="tag1">Tag 1 — Hier starten</button></li>
+      <li><button class="toc-item" data-open="tag1">Tag 1: Hier starten</button></li>
       <li><button class="toc-item" data-open="guide">Anfänger-Guide</button></li>
       <li><button class="toc-item" data-open="entscheidungsbaum">Was brauche ich jetzt?</button></li>
       <li><button class="toc-item" data-open="lernwege">Geführte Lernwege</button></li>
-      <li><button class="toc-item" data-open="kana">Kana — Hiragana &amp; Katakana</button></li>
+      <li><button class="toc-item" data-open="kana">Kana: Hiragana &amp; Katakana</button></li>
       <li><button class="toc-item" data-open="kanaquiz">Kana-Quiz</button></li>
     </ul>
 
@@ -434,7 +434,7 @@ guide: {
     </p>
   `},
  kana: {
-  title: "かな — Kana",
+  title: "かな: Kana",
 
   quest: "Kana sind dein Fundament. Lerne zuerst Hiragana und danach Katakana. Perfektes Schreiben ist am Anfang nicht nötig, sicheres Erkennen schon.",
   src: "pages/kana.html",
@@ -445,7 +445,7 @@ kanaquiz: {
   src: "pages/kanaquiz.html",
 },
 hiragana: {
-  title: "ひらがな — Hiragana",
+  title: "ひらがな: Hiragana",
   quest: "Die 46 Grundzeichen sind dein Fundament. Übe sie in kleinen Gruppen, nicht alle auf einmal.",
   html: `
     <span class="eyebrow win-eyebrow">Schriftsystem</span>
@@ -563,7 +563,7 @@ hiragana: {
 
     ${kanaTable(HIRAGANA_DAKUTEN, 5)}
 
-    <h3 class="win-h3">Yōon — Kombinationen</h3>
+    <h3 class="win-h3">Yōon: Kombinationen</h3>
 
     <p class="win-p">
       Bei Yōon wird ein Hiragana aus der i-Reihe mit einem kleinen
@@ -589,7 +589,7 @@ hiragana: {
     </p>
 
     <p class="win-p">
-      Auch hier reicht es, das Muster einmal verstanden zu haben — den
+      Auch hier reicht es, das Muster einmal verstanden zu haben. Den
       Rest übernimmt mit der Zeit das Lesen von selbst, die Formen werden
       dir dabei automatisch vertrauter.
     </p>
@@ -625,8 +625,8 @@ hiragana: {
   `
 },
 katakana: {
-  title: "カタカナ — Katakana",
-  quest: "Katakana klingt wie Hiragana, sieht aber anders aus — perfekt für Fremdwörter und Namen.",
+  title: "カタカナ: Katakana",
+  quest: "Katakana klingt wie Hiragana, sieht aber anders aus: perfekt für Fremdwörter und Namen.",
   html: `
     <span class="eyebrow win-eyebrow">Schriftsystem</span>
     <h2 class="win-h2">Katakana</h2>
@@ -774,7 +774,7 @@ katakana: {
 
     ${kanaTable(KATAKANA_DAKUTEN, 5)}
 
-    <h3 class="win-h3">Yōon — Kombinationen</h3>
+    <h3 class="win-h3">Yōon: Kombinationen</h3>
 
     <p class="win-p">
       Auch bei Katakana können Zeichen aus der i-Reihe mit kleinem
@@ -836,7 +836,7 @@ katakana: {
   `
 },
 kanji: {
-  title: "漢字 — Kanji",
+  title: "漢字: Kanji",
 
   quest: "Kanji sehen zunächst kompliziert aus. Lerne sie zusammen mit echten Wörtern, dann werden sie Schritt für Schritt vertrauter.",
 
@@ -945,10 +945,10 @@ kanji: {
     </p>
 
     <ul class="win-list">
-      <li><strong>未</strong> (noch nicht) vs. <strong>末</strong> (Ende) — der obere Strich ist unterschiedlich lang</li>
-      <li><strong>人</strong> (Mensch) vs. <strong>入</strong> (hinein) — die Striche kreuzen sich unterschiedlich</li>
-      <li><strong>大</strong> (groß) vs. <strong>犬</strong> (Hund) — nur ein zusätzlicher Punkt</li>
-      <li><strong>土</strong> (Erde) vs. <strong>士</strong> (Krieger/Fachmann) — die Strichlängen sind vertauscht</li>
+      <li><strong>未</strong> (noch nicht) vs. <strong>末</strong> (Ende): der obere Strich ist unterschiedlich lang</li>
+      <li><strong>人</strong> (Mensch) vs. <strong>入</strong> (hinein): die Striche kreuzen sich unterschiedlich</li>
+      <li><strong>大</strong> (groß) vs. <strong>犬</strong> (Hund): nur ein zusätzlicher Punkt</li>
+      <li><strong>土</strong> (Erde) vs. <strong>士</strong> (Krieger/Fachmann): die Strichlängen sind vertauscht</li>
     </ul>
 
     <p class="win-p">
@@ -1005,7 +1005,7 @@ kanji: {
     <ul class="win-list">
       <li>
         <strong>RTK</strong> lehrt Kanji isoliert über selbst erdachte
-        Eselsbrücken zu Bedeutung und Aufbau — bewusst ohne Lesungen. Erst
+        Eselsbrücken zu Bedeutung und Aufbau, bewusst ohne Lesungen. Erst
         danach lernst du, wie die Zeichen in echten Wörtern ausgesprochen
         werden.
       </li>
@@ -1018,7 +1018,7 @@ kanji: {
 
     <p class="win-p">
       Beide Systeme können funktionieren, sind aber ein zusätzliches,
-      eigenständiges Lernprojekt neben Vokabeln und Immersion — nicht
+      eigenständiges Lernprojekt neben Vokabeln und Immersion, nicht
       automatisch der bessere Weg. Für die meisten Anfänger:innen reicht
       es völlig, Kanji direkt über häufige Wörter zu lernen. RTK oder
       WaniKani lohnen sich vor allem, wenn dir das reine Erkennen von
@@ -1091,17 +1091,17 @@ kanji: {
 
 
 grammatik: {
-  title: "文法 — Grammatik",
+  title: "文法: Grammatik",
   quest: "Grammatik ist kein Regelmonster. Nutze sie als Landkarte, damit echte japanische Sätze nach und nach Sinn ergeben.",
   src: "pages/grammatik.html",
 },
 satzstruktur: {
-  title: "文の構造 — Satzstruktur",
+  title: "文の構造: Satzstruktur",
   quest: "Im Japanischen steht das Verb am Ende. Alles davor darfst du relativ frei anordnen, solange die Partikel stimmen.",
   src: "pages/grammatik-satzstruktur.html",
 },
 verbformen: {
-  title: "動詞の形 — Verbformen",
+  title: "動詞の形: Verbformen",
   quest: "Drei Verbgruppen, ein System. Sobald du sie erkennst, folgen die Formen fast von selbst.",
   src: "pages/grammatik-verbformen.html",
 },
@@ -1121,19 +1121,19 @@ nide: {
   src: "pages/grammatik-nide.html",
 },
 teform: {
-  title: "て形 — die て-Form",
-  quest: "Die て-Form verbindet Handlungen, Bitten und laufende Aktionen — ein zentraler Baustein für vieles danach.",
+  title: "て形: die て-Form",
+  quest: "Die て-Form verbindet Handlungen, Bitten und laufende Aktionen: ein zentraler Baustein für vieles danach.",
   src: "pages/grammatik-teform.html",
 },
 
 fortgeschritten: {
-  title: "上級ガイド — Fortgeschrittener Guide",
-  quest: "Die Grundlagen sitzen? Dann warten hier Passiv, Kausativ und Co. — Grammatik auf JLPT-N4/N3-Niveau.",
+  title: "上級ガイド: Fortgeschrittener Guide",
+  quest: "Die Grundlagen sitzen? Dann warten hier Passiv, Kausativ und Co., Grammatik auf JLPT-N4/N3-Niveau.",
   src: "pages/fortgeschritten.html",
 },
 fgGebenNehmen: {
   title: "あげる・くれる・もらう erweitert",
-  quest: "Wer gibt wem was — und warum klingt das im Japanischen manchmal höflicher als im Deutschen?",
+  quest: "Wer gibt wem was, und warum klingt das im Japanischen manchmal höflicher als im Deutschen?",
   src: "pages/fg-geben-nehmen.html",
 },
 fgVerbindungen: {
@@ -1143,27 +1143,27 @@ fgVerbindungen: {
 },
 fgKonditional: {
   title: "ば・たら・と・なら",
-  quest: "Vier Wege, 'wenn' zu sagen — und vier Situationen, in denen nur eine davon wirklich passt.",
+  quest: "Vier Wege, 'wenn' zu sagen, und vier Situationen, in denen nur eine davon wirklich passt.",
   src: "pages/fg-konditional.html",
 },
 fgPassivKausativ: {
-  title: "受身・使役 — Passiv & Kausativ",
+  title: "受身・使役: Passiv & Kausativ",
   quest: "Wer tut hier eigentlich was mit wem? Passiv und Kausativ drehen die Satzrichtung um.",
   src: "pages/fg-passiv-kausativ.html",
 },
 fgVermutung: {
   title: "そう・らしい・ようだ・はず",
-  quest: "Japanisch hat auffällig viele Wörter für 'ich glaube, dass...' — hier lernst du, welches wann passt.",
+  quest: "Japanisch hat auffällig viele Wörter für 'ich glaube, dass...': hier lernst du, welches wann passt.",
   src: "pages/fg-vermutung.html",
 },
 fgErklaerung: {
   title: "わけだ・わけではない・ものだ",
-  quest: "Erklärungen, Einschränkungen und leise Widersprüche — feine Nuancen, die viel über den Ton eines Satzes verraten.",
+  quest: "Erklärungen, Einschränkungen und leise Widersprüche: feine Nuancen, die viel über den Ton eines Satzes verraten.",
   src: "pages/fg-erklaerung.html",
 },
 fgGrundKonzession: {
   title: "のに・おかげで・ものの",
-  quest: "Warum etwas passiert ist — und warum es trotzdem anders kam, als erwartet.",
+  quest: "Warum etwas passiert ist, und warum es trotzdem anders kam, als erwartet.",
   src: "pages/fg-grund-konzession.html",
 },
 fgZeitAbfolge: {
@@ -1178,7 +1178,7 @@ fgBezug: {
 },
 fgEinschraenkung: {
   title: "ばかりに・ぬきで・に限る",
-  quest: "Kleine Wörter mit großer Wirkung — sie schränken ein, verstärken oder schließen etwas bewusst aus.",
+  quest: "Kleine Wörter mit großer Wirkung: sie schränken ein, verstärken oder schließen etwas bewusst aus.",
   src: "pages/fg-einschraenkung.html",
 },
 fgPflicht: {
@@ -1187,34 +1187,34 @@ fgPflicht: {
   src: "pages/fg-pflicht.html",
 },
 fgKeigo: {
-  title: "敬語 — Register & Keigo-Grundlagen",
-  quest: "Höflichkeitsstufen sind kein Regelmonster, sondern ein Werkzeugkasten — hier lernst du die ersten Werkzeuge kennen.",
+  title: "敬語: Register & Keigo-Grundlagen",
+  quest: "Höflichkeitsstufen sind kein Regelmonster, sondern ein Werkzeugkasten: hier lernst du die ersten Werkzeuge kennen.",
   src: "pages/fg-keigo.html",
 },
 
 experte: {
-  title: "上級ガイド II — Experten-Guide (N2)",
-  quest: "Grammatik auf JLPT-N2-Niveau — ab hier liest du Texte, die gar nicht für Lernende geschrieben wurden.",
+  title: "上級ガイド II: Experten-Guide (N2)",
+  quest: "Grammatik auf JLPT-N2-Niveau: ab hier liest du Texte, die gar nicht für Lernende geschrieben wurden.",
   src: "pages/experte.html",
 },
 n2Zeit: {
   title: "Zeitliche Nuancen",
-  quest: "Acht Formen, die alle etwas mit Zeitpunkten zu tun haben — aber jede beantwortet eine andere Frage.",
+  quest: "Acht Formen, die alle etwas mit Zeitpunkten zu tun haben, aber jede beantwortet eine andere Frage.",
   src: "pages/n2-zeit.html",
 },
 n2GrundPerspektive: {
-  title: "から-Familie — Grund & Perspektive",
+  title: "から-Familie: Grund & Perspektive",
   quest: "から bildet auf N2-Niveau eine ganze Familie von Ausdrücken für Standpunkt und Perspektive.",
   src: "pages/n2-grund-perspektive.html",
 },
 n2WeitereGruende: {
   title: "Weitere Gründe & Anlässe",
-  quest: "Acht weitere Wege, einen Grund auszudrücken — von nüchtern-erklärend bis fast schon vorwurfsvoll.",
+  quest: "Acht weitere Wege, einen Grund auszudrücken: von nüchtern-erklärend bis fast schon vorwurfsvoll.",
   src: "pages/n2-weitere-gruende.html",
 },
 n2GegensatzErwartung: {
   title: "Gegensatz & Erwartung, vertieft",
-  quest: "Erst vier Formen, die eine Erwartung gegen die Realität stellen — dann drei, mit denen du selbst eine formulierst.",
+  quest: "Erst vier Formen, die eine Erwartung gegen die Realität stellen, dann drei, mit denen du selbst eine formulierst.",
   src: "pages/n2-gegensatz-erwartung.html",
 },
 n2Bedingung: {
@@ -1239,7 +1239,7 @@ n2Einschraenkung: {
 },
 n2Bezug1: {
   title: "Formale Bezugs-Partikel I",
-  quest: "にとって・における・に応じて・にわたって・に基づいて・によると — typisch für Nachrichten und offizielle Texte.",
+  quest: "にとって・における・に応じて・にわたって・に基づいて・によると: typisch für Nachrichten und offizielle Texte.",
   src: "pages/n2-bezug-1.html",
 },
 n2Bezug2: {
@@ -1259,26 +1259,26 @@ n2Ausdruecke: {
 },
 
 quellen: {
-  title: "参考文献 — Quellenverzeichnis",
+  title: "参考文献: Quellenverzeichnis",
   quest: "Woher kommt das alles eigentlich? Hier findest du die Nachschlagewerke und Referenzen hinter den Grammatik-Erklärungen.",
   src: "pages/quellen.html",
 },
 
   wortschatz: {
-  title: "単語 — Wortschatz",
+  title: "単語: Wortschatz",
 
   quest: "Neue Wörter sind kleine Puzzleteile. Sammle zuerst die, die dir häufig begegnen, statt wahllos jedes unbekannte Wort mitzunehmen.",
   src: "pages/wortschatz.html",
 },
 
 aussprache: {
-  title: "発音 — Aussprache",
-  quest: "Mora, lange Vokale und Pitch Accent — kleine Details, die großen Einfluss darauf haben, wie gut du verstanden wirst.",
+  title: "発音: Aussprache",
+  quest: "Mora, lange Vokale und Pitch Accent: kleine Details, die großen Einfluss darauf haben, wie gut du verstanden wirst.",
   src: "pages/aussprache.html",
 },
 
 hoeren: {
-  title: "聴解 — Hörverstehen",
+  title: "聴解: Hörverstehen",
 
   quest: "Ohren auf! Du musst noch nicht alles verstehen. Sammle zuerst bekannte Wörter und lass aus dem Geräusch langsam Sprache werden.",
 
@@ -1485,7 +1485,7 @@ hoeren: {
       Beim <strong>Shadowing</strong> sprichst du einen kurzen Audioclip so
       gleichzeitig oder unmittelbar danach mit, dass du Rhythmus und
       Betonung möglichst genau nachahmst. Das trainiert Hören und
-      Aussprache gleichzeitig — die genaue Vorgehensweise steht im
+      Aussprache gleichzeitig. Die genaue Vorgehensweise steht im
       <button class="inline-link" data-open="aussprache">Aussprache-Bereich</button>.
     </p>
 
@@ -1493,7 +1493,7 @@ hoeren: {
       <strong>Condensed Audio</strong> ist eine gekürzte Fassung einer
       Folge oder eines Hörbuchs, bei der stille oder dialogfreie Abschnitte
       automatisiert herausgeschnitten wurden. Dadurch hörst du auf
-      derselben Zeit deutlich mehr echten Dialog — praktisch für passives
+      derselben Zeit deutlich mehr echten Dialog, praktisch für passives
       Hören nebenbei, etwa beim Pendeln oder Aufräumen.
     </p>
 
@@ -1576,17 +1576,17 @@ hoeren: {
 },
 immersion: {
   title: "Immersion",
-  quest: "Immersion ist kein Zaubertrick — regelmäßiger, echter Kontakt mit Japanisch bringt dich weiter als jede einzelne perfekte Session.",
+  quest: "Immersion ist kein Zaubertrick. Regelmäßiger, echter Kontakt mit Japanisch bringt dich weiter als jede einzelne perfekte Session.",
   src: "pages/immersion.html",
 },
 lesen: {
   title: "Lesen",
-  quest: "Vom ersten Graded Reader bis zur Light Novel — Lesen bringt dir Kanji, Grammatik und Wortschatz gleichzeitig näher.",
+  quest: "Vom ersten Graded Reader bis zur Light Novel: Lesen bringt dir Kanji, Grammatik und Wortschatz gleichzeitig näher.",
   src: "pages/lesen.html",
 },
 anki: {
   title: "Anki &amp; SRS",
-  quest: "Ein SRS zeigt dir Karten genau dann, wenn du sie sonst vergessen würdest. Bewerte ehrlich — nicht bequem.",
+  quest: "Ein SRS zeigt dir Karten genau dann, wenn du sie sonst vergessen würdest. Bewerte ehrlich, nicht bequem.",
   src: "pages/anki.html",
 },
 yomitan: {
@@ -1596,7 +1596,7 @@ yomitan: {
 },
 mining: {
   title: "Mining",
-  quest: "Aus echten Sätzen eigene Karten bauen — der Übergang von fertigen Decks zu deinem eigenen Wortschatz.",
+  quest: "Aus echten Sätzen eigene Karten bauen: der Übergang von fertigen Decks zu deinem eigenen Wortschatz.",
   src: "pages/mining.html",
 },
 tools: {
@@ -1606,7 +1606,7 @@ tools: {
 },
 "tool-asbplayer": {
   title: "asbplayer",
-  quest: "Untertitelzeile anklicken, Karte fertig — asbplayer nimmt dir beim Streaming-Mining viel Handarbeit ab.",
+  quest: "Untertitelzeile anklicken, Karte fertig: asbplayer nimmt dir beim Streaming-Mining viel Handarbeit ab.",
   src: "pages/tool-asbplayer.html",
 },
 "tool-mpvacious": {
@@ -1631,7 +1631,7 @@ tools: {
 },
 "tool-jpdb": {
   title: "jpdb",
-  quest: "Wörterbuch, Medien-Decks und ein eigenes SRS an einem Ort — praktisch, wenn du kein eigenes Setup willst.",
+  quest: "Wörterbuch, Medien-Decks und ein eigenes SRS an einem Ort: praktisch, wenn du kein eigenes Setup willst.",
   src: "pages/tool-jpdb.html",
 },
 "tool-bunpro": {
@@ -1646,12 +1646,12 @@ tools: {
 },
 "tool-jp343-tracker": {
   title: "jp343 Immersion Tracker",
-  quest: "Immersion-Fortschritt automatisch mitzählen statt ihn nur zu erahnen — Streaming-Zeit, Streaks und Statistiken auf Knopfdruck.",
+  quest: "Immersion-Fortschritt automatisch mitzählen statt ihn nur zu erahnen: Streaming-Zeit, Streaks und Statistiken auf Knopfdruck.",
   src: "pages/tool-jp343-tracker.html",
 },
 glossar: {
   title: "Glossar",
-  quest: "Mining, i+1, FSRS, Shadowing — Fachbegriffe kurz und auf Deutsch erklärt.",
+  quest: "Mining, i+1, FSRS, Shadowing: Fachbegriffe kurz und auf Deutsch erklärt.",
   src: "pages/glossar.html",
 },
 fehlerhilfe: {
@@ -1661,7 +1661,7 @@ fehlerhilfe: {
 },
 lernwege: {
   title: "Lernwege",
-  quest: "Anime, Manga, Visual Novels oder JLPT — je nach Ziel lohnen sich andere Schwerpunkte.",
+  quest: "Anime, Manga, Visual Novels oder JLPT: je nach Ziel lohnen sich andere Schwerpunkte.",
   src: "pages/lernwege.html",
 },
 entscheidungsbaum: {
@@ -1670,22 +1670,22 @@ entscheidungsbaum: {
   src: "pages/entscheidungsbaum.html",
 },
   kultur: {
-    title: "文化 — Kultur",
-    quest: "Sprache und Kultur gehören zusammen — hier lernst du den Kontext.",
+    title: "文化: Kultur",
+    quest: "Sprache und Kultur gehören zusammen: hier lernst du den Kontext.",
     src: "pages/kultur.html",
   },
 jlpt: {
-  title: "試験 — JLPT",
+  title: "試験: JLPT",
 
   quest: "Bereit für den Bosskampf? Der JLPT kann dir ein klares Ziel geben, ist aber nicht der einzige Maßstab für echtes Japanisch.",
   src: "pages/jlpt.html",
 },
   ressourcen: {
-  title:"リソース — Ressourcen",
+  title:"リソース: Ressourcen",
   quest:"Hier liegt deine Ausrüstung. Wähle nur die Werkzeuge, die zu deinem aktuellen Lernschritt passen.",
   src: "pages/ressourcen.html",
 },
-    faq: { title:"よくある質問", quest:"Fragen über Fragen — hier gibt's hoffentlich die passenden Antworten.", html:`
+    faq: { title:"よくある質問", quest:"Fragen über Fragen, hier gibt's hoffentlich die passenden Antworten.", html:`
     <span class="eyebrow win-eyebrow">Fragen</span>
     <h2 class="win-h2">FAQ</h2>
 
@@ -1700,7 +1700,7 @@ jlpt: {
       <p>
         Ja. Keine Paywall, kein Kursverkauf, keine versteckten
         Premium-Inhalte. Manche verlinkten externen Tools (z. B. Bunpro)
-        sind selbst kostenpflichtig — das steht dann aber immer klar dabei.
+        sind selbst kostenpflichtig, das steht dann aber immer klar dabei.
       </p>
     </details>
 
@@ -1716,7 +1716,7 @@ jlpt: {
     <details class="faq-item">
       <summary>Muss ich erst alle Kanji können, bevor ich mit echten Inhalten anfange?</summary>
       <p>
-        Nein — im Gegenteil. Gerade durch Lesen, Hören und Immersion lernst
+        Nein, im Gegenteil. Gerade durch Lesen, Hören und Immersion lernst
         du Kanji und Wortschatz schneller wiederzuerkennen. Warte nicht,
         bis du dich „bereit“ fühlst.
       </p>
@@ -1760,15 +1760,15 @@ jlpt: {
       <summary>Wird die Seite noch weiter ausgebaut?</summary>
       <p>
         Ja. Die geplante Kerninhalts-Bibliothek (Grammatik, Mining,
-        Yomitan, Tools, Glossar, Lernwege) ist inzwischen fertig — Politur,
+        Yomitan, Tools, Glossar, Lernwege) ist inzwischen fertig. Politur,
         weitere Feinheiten und neue Inhalte kommen aber laufend dazu.
       </p>
     </details>
 
     <details class="faq-item">
-      <summary>Ich habe einen Fehler gefunden oder eine Idee für neue Inhalte — was tue ich?</summary>
+      <summary>Ich habe einen Fehler gefunden oder eine Idee für neue Inhalte: was tue ich?</summary>
       <p>
-        Immer gerne melden! Schreib mir per E-Mail oder auf Discord — beides
+        Immer gerne melden! Schreib mir per E-Mail oder auf Discord, beides
         findest du im Kontakt-Bereich.
       </p>
     </details>
@@ -1798,7 +1798,7 @@ jlpt: {
     </p>
     <p class="win-p">
       Japanisch mit Koyuki wird von einer einzelnen Person gebaut und
-      gepflegt — Fehler und Lücken passieren also garantiert. Wenn dir
+      gepflegt, Fehler und Lücken passieren also garantiert. Wenn dir
       etwas kaputt vorkommt, unklar erklärt ist oder einfach fehlt, sag
       mir gerne Bescheid.
     </p>
@@ -1818,7 +1818,7 @@ jlpt: {
     </div>
   `}
 };
-const homeQuest = "Hallo! Ich bin Sora — klick auf eine Kachel, um deine Reise zu beginnen! Oben links findest du außerdem das Inhaltsverzeichnis mit allen Bereichen.";
+const homeQuest = "Hallo! Ich bin Sora, klick auf eine Kachel, um deine Reise zu beginnen! Oben links findest du außerdem das Inhaltsverzeichnis mit allen Bereichen.";
 
 
 
@@ -1832,7 +1832,7 @@ function updateWegweiser(){
 }
 
 /* Einmaliger Hinweis zur Fenster-Bedienung (Ziehen/Größe ändern) beim
-   allerersten geöffneten Fenster — danach nie wieder, per localStorage. */
+   allerersten geöffneten Fenster, danach nie wieder, per localStorage. */
 const WINDOW_HINT_KEY = 'japanischzimmer-window-hint-seen-v1';
 const WINDOW_HINT_TEXT = "Kleiner Tipp: Du kannst dieses Fenster an der Titelleiste verschieben und unten rechts in der Größe verändern.";
 
@@ -1878,7 +1878,7 @@ document.getElementById('modeToggle').addEventListener('click', () => document.b
 /* initial */
 updateWegweiser();
 
-/* Schriftarten und das Fuchs-Bild laden asynchron nach — die erste
+/* Schriftarten und das Fuchs-Bild laden asynchron nach, die erste
    Positionierung kann dadurch noch mit falschen Maßen rechnen (z. B.
    Fallback-Font-Metriken). Nach dem Nachladen einmal neu positionieren,
    damit der Wegweiser nicht versehentlich eine Kachel überlappt. */

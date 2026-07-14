@@ -59,7 +59,7 @@ SUBPAGE_DIR = "go"
 
 # Muss zum ?v=... in index.html passen -- bei jedem Cache-Busting-Bump
 # hier mit anpassen und das Skript neu laufen lassen.
-CACHE_VERSION = "20260714-3"
+CACHE_VERSION = "20260714-4"
 
 def load_slug_overrides():
     """Liest PANEL_SLUG_OVERRIDES aus data/panel-slugs.js -- dieselbe
@@ -229,7 +229,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <div class="tile-grid">
         <button class="tile-btn featured" data-open="tag1">
           <span class="glyph">一</span>
-          <span class="label">Tag 1 — Hier starten</span>
+          <span class="label">Tag 1: Hier starten</span>
         </button>
         <button class="tile-btn" data-open="entscheidungsbaum"><span class="glyph">岐</span><span class="label">Was brauche ich jetzt?</span></button>
         <button class="tile-btn" data-open="kana"><span class="glyph">あ</span><span class="label">Kana</span></button>
@@ -247,7 +247,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
   <!-- Wegweiser -->
   <div class="wegweiser" id="wegweiser">
-    <div class="bubble" id="wegweiserText">Hallo! Ich bin Sora, dein Wegweiser. Klick auf eine Kachel, um deine Reise zu beginnen — oben links findest du außerdem das Inhaltsverzeichnis mit allen Bereichen.</div>
+    <div class="bubble" id="wegweiserText">Hallo! Ich bin Sora, dein Wegweiser. Klick auf eine Kachel, um deine Reise zu beginnen, oben links findest du außerdem das Inhaltsverzeichnis mit allen Bereichen.</div>
     <img class="fox-wrap" src="../../assets/images/questie.webp" alt="Sora, dein Wegweiser" width="84" height="84">
   </div>
 

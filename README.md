@@ -2,7 +2,7 @@
 
 # 🏮 Japanisch mit Koyuki
 
-**Eine kostenlose, deutschsprachige Lernplattform für Japanisch — geführter Lernweg *und* Nachschlagewerk in einem.**
+**Eine kostenlose, deutschsprachige Lernplattform für Japanisch: geführter Lernweg *und* Nachschlagewerk in einem.**
 
 ![Status](https://img.shields.io/badge/Status-in%20Entwicklung-8b5cf6)
 ![Sprache](https://img.shields.io/badge/Sprache-Deutsch-ec4899)
@@ -17,7 +17,7 @@
 Japanisch mit Koyuki soll sich vom Anfänger-Guide zu einer vollständigen
 kostenlosen Anlaufstelle für Japanischlernende im deutschsprachigen Raum
 entwickeln. Kein Kursverkauf, keine versteckten Premium-Inhalte, keine
-künstliche Verknappung — nur klare, ehrliche Erklärungen und eigene
+künstliche Verknappung. Nur klare, ehrliche Erklärungen und eigene
 Beispiele statt bloßer Übersetzungen englischer Guides.
 
 Die Seite ist bewusst als kleine "Desktop-Oberfläche" gebaut: Themen öffnen
@@ -40,15 +40,15 @@ gibt.
 
 | Bereich | Inhalt |
 |---|---|
-| 🈁 **Kana** | Hiragana & Katakana inkl. Dakuten, Yōon, Lerntabellen — Zeichen anklicken zum Anhören, plus eigenes Erkennungs-Quiz |
+| 🈁 **Kana** | Hiragana & Katakana inkl. Dakuten, Yōon, Lerntabellen. Zeichen anklicken zum Anhören, plus eigenes Erkennungs-Quiz |
 | 漢 **Kanji** | Lernstrategie, Radikale, RTK/WaniKani-Einordnung, ähnliche Kanji |
-| 文 **Grammatik** | Satzstruktur, Verbformen, は・が, を, に・で, て-Form — je mit Beispielen, typischen Fehlern und Mini-Quiz |
-| 📘 **Fortgeschrittener Guide** | Grammatik auf JLPT-N4/N3-Niveau: Geben & Nehmen, Verbindungsformen, Konditionalformen, Passiv & Kausativ, Vermutung, Erklärung/Konsequenz, Grund & Konzession, Zeit & Abfolge, formale Bezugsausdrücke, Einschränkung & Verstärkung, Pflicht & Unmöglichkeit, Keigo-Grundlagen — 12 Themenseiten, ~45 Grammatikpunkte |
-| 🎓 **Experten-Guide** | Grammatik auf JLPT-N2-Niveau: zeitliche Nuancen, から-Familie, weitere Gründe, Gegensatz/Erwartung, Bedingung, Möglichkeit/Schlussfolgerung, Vermutung, Einschränkung/Betonung, formale Bezugs-Partikel, feste Ausdrücke — 12 Themenseiten, ~89 Grammatikpunkte |
+| 文 **Grammatik** | Satzstruktur, Verbformen, は・が, を, に・で, て-Form, je mit Beispielen, typischen Fehlern und Mini-Quiz |
+| 📘 **Fortgeschrittener Guide** | Grammatik auf JLPT-N4/N3-Niveau: Geben & Nehmen, Verbindungsformen, Konditionalformen, Passiv & Kausativ, Vermutung, Erklärung/Konsequenz, Grund & Konzession, Zeit & Abfolge, formale Bezugsausdrücke, Einschränkung & Verstärkung, Pflicht & Unmöglichkeit, Keigo-Grundlagen. 12 Themenseiten, ~45 Grammatikpunkte |
+| 🎓 **Experten-Guide** | Grammatik auf JLPT-N2-Niveau: zeitliche Nuancen, から-Familie, weitere Gründe, Gegensatz/Erwartung, Bedingung, Möglichkeit/Schlussfolgerung, Vermutung, Einschränkung/Betonung, formale Bezugs-Partikel, feste Ausdrücke. 12 Themenseiten, ~89 Grammatikpunkte |
 | 単 **Wortschatz** | Aufbau eines Grundwortschatzes, Anki-Grunddecks im Vergleich |
 | 🗣️ **Aussprache** | Mora, lange Vokale, Pitch Accent, Shadowing |
 | 👂 **Hörverstehen** | Aktives/passives Hören, Untertitel-Strategie, Condensed Audio |
-| 🌊 **Immersion** | Wann nachschlagen, ignorieren oder minen — realistische Lernpläne |
+| 🌊 **Immersion** | Wann nachschlagen, ignorieren oder minen, realistische Lernpläne |
 | 📖 **Lesen** | Lernpfad vom Graded Reader bis zur Light Novel, Furigana, Mokuro/OCR |
 | 🗂️ **Anki & SRS** | FSRS, Leech-Karten, Review-Strategie |
 | 🔍 **Yomitan** | Einrichtung, Wörterbücher, AnkiConnect, Troubleshooting |
@@ -59,7 +59,7 @@ gibt.
 | 🔤 **Glossar** | ~25 Fachbegriffe (Mining, i+1, FSRS, Pitch Accent u. a.) kurz auf Deutsch erklärt |
 | 🛠️ **Fehlerdatenbank** | Troubleshooting nach Kategorie: Sync, Kartenfelder, Wörterbücher, Frequenzlisten, mobile Nutzung, Browser |
 | 🧭 **Geführte Lernwege** | 6 Pfade (Anfänger, Anime, Manga, Visual Novel, Hörverstehen, JLPT) je mit fertiger Setup-Checkliste |
-| 🌀 **Entscheidungsbaum** | Interaktives „Was brauche ich jetzt?" — führt per Ja/Nein-Fragen zum passenden nächsten Schritt |
+| 🌀 **Entscheidungsbaum** | Interaktives „Was brauche ich jetzt?", führt per Ja/Nein-Fragen zum passenden nächsten Schritt |
 | ⛩️ **Kultur & Etikette** | Höflichkeitsebenen, Namen/Anrede, Alltagskultur, Fiktion vs. Realität |
 | 参考 **Quellenverzeichnis** | Nachschlagewerke und Referenzen hinter den Grammatik-Erklärungen (DBJG, Imabi, Tae Kim, Jisho u. a.) |
 
@@ -67,48 +67,50 @@ gibt.
 
 **Als Nächstes:**
 
-- [ ] Experten-Guide N1 als vierte Stufe — der N2-Teil ist fertig,
+- [ ] Experten-Guide N1 als vierte Stufe: der N2-Teil ist fertig,
       N1 folgt als eigene, spätere Phase (bewusst getrennt, da der
       gesamte N2+N1-Umfang zusammen ~285-450 Grammatikpunkte umfasst)
 
 **Bereits umgesetzt:**
 
-- **Kerninhalte** — Grammatik, Wortschatz, Aussprache, Hörverstehen,
+- **Kerninhalte**: Grammatik, Wortschatz, Aussprache, Hörverstehen,
   Immersion, Lesen, Anki/SRS, Yomitan, Mining, JLPT, Tools-Bibliothek,
   Ressourcen, Glossar, Fehlerdatenbank, Lernwege, Entscheidungsbaum,
   Kultur, Quellenverzeichnis
-- **Anfänger-Feinschliff** — Kana-Aussprache per Sprachausgabe,
+- **Anfänger-Feinschliff**: Kana-Aussprache per Sprachausgabe,
   interaktives Kana-Quiz, Tag-1-Schnelleinstieg, einmaliger
   Fenster-Bedienungshinweis, gruppiertes Inhaltsverzeichnis
-- **Feedback-Runde** (externe Bestandsaufnahme) — redaktionelle
+- **Feedback-Runde** (externe Bestandsaufnahme): redaktionelle
   Überarbeitung, **Fortgeschrittener Guide** (JLPT-N4/N3-Grammatik,
   12 Themenseiten, ~45 Punkte), visuell gestaffelter Anfänger-Guide,
   erweitertes Quellenverzeichnis (Grammatik, Decks, Tools mit "Stand
   der Prüfung"), Lesemodus (⤢-Maximieren-Button pro Fenster),
   teilbare Direktlinks (`/go/<slug>/` + 🔗-Kopier-Button pro Fenster),
   Suchleiste über alle Panel-Titel/-Kurzbeschreibungen
-- **Experten-Guide N2** — 12 Themenseiten, ~89 Grammatikpunkte,
+- **Experten-Guide N2**: 12 Themenseiten, ~89 Grammatikpunkte,
   gegengeprüft gegen externe Quellen, überall verlinkt
   (Inhaltsverzeichnis, Entscheidungsbaum, Lernwege, JLPT-Seite,
   Quellenverzeichnis)
-- **Review-Nacharbeit** (nach ausführlicher externer Review v1.10) —
+- **Review-Nacharbeit** (nach ausführlicher externer Review v1.10):
   N2-Direktlink-Bug behoben (einzige Quelle für Panel-Slugs statt
   zweier hand-gepflegter Listen), eigener Mobile-Modus (kein
   Drag/Resize mehr auf kleinen Screens), Volltextsuche über alle
   Panel-Inhalte, SEO-Grundlagen (Meta-Tags, Sitemap), Fokusfalle im
-  Such-Overlay, `prefers-reduced-motion`-Unterstützung — und alle 24
+  Such-Overlay, `prefers-reduced-motion`-Unterstützung, alle 24
   Themenseiten von Fortgeschrittenem und Experten-Guide deutlich
   vertieft (mehr Beispiele, genaue Anschlussregeln, Register-Hinweise,
-  Abgrenzung zu ähnlichen Formen statt knapper "vs."-Boxen)
+  Abgrenzung zu ähnlichen Formen statt knapper "vs."-Boxen), Kanji +
+  Furigana statt Romaji plus Hörbutton in den Grammatik-Grundlagen,
+  und Leseposition wird jetzt pro Fenster gemerkt
 
-Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS) —
+Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS):
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf
 jeder Seite. Das seitliche Mini-Inhaltsverzeichnis für lange Artikel
 läuft automatisch auf jedem Panel mit mehreren Zwischenüberschriften.
 
 ## Tech-Stack
 
-Bewusst schlank gehalten — kein Framework, kein Build-Schritt:
+Bewusst schlank gehalten, kein Framework, kein Build-Schritt:
 
 - reines **HTML / CSS / Vanilla JavaScript**
 - eigenes kleines Fenster-System (Drag, Resize, Fokus, Maximieren) in [`js/windows.js`](js/windows.js)
@@ -117,12 +119,12 @@ Bewusst schlank gehalten — kein Framework, kein Build-Schritt:
 - interaktiver Entscheidungsbaum in [`js/decisiontree.js`](js/decisiontree.js)
 - interaktives Kana-Quiz in [`js/kanaquiz.js`](js/kanaquiz.js)
 - clientseitige Suche über alle Panel-Titel/-Kurzbeschreibungen in [`js/search.js`](js/search.js)
-- teilbare Direktlinks unter `go/` werden aus den Panel-Daten in `js/app.js` generiert — siehe [`scripts/generate_subpages.py`](scripts/generate_subpages.py)
+- teilbare Direktlinks unter `go/` werden aus den Panel-Daten in `js/app.js` generiert, siehe [`scripts/generate_subpages.py`](scripts/generate_subpages.py)
 
 ## Lokal starten
 
 Da Fensterinhalte teils per `fetch()` nachgeladen werden, funktioniert ein
-einfacher Doppelklick auf `index.html` nicht vollständig — es braucht einen
+einfacher Doppelklick auf `index.html` nicht vollständig, es braucht einen
 lokalen Server:
 
 ```bash
