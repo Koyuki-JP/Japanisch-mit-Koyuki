@@ -596,6 +596,74 @@ hiragana: {
 
     ${kanaTable(HIRAGANA_YOON, 3)}
 
+    <h3 class="win-h3">Das kleine っ: mehr als nur verdoppeln</h3>
+
+    <p class="win-p">
+      っ (klein geschrieben) hat selbst keinen eigenen Laut. Es steht für
+      eine kurze, stumme Pause vor dem nächsten Konsonanten, danach kommt
+      dieser Konsonant etwas kräftiger. Am einfachsten stellst du dir das
+      als "kurz anhalten, dann weiter" vor, nicht als zusätzlichen Buchstaben.
+    </p>
+
+    <div class="example-box">
+      <p class="example-jp">がっこう (Schule) statt がこう</p>
+    </div>
+
+    <p class="win-p">
+      Diese kleine Pause zählt genau wie ein normales Zeichen als eigene
+      Mora und macht das Wort dadurch hörbar länger. がっこう klingt darum
+      spürbar anders als がこう, auch wenn beide Wörter auf den ersten
+      Blick ähnlich aussehen.
+    </p>
+
+    <h3 class="win-h3">ん klingt nicht immer gleich</h3>
+
+    <p class="win-p">
+      ん ist ein einziges Zeichen, verändert seinen Klang aber leicht je
+      nachdem, welcher Laut direkt danach kommt. Das liegt daran, dass sich
+      dein Mund schon auf den nächsten Laut vorbereitet, während du ん noch
+      sprichst.
+    </p>
+
+    <ul class="win-list">
+      <li>vor m/p/b klingt ん eher wie ein "m": さんぽ (Spaziergang)</li>
+      <li>vor k/g klingt ん eher wie ein "ng": まんが (Manga)</li>
+      <li>in den meisten anderen Fällen klingt ん wie ein normales "n": おんな (Frau)</li>
+    </ul>
+
+    <p class="win-p">
+      Du musst diese Varianten nicht bewusst steuern. Sie passieren beim
+      normalen Sprechen fast von selbst, sobald du ein Wort oft genug
+      gehört und nachgesprochen hast.
+    </p>
+
+    <h3 class="win-h3">Lange Vokale: おう oder おお?</h3>
+
+    <p class="win-p">
+      Ein langes "o" wird in Hiragana auf zwei Arten geschrieben, die
+      gleich klingen. Meistens ist es おう, zum Beispiel in おとうさん
+      (Vater) oder こうえん (Park). Eine kleine Gruppe von Wörtern schreibt
+      denselben langen Laut stattdessen als おお, etwa おおきい (groß),
+      おおい (viel) oder おおかみ (Wolf).
+    </p>
+
+    <p class="win-p">
+      Es gibt dafür keine hörbare Regel, du merkst dir diese wenigen
+      おお-Wörter einfach mit der Zeit. Ein langes "e" wird fast immer als
+      えい geschrieben (英語, えいご, "Englisch") und als eine einzige
+      lange Silbe gesprochen, nicht als zwei getrennte Laute.
+    </p>
+
+    <h3 class="win-h3">Zwei Zeichenpaare, die leicht verwechselt werden</h3>
+
+    <p class="win-p">
+      は und ほ sowie ぬ und め sehen sich beim ersten Lernen oft ähnlich.
+      Der Unterschied liegt jeweils in einem kleinen Detail: bei は/ほ in
+      der Anzahl der Striche rechts, bei ぬ/め darin, ob die Schleife am
+      Ende offen bleibt (ぬ) oder sich schließt (め). Ein kleiner Merktrick:
+      め sieht aus wie ein Auge, und め ist auch das japanische Wort dafür.
+    </p>
+
     <h3 class="win-h3">Wie du diese Seite nutzen kannst</h3>
 
     <ol class="win-list">
@@ -731,7 +799,11 @@ katakana: {
     <p class="win-p">
       Solche Paare verwirren fast alle am Anfang. Das ist kein Zeichen,
       dass du schlecht lernst. Dein Blick muss sich einfach erst an die
-      kleinen Unterschiede gewöhnen.
+      kleinen Unterschiede gewöhnen. Ein paar konkrete Anhaltspunkte helfen
+      dabei: Bei シ liegen die beiden kurzen Striche links, bei ツ liegen
+      sie oben. Bei ソ und ン unterscheidet sich vor allem der Winkel des
+      langen Strichs. Ein bekannter Merksatz dazu: "ソ ist schmal (slim),
+      wie das S am Anfang von 'so'".
     </p>
 
     ${kanaTable(KATAKANA_MAIN, 5)}
@@ -804,6 +876,29 @@ katakana: {
     </p>
 
     ${kanaTable(KATAKANA_YOON, 3)}
+
+    <h3 class="win-h3">Katakana kann mehr als nur Fremdwörter</h3>
+
+    <p class="win-p">
+      Katakana wird nicht nur für Wörter aus anderen Sprachen benutzt. Ein
+      einfacher Vergleich: Katakana übernimmt im Japanischen ungefähr die
+      Rolle, die im Deutschen Kursivschrift hat, es hebt etwas hervor oder
+      gibt einem Wort einen anderen Ton.
+    </p>
+
+    <ul class="win-list">
+      <li>Geräusche und Lautmalerei, besonders in Manga</li>
+      <li>Betonung, ähnlich wie Kursivschrift oder Großbuchstaben im Deutschen</li>
+      <li>Firmen- und Markennamen, auch wenn das Wort selbst japanisch ist (スズキ)</li>
+      <li>Tier-, Pflanzen- und Fachbegriffe in einem eher sachlichen, technischen Ton</li>
+    </ul>
+
+    <p class="win-p">
+      Ein schönes Beispiel dafür ist das Wort für "Katze". 猫 (mit Kanji)
+      ist die neutrale Schreibweise, ねこ (mit Hiragana) wirkt weicher und
+      kindlicher, und ネコ (mit Katakana) klingt eher sachlich, fast wie in
+      einem Fachtext. Gleiches Wort, drei Schreibweisen, drei Tonfälle.
+    </p>
 
     <h3 class="win-h3">Wie du diese Seite nutzen kannst</h3>
 
@@ -1389,6 +1484,14 @@ hoeren: {
       Nutze passives Hören als Ergänzung und nicht als einzige Form der Immersion.
     </p>
 
+    <p class="win-p">
+      Ein Detail, das leicht übersehen wird: Passives Hören bringt am
+      meisten, wenn du das Material vorher schon einmal aktiv gehört und
+      verstanden hast. Komplett unbekanntes Japanisch einfach nebenbei
+      laufen zu lassen, bringt dagegen deutlich weniger, weil dein Gehirn
+      dann nur Rauschen statt Sprache hört.
+    </p>
+
     <h3 class="win-h3">Japanische Untertitel verwenden</h3>
 
     <p class="win-p">
@@ -1451,6 +1554,14 @@ hoeren: {
       <li>Transkripten oder Untertiteln</li>
       <li>wiederkehrendem Wortschatz</li>
     </ul>
+
+    <p class="win-p">
+      Häufig für Anfänger:innen empfohlen werden zum Beispiel Nihongo con
+      Teppei (kurz, langsam, wiederholt viel Wortschatz) und
+      Comprehensible Japanese (Videos, klar nach Niveau gestaffelt von
+      "Complete Beginner" bis fortgeschritten). Weitere Tipps und Links
+      findest du im Ressourcenbereich.
+    </p>
 
     <p class="win-p">
       Später kannst du zusätzlich normale japanische Podcasts und Videos hören.
