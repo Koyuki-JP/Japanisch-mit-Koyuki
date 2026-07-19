@@ -199,5 +199,14 @@ Wenn dir die Seite hilft und du das unterstützen möchtest:
 
 ## Lizenz
 
-Noch nicht final festgelegt.
+Zwei getrennte Lizenzen für Code und Inhalte, beide nicht-kommerziell
+mit Namensnennung:
+
+- **Code** (JS/CSS/HTML-Gerüst, Fenster-System, Build-Skripte):
+  [PolyForm Noncommercial License 1.0.0](LICENSE)
+- **Inhalte** (Grammatikerklärungen, Beispielsätze, Texte):
+  [CC BY-NC-SA 4.0](CONTENT-LICENSE.md)
+
+Kurz gesagt: frei nutzen, lernen, teilen und anpassen, aber nicht für
+kommerzielle Zwecke ohne Rücksprache.
 
