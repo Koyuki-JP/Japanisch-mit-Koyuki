@@ -124,7 +124,13 @@ gibt.
   ihres Inhalts einen Ladefehler), drei parallele Review-Agents haben
   die komplette Seite noch mal auf Tippfehler, veraltete Verweise und
   Ton durchsucht, robots.txt und Google-Search-Console-Verifizierung
-  ergänzt
+  ergänzt, Lizenzfrage geklärt (Code: PolyForm Noncommercial, Inhalte:
+  CC BY-NC-SA), ein toter externer Link repariert
+- **Quellenboxen für strittige N1/N2-Punkte**: 26 Vergleichsabschnitte
+  ("X vs. Y") gegen externe Quellen (Bunpro, JLPTsensei, Maggie
+  Sensei, HiNative) geprüft, 14 punktgenaue Quellenhinweise für die
+  wirklich nicht-trivialen Fälle ergänzt, dabei eine echte Korrektur
+  gefunden und behoben
 
 Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS):
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf

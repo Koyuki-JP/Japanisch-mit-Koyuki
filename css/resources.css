@@ -162,6 +162,23 @@
     line-height:1.65;
     margin:1rem 0 1.5rem;
   }
+  /* Für punktgenaue Quellenangaben bei strittigen/leicht verwechselbaren
+     Einzelpunkten, bewusst ein anderer Akzent als .resource-warning
+     (kühles Blau statt Warn-Gelb), damit "Hinweis zur Quellenlage" nicht
+     wie "typischer Fehler" aussieht. */
+  .source-note{
+    border:1px solid rgba(129,161,246,0.28);
+    background:rgba(129,161,246,0.07);
+    border-radius:12px;
+    padding:14px 16px;
+    color:var(--muted);
+    font-size:0.84rem;
+    line-height:1.65;
+    margin:1rem 0 1.5rem;
+  }
+  .source-note strong{
+    color:var(--text);
+  }
   .resource-cta{
     margin:1.2rem 0;
     padding:14px 16px;
