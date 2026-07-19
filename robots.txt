@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://koyuki-jp.github.io/Japanisch-mit-Koyuki/sitemap.xml

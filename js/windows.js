@@ -10,6 +10,18 @@
    (js/resources.js) aufgerufen, sobald der Inhalt da ist.
    ============================================================ */
 
+/* Muss synchron beim ersten Ausführen erfasst werden -- danach ist
+   document.currentScript wieder null. Liefert die absolute URL dieser
+   Datei, egal ob von index.html (fetch-Pfad "pages/x.html" passt direkt)
+   oder go/<slug>/index.html (dort läge derselbe Pfad sonst fälschlich
+   unter go/<slug>/pages/x.html und würde 404en) geladen. */
+const WINDOWS_JS_SRC = document.currentScript ? document.currentScript.src : '';
+
+function resolvePanelSrc(src){
+  if(!WINDOWS_JS_SRC) return src;
+  return WINDOWS_JS_SRC.replace(/js\/windows\.js(\?.*)?$/, '') + src;
+}
+
 /* ===================== Fenstergrößen merken ===================== */
 const WINDOW_SIZE_KEY = 'japanischzimmer-window-sizes-v1';
 
@@ -333,7 +345,7 @@ function buildWindow(id){
     el.contentReady = Promise.resolve();
   } else if(data.src){
     // Inhalt liegt in einer eigenen Datei unter pages/ und wird per fetch() nachgeladen.
-    el.contentReady = fetch(data.src, { cache: 'no-cache' })
+    el.contentReady = fetch(resolvePanelSrc(data.src), { cache: 'no-cache' })
       .then(response => {
         if(!response.ok) throw new Error('HTTP ' + response.status);
         return response.text();

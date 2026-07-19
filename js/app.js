@@ -1552,20 +1552,15 @@ hoeren: {
 
     <p class="win-p">
       Hörverstehen gehört zu den Fähigkeiten, die sich nur langsam aufbauen.
-      Am Anfang klingt Japanisch oft wie ein einziger schneller Wortstrom.
-      Das ist völlig normal und bedeutet nicht, dass du schlecht lernst.
+      Am Anfang klingt gesprochenes Japanisch oft wie ein einziger schneller
+      Strom ohne sichtbare Wortgrenzen. Das ist völlig normal und kein
+      Beweis, dass du schlecht lernst.
     </p>
 
     <p class="win-p">
-      Am Anfang klingt gesprochenes Japanisch oft wie ein einziger
-      schneller Strom ohne sichtbare Wortgrenzen. Das ist kein Beweis,
-      dass dein Hörverstehen schlecht ist. Dein Gehirn lernt gerade erst,
-      im Rauschen kleine bekannte Inseln zu finden.
-    </p>
-
-    <p class="win-p">
-      Dein Gehirn muss erst lernen, einzelne Wörter, Satzenden und bekannte
-      Strukturen aus dem Gesprochenen herauszufiltern.
+      Dein Gehirn lernt gerade erst, im Rauschen kleine bekannte Inseln
+      zu finden: einzelne Wörter, Satzenden und bekannte Strukturen, die
+      es nach und nach aus dem Gesprochenen herausfiltert.
     </p>
 
     <h3 class="win-h3">Höre von Anfang an echtes Japanisch</h3>
@@ -2072,8 +2067,8 @@ jlpt: {
     </p>
     <p class="win-p">
       Hast du einen Fehler gefunden, fehlt dir eine Erklärung oder hängt
-      ein Teil der Seite? Solches Feedback hilft dabei, das
-      Japanischzimmer Stück für Stück besser zu machen.
+      ein Teil der Seite? Solches Feedback hilft dabei, die Seite
+      Stück für Stück besser zu machen.
     </p>
     <p class="win-p">
       Japanisch mit Koyuki wird von einer einzelnen Person gebaut und

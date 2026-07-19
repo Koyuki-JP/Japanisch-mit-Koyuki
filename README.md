@@ -119,6 +119,12 @@ gibt.
   Einzelposten beim ersten Laden) wird jetzt erst beim tatsächlichen
   Öffnen der Suche nachgeladen statt bei jedem Seitenaufruf, eager
   JS-Payload dadurch um etwa 67 % gesenkt
+- **Schlussrunde vor 2.0**: kritischen Bug bei den geteilten
+  go/-Direktlinks behoben (rund 70 von 81 Panels zeigten dort statt
+  ihres Inhalts einen Ladefehler), drei parallele Review-Agents haben
+  die komplette Seite noch mal auf Tippfehler, veraltete Verweise und
+  Ton durchsucht, robots.txt und Google-Search-Console-Verifizierung
+  ergänzt
 
 Alle Fenstertexte folgen einem eigenen Redaktionsleitfaden (KWS):
 persönlicher Ton, klarer Kontext zum Warum, klare nächste Schritte auf
