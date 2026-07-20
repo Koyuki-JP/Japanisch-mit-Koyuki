@@ -117,7 +117,7 @@
     background: rgba(236,72,153,0.14);
     border-color: var(--pink-soft);
   }
-
+  .top-controls button:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.12); }
 .top-controls .reddit-link img {
   width: 20px;
   height: 20px;
@@ -126,9 +126,9 @@
 }
 
 .top-controls .reddit-link:hover {
-  transform: translateY(-2px) scale(1.08);
-  background: rgba(255, 69, 0, 0.16);
-  border-color: #ff4500;
+   transform: translateY(-2px) scale(1.08);
+    background: rgba(236,72,153,0.14);
+    border-color: var(--pink-soft)
 }
 
   /* ---------- Suche ---------- */
