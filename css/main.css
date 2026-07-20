@@ -117,19 +117,22 @@
     background: rgba(236,72,153,0.14);
     border-color: var(--pink-soft);
   }
+.top-controls{ position:fixed; top:18px; left:20px; z-index:500; display:flex; gap:14px; }
+  .top-controls button,  
+  .top-controls .reddit-link{    
+    background: rgba(255,255,255,0.06); border:1px solid var(--line); border-radius:10px;
+    width:34px; height:34px; color:var(--text); font-size:1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none;
+    transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  }
   .top-controls button:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.12); }
-.top-controls .reddit-link img {
-  width: 20px;
-  height: 20px;
-  display: block;
-  object-fit: contain;
-}
-
-.top-controls .reddit-link:hover {
-   transform: translateY(-2px) scale(1.08);
+  .top-controls .reddit-link:hover{
+    transform: translateY(-2px) scale(1.08);
     background: rgba(236,72,153,0.14);
-    border-color: var(--pink-soft)
-}
+    border-color: var(--pink-soft);
+  }
+
 
   /* ---------- Suche ---------- */
   .search-overlay{

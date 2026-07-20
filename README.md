@@ -8,8 +8,8 @@
 ![Sprache](https://img.shields.io/badge/Sprache-Deutsch-ec4899)
 ![Kostenlos](https://img.shields.io/badge/Zugang-kostenlos%2C%20keine%20Paywall-f0abfc)
 ![Stack](https://img.shields.io/badge/Stack-HTML%20%2F%20CSS%20%2F%20Vanilla%20JS-1a1424)
-[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/koyuki_japanischzimmer)
 [![Reddit](https://img.shields.io/badge/Reddit-r%2FJapanischLernenDE-FF4500?logo=reddit&logoColor=white)](https://www.reddit.com/r/JapanischLernenDE/)
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/koyuki_japanischzimmer)
 </div>
 
 ---
