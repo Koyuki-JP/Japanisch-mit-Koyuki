@@ -117,14 +117,12 @@
     background: rgba(236,72,153,0.14);
     border-color: var(--pink-soft);
   }
-.top-controls .reddit-link {
-  color: #ff4500;
-}
 
-.top-controls .reddit-link svg {
+.top-controls .reddit-link img {
+  width: 20px;
+  height: 20px;
   display: block;
-  width: 18px;
-  height: 18px;
+  object-fit: contain;
 }
 
 .top-controls .reddit-link:hover {
