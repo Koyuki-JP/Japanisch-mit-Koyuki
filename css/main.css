@@ -117,11 +117,22 @@
     background: rgba(236,72,153,0.14);
     border-color: var(--pink-soft);
   }
-  .top-controls .reddit-link:hover{
+.top-controls .reddit-link {
+  color: #ff4500;
+}
+
+.top-controls .reddit-link svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.top-controls .reddit-link:hover {
   transform: translateY(-2px) scale(1.08);
-  background: rgba(255,69,0,0.16);
+  background: rgba(255, 69, 0, 0.16);
   border-color: #ff4500;
 }
+
   /* ---------- Suche ---------- */
   .search-overlay{
     position:fixed; inset:0; z-index:900;
