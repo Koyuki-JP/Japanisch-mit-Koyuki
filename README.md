@@ -9,7 +9,7 @@
 ![Kostenlos](https://img.shields.io/badge/Zugang-kostenlos%2C%20keine%20Paywall-f0abfc)
 ![Stack](https://img.shields.io/badge/Stack-HTML%20%2F%20CSS%20%2F%20Vanilla%20JS-1a1424)
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/koyuki_japanischzimmer)
-
+[![Reddit](https://github.com/Koyuki-JP/Japanisch-mit-Koyuki/blob/main/assets/icons/reddit.webp?raw=true)](https://www.reddit.com/r/JapanischLernenDE/)
 </div>
 
 ---
